@@ -9,12 +9,11 @@ public class Maze extends GameObject {
 
 	MyMazeExplorer mazeExplorer;
 	Stage stage;
+	MainGame game;
 
-	float w = Gdx.graphics.getWidth();
-	float h = Gdx.graphics.getHeight();
+	public Maze(MainGame game) {
 
-	public Maze() {
-
+		this.game = game;
 		tiledMapWrapper = new TiledMapWrapper("mapname");
 		camera = new OrthographicCamera();
 		camera.update();
@@ -60,12 +59,6 @@ public class Maze extends GameObject {
 	}
 
 	@Override
-	public void render() {
-		update();
-		draw();
-	}
-
-	@Override
 	public void update() {
 		stage.act();
 		camera.update();
@@ -75,6 +68,48 @@ public class Maze extends GameObject {
 	public void draw() {
 		tiledMapWrapper.getTiledMapRenderer().render();
 		stage.draw();
+	}
+
+	@Override
+	public void render(float delta) {
+		update();
+		draw();
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

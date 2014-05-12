@@ -14,81 +14,82 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Runner extends GameObject {
 
+	MyRunner runner;
+	Stage stage;
+	MainGame game;
 
-	 MyRunner runner;
-	 Stage stage;
-	 
-     float w = Gdx.graphics.getWidth();
-     float h = Gdx.graphics.getHeight();
-     float blockHeight = h/9;
-	 
-		public Runner() {
+	public Runner(MainGame game) {
+		
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
+		this.game = game;
+		
+		tiledMapWrapper = new TiledMapWrapper("SideScroller1.tmx");
 
-			tiledMapWrapper = new TiledMapWrapper("SideScroller1.tmx");
-	        
-			camera = new OrthographicCamera();
-	        camera.setToOrtho(false,w*tiledMapWrapper.getPixelHeight()/h,
-	        		tiledMapWrapper.getPixelHeight());
-	        camera.update();
-	        stage = new Stage();
-	        runner = new MyRunner(camera,tiledMapWrapper);
-	        stage.addActor(runner);
-	        
-	        anonymizer = new RunnerInputAnonymizer(){
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
+				tiledMapWrapper.getPixelHeight());
+		camera.update();
+		stage = new Stage();
+		runner = new MyRunner(camera, tiledMapWrapper);
+		stage.addActor(runner);
 
-//				@Override
-//				public boolean Navigate(int keycode) {
-//					 if(keycode == Input.Keys.LEFT)
-//						 cameraTranslate(-32,0);
-//				        if(keycode == Input.Keys.RIGHT)
-//				        	cameraTranslate(32,0);
-//				        if(keycode == Input.Keys.UP)
-//				        	cameraTranslate(0,32);
-//				        if(keycode == Input.Keys.DOWN)
-//				        	cameraTranslate(0,-32);
-//				        if(keycode == Input.Keys.NUM_1)
-//				        	tiledMapWrapper.getTiledMap().getLayers().get(0).setVisible(
-//				        			!tiledMapWrapper.getTiledMap().getLayers().get(0).isVisible());
-//				        if(keycode == Input.Keys.NUM_2)
-//				        	tiledMapWrapper.getTiledMap().getLayers().get(1).setVisible(
-//				        			!tiledMapWrapper.getTiledMap().getLayers().get(1).isVisible());
-//				        return false;
-//				}
+		anonymizer = new RunnerInputAnonymizer() {
 
-				@Override
-				public boolean attack() {
-					runner.attack();
-					return true;
-				}
+			// @Override
+			// public boolean Navigate(int keycode) {
+			// if(keycode == Input.Keys.LEFT)
+			// cameraTranslate(-32,0);
+			// if(keycode == Input.Keys.RIGHT)
+			// cameraTranslate(32,0);
+			// if(keycode == Input.Keys.UP)
+			// cameraTranslate(0,32);
+			// if(keycode == Input.Keys.DOWN)
+			// cameraTranslate(0,-32);
+			// if(keycode == Input.Keys.NUM_1)
+			// tiledMapWrapper.getTiledMap().getLayers().get(0).setVisible(
+			// !tiledMapWrapper.getTiledMap().getLayers().get(0).isVisible());
+			// if(keycode == Input.Keys.NUM_2)
+			// tiledMapWrapper.getTiledMap().getLayers().get(1).setVisible(
+			// !tiledMapWrapper.getTiledMap().getLayers().get(1).isVisible());
+			// return false;
+			// }
 
-				@Override
-				public boolean crouch() {
-					// TODO Auto-generated method stub
-					return false;
-				}
+			@Override
+			public boolean attack() {
+				runner.attack();
+				return true;
+			}
 
-				@Override
-				public boolean jump() {
-					runner.jump(30*10);
-					return false;
-				}
+			@Override
+			public boolean crouch() {
+				// TODO Auto-generated method stub
+				return false;
+			}
 
-				@Override
-				public boolean dash() {
-					// TODO Auto-generated method stub
-					return false;
-				}
+			@Override
+			public boolean jump() {
+				runner.jump(30 * 10);
+				return false;
+			}
 
-				@Override
-				public boolean pause() {
-					// TODO Auto-generated method stub
-					return false;
-				}};
-				
-		}
-	 
+			@Override
+			public boolean dash() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean pause() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		};
+
+	}
+
 	@Override
-	public void render() {	
+	public void render(float delta) {
 		update();
 		draw();
 	}
@@ -97,29 +98,76 @@ public class Runner extends GameObject {
 	public void update() {
 		stage.act();
 		camera.update();
-		cameraTranslate(runner.getDistancePerFrameX(),0);
-		//render the map from 1 pixel before the left of the camera to 1 pixel after
-		//the right of the map.
+		cameraTranslate(runner.getDistancePerFrameX(), 0);
+		// render the map from 1 pixel before the left of the camera to 1 pixel
+		// after
+		// the right of the map.
 		tiledMapWrapper.getTiledMapRenderer().setView(camera.combined,
-				camera.position.x-camera.viewportWidth-1,0,camera.viewportWidth*2+2,camera.viewportHeight);
+				camera.position.x - camera.viewportWidth - 1, 0,
+				camera.viewportWidth * 2 + 2, camera.viewportHeight);
+		
+		if(runner.isAtTheEndOfTheMap())
+		{
+			MessageScreen messageScreen = new MessageScreen(game);
+			messageScreen.setMessage("Level Finshed.Click to start again");
+			game.setScreen(messageScreen);
+			game.changeAnonymizer(messageScreen.anonuymizer);
+		}
 	}
 
 	@Override
 	public void draw() {
 		tiledMapWrapper.getTiledMapRenderer().render();
-        stage.draw();
-	}
-	
-	private void cameraTranslate(float x, float y)
-	{
-		if(runner.getX()+runner.getWidth()/2 > camera.position.x 
-				&& camera.position.x+x>=camera.viewportWidth/2 
-				&& camera.position.x + x + camera.viewportWidth/2 <= tiledMapWrapper.getPixelWidth())
-			camera.translate(x,0);
-		if(camera.position.y+y>=camera.viewportHeight/2 && camera.position.y + y + camera.viewportHeight/2 <= tiledMapWrapper.getPixelHeight())
-			camera.translate(0,y);
+		stage.draw();
 	}
 
+
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void hide() {
+		dispose();
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void dispose() {
+
+	}
+	
+	private void cameraTranslate(float x, float y) {
+		if (runner.getX() + runner.getWidth() / 2 > camera.position.x
+				&& camera.position.x + x >= camera.viewportWidth / 2
+				&& camera.position.x + x + camera.viewportWidth / 2 <= tiledMapWrapper
+						.getPixelWidth())
+			camera.translate(x, 0);
+		if (camera.position.y + y >= camera.viewportHeight / 2
+				&& camera.position.y + y + camera.viewportHeight / 2 <= tiledMapWrapper
+						.getPixelHeight())
+			camera.translate(0, y);
+	}
+	
 	
 
 }

@@ -111,5 +111,15 @@ public class MyRunner extends Actor {
 	{
 		return actorY;
 	}
+	
+	public boolean isAtTheEndOfTheMap()
+	{
+		if (actorX + runnerSprite.getWidth() + distancePerFrameX > tiledMapWrapper
+				.getPixelWidth() - 1)
+		{
+			return true;
+		}
+		return false;
+	}
 
 }

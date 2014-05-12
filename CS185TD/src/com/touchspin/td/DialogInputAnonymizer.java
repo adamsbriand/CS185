@@ -14,8 +14,8 @@ public abstract class DialogInputAnonymizer implements InputAnonymizer{
 
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
-		// TODO Auto-generated method stub
-		return false;
+		click();
+		return true;
 	}
 
 	@Override

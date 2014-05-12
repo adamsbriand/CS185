@@ -1,6 +1,7 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
@@ -8,24 +9,26 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.input.GestureDetector;
 
 
-public class MainGame implements ApplicationListener {
+public class MainGame extends Game {
     int screenXorg;
     int screenYorg;
-	GameObject gameObj;
-    @Override public void create () {
-    	 gameObj = new Runner();
-    	 InputMultiplexer im = new InputMultiplexer();
-         GestureDetector gd = new GestureDetector(gameObj.anonymizer);
-         im.addProcessor(gd);
-         im.addProcessor(gameObj.anonymizer);
-    	 Gdx.input.setInputProcessor(im);
+	
+    @Override 
+    public void create () {
+    	MessageScreen messageScreen = new MessageScreen(this);
+    	//set current game 
+    	setScreen(messageScreen);
+    	//set current Anonymizer
+    	changeAnonymizer(messageScreen.anonuymizer);
+//    	setScreen(runner);
+//    	changeAnonymizer(runner.anonymizer);
+    	 
     }
 
     @Override public void render () {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
-        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        gameObj.render();
+
+    	super.render();
+//		gameObj.render();
         
     }
 
@@ -51,6 +54,15 @@ public class MainGame implements ApplicationListener {
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void changeAnonymizer(InputAnonymizer anonymizer)
+	{
+		InputMultiplexer im = new InputMultiplexer();
+        GestureDetector gd = new GestureDetector(anonymizer);
+        im.addProcessor(gd);
+        im.addProcessor(anonymizer);
+   	 	Gdx.input.setInputProcessor(im);
 	}
 
 }
