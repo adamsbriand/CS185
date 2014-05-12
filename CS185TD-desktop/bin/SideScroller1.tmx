@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="300" height="9" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Sky" tilewidth="32" tileheight="32">
+  <image source="sky.png" width="800" height="400"/>
+ </tileset>
+ <tileset firstgid="301" name="GroundBlocks" tilewidth="32" tileheight="32">
+  <image source="tiles.png" width="512" height="256"/>
+ </tileset>
+ <layer name="Sky" width="300" height="9">
+  <data encoding="base64" compression="zlib">
+   eJzt0rsVgkAURdEZZVmEYhWgVfjpvxvuhBQAwVs72PFJTm+tXeIaU9wO1E9sweC5Wu7xiDmehVoweK6WJdZ4xbtQCwbP1fKJb/ziX6gFg+cAAAAAAAD2NlfrRak=
+  </data>
+ </layer>
+ <layer name="Main" width="300" height="9">
+  <data encoding="base64" compression="zlib">
+   eJztk0sOhSAQBOFwA/e/0Vs6qddg4roqISjIfJp2DBEREREREREREREREREREREREflCzTF2G2s+a6vNK+xX2+MonCvE6PMtN5/rsr6Qs68XzjIOe01rPUaPu0M+1nD6vu/33guDMVOMpOkOsalzug/eYTqX6k06Jh3op0LOmv/aUCf6INXca7rVxZ5OHqOfUr83renBHuPUJ/13eu+9JJ2Z53QPyXupf+r4pvPb/0Svprp+JMRTPw==
+  </data>
+ </layer>
+</map>

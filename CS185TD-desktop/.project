@@ -18,7 +18,7 @@
 		<link>
 			<name>assets</name>
 			<type>2</type>
-			<location>C:/Users/user.3/git/CS185/CS185TD-android/assets</location>
+			<locationURI>PARENT-1-PROJECT_LOC/CS185TD-android/assets</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
