@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class MyRunner extends Actor {
+public class HeroRunner extends Actor {
 
 	private Texture normal;
 	private Texture attack;
@@ -24,7 +24,7 @@ public class MyRunner extends Actor {
 	private float distancePerFrameY;
 	private boolean jumpFinish = true;
 
-	public MyRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
+	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 		normal = new Texture(Gdx.files.internal("data/lockOn.png"));

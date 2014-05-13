@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Maze extends GameObject {
 
-	MyMazeExplorer mazeExplorer;
+	HeroMazeExplorer mazeExplorer;
 	Stage stage;
 	MainGame game;
 
@@ -18,45 +18,11 @@ public class Maze extends GameObject {
 		camera = new OrthographicCamera();
 		camera.update();
 		stage = new Stage();
-		mazeExplorer = new MyMazeExplorer(camera, tiledMapWrapper);
+		mazeExplorer = new HeroMazeExplorer(camera, tiledMapWrapper);
 		stage.addActor(mazeExplorer);
 
-		anonymizer = new MazeInputAnonymizer() {
-
-			@Override
-			public boolean attack() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-
-			@Override
-			public boolean dash() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public boolean pause() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-
-			@Override
-			public Vector2 direction(int x, int y) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-
-			@Override
-			public int speed(int speed) {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-		};
-	}
+		anonymizer = game.anonymizer;
+		}
 
 	@Override
 	public void update() {

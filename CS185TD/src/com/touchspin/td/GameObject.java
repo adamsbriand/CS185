@@ -10,9 +10,9 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 
 public abstract class GameObject implements Screen{
 
-	TiledMapWrapper tiledMapWrapper;
-    OrthographicCamera camera;
-    InputAnonymizer anonymizer;
+	protected TiledMapWrapper tiledMapWrapper;
+	protected OrthographicCamera camera;
+	protected InputAnonymizer anonymizer;
     
     public abstract void update();
 	public abstract void draw();

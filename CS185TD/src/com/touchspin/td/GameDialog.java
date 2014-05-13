@@ -5,16 +5,8 @@ public class GameDialog extends GameObject {
 	MainGame game;
 	public GameDialog(MainGame game){
 		this.game = game;
-		anonymizer = new DialogInputAnonymizer(){
-
-			@Override
-			public boolean click() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-		};
-	}
+		anonymizer = new InputAnonymizer();
+		}
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub

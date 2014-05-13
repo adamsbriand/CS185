@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class MessageScreen implements Screen{
+public class MessageScreen extends GameObject{
 	BitmapFont font;
 	String message;
 	private SpriteBatch batch;
@@ -26,16 +26,8 @@ public class MessageScreen implements Screen{
         font.setColor(Color.WHITE);
         message = "Click to start the game";
         setMessage(message);
-		anonuymizer = new DialogInputAnonymizer(){
-
-			@Override
-			public boolean click() {
-				Runner runnerGame = new Runner(game);
-				game.setScreen(runnerGame);
-				game.changeAnonymizer(runnerGame.anonymizer);
-				return true;
-			}};
-	}
+		anonuymizer = game.anonymizer;
+		}
 	
 	public void setMessage(String message)
 	{
@@ -46,16 +38,31 @@ public class MessageScreen implements Screen{
         x = w/2 - tb.width/2;
         y = h/2 + tb.height/2;
 	}
+	
 	@Override
-	public void render(float delta) {
+	public void update() {
+		if(anonuymizer.click)
+		{
+			game.setScreen(new Runner(game));
+			anonuymizer.click = false;
+		}
+		
+	}
 
+	@Override
+	public void draw() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         font.drawMultiLine(batch, message, x, y-100);
-        batch.end();
-	
+        batch.end();	
+	}
+	@Override
+	public void render(float delta) {
+
+			update();
+			draw();
 	}
 
 	@Override
@@ -72,7 +79,6 @@ public class MessageScreen implements Screen{
 
 	@Override
 	public void hide() {
-		dispose();
 		
 	}
 
@@ -90,8 +96,9 @@ public class MessageScreen implements Screen{
 
 	@Override
 	public void dispose() {
-		batch.dispose();
 		
 	}
+
+
 
 }

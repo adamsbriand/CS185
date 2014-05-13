@@ -12,16 +12,19 @@ import com.badlogic.gdx.input.GestureDetector;
 public class MainGame extends Game {
     int screenXorg;
     int screenYorg;
-	
+	InputAnonymizer anonymizer;
     @Override 
     public void create () {
-    	MessageScreen messageScreen = new MessageScreen(this);
+    	
+    	anonymizer = new InputAnonymizer();
     	//set current game 
+    	MessageScreen messageScreen = new MessageScreen(this);
+		InputMultiplexer im = new InputMultiplexer();
+        GestureDetector gd = new GestureDetector(anonymizer);
+        im.addProcessor(gd);
+        im.addProcessor(anonymizer);
+   	 	Gdx.input.setInputProcessor(im);
     	setScreen(messageScreen);
-    	//set current Anonymizer
-    	changeAnonymizer(messageScreen.anonuymizer);
-//    	setScreen(runner);
-//    	changeAnonymizer(runner.anonymizer);
     	 
     }
 
@@ -56,13 +59,5 @@ public class MainGame extends Game {
 		
 	}
 	
-	public void changeAnonymizer(InputAnonymizer anonymizer)
-	{
-		InputMultiplexer im = new InputMultiplexer();
-        GestureDetector gd = new GestureDetector(anonymizer);
-        im.addProcessor(gd);
-        im.addProcessor(anonymizer);
-   	 	Gdx.input.setInputProcessor(im);
-	}
 
 }

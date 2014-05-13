@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class MyMazeExplorer extends Actor  {
+public class HeroMazeExplorer extends Actor  {
 	
 	private float actorX = 0, actorY = 0;
 	private int speedX ;
@@ -16,7 +16,7 @@ public class MyMazeExplorer extends Actor  {
 	private TiledMapWrapper tiledMapWrapper;
 	private Sprite mazeExplorerSprite;
 	
-	public MyMazeExplorer(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
+	public HeroMazeExplorer(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 		mazeExplorerSprite=new Sprite();

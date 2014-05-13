@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Runner extends GameObject {
 
-	MyRunner runner;
+	HeroRunner runner;
 	Stage stage;
 	MainGame game;
 
@@ -31,60 +31,10 @@ public class Runner extends GameObject {
 				tiledMapWrapper.getPixelHeight());
 		camera.update();
 		stage = new Stage();
-		runner = new MyRunner(camera, tiledMapWrapper);
+		runner = new HeroRunner(camera, tiledMapWrapper);
 		stage.addActor(runner);
 
-		anonymizer = new RunnerInputAnonymizer() {
-
-			// @Override
-			// public boolean Navigate(int keycode) {
-			// if(keycode == Input.Keys.LEFT)
-			// cameraTranslate(-32,0);
-			// if(keycode == Input.Keys.RIGHT)
-			// cameraTranslate(32,0);
-			// if(keycode == Input.Keys.UP)
-			// cameraTranslate(0,32);
-			// if(keycode == Input.Keys.DOWN)
-			// cameraTranslate(0,-32);
-			// if(keycode == Input.Keys.NUM_1)
-			// tiledMapWrapper.getTiledMap().getLayers().get(0).setVisible(
-			// !tiledMapWrapper.getTiledMap().getLayers().get(0).isVisible());
-			// if(keycode == Input.Keys.NUM_2)
-			// tiledMapWrapper.getTiledMap().getLayers().get(1).setVisible(
-			// !tiledMapWrapper.getTiledMap().getLayers().get(1).isVisible());
-			// return false;
-			// }
-
-			@Override
-			public boolean attack() {
-				runner.attack();
-				return true;
-			}
-
-			@Override
-			public boolean crouch() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public boolean jump() {
-				runner.jump(30 * 10);
-				return false;
-			}
-
-			@Override
-			public boolean dash() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public boolean pause() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-		};
+		anonymizer = game.anonymizer ;
 
 	}
 
@@ -111,7 +61,17 @@ public class Runner extends GameObject {
 			MessageScreen messageScreen = new MessageScreen(game);
 			messageScreen.setMessage("Level Finshed.Click to start again");
 			game.setScreen(messageScreen);
-			game.changeAnonymizer(messageScreen.anonuymizer);
+		}
+		
+		if(anonymizer.jump)
+		{
+			runner.jump(30 * 10);
+			anonymizer.jump = false;
+		}
+		if(anonymizer.attack)
+		{
+			runner.attack();
+			anonymizer.attack = false;
 		}
 	}
 
@@ -136,7 +96,6 @@ public class Runner extends GameObject {
 
 	@Override
 	public void hide() {
-		dispose();
 	}
 
 	@Override
