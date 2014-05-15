@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="9" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="GroundDecorations" tilewidth="32" tileheight="32">
+  <image source="../../../Desktop/assets/CS185DecorationsSide32_4x10.png" width="320" height="128"/>
+ </tileset>
+ <tileset firstgid="41" name="GroundBlocks" tilewidth="32" tileheight="32">
+  <image source="../../../Desktop/assets/FezBlox.jpg" width="500" height="500"/>
+ </tileset>
+ <tileset firstgid="266" name="Sky" tilewidth="32" tileheight="32">
+  <image source="../TILES/sky.png" width="800" height="400"/>
+ </tileset>
+ <tileset firstgid="566" name="OtherBlocks" tilewidth="32" tileheight="32">
+  <image source="../TILES/CS185BloxSide32_6x16.png" width="512" height="192"/>
+ </tileset>
+ <layer name="Sky" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJzt0bsVgCAAwEBs/TEE6hQqUyjuP4mZQCofTYrr0iV2IcQPPQaMmDBXev0rYcGKzR/N7ThwIvujuQs3Ch5/SJIkVb1wCzpd
+  </data>
+ </layer>
+ <layer name="Ground/Blocks" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJztlA0KgCAMhaXbuKndoLr/qRq0wUuKpIIM9sED2d5+MCwEx3Ecx/meZdjU6p1VTjs93FcPO/TMNGy68tyhfmP+hp7z1v0t+t1b/4F/J4pIxKIkyqKisTp35h3hHFV2troMtZZjjTPESVUgjnMJ+qM/VfMj+HHfBDnsk8BDYb+37WL1R3nryWG/O0NPgjkF5mWIre69FY8=
+  </data>
+ </layer>
+ <layer name="Grass" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJztVEkKwzAMdLwJ+qjU/39VLdCAInBi39xWA0OifUlQCA6Hw+H4Z5wxhLfw18Gzgrtgx552QJvcR/P9fRXu7szqDcLtOifu12uCM3jyX8m5WnuUvw3+/6c5eWccO/LDTldnht/dN6HO3BmFLB+i42fprPKeRIZfFBuJrSomE5uFxdQ5TP0oPmTyoAbkouKL5KhKhi2Ga/9an5UuGaLHrPwwD+bQM8CeRU8qnlRsNTl0buYHIAsJig==
+  </data>
+ </layer>
+ <layer name="RenderOverPlayer" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYBaNg5ADOgXYAEYDebsRnH6VuGQrhPZIBAHDIAC4=
+  </data>
+ </layer>
+ <objectgroup name="Collision" width="100" height="9">
+  <object x="289" y="159" width="29" height="32"/>
+  <object x="449" y="192" width="60" height="32"/>
+  <object x="642" y="128" width="60" height="31"/>
+  <object x="706" y="225" width="28" height="29"/>
+  <object x="737" y="192" width="29" height="31"/>
+  <object x="994" y="129" width="91" height="30"/>
+  <object x="1185" y="193" width="62" height="29"/>
+  <object x="1280" y="224" width="94" height="31"/>
+  <object x="1312" y="194" width="62" height="28"/>
+  <object x="1344" y="158" width="31" height="34"/>
+  <object x="1440" y="127" width="95" height="32"/>
+  <object x="1665" y="160" width="29" height="30"/>
+  <object x="1760" y="225" width="62" height="28"/>
+  <object x="1985" y="161" width="93" height="29"/>
+  <object x="2207" y="223" width="63" height="31"/>
+  <object x="2242" y="193" width="28" height="28"/>
+  <object x="2465" y="192" width="30" height="62"/>
+  <object x="2625" y="129" width="92" height="29"/>
+  <object x="2753" y="97" width="92" height="29"/>
+  <object x="2849" y="193" width="125" height="29"/>
+  <object x="2977" y="225" width="29" height="29"/>
+  <object x="1" y="256" width="3197" height="32"/>
+  <object x="2606" y="269"/>
+ </objectgroup>
+ <objectgroup name="Player Start" width="100" height="9">
+  <object x="65" y="224" width="29" height="30"/>
+ </objectgroup>
+</map>
