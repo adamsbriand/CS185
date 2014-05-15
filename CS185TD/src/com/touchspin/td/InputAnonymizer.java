@@ -13,8 +13,17 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class InputAnonymizer extends Actor implements  GestureListener, InputProcessor {
 
 	boolean click;
-	Vector2 velocity;
-	Vector2 direction;
+	//Vector2 velocity;
+	
+	/*
+	 * I was thinking that the input anonymizer should only need to
+	 * read in the tilt of the device and should not care about
+	 * things like player position or direction, because player position is
+	 * affected by the map and its collisions. 
+	 */
+	Vector2 tiltSpeed;
+	//Vector2 playerPosition;
+	//Vector2 direction;
 	boolean pausePressed;
 	boolean attack;
 	boolean crouch;
@@ -23,8 +32,12 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 
 	public InputAnonymizer() {
 		click = false;
-		velocity = new Vector2(0, 0);
-		direction = new Vector2(0, 0);
+		//velocity = new Vector2(0, 0);
+		
+		tiltSpeed = new Vector2(0,0);
+		//playerPosition = new Vector2(0,0);
+		
+		//direction = new Vector2(0, 0);
 		pausePressed = false;
 		attack = false;
 		crouch = false;
@@ -42,19 +55,31 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 		default:
 			break;
 		}
-
 	}
 
-	@Override
-	public void act(float delta) {
+	public void readAccel()
+	{
 		if( Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer))
 		{
-			direction.x = Gdx.input.getAccelerometerX();
-			direction.y = Gdx.input.getAccelerometerY();
-			velocity.x += Gdx.input.getAccelerometerX();
-			velocity.y += Gdx.input.getAccelerometerY();
+			tiltSpeed.x = Gdx.input.getAccelerometerX();						
+			tiltSpeed.y = Gdx.input.getAccelerometerY();
 		}
-	
+	}
+	@Override
+	public void act(float delta) {
+		
+		readAccel();
+			/*direction.x = Gdx.input.getAccelerometerX();
+			direction.y = Gdx.input.getAccelerometerY();
+			
+			playerSpeed.y = Gdx.input.getAccelerometerY();
+			playerSpeed.x = Gdx.input.getAccelerometerX();
+			
+			playerPosition.x += playerSpeed.x;
+			playerPosition.y += playerSpeed.y;
+			
+			velocity.x += Gdx.input.getAccelerometerX();
+			velocity.y += Gdx.input.getAccelerometerY();*/	
 	}
 
 	@Override
