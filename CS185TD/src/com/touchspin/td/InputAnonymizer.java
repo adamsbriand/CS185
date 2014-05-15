@@ -3,21 +3,15 @@ package com.touchspin.td;
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input.Peripheral;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class InputAnonymizer implements GestureListener, InputProcessor {
+public class InputAnonymizer extends Actor implements  GestureListener, InputProcessor {
 
-//	private boolean click;
-//	private Vector2 velocity;
-//	private Vector2 direction;
-//	private boolean pausePressed;
-//	private boolean attack;
-//	private boolean crouch;
-//	private boolean jump;
-//	private boolean dash;
-	
 	boolean click;
 	Vector2 velocity;
 	Vector2 direction;
@@ -27,56 +21,48 @@ public class InputAnonymizer implements GestureListener, InputProcessor {
 	boolean jump;
 	boolean dash;
 
-
 	public InputAnonymizer() {
 		click = false;
-		velocity = new Vector2(0,0);
-		direction = new Vector2(0,0);
+		velocity = new Vector2(0, 0);
+		direction = new Vector2(0, 0);
 		pausePressed = false;
 		attack = false;
 		crouch = false;
 		jump = false;
 		dash = false;
+		
+		switch (Gdx.app.getType())
+		{
+			case Android:
+				//only listen to touch screen events
+				Gdx.input.setInputProcessor(new GestureDetector(this));
+			case Desktop:
+				//only listen to keyboard events
+				Gdx.input.setInputProcessor(this);
+		default:
+			break;
+		}
+
 	}
 
-//	public boolean isClick() {
-//		return click;
-//	}
-//
-//	public Vector2 getVelocity() {
-//		return velocity;
-//	}
-//
-//	public Vector2 getDirection() {
-//		return direction;
-//	}
-//
-//	public boolean pauseIsPressed() {
-//		return pausePressed;
-//	}
-//
-//	public boolean isAttck() {
-//		return attack;
-//	}
-//
-//	public boolean isCrouch() {
-//		return crouch;
-//	}
-//
-//	public boolean isJump() {
-//		return jump;
-//	}
-//
-//	public boolean isDash() {
-//		return dash;
-//	}
+	@Override
+	public void act(float delta) {
+		if( Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer))
+		{
+			direction.x = Gdx.input.getAccelerometerX();
+			direction.y = Gdx.input.getAccelerometerY();
+			velocity.x += Gdx.input.getAccelerometerX();
+			velocity.y += Gdx.input.getAccelerometerY();
+		}
+	
+	}
 
 	@Override
 	public boolean keyDown(int keycode) {
-			if (keycode == Input.Keys.Z)
-				attack = true;
-			else if (keycode == Input.Keys.SPACE)
-				jump = true;
+		if (keycode == Input.Keys.Z)
+			attack = true;
+		else if (keycode == Input.Keys.SPACE)
+			jump = true;
 
 		return true;
 	}
@@ -95,8 +81,8 @@ public class InputAnonymizer implements GestureListener, InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
-		return false;
+		click = true;
+		return true;
 	}
 
 	@Override
@@ -143,11 +129,11 @@ public class InputAnonymizer implements GestureListener, InputProcessor {
 
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
-			if (Gdx.app.getType() == ApplicationType.Android) {
-				if (velocityY < -50) {
-					jump = true;
-				}
+		if (Gdx.app.getType() == ApplicationType.Android) {
+			if (velocityY < -50) {
+				jump = true;
 			}
+		}
 		return true;
 	}
 
