@@ -12,11 +12,18 @@ public class Maze extends GameObject {
 	MainGame game;
 
 	public Maze(MainGame game) {
+		
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
 
 		this.game = game;
-		tiledMapWrapper = new TiledMapWrapper("mapname");
+		tiledMapWrapper = new TiledMapWrapper("Maze1.tmx");
+		
 		camera = new OrthographicCamera();
+		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
+				tiledMapWrapper.getPixelHeight());
 		camera.update();
+		
 		stage = new Stage();
 		mazeExplorer = new HeroMazeExplorer(camera, tiledMapWrapper);
 		stage.addActor(mazeExplorer);
@@ -28,6 +35,7 @@ public class Maze extends GameObject {
 	public void update() {
 		stage.act();
 		camera.update();
+		cameraTranslate(mazeExplorer.getDistancePerFrameX(), 0);
 	}
 
 	@Override
@@ -76,6 +84,18 @@ public class Maze extends GameObject {
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void cameraTranslate(float x, float y) {
+		if (mazeExplorer.getX() + mazeExplorer.getWidth() / 2 > camera.position.x
+				&& camera.position.x + x >= camera.viewportWidth / 2
+				&& camera.position.x + x + camera.viewportWidth / 2 <= tiledMapWrapper
+						.getPixelWidth())
+			camera.translate(x, 0);
+		if (camera.position.y + y >= camera.viewportHeight / 2
+				&& camera.position.y + y + camera.viewportHeight / 2 <= tiledMapWrapper
+						.getPixelHeight())
+			camera.translate(0, y);
 	}
 
 }

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class HeroRunner extends Actor {
@@ -15,26 +14,21 @@ public class HeroRunner extends Actor {
 	private Sprite runnerSprite;
 	
 	private int frameCount = 0;
-	//private int speedX = 32 * 10;	
-	
+		
 	private float actorX = 0, actorY = 0;
-	private float speedX = 0;	
-	private float speedY = 0;
 	private float distancePerFrameX;
 	private float distancePerFrameY;
 	private int gravity = -10;
 	
 	private OrthographicCamera camera;
 	private TiledMapWrapper tiledMapWrapper;	
-	private InputAnonymizer anonymizer;
-	
+		
 	private boolean jumpFinish = true;
 
-	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper, InputAnonymizer anonymizer) {
+	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
-		this.anonymizer = anonymizer;
-		
+				
 		normal = new Texture(Gdx.files.internal("data/lockOn.png"));
 		attack = new Texture(Gdx.files.internal("data/lockOnRed.png"));
 		runnerSprite = new Sprite(normal);
@@ -64,41 +58,36 @@ public class HeroRunner extends Actor {
 		runnerSprite.setTexture(attack);
 	}
 
-	public float getSpeedX() {
-		return speedX;
-	}
-
 	private void running() {
-		anonymizer.readAccel();
-		speedX = -(anonymizer.tiltSpeed.x );
-		speedX += speedX;
-		//Horizontal movement
-		distancePerFrameX = speedX;
-		//* Gdx.graphics.getDeltaTime();
+		
+		distancePerFrameX = g.i().accelX;
 		if (actorX + runnerSprite.getWidth() + distancePerFrameX < tiledMapWrapper
 				.getPixelWidth())
 			actorX += distancePerFrameX;
 		
 		//Vertical movement
-		if (!jumpFinish) {
-			speedY += gravity;
-			distancePerFrameY = speedY * Gdx.graphics.getDeltaTime();
+		/*if (!jumpFinish) 
+		{
+			g.i().accelY += gravity;
+			distancePerFrameY = g.i().accelY * Gdx.graphics.getDeltaTime();
 			actorY += distancePerFrameY;
 			
 			if(actorY <= 32) //check if on the ground
 			{
 				actorY=32;
 				jumpFinish = true; //jump is finished
-				speedY = 0;
+				g.i().accelY = 0;
 			}
-		}
+		}*/
 	}
 
-	public void jump(int iniVelocity) {
+	public void jump(int iniVelocity) 
+	 {
 
-		if (jumpFinish) {
-			speedY = iniVelocity;
-			distancePerFrameY = speedY * Gdx.graphics.getDeltaTime();
+		if (jumpFinish) 
+		{
+			g.i().accelY = iniVelocity;
+			distancePerFrameY = g.i().accelY * Gdx.graphics.getDeltaTime();
 			jumpFinish=false;			
 		}
 	}

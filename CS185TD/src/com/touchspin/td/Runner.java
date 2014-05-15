@@ -34,7 +34,7 @@ public class Runner extends GameObject {
 		
 		anonymizer = game.anonymizer;
 		
-		runner = new HeroRunner(camera, tiledMapWrapper, anonymizer);
+		runner = new HeroRunner(camera, tiledMapWrapper);
 				
 		stage.addActor(runner);
 	}
@@ -64,7 +64,7 @@ public class Runner extends GameObject {
 			game.setScreen(messageScreen);
 		}
 		
-		if(anonymizer.jump)
+		/*if(anonymizer.jump)
 		{
 			runner.jump(30 * 10);
 			anonymizer.jump = false;
@@ -73,7 +73,7 @@ public class Runner extends GameObject {
 		{
 			runner.attack();
 			anonymizer.attack = false;
-		}		
+		}*/
 		
 	}
 
@@ -117,6 +117,11 @@ public class Runner extends GameObject {
 
 	}
 	
+	/**
+	 * Damian: Camera doesnt follow the user if the user rolls backwards
+	 * @param x
+	 * @param y
+	 */
 	private void cameraTranslate(float x, float y) {
 		if (runner.getX() + runner.getWidth() / 2 > camera.position.x
 				&& camera.position.x + x >= camera.viewportWidth / 2

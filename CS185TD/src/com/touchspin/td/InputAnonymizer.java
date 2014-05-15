@@ -21,9 +21,6 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 	 * things like player position or direction, because player position is
 	 * affected by the map and its collisions. 
 	 */
-	Vector2 tiltSpeed;
-	//Vector2 playerPosition;
-	//Vector2 direction;
 	boolean pausePressed;
 	boolean attack;
 	boolean crouch;
@@ -34,7 +31,7 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 		click = false;
 		//velocity = new Vector2(0, 0);
 		
-		tiltSpeed = new Vector2(0,0);
+		//tiltSpeed = new Vector2(0,0);
 		//playerPosition = new Vector2(0,0);
 		
 		//direction = new Vector2(0, 0);
@@ -57,18 +54,18 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 		}
 	}
 
-	public void readAccel()
+	/*public void readAccel()
 	{
 		if( Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer))
 		{
 			tiltSpeed.x = Gdx.input.getAccelerometerX();						
 			tiltSpeed.y = Gdx.input.getAccelerometerY();
 		}
-	}
+	}*/
 	@Override
 	public void act(float delta) {
 		
-		readAccel();
+		//readAccel();
 			/*direction.x = Gdx.input.getAccelerometerX();
 			direction.y = Gdx.input.getAccelerometerY();
 			
