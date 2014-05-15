@@ -11,6 +11,8 @@ public class g {
 	public int musicLevel;
 	public String language;
 	public char controls;
+	public float accelX;
+	public float accelY;
 	
 	private static g singleton = new g( );
 	
@@ -22,6 +24,9 @@ public class g {
 		musicLevel = 100;
 		language = "EN";
 		controls = 'A';
+		accelX = 0;
+		accelY = 0;
+		
 	}
 	   
 	public static g i( ) {
