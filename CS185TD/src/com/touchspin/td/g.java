@@ -23,7 +23,14 @@ public class g {
 		sfxLevel = 100;
 		musicLevel = 100;
 		language = "EN";
-		controls = 'A';
+		switch (Gdx.app.getType()){
+			case Android:
+				controls = 'A';
+				break;
+			default:
+				controls = 'D';
+				break;
+		}
 		accelX = 0;
 		accelY = 0;
 		
