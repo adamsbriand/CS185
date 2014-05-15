@@ -31,11 +31,12 @@ public class Runner extends GameObject {
 				tiledMapWrapper.getPixelHeight());
 		camera.update();
 		stage = new Stage();
-		runner = new HeroRunner(camera, tiledMapWrapper);
+		
+		anonymizer = game.anonymizer;
+		
+		runner = new HeroRunner(camera, tiledMapWrapper, anonymizer);
+				
 		stage.addActor(runner);
-
-		anonymizer = game.anonymizer ;
-
 	}
 
 	@Override
@@ -72,7 +73,8 @@ public class Runner extends GameObject {
 		{
 			runner.attack();
 			anonymizer.attack = false;
-		}
+		}		
+		
 	}
 
 	@Override
@@ -126,7 +128,4 @@ public class Runner extends GameObject {
 						.getPixelHeight())
 			camera.translate(0, y);
 	}
-	
-	
-
 }

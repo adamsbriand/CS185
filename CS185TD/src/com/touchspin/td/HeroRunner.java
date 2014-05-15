@@ -13,20 +13,28 @@ public class HeroRunner extends Actor {
 	private Texture normal;
 	private Texture attack;
 	private Sprite runnerSprite;
-	private float actorX = 0, actorY = 0;
+	
 	private int frameCount = 0;
-	private int speedX = 32 * 10;	
-	private int speedY = 0;
-	private int gravity = -10;
-	private OrthographicCamera camera;
-	private TiledMapWrapper tiledMapWrapper;
+	//private int speedX = 32 * 10;	
+	
+	private float actorX = 0, actorY = 0;
+	private float speedX = 0;	
+	private float speedY = 0;
 	private float distancePerFrameX;
 	private float distancePerFrameY;
+	private int gravity = -10;
+	
+	private OrthographicCamera camera;
+	private TiledMapWrapper tiledMapWrapper;	
+	private InputAnonymizer anonymizer;
+	
 	private boolean jumpFinish = true;
 
-	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
+	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper, InputAnonymizer anonymizer) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
+		this.anonymizer = anonymizer;
+		
 		normal = new Texture(Gdx.files.internal("data/lockOn.png"));
 		attack = new Texture(Gdx.files.internal("data/lockOnRed.png"));
 		runnerSprite = new Sprite(normal);
@@ -56,13 +64,17 @@ public class HeroRunner extends Actor {
 		runnerSprite.setTexture(attack);
 	}
 
-	public int getSpeedX() {
+	public float getSpeedX() {
 		return speedX;
 	}
 
 	private void running() {
+		anonymizer.readAccel();
+		speedX = -(anonymizer.tiltSpeed.x );
+		speedX += speedX;
 		//Horizontal movement
-		distancePerFrameX = speedX * Gdx.graphics.getDeltaTime();
+		distancePerFrameX = speedX;
+		//* Gdx.graphics.getDeltaTime();
 		if (actorX + runnerSprite.getWidth() + distancePerFrameX < tiledMapWrapper
 				.getPixelWidth())
 			actorX += distancePerFrameX;
@@ -89,7 +101,6 @@ public class HeroRunner extends Actor {
 			distancePerFrameY = speedY * Gdx.graphics.getDeltaTime();
 			jumpFinish=false;			
 		}
-
 	}
 	
 	public float getDistancePerFrameX()
@@ -110,7 +121,7 @@ public class HeroRunner extends Actor {
 	public float getY()
 	{
 		return actorY;
-	}
+	}		
 	
 	public boolean isAtTheEndOfTheMap()
 	{
