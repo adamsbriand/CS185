@@ -24,13 +24,10 @@ public class g {
 		controls = 'A';
 	}
 	   
-	public static g getInstance( ) {
+	public static g i( ) {
 		return singleton;
 	}
    
-	protected static void demoMethod( ) {
-		System.out.println("demoMethod for singleton"); 
-	}
 	
 	
 }
