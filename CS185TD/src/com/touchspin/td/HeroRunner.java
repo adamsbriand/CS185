@@ -15,7 +15,7 @@ public class HeroRunner extends Actor {
 	private Sprite runnerSprite;
 	private float actorX = 0, actorY = 0;
 	private int frameCount = 0;
-	private int speedX = 32 * 10;
+	private int speedX = 32 * 10;	
 	private int speedY = 0;
 	private int gravity = -10;
 	private OrthographicCamera camera;

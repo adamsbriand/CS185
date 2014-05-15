@@ -39,6 +39,8 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 			case Desktop:
 				//only listen to keyboard events
 				Gdx.input.setInputProcessor(this);
+		default:
+			break;
 		}
 
 	}
