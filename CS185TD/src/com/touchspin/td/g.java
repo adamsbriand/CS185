@@ -22,7 +22,7 @@ public class g {
 	// Background variables
 	public float accelX;	// Support for accelerometer X axis
 	public float accelY;	// Support for accelerometer Y axis
-	public InputAnonymizer InputAnonymizer = new InputAnonymizer();
+	//public InputAnonymizer leAnonymizer = new InputAnonymizer();
 	
 	private static g singleton = new g( );
 	
