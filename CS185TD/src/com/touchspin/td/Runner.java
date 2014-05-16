@@ -64,7 +64,7 @@ public class Runner extends GameObject {
 			game.setScreen(messageScreen);
 		}
 		
-		/*if(anonymizer.jump)
+		if(anonymizer.jump)
 		{
 			runner.jump(30 * 10);
 			anonymizer.jump = false;
@@ -73,7 +73,7 @@ public class Runner extends GameObject {
 		{
 			runner.attack();
 			anonymizer.attack = false;
-		}*/
+		}
 		
 	}
 

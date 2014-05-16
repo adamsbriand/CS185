@@ -66,7 +66,7 @@ public class HeroRunner extends Actor {
 			actorX += distancePerFrameX;
 		
 		//Vertical movement
-		/*if (!jumpFinish) 
+		if (!jumpFinish) 
 		{
 			g.i().accelY += gravity;
 			distancePerFrameY = g.i().accelY * Gdx.graphics.getDeltaTime();
@@ -78,7 +78,7 @@ public class HeroRunner extends Actor {
 				jumpFinish = true; //jump is finished
 				g.i().accelY = 0;
 			}
-		}*/
+		}
 	}
 
 	public void jump(int iniVelocity) 

@@ -41,12 +41,13 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 		jump = false;
 		dash = false;
 		
-		switch (Gdx.app.getType())
+		switch (g.i().controls)
 		{
-			case Android:
+			case 'A':
+				
 				//only listen to touch screen events
 				Gdx.input.setInputProcessor(new GestureDetector(this));
-			case Desktop:
+			case 'D':
 				//only listen to keyboard events
 				Gdx.input.setInputProcessor(this);
 		default:
