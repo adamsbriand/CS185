@@ -49,7 +49,8 @@ public class g {
 	public float accelX;	// Support for accelerometer X axis. This is for the Vertical axes.
 	public float accelY;	// Support for accelerometer Y axis. This is for the Horizontal axes.
 	public float accelZ;	// Support for accelerometer Z axis. 
-	//public InputAnonymizer leAnonymizer = new InputAnonymizer();
+	InputAnonymizer leAnonymizer;
+	int gameMode; // 0 for runner and 1 for maze
 	
 	private static g singleton = new g( ); // Only this class can create this class.
 	
@@ -63,8 +64,7 @@ public class g {
 	public String Dash;
 	
 	private g(){
-		// Set default values
-		
+
 		// Player
 		level = 0;
 		levelTimer = 0;
@@ -81,16 +81,7 @@ public class g {
 		else if (language=="")
 			language="en";
 		else language="en";
-		switch (Gdx.app.getType()){	// Get platform
-			case Android:
-				SetControls('A');
-				break;
-			case Desktop:
-				SetControls('D');
-			default:
-				SetControls('D');
-				break;
-		}
+
 		timeStartGame = System.currentTimeMillis();
 		
 		// Background

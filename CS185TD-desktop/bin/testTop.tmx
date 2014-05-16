@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="wall" tilewidth="32" tileheight="32">
+  <image source="../TILES/CS185BloxTop32_4x4.png" width="128" height="128"/>
+  <tile id="2">
+   <properties>
+    <property name="name" value="wall"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="17" name="decorations" tilewidth="32" tileheight="32">
+  <image source="../TILES/CS185DecorationsTop32_4x7.png" width="256" height="128"/>
+ </tileset>
+ <layer name="floor" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt0TELACEIhmEbGu6g7P//2lsaQir84owIh2cTX0QmIr5MaWjmX+H0Rvix0RMmjZFYoQ2kgzZQcUPjBKmhmX8Ei4bsaBsr9yMNKVdWv7Hcn433O+f2+wCX6SOI
+  </data>
+ </layer>
+ <layer name="walls" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzl1UEKACAIBMCFhPr/iyvIa+TSeijBWzglYgVASUhl/GbYyCY2/GwVG0gymHjVmLNjYsOdm+/b1cowbsWPhq2M3onZJdHZZnrVENvBO4Pd5SeG/xUqY9Zleh4xFJFpqLMDzIkBsA==
+  </data>
+ </layer>
+ <layer name="decorations" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2DkAS0qmCFMBTMGI5AeaAeMApxAEIiF6GQXLnsE6WQ/OsDlnuGaDwcKIJeNUgPmCtyAFDeRUpYpkeqQQQIAeEgBXw==
+  </data>
+ </layer>
+ <layer name="foreground" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B2QAyIxWlshxwQy9PYjlGACUSAWJTGdsgAsSyN7SAXjHT/UxOoAbE6je3QA2J9GtsxClDBaB6hPQAAHncCOw==
+  </data>
+ </layer>
+ <objectgroup name="Collision" width="25" height="25">
+  <object x="0" y="8" width="799" height="22"/>
+  <object x="0" y="31" width="31" height="768"/>
+  <object x="33" y="769" width="765" height="29"/>
+  <object x="770" y="31" width="29" height="737"/>
+  <object x="97" y="672" width="93" height="31"/>
+  <object x="129" y="639" width="94" height="31"/>
+  <object x="193" y="608" width="29" height="29"/>
+  <object x="320" y="512" width="95" height="32"/>
+  <object x="353" y="546" width="62" height="28"/>
+  <object x="385" y="576" width="62" height="31"/>
+  <object x="98" y="321" width="60" height="30"/>
+  <object x="129" y="353" width="93" height="30"/>
+  <object x="193" y="385" width="30" height="29"/>
+ </objectgroup>
+</map>

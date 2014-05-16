@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Runner extends GameObject {
 
-	HeroRunner runner;
+	HeroRunner heroRunner;
 	Stage stage;
 	MainGame game;
 
@@ -34,9 +34,9 @@ public class Runner extends GameObject {
 		
 		anonymizer = game.anonymizer;
 		
-		runner = new HeroRunner(camera, tiledMapWrapper);
+		heroRunner = new HeroRunner(camera, tiledMapWrapper);
 				
-		stage.addActor(runner);
+		stage.addActor(heroRunner);
 	}
 
 	@Override
@@ -49,29 +49,16 @@ public class Runner extends GameObject {
 	public void update() {
 		stage.act();
 		camera.update();
-		cameraTranslate(runner.getDistancePerFrameX(), 0);
+		cameraTranslate(0, 0);
 		// render the map from 1 pixel before the left of the camera to 1 pixel
 		// after
 		// the right of the map.
-		tiledMapWrapper.getTiledMapRenderer().setView(camera.combined,
-				camera.position.x - camera.viewportWidth - 1, 0,
-				camera.viewportWidth * 2 + 2, camera.viewportHeight);
-		
-		if(runner.isAtTheEndOfTheMap())
-		{
-			MessageScreen messageScreen = new MessageScreen(game);
-			messageScreen.setMessage("Level Finshed.Click to start again");
-			game.setScreen(messageScreen);
-		}
-		
-		if(anonymizer.jump)
-		{
-			runner.jump(30 * 10);
-			anonymizer.jump = false;
-		}
+		tiledMapWrapper.setForegroundView(camera.combined,
+				camera.position.x - camera.viewportWidth - 1, -1,
+				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
 		if(anonymizer.attack)
 		{
-			runner.attack();
+			heroRunner.attack();
 			anonymizer.attack = false;
 		}
 		
@@ -79,7 +66,7 @@ public class Runner extends GameObject {
 
 	@Override
 	public void draw() {
-		tiledMapWrapper.getTiledMapRenderer().render();
+		tiledMapWrapper.parallaxRender();
 		stage.draw();
 	}
 
@@ -123,7 +110,7 @@ public class Runner extends GameObject {
 	 * @param y
 	 */
 	private void cameraTranslate(float x, float y) {
-		if (runner.getX() + runner.getWidth() / 2 > camera.position.x
+		if (heroRunner.getX() + heroRunner.getWidth() / 2 > camera.position.x
 				&& camera.position.x + x >= camera.viewportWidth / 2
 				&& camera.position.x + x + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())

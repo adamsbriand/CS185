@@ -18,8 +18,20 @@ public class MainGame extends Game {
 
 	@Override
 	public void create() {
-
-		anonymizer = new InputAnonymizer();
+		//initialize variable left in g class
+		switch (Gdx.app.getType()) { // Get platform
+		case Android:
+			g.i().SetControls('A');
+			break;
+		case Desktop:
+			g.i().SetControls('D');
+		default:
+			g.i().SetControls('D');
+			break;
+		}
+		g.i().leAnonymizer = new InputAnonymizer();
+		
+		anonymizer = g.i().leAnonymizer;
 		stage = new Stage();
 		stage.addActor(anonymizer);
 		MessageScreen messageScreen = new MessageScreen(this);
@@ -32,15 +44,13 @@ public class MainGame extends Game {
 	};
 
 	public void draw() {
-
+		super.render();
 	};
 
 	@Override
 	public void render() {
-
-		super.render();
-		// gameObj.render();
-
+			update();
+			draw();
 	}
 
 	@Override
@@ -51,7 +61,6 @@ public class MainGame extends Game {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 
 	}
 

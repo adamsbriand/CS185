@@ -5,9 +5,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class HeroRunner extends Actor {
+public class HeroRunner extends Hero {
 
 	private Texture normal;
 	private Texture attack;
@@ -15,36 +14,32 @@ public class HeroRunner extends Actor {
 	
 	private int frameCount = 0;
 		
-	private float actorX = 0, actorY = 0;
 	private float distancePerFrameX;
 	private float distancePerFrameY;
-	private int gravity = -10;
-	
-	private OrthographicCamera camera;
-	private TiledMapWrapper tiledMapWrapper;	
+	private int gravity = -10;	
 		
-	private boolean jumpFinish = true;
 
 	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
-		this.camera = camera;
-				
+		this.camera = camera;			
 		normal = new Texture(Gdx.files.internal("data/lockOn.png"));
 		attack = new Texture(Gdx.files.internal("data/lockOnRed.png"));
 		runnerSprite = new Sprite(normal);
-		actorX = 0;
-		actorY = 32;
+		setHeight(runnerSprite.getHeight());
+		setWidth(runnerSprite.getWidth());
+		setX(0);
+		setY(32);
 	}
 
 	@Override
 	public void draw(Batch batch, float alpha) {
 		batch.setProjectionMatrix(camera.combined);
-		batch.draw(runnerSprite, actorX, actorY);
+		batch.draw(runnerSprite, getX(), getY());
 	}
 
 	@Override
 	public void act(float delta) {
-		running();
+		heroMover.move(this);
 		if (frameCount > 1)
 			frameCount--;
 		if (frameCount == 1) {
@@ -58,68 +53,6 @@ public class HeroRunner extends Actor {
 		runnerSprite.setTexture(attack);
 	}
 
-	private void running() {
-		
-		distancePerFrameX = g.i().accelX;
-		if (actorX + runnerSprite.getWidth() + distancePerFrameX < tiledMapWrapper
-				.getPixelWidth())
-			actorX += distancePerFrameX;
-		
-		//Vertical movement
-		if (!jumpFinish) 
-		{
-			g.i().accelY += gravity;
-			distancePerFrameY = g.i().accelY * Gdx.graphics.getDeltaTime();
-			actorY += distancePerFrameY;
-			
-			if(actorY <= 32) //check if on the ground
-			{
-				actorY=32;
-				jumpFinish = true; //jump is finished
-				g.i().accelY = 0;
-			}
-		}
-	}
 
-	public void jump(int iniVelocity) 
-	 {
-
-		if (jumpFinish) 
-		{
-			g.i().accelY = iniVelocity;
-			distancePerFrameY = g.i().accelY * Gdx.graphics.getDeltaTime();
-			jumpFinish=false;			
-		}
-	}
-	
-	public float getDistancePerFrameX()
-	{
-		return distancePerFrameX;
-	}
-	
-	public float getDistancePerFrameY()
-	{
-		return distancePerFrameY;
-	}
-	
-	public float getX()
-	{
-		return actorX;
-	}
-	
-	public float getY()
-	{
-		return actorY;
-	}		
-	
-	public boolean isAtTheEndOfTheMap()
-	{
-		if (actorX + runnerSprite.getWidth() + distancePerFrameX > tiledMapWrapper
-				.getPixelWidth() - 1)
-		{
-			return true;
-		}
-		return false;
-	}
 
 }

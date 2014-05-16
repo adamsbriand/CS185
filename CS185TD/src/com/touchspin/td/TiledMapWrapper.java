@@ -5,17 +5,23 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Matrix4;
 
 public class TiledMapWrapper {
 
 	private TiledMap tiledMap; 
-	private TiledMapRenderer tiledMapRenderer;
+	private TiledMapRenderer backgroundTiledMapRenderer;
+	private TiledMapRenderer foregroundTiledMapRenderer;
 	private int mapPixelWidth;
 	private int mapPixelHeight;
+	int[] forgroundLayers = {1};
+	int[] backgroundLayers = {0};
+	float backgroundfactor = 0.3f;
 	public TiledMapWrapper(String path)
 	{
 		tiledMap = new TmxMapLoader().load(path);
-        tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         MapProperties prop = tiledMap.getProperties();
         
         int mapWidth = prop.get("width", Integer.class);
@@ -42,9 +48,30 @@ public class TiledMapWrapper {
 		return tiledMap;
 	}
 	
-	public TiledMapRenderer getTiledMapRenderer()
+	public TiledMapRenderer getBackgroundTiledMapRenderer()
 	{
-		return tiledMapRenderer;
+		return backgroundTiledMapRenderer;
+	}
+	
+	public TiledMapRenderer getForegroundTiledMapRenderer()
+	{
+		return foregroundTiledMapRenderer;
+	}
+	
+	public void parallaxRender()
+	{
+		backgroundTiledMapRenderer.render(backgroundLayers);
+		foregroundTiledMapRenderer.render(forgroundLayers);
+	}
+	
+	public void setForegroundView(Matrix4 projectionMatrix,
+	           float viewboundsX,
+	           float viewboundsY,
+	           float viewboundsWidth,
+	           float viewboundsHeight)
+	{
+		foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, viewboundsY, viewboundsWidth, viewboundsHeight);
+		backgroundTiledMapRenderer.setView(projectionMatrix, backgroundfactor*viewboundsX-1, backgroundfactor*viewboundsY-1, viewboundsWidth, viewboundsHeight);
 	}
 	
 }

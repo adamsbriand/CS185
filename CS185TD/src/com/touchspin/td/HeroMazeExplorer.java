@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class HeroMazeExplorer extends Actor  {
+public class HeroMazeExplorer extends Hero  {
 	
 	private int frameCount = 0;
 		
@@ -15,8 +15,6 @@ public class HeroMazeExplorer extends Actor  {
 	private float distancePerFrameX;
 	private float distancePerFrameY;
 		
-	private OrthographicCamera camera;
-	private TiledMapWrapper tiledMapWrapper;
 	private Sprite mazeExplorerSprite;
 	
 	public HeroMazeExplorer(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {

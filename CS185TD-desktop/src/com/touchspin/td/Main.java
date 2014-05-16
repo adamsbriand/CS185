@@ -1,5 +1,7 @@
 package com.touchspin.td;
 
+import org.lwjgl.input.Keyboard;
+
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
@@ -11,5 +13,6 @@ public class Main {
 		cfg.height = 500;
 		
 		new LwjglApplication(new MainGame(), cfg);
+		Keyboard.enableRepeatEvents(true);
 	}
 }

@@ -40,7 +40,7 @@ public class Maze extends GameObject {
 
 	@Override
 	public void draw() {
-		tiledMapWrapper.getTiledMapRenderer().render();
+		tiledMapWrapper.parallaxRender();
 		stage.draw();
 	}
 

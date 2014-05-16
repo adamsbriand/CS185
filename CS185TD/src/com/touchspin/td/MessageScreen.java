@@ -45,6 +45,7 @@ public class MessageScreen extends GameObject{
 		{
 			game.setScreen(new Runner(game));
 			anonuymizer.click = false;
+			anonuymizer.resetAll();
 		}
 		
 	}

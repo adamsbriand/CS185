@@ -10,16 +10,17 @@ import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class InputAnonymizer extends Actor implements  GestureListener, InputProcessor {
+public class InputAnonymizer extends Actor implements GestureListener,
+		InputProcessor {
 
 	boolean click;
-	//Vector2 velocity;
-	
+	Vector2 tiltSpeed;
+
 	/*
-	 * I was thinking that the input anonymizer should only need to
-	 * read in the tilt of the device and should not care about
-	 * things like player position or direction, because player position is
-	 * affected by the map and its collisions. 
+	 * I was thinking that the input anonymizer should only need to read in the
+	 * tilt of the device and should not care about things like player position
+	 * or direction, because player position is affected by the map and its
+	 * collisions.
 	 */
 	boolean pausePressed;
 	boolean attack;
@@ -29,65 +30,77 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 
 	public InputAnonymizer() {
 		click = false;
-		//velocity = new Vector2(0, 0);
-		
-		//tiltSpeed = new Vector2(0,0);
-		//playerPosition = new Vector2(0,0);
-		
-		//direction = new Vector2(0, 0);
+		// velocity = new Vector2(0, 0);
+
+		tiltSpeed = new Vector2(0, 0);
+
+		// direction = new Vector2(0, 0);
 		pausePressed = false;
 		attack = false;
 		crouch = false;
 		jump = false;
 		dash = false;
-		
-		switch (g.i().controls)
-		{
-			case 'A':
-				
-				//only listen to touch screen events
-				Gdx.input.setInputProcessor(new GestureDetector(this));
-			case 'D':
-				//only listen to keyboard events
-				Gdx.input.setInputProcessor(this);
+
+		switch (g.i().controls) {
+		case 'A':
+
+			// only listen to touch screen events
+			Gdx.input.setInputProcessor(new GestureDetector(this));
+			break;
+		case 'D':
+			// only listen to keyboard events
+			Gdx.input.setInputProcessor(this);
+			break;
 		default:
 			break;
 		}
 	}
 
-	/*public void readAccel()
-	{
-		if( Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer))
-		{
-			tiltSpeed.x = Gdx.input.getAccelerometerX();						
-			tiltSpeed.y = Gdx.input.getAccelerometerY();
+	public void readAccel() {
+		if (Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)) {
+			tiltSpeed.y = Gdx.input.getAccelerometerX()*2;
+			tiltSpeed.x = Gdx.input.getAccelerometerY()*2;
 		}
-	}*/
+	}
+
+	public void readKey() {
+		if (Gdx.input.isKeyPressed(Input.Keys.Z))
+			attack = true;
+//		if (Gdx.input.isKeyPressed(Input.Keys.SPACE))
+//			jump = true;
+		if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+			tiltSpeed.x = -5;
+		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+			tiltSpeed.x = 5;
+		if (Gdx.input.isKeyPressed(Input.Keys.UP))
+			tiltSpeed.y = -5;
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+			tiltSpeed.y = 5;
+	}
+
 	@Override
 	public void act(float delta) {
-		
-		//readAccel();
-			/*direction.x = Gdx.input.getAccelerometerX();
-			direction.y = Gdx.input.getAccelerometerY();
-			
-			playerSpeed.y = Gdx.input.getAccelerometerY();
-			playerSpeed.x = Gdx.input.getAccelerometerX();
-			
-			playerPosition.x += playerSpeed.x;
-			playerPosition.y += playerSpeed.y;
-			
-			velocity.x += Gdx.input.getAccelerometerX();
-			velocity.y += Gdx.input.getAccelerometerY();*/	
+		if(g.i().controls == 'A')
+		readAccel();
+		if(g.i().controls == 'D')
+		readKey();
 	}
 
 	@Override
 	public boolean keyDown(int keycode) {
-		if (keycode == Input.Keys.Z)
-			attack = true;
-		else if (keycode == Input.Keys.SPACE)
+//		if (keycode == Input.Keys.Z)
+//			attack = true;
+		if (keycode == Input.Keys.SPACE)
 			jump = true;
-
-		return true;
+//		if (keycode == Input.Keys.LEFT)
+//			tiltSpeed.x = -2;
+//		if (keycode == Input.Keys.RIGHT)
+//			tiltSpeed.x = 2;
+//		if (keycode == Input.Keys.UP)
+//			tiltSpeed.y = -2;
+//		if (keycode == Input.Keys.DOWN)
+//			tiltSpeed.y = 2;
+		return false;
 	}
 
 	@Override
@@ -141,6 +154,7 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		click = true;
+		attack = true;
 		return true;
 	}
 
@@ -183,5 +197,16 @@ public class InputAnonymizer extends Actor implements  GestureListener, InputPro
 			Vector2 pointer1, Vector2 pointer2) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void resetAll()
+	{
+		click = false;
+		tiltSpeed = new Vector2(0, 0);
+		pausePressed = false;
+		attack = false;
+		crouch = false;
+		jump = false;
+		dash = false;
 	}
 }
