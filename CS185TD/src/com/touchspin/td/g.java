@@ -53,7 +53,6 @@ public class g {
 	//public enum GameMode {RUNNER, MAZE}; // 0 for runner and 1 for maze
 	//GameMode gameMode; 
 	public int gameMode;// 0 for runner and 1 for maze
-	private static g singleton = new g( ); // Only this class can create this class.
 	
 	// Controls
 	public String Click;
@@ -63,6 +62,8 @@ public class g {
 	public String Crouch;
 	public String Jump;
 	public String Dash;
+	
+	private static g singleton = new g( ); // Only this class can create this class.
 	
 	private g(){
 
@@ -75,13 +76,6 @@ public class g {
 		music = true;
 		sfxLevel = 100;
 		musicLevel = 100;
-		
-		// System
-		language = Locale.getDefault().getLanguage(); //Get language from device
-		if (language=="en");		// Set language to English for testing.
-		else if (language=="")
-			language="en";
-		else language="en";
 
 		timeStartGame = System.currentTimeMillis();
 		
@@ -93,6 +87,26 @@ public class g {
 	
 	public static g i( ) {
 		return singleton;
+	}
+	
+	public void SetDefaults(){
+		// Set defaults after the game loads
+		switch (Gdx.app.getType()) { // Get platform
+			case Android:
+				g.i().SetControls('A');
+				break;
+			case Desktop:
+				g.i().SetControls('D');
+			default:
+				g.i().SetControls('D');
+				break;
+		}
+		// System
+		language = Locale.getDefault().getLanguage(); //Get language from device
+		if (language=="en");		// Set language to English for testing.
+		else if (language=="")
+			language="en";
+		else language="en";
 	}
    
 	public void StartNewLevel(){
