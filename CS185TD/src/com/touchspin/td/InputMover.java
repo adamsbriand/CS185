@@ -1,7 +1,6 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class InputMover extends PhysicsMover {
 
@@ -12,6 +11,7 @@ public class InputMover extends PhysicsMover {
 	@Override
 	public void move(Hero hero) {
 		this.hero = hero;
+		
 		// Save the previous position
 		previousX = hero.getX();
 		previousY = hero.getY();
@@ -20,6 +20,7 @@ public class InputMover extends PhysicsMover {
 		physicsMove();
 		// If movement is failed, set the position of the
 		// actor to previous postion
+				
 		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
 		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
 		if (!isXFree()) {
@@ -31,18 +32,20 @@ public class InputMover extends PhysicsMover {
 	}
 
 	private void inputMove() {
-		accelerationX=anonymizer.tiltSpeed.x;
-		anonymizer.tiltSpeed.x = 0;
+		
+		accelerationX = g.i().leAnonymizer.tiltSpeed.x;
+		g.i().leAnonymizer.tiltSpeed.x = 0;
+		
 		if(g.i().gameMode == 1)
 		{
-			accelerationY=anonymizer.tiltSpeed.y;
-			anonymizer.tiltSpeed.y = 0;
+			accelerationY= g.i().leAnonymizer.tiltSpeed.y;
+			g.i().leAnonymizer.tiltSpeed.y = 0;
 		}
 		
-		if (g.i().gameMode == 0) {
-			if (anonymizer.jump) {
+		else if (g.i().gameMode == 0) {
+			if (g.i().leAnonymizer.jump) {
 				speedYPerSecond = 500;
-				anonymizer.jump = false;
+				g.i().leAnonymizer.jump = false;
 			}
 		}
 	}

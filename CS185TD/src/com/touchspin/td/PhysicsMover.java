@@ -1,18 +1,17 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class PhysicsMover extends Mover {
 	float previousX;
 	float previousY;
-	InputAnonymizer anonymizer;
+	//InputAnonymizer anonymizer;
 	float gravityPerSecond = -20;
 	float accelerationY = 0;
 	float accelerationX = 0;
 
 	public PhysicsMover() {
-		anonymizer = g.i().leAnonymizer;
+		//anonymizer = g.i().leAnonymizer;
 		speedXPerSecond = 0;
 		speedYPerSecond = 0;
 	}
@@ -20,6 +19,7 @@ public class PhysicsMover extends Mover {
 	@Override
 	public void move(Hero hero) {
 		this.hero = hero;
+		
 		// Save the previous position
 		previousX = hero.getX();
 		previousY = hero.getY();
@@ -40,9 +40,9 @@ public class PhysicsMover extends Mover {
 	protected void physicsMove() {
 		speedXPerSecond += accelerationX;
 		speedYPerSecond += accelerationY;
-		if (g.i().gameMode == 0) {
+		if (g.i().gameMode == 0) 
 			speedYPerSecond += gravityPerSecond;
-		}
+		
 	}
 
 	protected boolean isXFree() {
@@ -69,10 +69,10 @@ public class PhysicsMover extends Mover {
 		}
 		if (hero.getY() < 32) {
 			previousY = 32;
-			anonymizer.jump = false;
+			g.i().leAnonymizer.jump = false;
 			free = false;
 		}
 		return free;
-	}
+	}	
 
 }

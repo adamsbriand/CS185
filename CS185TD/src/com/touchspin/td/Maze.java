@@ -2,7 +2,6 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Maze extends GameObject {
@@ -11,13 +10,14 @@ public class Maze extends GameObject {
 	Stage stage;
 	MainGame game;
 
-	public Maze(MainGame game) {
+	public Maze(MainGame game) 
+	{
 		
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 
 		this.game = game;
-		tiledMapWrapper = new TiledMapWrapper("Maze1.tmx");
+		tiledMapWrapper = new TiledMapWrapper("SideSroller1.tmx");
 		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
@@ -26,16 +26,22 @@ public class Maze extends GameObject {
 		
 		stage = new Stage();
 		mazeExplorer = new HeroMazeExplorer(camera, tiledMapWrapper);
-		stage.addActor(mazeExplorer);
-
-		anonymizer = game.anonymizer;
-		}
+		stage.addActor(mazeExplorer);		
+	}
 
 	@Override
-	public void update() {
+	public void update() 
+	{
 		stage.act();
 		camera.update();
-		cameraTranslate(mazeExplorer.getDistancePerFrameX(), 0);
+		cameraTranslate(0, 0);
+		
+		// render the map from 1 pixel before the left of the camera to 1 pixel
+		// after
+		// the right of the map.
+		tiledMapWrapper.setForegroundView(camera.combined,
+			camera.position.x - camera.viewportWidth - 1, -1,
+			camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
 	}
 
 	@Override

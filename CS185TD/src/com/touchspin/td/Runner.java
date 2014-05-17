@@ -1,15 +1,7 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Runner extends GameObject {
@@ -32,7 +24,7 @@ public class Runner extends GameObject {
 		camera.update();
 		stage = new Stage();
 		
-		anonymizer = game.anonymizer;
+		//anonymizer = game.anonymizer;
 		
 		heroRunner = new HeroRunner(camera, tiledMapWrapper);
 				
@@ -56,10 +48,10 @@ public class Runner extends GameObject {
 		tiledMapWrapper.setForegroundView(camera.combined,
 				camera.position.x - camera.viewportWidth - 1, -1,
 				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
-		if(anonymizer.attack)
+		if(g.i().leAnonymizer.attack)
 		{
 			heroRunner.attack();
-			anonymizer.attack = false;
+			g.i().leAnonymizer.attack = false;
 		}
 		
 	}

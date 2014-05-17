@@ -1,20 +1,15 @@
 package com.touchspin.td;
 
-import com.badlogic.gdx.ApplicationListener;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.graphics.GL20;
-
-import com.badlogic.gdx.input.GestureDetector;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class MainGame extends Game {
 	int screenXorg;
 	int screenYorg;
 	Stage stage;
-	InputAnonymizer anonymizer;
+	//InputAnonymizer anonymizer;
 
 	@Override
 	public void create() {
@@ -31,9 +26,10 @@ public class MainGame extends Game {
 		}
 		g.i().leAnonymizer = new InputAnonymizer();
 		
-		anonymizer = g.i().leAnonymizer;
+		//anonymizer = g.i().leAnonymizer;
 		stage = new Stage();
-		stage.addActor(anonymizer);
+		stage.addActor(g.i().leAnonymizer);
+		//stage.addActor(anonymizer);
 		MessageScreen messageScreen = new MessageScreen(this);
 		setScreen(messageScreen);
 

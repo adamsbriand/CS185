@@ -1,7 +1,6 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -14,7 +13,7 @@ public class MessageScreen extends GameObject{
 	private SpriteBatch batch;
 	float x;
 	float y;
-	InputAnonymizer anonuymizer;
+	//InputAnonymizer anonuymizer;
 	MainGame game;
 	
 	public MessageScreen( MainGame mainGame)
@@ -26,8 +25,8 @@ public class MessageScreen extends GameObject{
         font.setColor(Color.WHITE);
         message = "Click to start the game";
         setMessage(message);
-		anonuymizer = game.anonymizer;
-		}
+		//anonuymizer = game.anonymizer;
+	}
 	
 	public void setMessage(String message)
 	{
@@ -41,11 +40,12 @@ public class MessageScreen extends GameObject{
 	
 	@Override
 	public void update() {
-		if(anonuymizer.click)
+		if(g.i().leAnonymizer.click)
 		{
+			g.i().gameMode = 0;
 			game.setScreen(new Runner(game));
-			anonuymizer.click = false;
-			anonuymizer.resetAll();
+			g.i().leAnonymizer.click = false;
+			g.i().leAnonymizer.resetAll();
 		}
 		
 	}
@@ -59,6 +59,7 @@ public class MessageScreen extends GameObject{
         font.drawMultiLine(batch, message, x, y-100);
         batch.end();	
 	}
+	
 	@Override
 	public void render(float delta) {
 
@@ -99,7 +100,4 @@ public class MessageScreen extends GameObject{
 	public void dispose() {
 		
 	}
-
-
-
 }

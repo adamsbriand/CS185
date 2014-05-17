@@ -14,9 +14,9 @@ public class HeroRunner extends Hero {
 	
 	private int frameCount = 0;
 		
-	private float distancePerFrameX;
-	private float distancePerFrameY;
-	private int gravity = -10;	
+	//private float distancePerFrameX;
+	//private float distancePerFrameY;
+	//private int gravity = -10;	
 		
 
 	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
@@ -52,7 +52,4 @@ public class HeroRunner extends Hero {
 		frameCount = 15;
 		runnerSprite.setTexture(attack);
 	}
-
-
-
 }

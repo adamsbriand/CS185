@@ -5,7 +5,7 @@ public class GameDialog extends GameObject {
 	MainGame game;
 	public GameDialog(MainGame game){
 		this.game = game;
-		anonymizer = game.anonymizer;
+		//anonymizer = game.anonymizer;
 		}
 	@Override
 	public void update() {

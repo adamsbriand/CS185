@@ -50,8 +50,9 @@ public class g {
 	public float accelY;	// Support for accelerometer Y axis. This is for the Horizontal axes.
 	public float accelZ;	// Support for accelerometer Z axis. 
 	InputAnonymizer leAnonymizer;
-	int gameMode; // 0 for runner and 1 for maze
-	
+	//public enum GameMode {RUNNER, MAZE}; // 0 for runner and 1 for maze
+	//GameMode gameMode; 
+	public int gameMode;// 0 for runner and 1 for maze
 	private static g singleton = new g( ); // Only this class can create this class.
 	
 	// Controls
