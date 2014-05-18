@@ -17,7 +17,7 @@ public class Maze extends GameObject {
 		float h = Gdx.graphics.getHeight();
 
 		this.game = game;
-		tiledMapWrapper = new TiledMapWrapper("SideSroller1.tmx");
+		tiledMapWrapper = new TiledMapWrapper("Maze1.tmx");
 		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,

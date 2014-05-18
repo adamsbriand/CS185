@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="floor" tilewidth="32" tileheight="32">
-  <image source="../TILES/CS185BloxTop32_4x4.png" width="128" height="128"/>
+  <image source="CS185BloxTop32_4x4.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="17" name="walls" tilewidth="32" tileheight="32">
-  <image source="../TILES/CS185BloxSide32_6x16.png" width="512" height="192"/>
+  <image source="CS185BloxSide32_6x16.png" width="512" height="192"/>
  </tileset>
  <tileset firstgid="113" name="decorations1" tilewidth="32" tileheight="32">
-  <image source="../TILES/CS185DecorationsSide32_3x5.png" width="160" height="96"/>
+  <image source="CS185DecorationsSide32_3x5.png" width="160" height="96"/>
  </tileset>
- <tileset firstgid="128" name="darkblocks" tilewidth="32" tileheight="32">
-  <image source="../TILES/FezBlox.jpg" width="500" height="500"/>
- </tileset>
- <tileset firstgid="353" name="Untitled" tilewidth="32" tileheight="32">
-  <image source="../TILES/Untitled.png" width="44" height="44"/>
+ <tileset firstgid="128" name="Untitled" tilewidth="32" tileheight="32">
+  <image source="Untitled.png" width="44" height="44"/>
  </tileset>
  <layer name="Floor" width="25" height="25">
   <data encoding="base64" compression="zlib">
@@ -22,7 +19,7 @@
  </layer>
  <layer name="Walls" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEATiREYIFmRAxeQCmHkgjC5GLUCuHaS4A1tYUNsOUvUj+xtbGBDrBnxxDJNDTxekmEEsoHa6wAao4c5RQDqgR9wOBjtw5UlCeZRadiDnV1rZAQOE8hGx5Q42TCwYzc8DB4hN66Smf3rbgS8dEsKDCQAALQEo9Q==
+   eJztlUsOwCAIROcK3Jij20VJDFEpCikLXzIbf0MEAgGgR/yKlHbhTnotil0PTxyjv4j28N7nibwxrHIse/LG7OxpnQDxdTEiIs6LH0Z+bit48EdlefT9muUhWH1keegZszNvbj//Bx+okseqDi1VogG8njSP
   </data>
  </layer>
  <layer name="wallcover" width="25" height="25">

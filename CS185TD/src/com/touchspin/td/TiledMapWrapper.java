@@ -25,8 +25,8 @@ public class TiledMapWrapper {
 	public TiledMapWrapper(String path)
 	{
 		tiledMap = new TmxMapLoader().load(path);
-		if(g.i().gameMode == 0)
-			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		
+		backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
         MapProperties prop = tiledMap.getProperties();
@@ -78,11 +78,7 @@ public class TiledMapWrapper {
 			myObjects.add(object);
 		}
 	}
-	public void regularRender()
-	{
-		foregroundTiledMapRenderer.render(forgroundLayers);
-	}
-	
+		
 	public void setForegroundView(Matrix4 projectionMatrix,
 	           float viewboundsX,
 	           float viewboundsY,
@@ -91,15 +87,6 @@ public class TiledMapWrapper {
 	{
 		foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, viewboundsY, viewboundsWidth, viewboundsHeight);
 		backgroundTiledMapRenderer.setView(projectionMatrix, backgroundfactor*viewboundsX-1, backgroundfactor*viewboundsY-1, viewboundsWidth, viewboundsHeight);
-	}
-	
-	public void setRegularForegroundView(Matrix4 projectionMatrix,
-	           float viewboundsX,
-	           float viewboundsY,
-	           float viewboundsWidth,
-	           float viewboundsHeight)
-	{
-		foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, viewboundsY, viewboundsWidth, viewboundsHeight);		
 	}
 	
 }
