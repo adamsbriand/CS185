@@ -13,7 +13,7 @@ public class MainGame extends Game {
 	@Override
 	public void create() {
 		//initialize variable left in g class
-		g.i().SetDefaults();
+		g.i().SetDefaults(this);
 		g.i().leAnonymizer = new InputAnonymizer();
 		
 		stage = new Stage();

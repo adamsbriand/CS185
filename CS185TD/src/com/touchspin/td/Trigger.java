@@ -8,29 +8,26 @@ package com.touchspin.td;
 
 public class Trigger {
 	MainGame game;
+	
+	public Trigger(MainGame game){
+		this.game = game;
+	}
 	   
-	public Trigger(MainGame game, String ChangeType, String ChangeValue) {
-		this.game = game;
+	public void action(String ChangeType, String ChangeValue) {
 		TriggerActions(ChangeType, ChangeValue);
 	}
 	
-	public Trigger(String ChangeType, String ChangeValue) {
-		TriggerActions(ChangeType, ChangeValue);
+	public void action(String TriggerString){
+		String[] Values = splitText(TriggerString);
+		TriggerActions(Values[0], Values[1]);
 	}
 	
-	public Trigger(MainGame game, String TriggerString){
-		this.game = game;
-		int split = TriggerString.indexOf(',');
-		String Value1 = TriggerString.substring(0,split - 1);
-		String Value2 = TriggerString.substring(split + 1);
-		TriggerActions(Value1, Value2);
-	}
-	
-	public Trigger(String TriggerString){
-		int split = TriggerString.indexOf(',');
-		String Value1 = TriggerString.substring(0,split - 1);
-		String Value2 = TriggerString.substring(split + 1);
-		TriggerActions(Value1, Value2);
+	private String[] splitText(String value){
+		int split = value.indexOf(',');
+		String[] ValueArray = new String[2]; 
+		ValueArray[0] = value.substring(0,split - 1);
+		ValueArray[1] = value.substring(split + 1);
+		return ValueArray;
 	}
    
 	private void TriggerActions(String value1, String value2) {
@@ -75,7 +72,6 @@ public class Trigger {
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();
 		}
-	
 	}
 	
 	private void switchBall(String Value){

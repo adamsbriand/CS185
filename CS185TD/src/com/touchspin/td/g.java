@@ -53,6 +53,7 @@ public class g {
 	//public enum GameMode {RUNNER, MAZE}; // 0 for runner and 1 for maze
 	//GameMode gameMode; 
 	public int gameMode;// 0 for runner and 1 for maze
+	Trigger t;
 	
 	// Controls
 	public String Click;
@@ -89,7 +90,7 @@ public class g {
 		return singleton;
 	}
 	
-	public void SetDefaults(){
+	public void SetDefaults(MainGame game){
 		// Set defaults after the game loads
 		switch (Gdx.app.getType()) { // Get platform
 			case Android:
@@ -109,6 +110,7 @@ public class g {
 		else language="en";
 		
 		timeStartGame = System.currentTimeMillis();
+		t = new Trigger(game);
 	}
    
 	public void StartNewLevel(){

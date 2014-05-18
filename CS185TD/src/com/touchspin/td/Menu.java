@@ -73,7 +73,8 @@ public class Menu implements Screen {
         textButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
                 //System.out.println("Clicked! Is checked: " + button.isChecked());
-            	new Trigger(game,"NewLevel","Runner");
+            	//new Trigger(game,"NewLevel","Runner");
+            	g.i().t.action("NewLevel","Runner");
             }
         });
         
@@ -83,7 +84,7 @@ public class Menu implements Screen {
         
         textButton2.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		new Trigger(game,"NewLevel","Maze");
+        		g.i().t.action("NewLevel","Maze");
         	}
         });
     }
