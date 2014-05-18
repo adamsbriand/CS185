@@ -77,7 +77,7 @@ public class g {
 		sfxLevel = 100;
 		musicLevel = 100;
 
-		timeStartGame = System.currentTimeMillis();
+		
 		
 		// Background
 		accelX = 0;
@@ -107,6 +107,8 @@ public class g {
 		else if (language=="")
 			language="en";
 		else language="en";
+		
+		timeStartGame = System.currentTimeMillis();
 	}
    
 	public void StartNewLevel(){

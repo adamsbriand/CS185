@@ -9,29 +9,16 @@ public class MainGame extends Game {
 	int screenXorg;
 	int screenYorg;
 	Stage stage;
-	//InputAnonymizer anonymizer;
 
 	@Override
 	public void create() {
 		//initialize variable left in g class
-		switch (Gdx.app.getType()) { // Get platform
-		case Android:
-			g.i().SetControls('A');
-			break;
-		case Desktop:
-			g.i().SetControls('D');
-		default:
-			g.i().SetControls('D');
-			break;
-		}
+		g.i().SetDefaults();
 		g.i().leAnonymizer = new InputAnonymizer();
 		
-		//anonymizer = g.i().leAnonymizer;
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);
-		//stage.addActor(anonymizer);
-		MessageScreen messageScreen = new MessageScreen(this);
-		setScreen(messageScreen);
+		setScreen(new MessageScreen(this));
 
 	}
 
