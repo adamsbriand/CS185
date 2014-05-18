@@ -48,11 +48,6 @@ public class Runner extends GameObject {
 		tiledMapWrapper.setForegroundView(camera.combined,
 				camera.position.x - camera.viewportWidth - 1, -1,
 				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
-		if(g.i().leAnonymizer.attack)
-		{
-			heroRunner.attack();
-			g.i().leAnonymizer.attack = false;
-		}
 		
 	}
 
