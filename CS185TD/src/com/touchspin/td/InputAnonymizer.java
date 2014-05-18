@@ -41,19 +41,7 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		jump = false;
 		dash = false;
 
-		switch (g.i().controls) {
-		case 'A':
-
-			// only listen to touch screen events
-			Gdx.input.setInputProcessor(new GestureDetector(this));
-			break;
-		case 'D':
-			// only listen to keyboard events
-			Gdx.input.setInputProcessor(this);
-			break;
-		default:
-			break;
-		}
+		setProperInputProcessor();
 	}
 
 	public void readAccel() {
@@ -66,8 +54,6 @@ public class InputAnonymizer extends Actor implements GestureListener,
 	public void readKey() {
 		if (Gdx.input.isKeyPressed(Input.Keys.Z))
 			attack = true;
-//		if (Gdx.input.isKeyPressed(Input.Keys.SPACE))
-//			jump = true;
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
 			tiltSpeed.x = -5;
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
@@ -208,5 +194,23 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		crouch = false;
 		jump = false;
 		dash = false;
+		setProperInputProcessor();
+		
+	}
+	
+	private void setProperInputProcessor()
+	{
+		switch (g.i().controls) {
+		case 'A':
+			// only listen to touch screen events
+			Gdx.input.setInputProcessor(new GestureDetector(this));
+			break;
+		case 'D':
+			// only listen to keyboard events
+			Gdx.input.setInputProcessor((InputProcessor)this);
+			break;
+		default:
+			break;
+		}
 	}
 }
