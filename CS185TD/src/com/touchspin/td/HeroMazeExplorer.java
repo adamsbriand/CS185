@@ -21,10 +21,12 @@ public class HeroMazeExplorer extends Hero  {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 		mazeExplorerSprite=new Sprite(new Texture((Gdx.files.internal("data/Ball100Pool.png"))));
+		
 		setHeight(mazeExplorerSprite.getHeight());
 		setWidth(mazeExplorerSprite.getWidth());
 		setX(15);
 		setY(9);
+		
 	}
 
 	@Override

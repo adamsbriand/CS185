@@ -58,8 +58,8 @@ public class InputAnonymizer extends Actor implements GestureListener,
 
 	public void readAccel() {
 		if (Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)) {
-			tiltSpeed.y = Gdx.input.getAccelerometerX()*2;
-			tiltSpeed.x = Gdx.input.getAccelerometerY()*2;
+			tiltSpeed.y = -Gdx.input.getAccelerometerX();
+			tiltSpeed.x = Gdx.input.getAccelerometerY();
 		}
 	}
 

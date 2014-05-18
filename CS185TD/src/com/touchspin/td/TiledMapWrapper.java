@@ -2,6 +2,7 @@ package com.touchspin.td;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -25,8 +26,8 @@ public class TiledMapWrapper {
 	public TiledMapWrapper(String path)
 	{
 		tiledMap = new TmxMapLoader().load(path);
-		
-		backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		if(g.i().gameMode == 0)// only the runner needs a background
+			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		myObjects = new ArrayList<MapObject>();
         MapProperties prop = tiledMap.getProperties();
@@ -67,16 +68,23 @@ public class TiledMapWrapper {
 		return foregroundTiledMapRenderer;
 	}
 	
-	public void parallaxRender()
+	/**
+	 * If it is in Runner game mode then parallax will be done and the maps
+	 * will be rendered with different speeds. else it just renders the 
+	 * entire map the same.
+	 */
+	public void renderMap()
 	{
-		backgroundTiledMapRenderer.render(backgroundLayers);
-		foregroundTiledMapRenderer.render(forgroundLayers);
-	}
-	
-	public void regularRender()
-	{
-		foregroundTiledMapRenderer.render();
-	}
+		
+		// only if it is the runner do we need to render certain layers differently
+		if(g.i().gameMode == 0)
+		{
+			backgroundTiledMapRenderer.render(backgroundLayers);
+			foregroundTiledMapRenderer.render(forgroundLayers);
+		}
+		else
+			foregroundTiledMapRenderer.render();
+	}		
 	
 	public void getObjects()
 	{
@@ -88,20 +96,36 @@ public class TiledMapWrapper {
 			}
 		}
 		catch(NullPointerException e)
-		{
-			
-		}
+		{}
 		
-	}
-		
+	}		
+	
+	/**
+	 * Mainly called by Maze class
+	 * @param camera
+	 */
+	public void setForegroundView(OrthographicCamera camera)
+	{	foregroundTiledMapRenderer.setView(camera);	}
+	
+	/**
+	 * Mailing called by Hero class
+	 * @param projectionMatrix
+	 * @param viewboundsX
+	 * @param viewboundsY
+	 * @param viewboundsWidth
+	 * @param viewboundsHeight
+	 */
 	public void setForegroundView(Matrix4 projectionMatrix,
 	           float viewboundsX,
 	           float viewboundsY,
 	           float viewboundsWidth,
 	           float viewboundsHeight)
-	{
-		foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, viewboundsY, viewboundsWidth, viewboundsHeight);
-		backgroundTiledMapRenderer.setView(projectionMatrix, backgroundfactor*viewboundsX-1, backgroundfactor*viewboundsY-1, viewboundsWidth, viewboundsHeight);
+	{		
+			foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, 
+					viewboundsY, viewboundsWidth, viewboundsHeight);
+			backgroundTiledMapRenderer.setView(projectionMatrix, 
+					backgroundfactor*viewboundsX-1, backgroundfactor*viewboundsY-1, 
+					viewboundsWidth, viewboundsHeight);				
 	}
 	
 }

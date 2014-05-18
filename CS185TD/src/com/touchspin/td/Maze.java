@@ -4,6 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+/**
+ * Class used to handle Maze aspect of game
+ * @author KingD777
+ *
+ */
 public class Maze extends GameObject {
 
 	HeroMazeExplorer mazeExplorer;
@@ -12,7 +17,7 @@ public class Maze extends GameObject {
 
 	public Maze(MainGame game) 
 	{
-		
+		Gdx.gl.glClearColor(1, 0, 0, 1);       
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 
@@ -20,8 +25,11 @@ public class Maze extends GameObject {
 		tiledMapWrapper = new TiledMapWrapper("maps/Maze1.tmx");
 		
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
-				tiledMapWrapper.getPixelHeight());
+		
+		camera.setToOrtho(false,w,h);
+		
+		//camera.setToOrtho(false, w * tiledMapWrapper.getPixelWidth() / h,
+			//	tiledMapWrapper.getPixelHeight());
 		camera.update();
 		
 		stage = new Stage();
@@ -39,14 +47,13 @@ public class Maze extends GameObject {
 		// render the map from 1 pixel before the left of the camera to 1 pixel
 		// after
 		// the right of the map.
-		tiledMapWrapper.setForegroundView(camera.combined,
-			camera.position.x - camera.viewportWidth - 1, -1,
-			camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
+		tiledMapWrapper.setForegroundView(camera);
+		
 	}
 
 	@Override
 	public void draw() {
-		tiledMapWrapper.regularRender();
+		tiledMapWrapper.renderMap();
 		stage.draw();
 	}
 

@@ -58,7 +58,7 @@ public class Runner extends GameObject {
 
 	@Override
 	public void draw() {
-		tiledMapWrapper.parallaxRender();
+		tiledMapWrapper.renderMap();
 		stage.draw();
 	}
 
