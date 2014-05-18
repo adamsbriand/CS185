@@ -1,5 +1,8 @@
 package com.touchspin.td;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
@@ -17,11 +20,15 @@ public class TiledMapWrapper {
 	int[] forgroundLayers = {1};
 	int[] backgroundLayers = {0};
 	float backgroundfactor = 0.3f;
+	ArrayList<MapObject> myObjects;
+	
 	public TiledMapWrapper(String path)
 	{
 		tiledMap = new TmxMapLoader().load(path);
-		backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		if(g.i().gameMode == 0)
+			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		
         MapProperties prop = tiledMap.getProperties();
         
         int mapWidth = prop.get("width", Integer.class);
@@ -64,6 +71,18 @@ public class TiledMapWrapper {
 		foregroundTiledMapRenderer.render(forgroundLayers);
 	}
 	
+	public void getObjects()
+	{
+		for(MapObject object : tiledMap.getLayers().get("Collision").getObjects()) 
+		{
+			myObjects.add(object);
+		}
+	}
+	public void regularRender()
+	{
+		foregroundTiledMapRenderer.render(forgroundLayers);
+	}
+	
 	public void setForegroundView(Matrix4 projectionMatrix,
 	           float viewboundsX,
 	           float viewboundsY,
@@ -72,6 +91,15 @@ public class TiledMapWrapper {
 	{
 		foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, viewboundsY, viewboundsWidth, viewboundsHeight);
 		backgroundTiledMapRenderer.setView(projectionMatrix, backgroundfactor*viewboundsX-1, backgroundfactor*viewboundsY-1, viewboundsWidth, viewboundsHeight);
+	}
+	
+	public void setRegularForegroundView(Matrix4 projectionMatrix,
+	           float viewboundsX,
+	           float viewboundsY,
+	           float viewboundsWidth,
+	           float viewboundsHeight)
+	{
+		foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, viewboundsY, viewboundsWidth, viewboundsHeight);		
 	}
 	
 }
