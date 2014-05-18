@@ -44,12 +44,11 @@ public class MessageScreen extends GameObject{
 	public void update() {
 		if(g.i().leAnonymizer.click)
 		{
-			g.i().t.action("menu","Main");
+			g.i().t.action("menu,Main");
 		}
 		if (TimeUtils.millis()>(g.i().timeStartGame+5000)){
-			g.i().t.action("menu","Main");
+			g.i().t.action("menu,Main");
 		}
-		g.i().accelZ = 0;
 	}
 
 	@Override

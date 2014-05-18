@@ -25,7 +25,7 @@ public class Trigger {
 	private String[] splitText(String value){
 		int split = value.indexOf(',');
 		String[] ValueArray = new String[2]; 
-		ValueArray[0] = value.substring(0,split - 1);
+		ValueArray[0] = value.substring(0,split);
 		ValueArray[1] = value.substring(split + 1);
 		return ValueArray;
 	}
