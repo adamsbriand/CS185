@@ -16,7 +16,7 @@ public class Runner extends GameObject {
 		float h = Gdx.graphics.getHeight();
 		this.game = game;
 		
-		tiledMapWrapper = new TiledMapWrapper("SideScroller1.tmx");
+		tiledMapWrapper = new TiledMapWrapper("maps/SideScrollerMap1.tmx");
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,

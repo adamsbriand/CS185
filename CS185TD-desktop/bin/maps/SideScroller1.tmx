@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="300" height="9" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Sky" tilewidth="32" tileheight="32">
-  <image source="sky.png" width="800" height="400"/>
+  <image source="mapTileSet/sky.png" width="800" height="400"/>
  </tileset>
  <tileset firstgid="301" name="GroundBlocks" tilewidth="32" tileheight="32">
-  <image source="tiles.png" width="512" height="256"/>
+  <image source="mapTileSet/tiles.png" width="512" height="256"/>
  </tileset>
  <layer name="Sky" width="300" height="9">
   <data encoding="base64" compression="zlib">

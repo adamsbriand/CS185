@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="wall" tilewidth="32" tileheight="32">
-  <image source="../TILES/CS185BloxTop32_4x4.png" width="128" height="128"/>
+  <image source="mapTileSet/CS185BloxTop32_4x4.png" width="128" height="128"/>
   <tile id="2">
    <properties>
     <property name="name" value="wall"/>
@@ -9,7 +9,7 @@
   </tile>
  </tileset>
  <tileset firstgid="17" name="decorations" tilewidth="32" tileheight="32">
-  <image source="../TILES/CS185DecorationsTop32_4x7.png" width="256" height="128"/>
+  <image source="mapTileSet/CS185DecorationsTop32_4x7.png" width="256" height="128"/>
  </tileset>
  <layer name="floor" width="25" height="25">
   <data encoding="base64" compression="zlib">

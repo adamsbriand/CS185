@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="9" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="GroundDecorations" tilewidth="32" tileheight="32">
-  <image source="../../../Desktop/assets/CS185DecorationsSide32_4x10.png" width="320" height="128"/>
+  <image source="mapTileSet/CS185DecorationsSide32_4x10.png" width="320" height="128"/>
  </tileset>
  <tileset firstgid="41" name="GroundBlocks" tilewidth="32" tileheight="32">
-  <image source="../../../Desktop/assets/FezBlox.jpg" width="500" height="500"/>
+  <image source="mapTileSet/FezBlox.jpg" width="500" height="500"/>
  </tileset>
  <tileset firstgid="266" name="Sky" tilewidth="32" tileheight="32">
-  <image source="../TILES/sky.png" width="800" height="400"/>
+  <image source="mapTileSet/sky.png" width="800" height="400"/>
  </tileset>
  <tileset firstgid="566" name="OtherBlocks" tilewidth="32" tileheight="32">
-  <image source="../TILES/CS185BloxSide32_6x16.png" width="512" height="192"/>
+  <image source="mapTileSet/CS185BloxSide32_6x16.png" width="512" height="192"/>
  </tileset>
- <layer name="Sky" width="100" height="9">
+ <layer name="Background" width="100" height="9">
   <data encoding="base64" compression="zlib">
    eJzt0bsVgCAAwEBs/TEE6hQqUyjuP4mZQCofTYrr0iV2IcQPPQaMmDBXev0rYcGKzR/N7ThwIvujuQs3Ch5/SJIkVb1wCzpd
   </data>
  </layer>
  <layer name="Ground/Blocks" width="100" height="9">
   <data encoding="base64" compression="zlib">
-   eJztlA0KgCAMhaXbuKndoLr/qRq0wUuKpIIM9sED2d5+MCwEx3Ecx/meZdjU6p1VTjs93FcPO/TMNGy68tyhfmP+hp7z1v0t+t1b/4F/J4pIxKIkyqKisTp35h3hHFV2troMtZZjjTPESVUgjnMJ+qM/VfMj+HHfBDnsk8BDYb+37WL1R3nryWG/O0NPgjkF5mWIre69FY8=
+   eJztlAEKwyAMRcXbmKi9Qddb9P43WaAJfKVjshbqIA8+SPJNosWG4DiO4zjPs8VDo96XyhlnhvuaYYaZWeOhb55f6N+Yv6Hr3HV/m3730X/gv7Lr+ZKIRCzKoiKqGutzn7wLrJPK1ravwF7LscYZ4qSqEMe+BPXRn7v+Cfw4b4Yc1sngodDObbPY/rO81eTQzs5Qk6BPhX4FYm98ohXo
   </data>
  </layer>
  <layer name="Grass" width="100" height="9">
@@ -55,9 +55,11 @@
   <object x="2849" y="193" width="125" height="29"/>
   <object x="2977" y="225" width="29" height="29"/>
   <object x="1" y="256" width="3197" height="32"/>
-  <object x="2606" y="269"/>
  </objectgroup>
  <objectgroup name="Player Start" width="100" height="9">
   <object x="65" y="224" width="29" height="30"/>
+ </objectgroup>
+ <objectgroup name="Door" width="100" height="9">
+  <object x="3137" y="224" width="27" height="29"/>
  </objectgroup>
 </map>

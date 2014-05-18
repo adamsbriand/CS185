@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="floor" tilewidth="32" tileheight="32">
-  <image source="CS185BloxTop32_4x4.png" width="128" height="128"/>
+  <image source="mapTileSet/CS185BloxTop32_4x4.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="17" name="walls" tilewidth="32" tileheight="32">
-  <image source="CS185BloxSide32_6x16.png" width="512" height="192"/>
+  <image source="mapTileSet/CS185BloxSide32_6x16.png" width="512" height="192"/>
  </tileset>
  <tileset firstgid="113" name="decorations1" tilewidth="32" tileheight="32">
-  <image source="CS185DecorationsSide32_3x5.png" width="160" height="96"/>
+  <image source="mapTileSet/CS185DecorationsSide32_3x5.png" width="160" height="96"/>
  </tileset>
  <tileset firstgid="128" name="Untitled" tilewidth="32" tileheight="32">
-  <image source="Untitled.png" width="44" height="44"/>
+  <image source="mapTileSet/Untitled.png" width="44" height="44"/>
  </tileset>
  <layer name="Floor" width="25" height="25">
   <data encoding="base64" compression="zlib">

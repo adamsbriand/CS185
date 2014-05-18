@@ -28,8 +28,10 @@ public class TiledMapWrapper {
 		
 		backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-		
+		myObjects = new ArrayList<MapObject>();
         MapProperties prop = tiledMap.getProperties();
+        
+        getObjects();
         
         int mapWidth = prop.get("width", Integer.class);
         int mapHeight = prop.get("height", Integer.class);
@@ -71,12 +73,25 @@ public class TiledMapWrapper {
 		foregroundTiledMapRenderer.render(forgroundLayers);
 	}
 	
+	public void regularRender()
+	{
+		foregroundTiledMapRenderer.render();
+	}
+	
 	public void getObjects()
 	{
-		for(MapObject object : tiledMap.getLayers().get("Collision").getObjects()) 
+		try
 		{
-			myObjects.add(object);
+			for(MapObject object : tiledMap.getLayers().get("Collision").getObjects()) 
+			{
+				myObjects.add(object);
+			}
 		}
+		catch(NullPointerException e)
+		{
+			
+		}
+		
 	}
 		
 	public void setForegroundView(Matrix4 projectionMatrix,
