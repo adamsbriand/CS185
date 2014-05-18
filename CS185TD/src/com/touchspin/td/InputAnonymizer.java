@@ -73,17 +73,17 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
 			tiltSpeed.x = 5;
 		if (Gdx.input.isKeyPressed(Input.Keys.UP))
-			tiltSpeed.y = -5;
-		if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
 			tiltSpeed.y = 5;
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+			tiltSpeed.y = -5;
 	}
 
 	@Override
 	public void act(float delta) {
 		if(g.i().controls == 'A')
-		readAccel();
+			readAccel();
 		if(g.i().controls == 'D')
-		readKey();
+			readKey();
 	}
 
 	@Override

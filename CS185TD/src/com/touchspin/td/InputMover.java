@@ -31,7 +31,8 @@ public class InputMover extends PhysicsMover {
 		}
 	}
 
-	private void inputMove() {
+	private void inputMove() 
+	{
 		
 		accelerationX = g.i().leAnonymizer.tiltSpeed.x;
 		g.i().leAnonymizer.tiltSpeed.x = 0;
