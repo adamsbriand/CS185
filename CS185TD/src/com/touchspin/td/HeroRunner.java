@@ -4,16 +4,24 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
 
 public class HeroRunner extends Hero {
 
 	private Texture appearance;
+	private Texture fire;
+	private Animation fireAnimation;
+	private TextureRegion[] fireFrames;
+	private TextureRegion currentFrame;
 	private int frameCount = 0;
 	private Sprite heroSprite;
+	private Sprite fireSprite;
+	private float stateTime; 
 	//private float distancePerFrameX;
 	//private float distancePerFrameY;
 	//private int gravity = -10;	
@@ -31,6 +39,20 @@ public class HeroRunner extends Hero {
 		setWidth(heroSprite.getRegionWidth());
 		setX(10);
 		setY(100);
+		
+		//read in file animation
+		fire = new Texture(Gdx.files.internal("data/Fireball_Frame100x240_Sheet_1200x960_RC12x4_Frames48.png"));
+        TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth()/12, fire.getHeight()/4);  
+        fireFrames = new TextureRegion[12*4];
+        int index = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 12; j++) {
+                fireFrames[index++] = tmp[i][j];
+            }
+        }
+        fireAnimation = new Animation(0.025f, fireFrames); 
+        stateTime = 0f;
+
 	}
 
 	@Override
@@ -45,8 +67,13 @@ public class HeroRunner extends Hero {
 			heroSprite.setColor(Color.WHITE);
 		}
 		heroSprite.draw(batch);
+		drawFireEffect(batch);
 	}
 
+	private void drawFireEffect(Batch batch)
+	{
+		batch.draw(currentFrame,getX(),getY(),32f,currentFrame.getRegionHeight()*32/currentFrame.getRegionWidth());
+	}
 	@Override
 	public void act(float delta) {
 		heroMover.move(this);
@@ -65,6 +92,10 @@ public class HeroRunner extends Hero {
 		
 		//Rotation
 		heroSprite.rotate(360*(heroMover.previousX - getX())/((float)Math.PI * heroSprite.getRegionHeight()));
+		
+		//Fire animation
+		stateTime += Gdx.graphics.getDeltaTime();
+		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
 	}
 
 	public void attack() {
