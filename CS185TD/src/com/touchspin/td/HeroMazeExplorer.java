@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 
 /**
  * 
@@ -43,6 +44,12 @@ public class HeroMazeExplorer extends Hero  {
 			frameCount--;
 		if (frameCount == 1) 			
 			frameCount = 0;		
+	}
+
+	@Override
+	public Rectangle getCollisionRect() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 	
 }// end of HerMazeRunner class

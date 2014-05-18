@@ -1,12 +1,19 @@
 package com.touchspin.td;
 
+import java.util.Iterator;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.math.Rectangle;
 
 public class PhysicsMover extends Mover {
 	float previousX;
 	float previousY;
 	//InputAnonymizer anonymizer;
 	float gravityPerSecond = -20;
+	//float gravityPerSecond = 0;
 	float accelerationY = 0;
 	float accelerationX = 0;
 
@@ -19,22 +26,6 @@ public class PhysicsMover extends Mover {
 	@Override
 	public void move(Hero hero) {
 		this.hero = hero;
-		
-		// Save the previous position
-		previousX = hero.getX();
-		previousY = hero.getY();
-		// Try to move
-		physicsMove();
-		// If movement is failed, set the position of the
-		// actor to previous postion
-		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
-		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
-		if (!isXFree()) {
-			hero.setX(previousX);
-		}
-		if (!isYFree()) {
-			hero.setY(previousY);
-		}
 	}
 
 	protected void physicsMove() {
@@ -47,32 +38,50 @@ public class PhysicsMover extends Mover {
 
 	protected boolean isXFree() {
 		boolean free = true;
+		
 		if (hero.getX() + hero.getWidth() > hero.tiledMapWrapper
 				.getPixelWidth()) {
 			previousX = hero.tiledMapWrapper.getPixelWidth() - hero.getWidth();
-			free = false;
+			{
+				free = false;
+				speedXPerSecond = 0;
+			}
 		}
 		if (hero.getX() < 0) {
 			previousX = 0;
 			free = false;
+			speedXPerSecond = 0;
 		}
 		return free;
 	}
 
 	protected boolean isYFree() {
+		RectangleMapObject temp;
+		Rectangle rect;
 		boolean free = true;
-		if (hero.getY() + hero.getHeight() > hero.tiledMapWrapper
-				.getPixelHeight()) {
-			previousY = hero.tiledMapWrapper.getPixelHeight()
-					- hero.getHeight();
-			free = false;
+		for(int i = 0; i < hero.tiledMapWrapper.myObjects.size();i++)
+		{
+			temp = (RectangleMapObject)hero.tiledMapWrapper.myObjects.get(i);
+			rect = temp.getRectangle();	
+			//check below
+			
+			if(rect.y + rect.height > hero.getY() &&
+					rect.x + rect.height < hero.getY() + hero.getHeight())
+			{
+				if((rect.x + rect.width> hero.getX() && rect.x < hero.getX()) ||
+					(rect.x + rect.width >hero.getX()+hero.getWidth() && 
+					rect.x < hero.getX()+hero.getWidth()))
+				{
+					gravityPerSecond = 0;
+					speedYPerSecond = 0;
+					return false;
+				}
+			}
+			
+			gravityPerSecond = -20;
 		}
-		if (hero.getY() < 32) {
-			previousY = 32;
-			g.i().leAnonymizer.jump = false;
-			free = false;
-		}
+		
 		return free;
 	}	
-
+	
 }

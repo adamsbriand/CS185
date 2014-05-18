@@ -6,15 +6,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
 
 public class HeroRunner extends Hero {
 
 	private Texture appearance;
-	private Sprite runnerSprite;
-	
 	private int frameCount = 0;
-		
+	private Sprite heroSprite;
 	//private float distancePerFrameX;
 	//private float distancePerFrameY;
 	//private int gravity = -10;	
@@ -25,13 +24,13 @@ public class HeroRunner extends Hero {
 		this.camera = camera;
 		
 		appearance = new Texture(Gdx.files.internal("data/Ball100BallBearingBrass.png"));
-		runnerSprite = new Sprite(appearance);
-		runnerSprite.setBounds(0, 32, 32 * camera.zoom, 32 * camera.zoom);
-		runnerSprite.setOrigin(runnerSprite.getWidth()/2, runnerSprite.getHeight()/2);
-		setHeight(runnerSprite.getRegionHeight());
-		setWidth(runnerSprite.getRegionWidth());
-		setX(0);
-		setY(32);
+		heroSprite = new Sprite(appearance);
+		heroSprite.setBounds(0, 32, 32 * camera.zoom, 32 * camera.zoom);
+		heroSprite.setOrigin(heroSprite.getWidth()/2, heroSprite.getHeight()/2);
+		setHeight(heroSprite.getRegionHeight());
+		setWidth(heroSprite.getRegionWidth());
+		setX(10);
+		setY(100);
 	}
 
 	@Override
@@ -39,13 +38,13 @@ public class HeroRunner extends Hero {
 		batch.setProjectionMatrix(camera.combined);
 		if(frameCount == 15)
 		{
-			runnerSprite.setColor(Color.RED);
+			heroSprite.setColor(Color.RED);
 		}
 		else if(frameCount == 1)
 		{
-			runnerSprite.setColor(Color.WHITE);
+			heroSprite.setColor(Color.WHITE);
 		}
-		runnerSprite.draw(batch);
+		heroSprite.draw(batch);
 	}
 
 	@Override
@@ -61,19 +60,18 @@ public class HeroRunner extends Hero {
 			g.i().leAnonymizer.attack = false;
 		}
 		//position
-		runnerSprite.setX(getX());
-		runnerSprite.setY(getY());
+		heroSprite.setX(getX());
+		heroSprite.setY(getY());
 		
 		//Rotation
-		runnerSprite.rotate(360*(heroMover.previousX - getX())/((float)Math.PI * runnerSprite.getRegionHeight()));
+		heroSprite.rotate(360*(heroMover.previousX - getX())/((float)Math.PI * heroSprite.getRegionHeight()));
 	}
 
 	public void attack() {
 		frameCount = 15;
 	}
-	
 	public Rectangle getCollisionRect()
 	{
-		return runnerSprite.getBoundingRectangle();
+		return heroSprite.getBoundingRectangle();
 	}
 }

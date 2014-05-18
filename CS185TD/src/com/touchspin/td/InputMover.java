@@ -22,11 +22,12 @@ public class InputMover extends PhysicsMover {
 		// actor to previous postion
 				
 		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
-		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
-		if (!isXFree()) {
+		if(!isXFree()){
 			hero.setX(previousX);
 		}
-		if (!isYFree()) {
+		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
+		if(!isYFree())
+		{
 			hero.setY(previousY);
 		}
 	}
