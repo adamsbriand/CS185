@@ -44,6 +44,9 @@ public class g {
 							 * D=Desktop (Mouse + Keyboard)
 							 */ 
 	public long timeStartGame; //Time stamp at start of game
+	// Maze const Variables
+	public float cameraWidth;
+	public float cameraHeight;
 	
 	// Background variables
 	public float accelX;	// Support for accelerometer X axis. This is for the Vertical axes.
@@ -78,7 +81,9 @@ public class g {
 		sfxLevel = 100;
 		musicLevel = 100;
 
-		
+		//Maze
+		cameraWidth = 400;
+		cameraHeight = 400;
 		
 		// Background
 		accelX = 0;

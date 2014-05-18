@@ -2,6 +2,8 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
@@ -14,22 +16,22 @@ public class Maze extends GameObject {
 	HeroMazeExplorer mazeExplorer;
 	Stage stage;
 	MainGame game;
+	private Sprite mazeExplorerSprite;
 
 	public Maze(MainGame game) 
 	{
 		Gdx.gl.glClearColor(1, 0, 0, 1);       
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
-
+		mazeExplorerSprite=new Sprite(new Texture((
+				Gdx.files.internal("data/Ball100Pool.png"))));
+		
 		this.game = game;
 		tiledMapWrapper = new TiledMapWrapper("maps/Maze1.tmx");
 		
 		camera = new OrthographicCamera();
 		
-		camera.setToOrtho(false,w,h);
+		camera.setToOrtho(false,mazeExplorerSprite.getWidth() + g.i().cameraWidth,
+				mazeExplorerSprite.getWidth() + g.i().cameraHeight);
 		
-		//camera.setToOrtho(false, w * tiledMapWrapper.getPixelWidth() / h,
-			//	tiledMapWrapper.getPixelHeight());
 		camera.update();
 		
 		stage = new Stage();
