@@ -97,6 +97,7 @@ public class HeroRunner extends Hero {
 		stateTime += Gdx.graphics.getDeltaTime();
 		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
 		
+		
 	}
 
 	public void attack() {
