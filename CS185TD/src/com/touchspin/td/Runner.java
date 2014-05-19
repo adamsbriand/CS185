@@ -41,6 +41,8 @@ public class Runner extends GameObject {
 
 	@Override
 	public void update() {
+		float tempX = heroRunner.getX();
+		float tempY = heroRunner.getY();
 		stage.act();
 		camera.update();
 		cameraTranslate(0, 0);
@@ -51,6 +53,7 @@ public class Runner extends GameObject {
 				camera.position.x - camera.viewportWidth - 1, -1,
 				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
 		
+		cameraTranslate(heroRunner.getX() - tempX,  heroRunner.getY() - tempY);
 	}
 
 	@Override
@@ -99,14 +102,13 @@ public class Runner extends GameObject {
 	 * @param y
 	 */
 	private void cameraTranslate(float x, float y) {
-		if (heroRunner.getX() + heroRunner.getWidth() / 2 > camera.position.x
-				&& camera.position.x + x >= camera.viewportWidth / 2
-				&& camera.position.x + x + camera.viewportWidth / 2 <= tiledMapWrapper
+		if (heroRunner.getX() >= camera.viewportWidth / 2
+				&& heroRunner.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())
 			camera.translate(x, 0);
-		if (camera.position.y + y >= camera.viewportHeight / 2
-				&& camera.position.y + y + camera.viewportHeight / 2 <= tiledMapWrapper
-						.getPixelHeight())
+		if (heroRunner.getY() >= camera.viewportHeight / 2
+				&& heroRunner.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
+				.getPixelHeight())
 			camera.translate(0, y);
 	}
 }
