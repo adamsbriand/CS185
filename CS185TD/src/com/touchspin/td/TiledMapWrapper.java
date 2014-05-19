@@ -22,7 +22,8 @@ public class TiledMapWrapper {
 	int[] forgroundLayers = {1};
 	int[] backgroundLayers = {0};
 	float backgroundfactor = 0.3f;
-	ArrayList<MapObject> myObjects;
+	ArrayList<MapObject> collisionObjects;
+	MapObject playerStartPoint;
 	
 	public TiledMapWrapper(String path)
 	{
@@ -30,7 +31,12 @@ public class TiledMapWrapper {
 		if(g.i().gameMode == 0)// only the runner needs a background
 			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-		myObjects = new ArrayList<MapObject>();
+		collisionObjects = new ArrayList<MapObject>();
+		// Im assuming that all runner maps will start the player at the beginning.
+		// For the maze the starting position will vary so I added a object called Start
+		// to the maze map, the variable below is what will store this object
+		if(g.i().gameMode == 1)
+			playerStartPoint = new MapObject();
         MapProperties prop = tiledMap.getProperties();
         
         getObjects();
@@ -91,15 +97,15 @@ public class TiledMapWrapper {
 	{
 		try
 		{
-			for(MapObject object : tiledMap.getLayers().get("Collision").getObjects()) 
-			{
-				myObjects.add(object);
-			}
+			for(MapObject object : tiledMap.getLayers().get("Collision").getObjects()) 			
+				collisionObjects.add(object);			
+			
+			if(g.i().gameMode == 1)
+				for(MapObject object : tiledMap.getLayers().get("Start").getObjects()) 
+					playerStartPoint = object;
 		}
 		catch(NullPointerException e)
-		{
-		}
-		
+		{}		
 	}		
 	
 	/**

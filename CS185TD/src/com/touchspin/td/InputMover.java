@@ -30,6 +30,7 @@ public class InputMover extends PhysicsMover {
 		{
 			hero.setY(previousY);
 		}
+		
 	}
 
 	private void inputMove() 

@@ -15,25 +15,24 @@ import com.badlogic.gdx.math.Rectangle;
 public class HeroMazeExplorer extends Hero  {
 	
 	private int frameCount = 0;			
-	private Sprite mazeExplorerSprite;
+	private Sprite heroSprite;
 	
 	public HeroMazeExplorer(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) 
 	{
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
-		mazeExplorerSprite=new Sprite(new Texture((Gdx.files.internal("data/Ball100Pool.png"))));
+		heroSprite=new Sprite(new Texture((Gdx.files.internal("data/Ball100Pool.png"))));
 		
-		setHeight(mazeExplorerSprite.getHeight());
-		setWidth(mazeExplorerSprite.getWidth());
+		setHeight(heroSprite.getHeight());
+		setWidth(heroSprite.getWidth());
 		setX(15);
-		setY(9);
-		
+		setY(9);		
 	}
 
 	@Override
 	public void draw(Batch batch, float alpha) {
 		batch.setProjectionMatrix(camera.combined);
-		batch.draw(mazeExplorerSprite, getX(), getY());
+		batch.draw(heroSprite, getX(), getY());
 	}
 
 	@Override
@@ -43,7 +42,9 @@ public class HeroMazeExplorer extends Hero  {
 		if (frameCount > 1)
 			frameCount--;
 		if (frameCount == 1) 			
-			frameCount = 0;		
+			frameCount = 0;	
+		
+		camera.position.set(getX(), getY(), 0);
 	}
 
 	@Override

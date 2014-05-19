@@ -44,11 +44,8 @@ public class Maze extends GameObject {
 	{
 		stage.act();
 		camera.update();
-		cameraTranslate(0, 0);
+		cameraTranslate(mazeExplorer.getX(), mazeExplorer.getY());
 		
-		// render the map from 1 pixel before the left of the camera to 1 pixel
-		// after
-		// the right of the map.
 		tiledMapWrapper.setForegroundView(camera);
 		
 	}

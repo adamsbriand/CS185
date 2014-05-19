@@ -59,9 +59,9 @@ public class PhysicsMover extends Mover {
 		RectangleMapObject temp;
 		Rectangle rect;
 		boolean free = true;
-		for(int i = 0; i < hero.tiledMapWrapper.myObjects.size();i++)
+		for(int i = 0; i < hero.tiledMapWrapper.collisionObjects.size();i++)
 		{
-			temp = (RectangleMapObject)hero.tiledMapWrapper.myObjects.get(i);
+			temp = (RectangleMapObject)hero.tiledMapWrapper.collisionObjects.get(i);
 			rect = temp.getRectangle();	
 			//check below
 			
