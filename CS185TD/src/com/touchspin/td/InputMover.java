@@ -1,35 +1,42 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class InputMover extends PhysicsMover {
-
+	private Sprite mySprite;
 	public InputMover() {
 		super();
 	}
 
+	public void setSprite(Sprite leSprite)
+	{
+		mySprite = leSprite;
+	}
+	
 	@Override
 	public void move(Hero hero) {
 		this.hero = hero;
-		
+		boolean collide;
 		// Save the previous position
 		previousX = hero.getX();
 		previousY = hero.getY();
 		// Try to move
-		inputMove();
+		
+		inputMove();	
 		physicsMove();
 		// If movement is failed, set the position of the
 		// actor to previous postion
-				
+		collide = calObjCollision(mySprite);
 		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
-		if(!isXFree()){
-			hero.setX(previousX);
-		}
 		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
-		if(!isYFree())
-		{
+		
+		if(!isXFree() || collide)
+			hero.setX(previousX + speedXPerSecond);		
+	
+		if(!isYFree() || collide)		
 			hero.setY(previousY);
-		}
+	
 		
 	}
 
