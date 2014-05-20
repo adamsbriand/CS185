@@ -29,12 +29,14 @@ public class TiledMapWrapper {
 	private TiledMapRenderer foregroundTiledMapRenderer;
 	private int mapPixelWidth;
 	private int mapPixelHeight;
-	int[] forgroundLayers = {1};
+	int[] forgroundLayers = {1,2,3,4};
 	int[] backgroundLayers = {0};
-	float backgroundfactor = 0.3f;
+
+	float backgroundfactor = 0.5f;
 	
 	MapObjects collisionObjects;	
 	MapObjects playerStartPoint;
+
 	
 	public TiledMapWrapper(String path)
 	{
@@ -96,6 +98,7 @@ public class TiledMapWrapper {
 		{
 			backgroundTiledMapRenderer.render(backgroundLayers);
 			foregroundTiledMapRenderer.render(forgroundLayers);
+			//foregroundTiledMapRenderer.render();
 		}
 		else
 			foregroundTiledMapRenderer.render();
@@ -123,10 +126,18 @@ public class TiledMapWrapper {
 	           float viewboundsHeight)
 	{		
 			foregroundTiledMapRenderer.setView(projectionMatrix, viewboundsX, 
-					viewboundsY, viewboundsWidth, viewboundsHeight);
-			backgroundTiledMapRenderer.setView(projectionMatrix, 
-					backgroundfactor*viewboundsX-1, backgroundfactor*viewboundsY-1, 
-					viewboundsWidth, viewboundsHeight);				
+					viewboundsY, viewboundsWidth, viewboundsHeight);		
+	}
+	
+	public void setBackGroundView(Matrix4 projectionMatrix,
+	           float viewboundsX,
+	           float viewboundsY,
+	           float viewboundsWidth,
+	           float viewboundsHeight)
+	{
+		backgroundTiledMapRenderer.setView(projectionMatrix, 
+				viewboundsX, viewboundsY, 
+				viewboundsWidth, viewboundsHeight);		
 	}
 	
 	private void getObjects() 
