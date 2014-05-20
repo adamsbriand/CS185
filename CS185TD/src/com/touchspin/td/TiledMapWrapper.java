@@ -1,16 +1,26 @@
 package com.touchspin.td;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.maps.objects.CircleMapObject;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.PolylineMapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.ChainShape;
+import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.Shape;
+import com.badlogic.gdx.utils.Array;
 
 public class TiledMapWrapper {
 
@@ -22,8 +32,9 @@ public class TiledMapWrapper {
 	int[] forgroundLayers = {1};
 	int[] backgroundLayers = {0};
 	float backgroundfactor = 0.3f;
-	ArrayList<MapObject> collisionObjects;
-	MapObject playerStartPoint;
+	
+	MapObjects collisionObjects;	
+	MapObjects playerStartPoint;
 	
 	public TiledMapWrapper(String path)
 	{
@@ -31,12 +42,9 @@ public class TiledMapWrapper {
 		if(g.i().gameMode == 0)// only the runner needs a background
 			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-		collisionObjects = new ArrayList<MapObject>();
-		// Im assuming that all runner maps will start the player at the beginning.
-		// For the maze the starting position will vary so I added a object called Start
-		// to the maze map, the variable below is what will store this object
-		if(g.i().gameMode == 1)
-			playerStartPoint = new MapObject();
+		collisionObjects = new MapObjects();
+		playerStartPoint = new MapObjects();
+			
         MapProperties prop = tiledMap.getProperties();
         
         getObjects();
@@ -93,21 +101,6 @@ public class TiledMapWrapper {
 			foregroundTiledMapRenderer.render();
 	}		
 	
-	public void getObjects()
-	{
-		try
-		{
-			for(MapObject object : tiledMap.getLayers().get("Collision").getObjects()) 			
-				collisionObjects.add(object);			
-			
-			if(g.i().gameMode == 1)
-				for(MapObject object : tiledMap.getLayers().get("Start").getObjects()) 
-					playerStartPoint = object;
-		}
-		catch(NullPointerException e)
-		{}		
-	}		
-	
 	/**
 	 * Mainly called by Maze class
 	 * @param camera
@@ -136,4 +129,18 @@ public class TiledMapWrapper {
 					viewboundsWidth, viewboundsHeight);				
 	}
 	
+	private void getObjects() 
+	{
+	    try
+	    {
+	    	//Get Collision objects
+	    	collisionObjects = tiledMap.getLayers().get("Collision").getObjects();
+
+	    	// get player start point
+	    	if(g.i().gameMode == 1)				
+	    		playerStartPoint = tiledMap.getLayers().get("Start").getObjects();
+	    }
+	    catch(NullPointerException e)
+	    {}
+	}    	
 }
