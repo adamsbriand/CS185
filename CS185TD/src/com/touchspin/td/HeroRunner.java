@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
 
 public class HeroRunner extends Hero {
@@ -20,7 +19,6 @@ public class HeroRunner extends Hero {
 	private TextureRegion currentFrame;
 	private int frameCount = 0;
 	public Sprite heroSprite;
-	private Sprite fireSprite;
 	private float stateTime; 
 	//private float distancePerFrameX;
 	//private float distancePerFrameY;
@@ -96,8 +94,7 @@ public class HeroRunner extends Hero {
 		
 		//Fire animation
 		stateTime += Gdx.graphics.getDeltaTime();
-		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
-		
+		currentFrame = fireAnimation.getKeyFrame(stateTime, true);	
 		
 	}
 
