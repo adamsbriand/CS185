@@ -2,8 +2,6 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
@@ -15,23 +13,20 @@ public class Maze extends GameObject {
 
 	HeroMazeExplorer mazeExplorer;
 	Stage stage;
-	MainGame game;
-	private Sprite mazeExplorerSprite;
+	MainGame game;	
 
 	public Maze(MainGame game) 
 	{
-		Gdx.gl.glClearColor(1, 0, 0, 1);       
-		mazeExplorerSprite=new Sprite(new Texture((
-				Gdx.files.internal("data/Ball100Pool.png"))));
-		
+		Gdx.gl.glClearColor(1, 0, 0, 1);     
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();		
 		this.game = game;
+		
 		tiledMapWrapper = new TiledMapWrapper("maps/Maze1.tmx");
 		
 		camera = new OrthographicCamera();
-		
-		camera.setToOrtho(false,mazeExplorerSprite.getWidth() + g.i().cameraWidth,
-				mazeExplorerSprite.getWidth() + g.i().cameraHeight);
-		
+		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
+				tiledMapWrapper.getPixelHeight());
 		camera.update();
 		
 		stage = new Stage();
@@ -42,11 +37,16 @@ public class Maze extends GameObject {
 	@Override
 	public void update() 
 	{
+		float tempX = mazeExplorer.getX();
+		float tempY = mazeExplorer.getY();
 		stage.act();
 		camera.update();
-		cameraTranslate(mazeExplorer.getX(), mazeExplorer.getY());
+		cameraTranslate(mazeExplorer.getX() - tempX,  mazeExplorer.getY() - tempY);
 		
-		tiledMapWrapper.setForegroundView(camera);
+		//tiledMapWrapper.setForegroundView(camera);
+		tiledMapWrapper.setForegroundView(camera.combined,
+				camera.position.x - camera.viewportWidth - 1, -1,
+				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
 		
 	}
 

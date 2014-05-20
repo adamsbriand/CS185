@@ -8,31 +8,8 @@
  </tileset>
  <tileset firstgid="113" name="decorations1" tilewidth="32" tileheight="32">
   <image source="mapTileSet/CS185DecorationsSide32_3x5.png" width="160" height="96"/>
-  <tile id="0">
-   <properties>
-    <property name="name" value="grass"/>
-   </properties>
-  </tile>
-  <tile id="1">
-   <properties>
-    <property name="name" value="grass"/>
-   </properties>
-  </tile>
-  <tile id="2">
-   <properties>
-    <property name="name" value="grass"/>
-   </properties>
-  </tile>
-  <tile id="3">
-   <properties>
-    <property name="name" value="grass"/>
-   </properties>
-  </tile>
  </tileset>
- <tileset firstgid="128" name="darkblocks" tilewidth="32" tileheight="32">
-  <image source="mapTileSet/FezBlox.jpg" width="500" height="500"/>
- </tileset>
- <tileset firstgid="353" name="Untitled" tilewidth="32" tileheight="32">
+ <tileset firstgid="128" name="Untitled" tilewidth="32" tileheight="32">
   <image source="mapTileSet/Untitled.png" width="44" height="44"/>
  </tileset>
  <layer name="Floor" width="25" height="25">
@@ -42,7 +19,7 @@
  </layer>
  <layer name="Walls" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEATiREYIFmRAxeQCmHkgjC5GLUCuHaS4A1tYUNsOUvUj+xtbGBDrBnxxDJNDTxekmEEsoHa6wAao4c5RQDqgR9wOBjtw5UlCeZRadiDnV1rZAQOE8hGx5Q42TCwYzc8DB4hN66Smf3rbgS8dEsKDCQAALQEo9Q==
+   eJztlUsOwCAIROcK3Jij20VJDFEpCikLXzIbf0MEAgGgR/yKlHbhTnotil0PTxyjv4j28N7nibwxrHIse/LG7OxpnQDxdTEiIs6LH0Z+bit48EdlefT9muUhWH1keegZszNvbj//Bx+okseqDi1VogG8njSP
   </data>
  </layer>
  <layer name="wallcover" width="25" height="25">
@@ -50,4 +27,24 @@
    eJwrYWBgKGFAgGIoLgTiIoZRUISEhxvA569iNDlcaodK2BRC8SgYBcMR0DN9lxBWQlA/CMPqGlD5Qar7YWaMglFALoClOVD6K4GyYTQsXRZDxYqQ+IOtHgEAmPMUjQ==
   </data>
  </layer>
+ <objectgroup name="Collision" width="25" height="25">
+  <object x="0" y="2" width="254" height="29"/>
+  <object x="64" y="32" width="62" height="159"/>
+  <object x="289" y="129" width="62" height="62"/>
+  <object x="352" y="131" width="62" height="61"/>
+  <object x="353" y="193" width="61" height="61"/>
+  <object x="417" y="130" width="62" height="62"/>
+  <object x="354" y="65" width="61" height="62"/>
+  <object x="161" y="351" width="63" height="222"/>
+  <object x="1" y="673" width="479" height="93"/>
+  <object x="417" y="417" width="221" height="126"/>
+  <object x="610" y="130" width="60" height="60"/>
+  <object x="703" y="2" width="95" height="92"/>
+  <object x="637" y="449" width="99" height="32"/>
+  <object x="703" y="482" width="30" height="28"/>
+  <object x="639" y="416" width="95" height="31"/>
+ </objectgroup>
+ <objectgroup name="Start" width="25" height="25">
+  <object x="481" y="289" width="31" height="29"/>
+ </objectgroup>
 </map>
