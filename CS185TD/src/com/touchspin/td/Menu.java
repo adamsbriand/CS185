@@ -18,6 +18,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider.SliderStyle;
  
 public class Menu implements Screen {
     Skin skin;
@@ -64,6 +66,8 @@ public class Menu implements Screen {
         textButtonStyle.font = skin.getFont("default");
  
         skin.add("default", textButtonStyle);
+        
+        //Slider slider = new Slider(0, 100, 1, false, );
  
         // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
         final TextButton textButton=new TextButton("New Runner",textButtonStyle);

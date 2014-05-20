@@ -18,16 +18,11 @@ public class Trigger {
 	}
 	
 	public void action(String TriggerString){
-		String[] Values = splitText(TriggerString);
-		TriggerActions(Values[0], Values[1]);
-	}
-	
-	private String[] splitText(String value){
-		int split = value.indexOf(',');
-		String[] ValueArray = new String[2]; 
-		ValueArray[0] = value.substring(0,split);
-		ValueArray[1] = value.substring(split + 1);
-		return ValueArray;
+		String[] Values = TriggerString.split(",");
+		for (int i = 0; i < Values.length; i += 2){
+			TriggerActions(Values[i], Values[i+1]);
+		}
+		
 	}
    
 	private void TriggerActions(String value1, String value2) {
