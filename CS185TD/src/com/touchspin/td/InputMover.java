@@ -16,8 +16,8 @@ public class InputMover extends PhysicsMover {
 	
 	@Override
 	public void move(Hero hero) {
-		this.hero = hero;
-		//boolean collide;
+		this.hero = hero;		
+		
 		// Save the previous position
 		previousX = hero.getX();
 		previousY = hero.getY();
@@ -25,9 +25,10 @@ public class InputMover extends PhysicsMover {
 		
 		inputMove();	
 		physicsMove();
+		setSpriteForCollision(mySprite);
 		// If movement is failed, set the position of the
-		// actor to previous postion
-		calObjCollision(mySprite);
+		// actor to previous position
+		
 		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
 		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
 		
@@ -42,13 +43,8 @@ public class InputMover extends PhysicsMover {
 			hero.setY(previousY);	
 		else if(collideTop())
 			hero.setY(previousY);
-		/*else if(collideBottom)
-		{
-			hero.setY(previous + 1);
-			
-		}
-		else
-			gravityPerSecond = 9.8;*/
+		else if(collideBottom())		
+			hero.setY(previousY - 1);		
 		
 	}
 
