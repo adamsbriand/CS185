@@ -19,7 +19,7 @@ public class HeroRunner extends Hero {
 	private TextureRegion[] fireFrames;
 	private TextureRegion currentFrame;
 	private int frameCount = 0;
-	private Sprite heroSprite;
+	public Sprite heroSprite;
 	private Sprite fireSprite;
 	private float stateTime; 
 	//private float distancePerFrameX;
@@ -76,6 +76,7 @@ public class HeroRunner extends Hero {
 	}
 	@Override
 	public void act(float delta) {
+		heroMover.setSprite(heroSprite);
 		heroMover.move(this);
 		
 		//Attack
