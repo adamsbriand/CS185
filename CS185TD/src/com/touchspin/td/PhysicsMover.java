@@ -1,10 +1,5 @@
 package com.touchspin.td;
 
-import java.util.Iterator;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
 
@@ -59,7 +54,7 @@ public class PhysicsMover extends Mover {
 		RectangleMapObject temp;
 		Rectangle rect;
 		boolean free = true;
-		for(int i = 0; i < hero.tiledMapWrapper.collisionObjects.size();i++)
+		for(int i = 0; i < hero.tiledMapWrapper.collisionObjects.getCount();i++)
 		{
 			temp = (RectangleMapObject)hero.tiledMapWrapper.collisionObjects.get(i);
 			rect = temp.getRectangle();	
