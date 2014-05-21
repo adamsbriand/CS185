@@ -1,6 +1,5 @@
 package com.touchspin.td;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
@@ -10,10 +9,11 @@ public class PhysicsMover extends Mover {
 	float previousY;	
 	float gravityPerSecond = -20;	
 	float accelerationY = 0;
-	float accelerationX = 0;
-	
-	Sprite mySprite;//used in collision detection
+	float accelerationX = 0;	
 
+	RectangleMapObject temp;
+	Rectangle rect;
+	
 	public PhysicsMover() {		
 		speedXPerSecond = 0;
 		speedYPerSecond = 0;
@@ -51,9 +51,9 @@ public class PhysicsMover extends Mover {
 				
 				// collision from the right
 				if(rect.x + rect.getWidth() > hero.getX())// 1b				
-					if(rect.x + rect.getWidth() < hero.getX() + mySprite.getWidth())//2b
-						if(rect.y + rect.height < mySprite.getY() + mySprite.getHeight() + 1)//3
-							if(rect.y > mySprite.getY())//4
+					if(rect.x + rect.getWidth() < hero.getX() + hero.getWidth())//2b
+						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
+							if(rect.y > hero.getY())//4
 							{								
 								speedXPerSecond = 0;
 								return true;							
@@ -81,10 +81,10 @@ public class PhysicsMover extends Mover {
 				rect = temp.getRectangle();						
 						
 				// collision from the left
-				if(rect.x < mySprite.getX() + mySprite.getWidth())// 1				
-					if(mySprite.getX() < rect.x)//5
-						if(rect.y + rect.height < mySprite.getY() + mySprite.getHeight() + 1)//3
-							if(rect.y > mySprite.getY())//4
+				if(rect.x < hero.getX() + hero.getWidth())// 1				
+					if(hero.getX() < rect.x)//5
+						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
+							if(rect.y > hero.getY())//4
 							{
 								speedXPerSecond = 0;
 								return true;								
@@ -112,11 +112,11 @@ public class PhysicsMover extends Mover {
 				rect = temp.getRectangle();	
 				
 				if(rect.y + rect.height > hero.getY() &&
-						rect.y + rect.height < hero.getY() + mySprite.getHeight())
+						rect.y + rect.height < hero.getY() + hero.getHeight())
 				{
 					if((rect.x + rect.width > hero.getX() && rect.x < hero.getX()) ||
-						(rect.x + rect.width >hero.getX() + mySprite.getWidth() && 
-						rect.x < hero.getX() + mySprite.getWidth()))
+						(rect.x + rect.width >hero.getX() + hero.getWidth() && 
+						rect.x < hero.getX() + hero.getWidth()))
 					{
 						gravityPerSecond = 0;
 						speedYPerSecond = 0;
@@ -149,9 +149,9 @@ public class PhysicsMover extends Mover {
 				
 				// collide with bottom
 				if(rect.x + rect.getWidth() > hero.getX())	
-					if(rect.x < mySprite.getX() + mySprite.getWidth() - 1)
-						if(rect.y < mySprite.getY() + mySprite.getHeight())
-							if(rect.y > mySprite.getY())
+					if(rect.x < hero.getX() + hero.getWidth() - 1)
+						if(rect.y < hero.getY() + hero.getHeight())
+							if(rect.y > hero.getY())
 							{
 								speedYPerSecond = -1;								
 								return true;	
@@ -159,15 +159,7 @@ public class PhysicsMover extends Mover {
 			}
 		}//end of for loop
 		return false;
-	}// end of collideBottom
-		
-	/**
-	 * Set sprite to be used for collision detection
-	 * called by: 	
-	 * @return true or false
-	 */
-	protected void setSpriteForCollision(Sprite mySprite)
-	{	this.mySprite = mySprite;	}
+	}// end of collideBottom	
 	
 	/**
 	 * Checks whether the player has rolled off the map
@@ -177,7 +169,7 @@ public class PhysicsMover extends Mover {
 	protected boolean isXFree() 
 	{
 		//---Check if player has reached the right or left edge of the map		
-		if (hero.getX() + mySprite.getWidth() > hero.tiledMapWrapper
+		if (hero.getX() + hero.getWidth() > hero.tiledMapWrapper
 				.getPixelWidth()) 
 		{			
 			speedXPerSecond = 0;
@@ -189,13 +181,42 @@ public class PhysicsMover extends Mover {
 			return false;
 		}
 		
+		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
+		{
+			if (object instanceof RectangleMapObject)
+			{
+				temp = (RectangleMapObject)object;
+				rect = temp.getRectangle();		
+				
+				// collision from the left
+				if(rect.x < hero.getX() + hero.getWidth())// 1				
+					if(hero.getX() < rect.x)//5
+						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
+							if(rect.y > hero.getY())//4
+							{
+								speedXPerSecond = 0;
+								return false;								
+							}
+				
+				// collision from the right
+				if(rect.x + rect.getWidth() > hero.getX())// 1b				
+					if(rect.x + rect.getWidth() < hero.getX() + hero.getWidth())//2b
+						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
+							if(rect.y > hero.getY())//4
+							{								
+								speedXPerSecond = 0;
+								return false;							
+							}
+			}
+		}
+			
 		return true;
 	}// end of isXFree()
 
 	protected boolean isYFree() 
 	{
 		//---Check if player has reached the top or bottom of the map		
-		if (hero.getY() + mySprite.getHeight() > hero.tiledMapWrapper
+		if (hero.getY() + hero.getHeight() > hero.tiledMapWrapper
 				.getPixelHeight()) 
 		{
 			speedYPerSecond = 0;
@@ -207,6 +228,38 @@ public class PhysicsMover extends Mover {
 			gravityPerSecond = 0;
 			return false;
 		}
+		
+		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
+		{
+			if (object instanceof RectangleMapObject)
+			{
+				temp = (RectangleMapObject)object;
+				rect = temp.getRectangle();	
+				
+				if(rect.y + rect.height > hero.getY() &&
+						rect.y + rect.height < hero.getY() + hero.getHeight())
+				{
+					if((rect.x + rect.width > hero.getX() && rect.x < hero.getX()) ||
+						(rect.x + rect.width >hero.getX() + hero.getWidth() && 
+						rect.x < hero.getX() + hero.getWidth()))
+					{
+						gravityPerSecond = 0;
+						speedYPerSecond = 0;
+						return false;
+					}
+				}	
+				
+
+				// collide with bottom
+				if(rect.x + rect.getWidth() > hero.getX())	
+					if(rect.x < hero.getX() + hero.getWidth() - 1)
+						if(rect.y < hero.getY() + hero.getHeight())
+							if(rect.y > hero.getY())
+							{
+								speedYPerSecond = -1;								
+								return false;	
+							}
+			}}
 				
 		gravityPerSecond = -20;
 		return true;			

@@ -24,9 +24,8 @@ public class Maze extends GameObject {
 		
 		tiledMapWrapper = new TiledMapWrapper("maps/Maze1.tmx");
 		
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
-				tiledMapWrapper.getPixelHeight());
+		camera = new OrthographicCamera(); 
+		camera.setToOrtho(false,400, 400 * h/w);
 		camera.update();
 		
 		stage = new Stage();
@@ -46,7 +45,7 @@ public class Maze extends GameObject {
 		//tiledMapWrapper.setForegroundView(camera);
 		tiledMapWrapper.setForegroundView(camera.combined,
 				camera.position.x - camera.viewportWidth - 1, -1,
-				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
+				camera.viewportWidth * 2 + 2, camera.viewportHeight*2);
 		
 	}
 

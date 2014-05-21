@@ -25,26 +25,16 @@ public class InputMover extends PhysicsMover {
 		
 		inputMove();	
 		physicsMove();
-		setSpriteForCollision(mySprite);
 		// If movement is failed, set the position of the
 		// actor to previous position
 		
 		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
-		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
-		
 		if(!isXFree())
 			hero.setX(previousX);
-		else if(collideLeft())
-			hero.setX(previousX - 1);
-		else if(collideRight())
-			hero.setX(previousX + 1);
 		
+		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
 		if(!isYFree())		
-			hero.setY(previousY);	
-		else if(collideTop())
-			hero.setY(previousY);
-		else if(collideBottom())		
-			hero.setY(previousY - 1);		
+			hero.setY(previousY);		
 		
 	}
 

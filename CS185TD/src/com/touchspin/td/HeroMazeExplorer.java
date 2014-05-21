@@ -31,8 +31,8 @@ public class HeroMazeExplorer extends Hero  {
 		setHeight(heroSprite.getRegionHeight());
 		setWidth(heroSprite.getRegionWidth());
 		
-		setX(tiledMapWrapper.getPixelWidth()/2);
-		setY(tiledMapWrapper.getPixelHeight()/2);		
+		setX(0);
+		setY(0);		
 	}
 
 	@Override
