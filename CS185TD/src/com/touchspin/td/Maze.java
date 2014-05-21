@@ -99,14 +99,13 @@ public class Maze extends GameObject {
 	}
 	
 	private void cameraTranslate(float x, float y) {
-		if (mazeExplorer.getX() + mazeExplorer.getWidth() / 2 > camera.position.x
-				&& camera.position.x + x + camera.viewportWidth / 2 <= tiledMapWrapper
+		if (mazeExplorer.getX() >= camera.viewportWidth / 2
+				&& mazeExplorer.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())
 			camera.translate(x, 0);
-		
-		if (mazeExplorer.getY() + mazeExplorer.getHeight() / 2 > camera.position.y
-				&& camera.position.y + y + camera.viewportHeight / 2 <= tiledMapWrapper
-						.getPixelHeight())
+		if (mazeExplorer.getY() >= camera.viewportHeight / 2
+				&& mazeExplorer.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
+				.getPixelHeight())
 			camera.translate(0, y);
 	}
 
