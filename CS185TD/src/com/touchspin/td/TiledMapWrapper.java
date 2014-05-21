@@ -28,7 +28,7 @@ public class TiledMapWrapper {
 	public TiledMapWrapper(String path)
 	{
 		tiledMap = new TmxMapLoader().load(path);
-		if(g.i().gameMode == 0)// only the runner needs a background
+		if(g.i().gameMode == 'R')// only the runner needs a background
 			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		collisionObjects = new MapObjects();
@@ -81,7 +81,7 @@ public class TiledMapWrapper {
 	{
 		
 		// only if it is the runner do we need to render certain layers differently
-		if(g.i().gameMode == 0)
+		if(g.i().gameMode == 'R')
 		{
 			backgroundTiledMapRenderer.render(backgroundLayers);
 			foregroundTiledMapRenderer.render(forgroundLayers);
@@ -135,7 +135,7 @@ public class TiledMapWrapper {
 	    	collisionObjects = tiledMap.getLayers().get("Collision").getObjects();
 
 	    	// get player start point
-	    	if(g.i().gameMode == 1)				
+	    	if(g.i().gameMode == 'M')				
 	    		playerStartPoint = tiledMap.getLayers().get("Start").getObjects();
 	    }
 	    catch(NullPointerException e)
