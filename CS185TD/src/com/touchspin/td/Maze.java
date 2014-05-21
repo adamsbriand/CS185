@@ -44,8 +44,9 @@ public class Maze extends GameObject {
 		
 		//tiledMapWrapper.setForegroundView(camera);
 		tiledMapWrapper.setForegroundView(camera.combined,
-				camera.position.x - camera.viewportWidth - 1, -1,
-				camera.viewportWidth * 2 + 2, camera.viewportHeight*2);
+				camera.position.x - camera.viewportWidth/2 - 1, 
+				camera.position.y - camera.viewportHeight/2 - 1,
+				camera.viewportWidth+ 2, camera.viewportHeight+2);
 		
 	}
 
@@ -99,11 +100,11 @@ public class Maze extends GameObject {
 	
 	private void cameraTranslate(float x, float y) {
 		if (mazeExplorer.getX() + mazeExplorer.getWidth() / 2 > camera.position.x
-				&& camera.position.x + x >= camera.viewportWidth / 2
 				&& camera.position.x + x + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())
 			camera.translate(x, 0);
-		if (camera.position.y + y >= camera.viewportHeight / 2
+		
+		if (mazeExplorer.getY() + mazeExplorer.getHeight() / 2 > camera.position.y
 				&& camera.position.y + y + camera.viewportHeight / 2 <= tiledMapWrapper
 						.getPixelHeight())
 			camera.translate(0, y);

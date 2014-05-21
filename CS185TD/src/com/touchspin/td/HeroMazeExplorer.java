@@ -28,8 +28,8 @@ public class HeroMazeExplorer extends Hero  {
 		heroSprite.setBounds(0, 32, 32 * camera.zoom, 32 * camera.zoom);
 		heroSprite.setOrigin(heroSprite.getWidth()/2, heroSprite.getHeight()/2);
 		
-		setHeight(heroSprite.getRegionHeight());
-		setWidth(heroSprite.getRegionWidth());
+		setHeight(heroSprite.getHeight() * camera.zoom);
+		setWidth(heroSprite.getWidth() * camera.zoom);
 		
 		setX(0);
 		setY(0);		
