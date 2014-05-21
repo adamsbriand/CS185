@@ -17,16 +17,42 @@ public class Trigger {
 		TriggerActions(ChangeType, ChangeValue);
 	}
 	
-	public void action(String TriggerString){
-		String[] Values = TriggerString.split(",");
+	public void action(String actionString){
+		String[] Values = actionString.split(",");
 		for (int i = 0; i < Values.length; i += 2){
 			TriggerActions(Values[i], Values[i+1]);
 		}
-		
+	}
+	
+	public void action(String[] actionArray){
+		for (int i = 0; i < actionArray.length; i += 2){
+			TriggerActions(actionArray[i], actionArray[i+1]);
+		}
+	}
+	
+	public boolean condition(String conditionString){
+		String[] Values = conditionString.split(",");
+		for (int i = 0; i < Values.length; i++){
+			boolean status = TriggerConditions(Values[i].toString());
+			if (!status){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean condition(String[] condistionArray){
+		for (int i = 0; i < condistionArray.length; i++){
+			boolean status = TriggerConditions(condistionArray[i].toString());
+			if (!status){
+				return false;
+			}
+		}
+		return true;
 	}
    
-	private void TriggerActions(String value1, String value2) {
-		switch (value1){
+	private void TriggerActions(String type, String value2) {
+		switch (type){
 		case "NewLevel":
 			NewLevel(value2);
 			break;
@@ -45,6 +71,14 @@ public class Trigger {
 		default:
 		}
 	}
+	
+	private boolean TriggerConditions(String value){
+		switch (value){
+		case "fire":
+			return g.i().fire;
+		}
+		return false;
+	}
 
 	private void menu(String value) {
 		switch (value){
@@ -56,13 +90,13 @@ public class Trigger {
 
 	private void NewLevel(String Value){
 		if (Value=="Runner"){
-			g.i().gameMode = 0;
+			g.i().gameMode = 'R';
 			game.setScreen(new Runner(game));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 		}
 		if (Value == "Maze"){
-				g.i().gameMode = 1;
+				g.i().gameMode = 'M';
 				game.setScreen(new Maze(game));
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();

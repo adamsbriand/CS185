@@ -22,6 +22,7 @@ public class g {
 	public String playerGraphic; // Type of ball for graphics and physics
 	public int playerWeight; // The weight of the player for physics
 	public int playerFriction; // The friction of the player for physics
+	public boolean fire;	// Hero is on fire
 	
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated
@@ -53,9 +54,8 @@ public class g {
 	public float accelY;	// Support for accelerometer Y axis. This is for the Horizontal axes.
 	public float accelZ;	// Support for accelerometer Z axis. 
 	InputAnonymizer leAnonymizer;
-	//public enum GameMode {RUNNER, MAZE}; // 0 for runner and 1 for maze
-	//GameMode gameMode; 
-	public int gameMode;// 0 for runner and 1 for maze
+	public char gameMode;	// M=Maze
+							// R=Runner
 	Trigger t;
 	
 	// Controls
