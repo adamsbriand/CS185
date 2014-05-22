@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  */
 public class Maze extends GameObject {
 
-	HeroMazeExplorer mazeExplorer;
+	Hero hero;
 	Stage stage;
 	MainGame game;	
 
@@ -29,18 +29,18 @@ public class Maze extends GameObject {
 		camera.update();
 		
 		stage = new Stage();
-		mazeExplorer = new HeroMazeExplorer(camera, tiledMapWrapper);
-		stage.addActor(mazeExplorer);		
+		hero = new Hero(camera, tiledMapWrapper);
+		stage.addActor(hero);		
 	}
 
 	@Override
 	public void update() 
 	{
-		float tempX = mazeExplorer.getX();
-		float tempY = mazeExplorer.getY();
+		float tempX = hero.getX();
+		float tempY = hero.getY();
 		stage.act();
 		camera.update();
-		cameraTranslate(mazeExplorer.getX() - tempX,  mazeExplorer.getY() - tempY);
+		cameraTranslate(hero.getX() - tempX,  hero.getY() - tempY);
 		
 		//tiledMapWrapper.setForegroundView(camera);
 		tiledMapWrapper.setForegroundView(camera.combined,
@@ -99,12 +99,12 @@ public class Maze extends GameObject {
 	}
 	
 	private void cameraTranslate(float x, float y) {
-		if (mazeExplorer.getX() >= camera.viewportWidth / 2
-				&& mazeExplorer.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
+		if (hero.getX() >= camera.viewportWidth / 2
+				&& hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())
 			camera.translate(x, 0);
-		if (mazeExplorer.getY() >= camera.viewportHeight / 2
-				&& mazeExplorer.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
+		if (hero.getY() >= camera.viewportHeight / 2
+				&& hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
 				.getPixelHeight())
 			camera.translate(0, y);
 	}

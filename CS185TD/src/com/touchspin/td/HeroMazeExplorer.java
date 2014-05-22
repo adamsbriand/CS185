@@ -20,6 +20,7 @@ public class HeroMazeExplorer extends Hero  {
 	
 	public HeroMazeExplorer(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) 
 	{
+		super(camera, tiledMapWrapper);
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 		
@@ -59,10 +60,5 @@ public class HeroMazeExplorer extends Hero  {
 		heroSprite.rotate(360*(heroMover.previousX - getX())/((float)Math.PI * heroSprite.getRegionHeight()));
 	}
 
-	@Override
-	public Rectangle getCollisionRect() {
-		// TODO Auto-generated method stub
-		return null;
-	}	
 	
 }// end of HerMazeRunner class

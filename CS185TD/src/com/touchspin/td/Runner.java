@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Runner extends GameObject {
 
-	HeroRunner heroRunner;
+	Hero hero;
 	Stage stage;
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
@@ -33,9 +33,9 @@ public class Runner extends GameObject {
 		
 		//anonymizer = game.anonymizer;
 		
-		heroRunner = new HeroRunner(camera, tiledMapWrapper);
+		hero = new Hero(camera, tiledMapWrapper);
 				
-		stage.addActor(heroRunner);
+		stage.addActor(hero);
 	}
 
 	@Override
@@ -46,13 +46,13 @@ public class Runner extends GameObject {
 
 	@Override
 	public void update() {
-		float tempX = heroRunner.getX();
-		float tempY = heroRunner.getY();
+		float tempX = hero.getX();
+		float tempY = hero.getY();
 		stage.act();
 		camera.update();
 		backGroundCamera.update();
 		
-		cameraTranslate(heroRunner.getX() - tempX,  heroRunner.getY() - tempY);
+		cameraTranslate(hero.getX() - tempX,  hero.getY() - tempY);
 		// render the map from 1 pixel before the left of the camera to 1 pixel
 		// after
 		// the right of the map.
@@ -115,12 +115,12 @@ public class Runner extends GameObject {
 	 * @param y
 	 */
 	private void cameraTranslate(float x, float y) {
-		if (heroRunner.getX() >= camera.viewportWidth / 2
-				&& heroRunner.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
+		if (hero.getX() >= camera.viewportWidth / 2
+				&& hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())
 			camera.translate(x, 0);
-		if (heroRunner.getY() >= camera.viewportHeight / 2
-				&& heroRunner.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
+		if (hero.getY() >= camera.viewportHeight / 2
+				&& hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
 				.getPixelHeight())
 			camera.translate(0, y);
 	}

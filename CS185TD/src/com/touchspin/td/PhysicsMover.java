@@ -20,146 +20,17 @@ public class PhysicsMover extends Mover {
 	}
 
 	@Override
-	public void move(Hero hero) {
-		this.hero = hero;
+	public void move(GameThing gameThing) {
+		this.gameThing = gameThing;
 	}
 
 	protected void physicsMove() {
 		speedXPerSecond += accelerationX;
 		speedYPerSecond += accelerationY;
-		if (g.i().gameMode == 0) 
+		if (g.i().gameMode == 'R') 
 			speedYPerSecond += gravityPerSecond;
 		
 	}
-	
-	/**
-	 * check if the player has collided with the right hand side of a object
-	 * @return
-	 */
-	protected boolean collideRight()
-	{
-		// go through each collision object and determine what type of object it is.
-		// then check boundaries of object with player position
-		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
-		{
-			if (object instanceof RectangleMapObject)
-			{
-				RectangleMapObject temp;
-				Rectangle rect;
-				temp = (RectangleMapObject)object;
-				rect = temp.getRectangle();
-				
-				// collision from the right
-				if(rect.x + rect.getWidth() > hero.getX())// 1b				
-					if(rect.x + rect.getWidth() < hero.getX() + hero.getWidth())//2b
-						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
-							if(rect.y > hero.getY())//4
-							{								
-								speedXPerSecond = 0;
-								return true;							
-							}
-			}
-		}// end of for loop
-		return false;
-	}// end of collideRight
-	
-	/**
-	 * check if the player has collided with the left hand side of a object
-	 * @return
-	 */
-	protected boolean collideLeft()
-	{
-		// go through each collision object and determine what type of object it is.
-		// then check boundaries of object with player position
-		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
-		{
-			if (object instanceof RectangleMapObject)
-			{
-				RectangleMapObject temp;
-				Rectangle rect;
-				temp = (RectangleMapObject)object;
-				rect = temp.getRectangle();						
-						
-				// collision from the left
-				if(rect.x < hero.getX() + hero.getWidth())// 1				
-					if(hero.getX() < rect.x)//5
-						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
-							if(rect.y > hero.getY())//4
-							{
-								speedXPerSecond = 0;
-								return true;								
-							}
-			}
-		}//end of for loop
-		return false;
-	}// end of collideLeft
-	
-	/**
-	 * Check if the player has collided with the top of a object
-	 * @return
-	 */
-	protected boolean collideTop()
-	{
-		// go through each collision object and determine what type of object it is.
-		// then check boundaries of object with player position
-		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
-		{
-			if (object instanceof RectangleMapObject)
-			{
-				RectangleMapObject temp;
-				Rectangle rect;
-				temp = (RectangleMapObject)object;
-				rect = temp.getRectangle();	
-				
-				if(rect.y + rect.height > hero.getY() &&
-						rect.y + rect.height < hero.getY() + hero.getHeight())
-				{
-					if((rect.x + rect.width > hero.getX() && rect.x < hero.getX()) ||
-						(rect.x + rect.width >hero.getX() + hero.getWidth() && 
-						rect.x < hero.getX() + hero.getWidth()))
-					{
-						gravityPerSecond = 0;
-						speedYPerSecond = 0;
-						return true;
-					}
-				}				
-			}
-			gravityPerSecond = -20F;
-		}// end of for loop
-		return false;
-	}// end of collideTop
-	
-	/**
-	 * check if player has collided with the bottom of an object
-	 * @return
-	 */
-	protected boolean collideBottom()
-	{
-
-		// go through each collision object and determine what type of object it is.
-		// then check boundaries of object with player position
-		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
-		{
-			if (object instanceof RectangleMapObject)
-			{
-				RectangleMapObject temp;
-				Rectangle rect;
-				temp = (RectangleMapObject)object;
-				rect = temp.getRectangle();	
-				
-				// collide with bottom
-				if(rect.x + rect.getWidth() > hero.getX())	
-					if(rect.x < hero.getX() + hero.getWidth() - 1)
-						if(rect.y < hero.getY() + hero.getHeight())
-							if(rect.y > hero.getY())
-							{
-								speedYPerSecond = -1;								
-								return true;	
-							}
-			}
-		}//end of for loop
-		return false;
-	}// end of collideBottom	
 	
 	/**
 	 * Checks whether the player has rolled off the map
@@ -169,19 +40,19 @@ public class PhysicsMover extends Mover {
 	protected boolean isXFree() 
 	{
 		//---Check if player has reached the right or left edge of the map		
-		if (hero.getX() + hero.getWidth() > hero.tiledMapWrapper
+		if (gameThing.getX() + gameThing.getWidth() > gameThing.tiledMapWrapper
 				.getPixelWidth()) 
 		{			
 			speedXPerSecond = 0;
 			return false;			
 		}
-		if (hero.getX() < 0) 
+		if (gameThing.getX() < 0) 
 		{			
 			speedXPerSecond = 0;
 			return false;
 		}
 		
-		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
+		for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
 		{
 			if (object instanceof RectangleMapObject)
 			{
@@ -189,20 +60,20 @@ public class PhysicsMover extends Mover {
 				rect = temp.getRectangle();		
 				
 				// collision from the left
-				if(rect.x < hero.getX() + hero.getWidth())// 1				
-					if(hero.getX() < rect.x)//5
-						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
-							if(rect.y > hero.getY())//4
+				if(rect.x < gameThing.getX() + gameThing.getWidth())// 1				
+					if(gameThing.getX() < rect.x)//5
+						if(rect.y + rect.height < gameThing.getY() + gameThing.getHeight() + 1)//3
+							if(rect.y > gameThing.getY())//4
 							{
 								speedXPerSecond = 0;
 								return false;								
 							}
 				
 				// collision from the right
-				if(rect.x + rect.getWidth() > hero.getX())// 1b				
-					if(rect.x + rect.getWidth() < hero.getX() + hero.getWidth())//2b
-						if(rect.y + rect.height < hero.getY() + hero.getHeight() + 1)//3
-							if(rect.y > hero.getY())//4
+				if(rect.x + rect.getWidth() > gameThing.getX())// 1b				
+					if(rect.x + rect.getWidth() < gameThing.getX() + gameThing.getWidth())//2b
+						if(rect.y + rect.height < gameThing.getY() + gameThing.getHeight() + 1)//3
+							if(rect.y > gameThing.getY())//4
 							{								
 								speedXPerSecond = 0;
 								return false;							
@@ -216,32 +87,32 @@ public class PhysicsMover extends Mover {
 	protected boolean isYFree() 
 	{
 		//---Check if player has reached the top or bottom of the map		
-		if (hero.getY() + hero.getHeight() > hero.tiledMapWrapper
+		if (gameThing.getY() + gameThing.getHeight() > gameThing.tiledMapWrapper
 				.getPixelHeight()) 
 		{
 			speedYPerSecond = 0;
 			return false;			
 		}
-		if (hero.getY() < 0) 
+		if (gameThing.getY() < 0) 
 		{
 			speedYPerSecond = 0;
 			gravityPerSecond = 0;
 			return false;
 		}
 		
-		for(MapObject object : hero.tiledMapWrapper.collisionObjects) 
+		for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
 		{
 			if (object instanceof RectangleMapObject)
 			{
 				temp = (RectangleMapObject)object;
 				rect = temp.getRectangle();	
 				
-				if(rect.y + rect.height > hero.getY() &&
-						rect.y + rect.height < hero.getY() + hero.getHeight())
+				if(rect.y + rect.height > gameThing.getY() &&
+						rect.y + rect.height < gameThing.getY() + gameThing.getHeight())
 				{
-					if((rect.x + rect.width > hero.getX() && rect.x < hero.getX()) ||
-						(rect.x + rect.width >hero.getX() + hero.getWidth() && 
-						rect.x < hero.getX() + hero.getWidth()))
+					if((rect.x + rect.width > gameThing.getX() && rect.x < gameThing.getX()) ||
+						(rect.x + rect.width >gameThing.getX() + gameThing.getWidth() && 
+						rect.x < gameThing.getX() + gameThing.getWidth()))
 					{
 						gravityPerSecond = 0;
 						speedYPerSecond = 0;
@@ -251,10 +122,10 @@ public class PhysicsMover extends Mover {
 				
 
 				// collide with bottom
-				if(rect.x + rect.getWidth() > hero.getX())	
-					if(rect.x < hero.getX() + hero.getWidth() - 1)
-						if(rect.y < hero.getY() + hero.getHeight())
-							if(rect.y > hero.getY())
+				if(rect.x + rect.getWidth() > gameThing.getX())	
+					if(rect.x < gameThing.getX() + gameThing.getWidth() - 1)
+						if(rect.y < gameThing.getY() + gameThing.getHeight())
+							if(rect.y > gameThing.getY())
 							{
 								speedYPerSecond = -1;								
 								return false;	

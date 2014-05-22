@@ -26,6 +26,7 @@ public class HeroRunner extends Hero {
 		
 
 	public HeroRunner(OrthographicCamera camera,TiledMapWrapper tiledMapWrapper) {
+		super(camera, tiledMapWrapper);
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 		

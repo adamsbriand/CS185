@@ -1,8 +1,10 @@
 package com.touchspin.td;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
 public abstract class Mover {
-	Hero hero;
+	GameThing gameThing;
 	float speedXPerSecond;
 	float speedYPerSecond;
-	public abstract void move(Hero hero);
+	public abstract void move(GameThing gameThing);
 }

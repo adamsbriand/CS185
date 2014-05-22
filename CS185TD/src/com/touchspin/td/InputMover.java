@@ -15,12 +15,12 @@ public class InputMover extends PhysicsMover {
 	}
 	
 	@Override
-	public void move(Hero hero) {
-		this.hero = hero;		
+	public void move(GameThing gameThing) {
+		this.gameThing = gameThing;		
 		
 		// Save the previous position
-		previousX = hero.getX();
-		previousY = hero.getY();
+		previousX = gameThing.getX();
+		previousY = gameThing.getY();
 		// Try to move
 		
 		inputMove();	
@@ -28,13 +28,13 @@ public class InputMover extends PhysicsMover {
 		// If movement is failed, set the position of the
 		// actor to previous position
 		
-		hero.setX(hero.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
+		gameThing.setX(gameThing.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
 		if(!isXFree())
-			hero.setX(previousX);
+			gameThing.setX(previousX);
 		
-		hero.setY(hero.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
+		gameThing.setY(gameThing.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
 		if(!isYFree())		
-			hero.setY(previousY);		
+			gameThing.setY(previousY);		
 		
 	}
 
@@ -44,13 +44,13 @@ public class InputMover extends PhysicsMover {
 		accelerationX = g.i().leAnonymizer.tiltSpeed.x;
 		g.i().leAnonymizer.tiltSpeed.x = 0;
 		
-		if(g.i().gameMode == 1)
+		if(g.i().gameMode == 'M')
 		{
 			accelerationY= g.i().leAnonymizer.tiltSpeed.y;
 			g.i().leAnonymizer.tiltSpeed.y = 0;
 		}
 		
-		else if (g.i().gameMode == 0) {
+		else if (g.i().gameMode == 'R') {
 			if (g.i().leAnonymizer.jump) {
 				speedYPerSecond = 500;
 				g.i().leAnonymizer.jump = false;
