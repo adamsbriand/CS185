@@ -22,7 +22,9 @@ public  class Hero extends GameThing {
 	private TextureRegion currentFrame;
 	private int frameCount = 0;
 	public Sprite heroSprite;
+	public Sprite fireEffect;
 	private float stateTime; 
+	public boolean fireOn;
 	//private float distancePerFrameX;
 	//private float distancePerFrameY;
 	//private int gravity = -10;	
@@ -53,6 +55,13 @@ public  class Hero extends GameThing {
         }
         fireAnimation = new Animation(0.025f, fireFrames); 
         stateTime = 0f;
+        fireOn = true;
+        currentFrame = fireAnimation.getKeyFrame(stateTime, true);	
+        
+		fireEffect = new Sprite(currentFrame);
+		fireEffect.setBounds(0, 32, 32 * camera.zoom, 32 *fireEffect.getHeight()/fireEffect.getWidth()* camera.zoom);
+		fireEffect.setOrigin(heroSprite.getWidth()/2, heroSprite.getHeight()/2);
+
 
 	}
 
@@ -68,12 +77,16 @@ public  class Hero extends GameThing {
 			heroSprite.setColor(Color.WHITE);
 		}
 		heroSprite.draw(batch);
-		drawFireEffect(batch);
+		if(fireOn)
+		{
+			drawFireEffect(batch);
+		}
 	}
 
 	private void drawFireEffect(Batch batch)
 	{
-		batch.draw(currentFrame,getX(),getY(),32f,currentFrame.getRegionHeight()*32/currentFrame.getRegionWidth());
+		//batch.draw(currentFrame,getX(),getY(),32f,currentFrame.getRegionHeight()*32/currentFrame.getRegionWidth());
+		fireEffect.draw(batch);
 	}
 	@Override
 	public void act(float delta) {
@@ -90,13 +103,16 @@ public  class Hero extends GameThing {
 		//position
 		heroSprite.setX(getX());
 		heroSprite.setY(getY());
+		fireEffect.setX(getX());
+		fireEffect.setY(getY());
 		
 		//Rotation
 		heroSprite.rotate(360*(heroMover.previousX - getX())/((float)Math.PI * heroSprite.getRegionHeight()));
 		
 		//Fire animation
 		stateTime += Gdx.graphics.getDeltaTime();
-		currentFrame = fireAnimation.getKeyFrame(stateTime, true);	
+		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
+		fireEffect.setRegion(currentFrame);
 		
 	}
 
