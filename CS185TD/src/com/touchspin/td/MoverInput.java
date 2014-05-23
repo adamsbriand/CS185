@@ -4,14 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class MoverInput extends MoverPhysics {
-	private Sprite mySprite;
+	
 	public MoverInput() {
 		super();
-	}
-
-	public void setSprite(Sprite leSprite)
-	{
-		mySprite = leSprite;
 	}
 	
 	@Override
