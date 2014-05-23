@@ -15,7 +15,7 @@ public class Maze extends GameObject {
 	Stage stage;
 	MainGame game;	
 
-	public Maze(MainGame game) 
+	public Maze(MainGame game, String mapPath) 
 	{
 		Gdx.gl.glClearColor(1, 0, 0, 1);     
 		float w = Gdx.graphics.getWidth();

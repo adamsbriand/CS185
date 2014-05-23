@@ -91,13 +91,13 @@ public class Trigger {
 	private void NewLevel(String Value){
 		if (Value=="Runner"){
 			g.i().gameMode = 'R';
-			game.setScreen(new Runner(game));
+			game.setScreen(new Runner(game, "maps/SideScrollerMap1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 		}
 		if (Value == "Maze"){
 				g.i().gameMode = 'M';
-				game.setScreen(new Maze(game));
+				game.setScreen(new Maze(game, "maps/Maze1.tmx"));
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();
 		}
