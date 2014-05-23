@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="8" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="DuploTop" tilewidth="32" tileheight="32">
+  <image source="../DuploTop.png" width="224" height="256"/>
+ </tileset>
+ <layer name="bg" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjZ2BgYIdicyBmRsLmSHIjAcP8zzTC/T+S4x8dD7SbRvEoHsWjmFYYAI6RD+w=
+  </data>
+ </layer>
+ <layer name="parallax sky 1" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxlYQDG5+sjVTwuA7iZi3EaMHlxqqIEp8Rc17CUkNlzxSPLrKMadBgbaDQPpdxAAABFjRAk=
+  </data>
+ </layer>
+ <layer name="parallax sky 2" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALigTkWTKpecuwkVT0xekhVRwwmVQ8l9pGqB93PpPhruOFR/zMwAACPKiat
+  </data>
+ </layer>
+ <layer name="parallax hills 1" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALigT4UDxegj4ZJUUurcKCG+cS4FZsadHW41BCrnlSzSLWPWL9jM4Na7hmKGAQAPsAXgQ==
+  </data>
+ </layer>
+ <layer name="parallax hills 2" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRgAx4sGBqmTmYATZ/UxIWlOqnNSDWv7TCpLiFWn5DBgCVLQM9
+  </data>
+ </layer>
+ <layer name="Tile Layer 6" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDBdgiIQHKzDEgykxj9aA2u6mhluIUYesHp8efP6jJqbU/sEKBrv7sAEANwoMEA==
+  </data>
+ </layer>
+ <layer name="water" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGHhAZwRgEAJHOBO0=
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="BGs" tilewidth="32" tileheight="32">
+  <image source="../BloxTop32_4x4.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="Decorations" tilewidth="32" tileheight="32">
+  <image source="../BloxTopDecorations32_4x7.png" width="256" height="128"/>
+ </tileset>
+ <layer name="bg" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlDsOhDAMBdN4mxUh9z/tNhTWk3/YCbASxUhA4jeGWOyttf3lFATMzt8Y6EKntVb1Z/Jm9LMBs84q08PsmVk5l//Sw+u/h374O3v2EbjCL3k9Mk5eX/VXudPfH+Cnor8rnP32nT3L+LJQsf5rEKkhJ2M16B/JnOHUDuXa8/PcYdwjkhPXNf9qtO9fycq6o35pT2QWtL3ots5oxcxb7mg9KVkVtzSbni/aj7Ym+bPvp/UTdaM/ut+atUiGdv5X/A+QH4iQMO4=
+  </data>
+ </layer>
+ <layer name="water" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0DsKACAMRMFU3v/IXsAPmCKoM7BleJAIAH7UBqvq7pbtZPvZVfZXf7mlP3Pa390CwKs6a04DMQ==
+  </data>
+ </layer>
+ <layer name="dark water" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztz0EKACAIRNGYhfc/cgQtZDAoiNr8B2KlGbUGAMAf+vx+zHg5f+yVapHOlGo7WXbfZ1V/W83zOCHLvq7ERg8AALirA6OSAM0=
+  </data>
+ </layer>
+ <layer name="grass" width="32" height="32" opacity="0.33">
+  <data encoding="base64" compression="zlib">
+   eJztzrEKACAIQEEd+v9fbmpxjbDiDh66aUZESpK+Lspce3Xy/o6OmwDAfUb3A4+b1QQBpw==
+  </data>
+ </layer>
+ <layer name="decorations" width="32" height="32" opacity="0.53">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFtAaaA+0AAkBoGNinQwMz6QWA6WPBQLsBGSDHDznhKo3EliJCDbFAkgw91AC48q8wlBaEYlKBFo54xxVmxABVCvSOguELJAbaAaNgFIyCUTAKRsEoGDQAAJHlA2k=
+  </data>
+ </layer>
+ <layer name="aboveHero" width="32" height="32" opacity="0.63">
+  <data encoding="base64" compression="zlib">
+   eJztlDEOgDAMA/OHFlgKbGWDL+cpfRquYAwCNaKTT/JSFLsYEZGLQ6TskDSCWc1Q6/yG7PyQH+Ab7mfhYR731+0lP185zQRHPxV0VO9JSBMRGozzEZo65CdoNs4XaHX4wrMk57/lAZ2WaOR79gXeR6NjH1asfYGudfzgi051cOZb4Dvr9IMvIYQQQgjpwwneyhSP
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="32" height="32">
+  <object name="exit" type="trigger" x="205" y="124" width="37" height="40">
+   <properties>
+    <property name="gotoLevel" value="2"/>
+   </properties>
+  </object>
+  <object name="enter" type="destination" x="45" y="937" width="37" height="40"/>
+  <object name="fire" type="trigger" x="640" y="352" width="24" height="25">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>

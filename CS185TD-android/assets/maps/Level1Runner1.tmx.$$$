@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="8" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="CS185BloxSide32_6x16" tilewidth="32" tileheight="32">
+  <image source="../CS185BloxSide32_6x16.png" width="512" height="192"/>
+ </tileset>
+ <tileset firstgid="97" name="CS185DecorationsSide32_3x5" tilewidth="32" tileheight="32">
+  <image source="../CS185DecorationsSide32_3x5.png" width="160" height="96"/>
+ </tileset>
+ <layer name="bg" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxzZWBgcEXCbkDsjiY2krAHEHsOAneM4lE8ikfxKB7FtMQAhK+KCw==
+  </data>
+ </layer>
+ <layer name="bg parallax 1" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFpAAXJEyOHlL04dJPrjmkmD2KR/EoHsWjeHhjAGPnaXU=
+  </data>
+ </layer>
+ <layer name="bg parallax 2" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUYAPOUDwYgDMDbdzjTENML3uQ7cPnDnq4YRSP4qGEATtRQr4=
+  </data>
+ </layer>
+ <layer name="bg parallax 3" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKRCZyQ8EgETlgwIXW49JJjFzHmEotx2Ueue0YCBgA53xrR
+  </data>
+ </layer>
+ <layer name="blocks" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJztlNkKwjAQRSdtX9q64Iovilj0xQVxQXH5/9/yDpngEBRqLRWhFw6TlmSSmduUqFat/1AHHMC+wj2NF6tUBvpgBnoCv+M+7MD5B2fy++FiUPI+nI99HoAFGAlH4QTmQlHFatz6Io+T60HkxU9zsLfscZesxzcwBEuy9V7BSpgU2KMhaLVBs0CusqR7lQlcO3u9Bhuy9V/I1j8FW3rWn4JEeKdU0OLvNyTbdyPnCCQaGYdqHMlz5K3T6/W6UM33/yEB5bs3d4njHHNZ7G0sJPTab6cHLuMIlQ==
+  </data>
+ </layer>
+ <layer name="block decorations1" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQwlkMTA0ZA20I+gEYH4F0SB+OhCnQfFIABlAnAjFGTQwPxuJnUMD86kF0NM7iJ8ExMlQTA7IxiI2WMIgHUrD0nkimjzI7yloYsS6HZu/sZmTRWVMKSAlnrGFBSF/0wuwQ/FgAQBZlxbJ
+  </data>
+ </layer>
+ <layer name="block decorations2" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQwmkMjA0DLQb6AVSB9oBo2AUjAIwQC93sPDxqh8FgxMAAC/HBF8=
+  </data>
+ </layer>
+ <layer name="collision" width="64" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BogEAkTE87kWl6gkAG2vo5G4mdQ6Qe9PCgVfgQMo/ScMlG0wtiExsG+NyEjSbVDELmYPM3sW6H+RuXmZSGAbmAmPgmJI/PD7j8jU0/PTADA373UALw2YkOAILDG4Q=
+  </data>
+ </layer>
+</map>

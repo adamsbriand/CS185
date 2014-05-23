@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="DuploTop" tilewidth="32" tileheight="32">
+  <image source="../DuploTop.png" width="224" height="256"/>
+  <tile id="0">
+   <properties>
+    <property name="red" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="orange" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="yellow" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="greenLight" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="greenDark" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="blueLight" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="blueDark" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="grass" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJx9lkkOxCAMBDn4HZzNA/j/12ZGClKl0pkDyoJpG7u91Bhjftf6rn29n7X1LO39zvT13de/Et7GPmUKmAvfZ5/yC//9vXDOtkztWf7Yv/DO7wJeYc/329hr/KNM/cHh2Sl8+rOEd9bBOueTL2gT70R5niudcewPhmPHe6zx9MXUqpHjSb4dnxG/xt2X5Jpjz/iTRyfe5jT9yrPnToxRSyZxlLppI3XXuHOQvmXsWzp5f3KK9yAX1nja5PjS7+TGDGeJ6xpBP/Z4+oE+K2GYb44JfUm99jtj2MJu4a5x5ynfzXXGgHab77SD+U8djBNzybrNV3P0LXdSTrQW/e+cds4zfs5PxzVx1fnkGuoaQt5Y5rw7JiU5rn/x5H1XwKI+1xfXa/cTxy/ZZvvYrxJ33Q/IOXKRNcK1kHXGdXBJ1ry0H9zv3EPsU9e+VENa+qcwXGPe5pHWk/jOQ+Y+7XHOeEbZOr+FYx+wbtPPjrXz1DMUv8lPzgS0M/Vp825LP+cyxyvVE9a4lKPcn8KugNGS9SxBXc5VYnk+8nzFukBfOL7mjvnK2CT/Jd+0ziUZ8tE66E/PfOSJZ763nmVOJYy3Ocw5Q+6ZM8kHibNv/dm9L804B9v9y++2xbnuuPA/91x7qMt9znOp+655nzjl+1M+5bXnLvYD85P3nDrnOuqa7/7lOkddng2sh/rT3OP8Mc88N9Enzh/nG+/m2tvCcw9j/rjH7qCHOGnu8ExGLMfxrZb85D4GZYWK
+  </data>
+ </layer>
+ <layer name="path" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztVtEKxCAM67Mgt32I4P9/3W3QgNzJLdGKLxcojFHbxNaq2X4cbrtwXvbamP9GvqwK/qVZk/x7FoX0q/bNteWBb0WP+VpGB8uzOA8WiYjd0/7kr+SPjKf0FOur7OcNpVYM0FssVuhS9yC6rqcbOzOZM5WM14X87Mxk47K1PTw3q1+pF9uHLJQ5mE3vrV9Qz0q0dnBg53rEHTYTe4V+Jf9K/Yw29b5WwMTGfR29D+q5Ut8NT8AZUBA9C0Z6O6of6mD+kTdkL8bMPmKG9vjjDV6szzOC/ycP5IO1uXLzb1b3KPA+XjlL/4jDGwKSDVY=
+  </data>
+ </layer>
+ <layer name="water" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzFVlsOhCAMhB/9VziL3v9ku006sUvW0vIIkzS6LDJ06IMjrEVazL8t5s9fu53fROe4hoP594ZvLby1PSXmtmoQi2cvEts1aD0Jyx6Jl84A+lu0HOU74Qx231v5tfl3eM6+tm58ee8B+W6N/Rh+NZC/tW80UOx5alC5Xq8OZe57/RnBn9ks8PLX/iffKf+SYS7WK62Vm7CFpwbPQi3/TrYVSMzd039q0Pyn/M9hTv23YGPuVfqj/1hrcAtq8Uf6l/7P2Mc/IP9W6Z+ZX8bfaN+19YifNHi7h88+B+LfeQ8za8Ab0P+hg/ceWhvTxiU/Ge6hZS3y9hjPmUm/cQ/dw1MXZwP8qIOIB+SEFpsjkJgLPJd4QoeZWqD/oQegF15ijObIe/JIfADD9Q0b
+  </data>
+ </layer>
+ <layer name="fire" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="32" height="32">
+  <object name="enter" type="destination" x="63" y="62"/>
+  <object x="207" y="688" width="1"/>
+  <object name="fire" type="trigger" x="208" y="688">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="exit" type="trigger" x="462" y="399">
+   <properties>
+    <property name="gotoLevel" value="2"/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="144" y="241">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="111" y="303">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="143" y="397">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="110" y="463">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="143" y="657">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="175" y="752">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="270" y="783">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="303" y="879">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="463" y="848">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="527" y="881">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="623" y="846">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="689" y="880">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="813" y="849">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="813" y="751">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="815" y="656">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="815" y="561">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="815" y="497">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="752" y="463">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="783" y="433">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="784" y="336">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="816" y="270">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="783" y="143">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="755" y="203">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="623" y="112">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="559" y="143">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="431" y="111">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="399" y="173">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="465" y="176">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="430" y="239">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="368" y="269">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="432" y="271">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="366" y="303">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="399" y="336">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="465" y="335">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="464" y="301">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="401" y="368">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="367" y="335">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="366" y="240">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="400" y="399">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="398" y="430">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="431" y="465">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="461" y="464">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="495" y="464">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="399" y="463">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="529" y="462">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="528" y="432">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="528" y="400">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="527" y="369">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="494" y="336">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+  <object name="fire" type="trigger" x="527" y="337">
+   <properties>
+    <property name="fireOn" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

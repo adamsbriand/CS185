@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="128" height="16" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="BloxDuploGlass" tilewidth="32" tileheight="32">
+  <image source="../img/BloxDuploGlass.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="3" name="BloxTopDuplo" tilewidth="32" tileheight="32">
+  <image source="../img/BloxTopDuplo.png" width="224" height="256"/>
+ </tileset>
+ <tileset firstgid="59" name="BloxSideSquare_Frame32x32_Sheet224x288_RC7x9" tilewidth="32" tileheight="32">
+  <image source="../img/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
+ </tileset>
+ <layer name="bg" width="128" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt1bEJACEMBdAs5gq6givc/s01BiwsrE4OX/GaQCDwE9Iiom2owzPJ2k4//5bZ90nuwOnZ+Db/EvK/jfu/m/9PXTg9EwAAAAAAay+PJnoa
+  </data>
+ </layer>
+ <layer name="parallax bg 1" width="128" height="16" opacity="0.24">
+  <data encoding="base64" compression="zlib">
+   eJzt0dEKABAQRUF/7fflVVIkNubUvN92U5IkSZL2lTv0dr2fj9wu4qbazL1Wt8/+6qTVou87ufFV0W/ZdnsPAAAAfyvTcRVM
+  </data>
+ </layer>
+ <layer name="parallax bg 2" width="128" height="16" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJztkVEKxCAMBT3eHsULFK+/XwuSahqtMS07A0MplublmRIAAAAAAAD8O6US7NSdzXQX3XkxGJkpam5v9t2+ntT1IZRZ5Hmt9+xWDi9aGeSuWhdFPC3u6FjDmnPE3fNmOvLK4e0oH8XfP7Wzo/P+Bq09jDjbQe8+V+64ck/EaPPFWb745u5s679zOmdqqe3ktUdkd70OLN/t8AkZrDk97gLf54o7/wKQqyvl
+  </data>
+ </layer>
+ <layer name="parallax bg 3" width="128" height="16" opacity="0.76">
+  <data encoding="base64" compression="zlib">
+   eJztkksOwCAIBb2ch+H+F+imC0tQUWxq7EzCRsPj8UkJAAAAAAAAAADgG/Id8E9O3P9p/bxJTmfdwI69RP2I0tB6umfPDCQ9dz+avyO1fr6m58eaffkmRWg93bNnBrnQm8mvaZaerH+NGG+ztPyvuIuIRiu3NXupRG9nvd5bulYNy2/Pu+eW9F3PEvUR0X/DX20/MzcwohmtEa3rZYUvz+5WaV0XjE49
+  </data>
+ </layer>
+ <layer name="blocks" width="128" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztmGsKhDAMhOsRPFb9tfYEvYP3h7VgYQg1ja9N1+aDUB+pSZ1BUecMwzB+w6jdwIrXbqBj7tDfQ5ydb+hwh/75Gmd90IL+Vz38r9ypf+bovfQw9hAt8YT+GemaW7snPfGk/plWvW9cf5aNTu4h84GR6MkHvazzDG/0wdvWY8gwzfWgzxFuG0d6XrJfqn2UaY1lG1tl0G6ggvSbOh68riS/VjNssccEo6Qe18MT79DU1+Da8ye33ljIn7dIhJ0cmjvDsZwfXF3TCBFgu9QL6o/1Etr/pjzpT7sXGh8mUMPSfmDy6RzMw3mRqY8+4epQ/bHeF6NpWoc=
+  </data>
+ </layer>
+ <layer name="decorations" width="128" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAgHcDIAAAAQ==
+  </data>
+ </layer>
+ <layer name="parallax fg 1" width="128" height="16" opacity="0.24">
+  <data encoding="base64" compression="zlib">
+   eJzt1EEKwCAMRFFv7fW7KoRSSijqDMl/4MaFZow6BgAAwFozjOdcNTFX1YxZMzkqccynqiHb/9XnpDp3p3vuVMvpmr7W35Xd4Z9Tvbe/TvZe3QfFns6936lz9qh7/lvX3AAAAMCbC4UuPzk=
+  </data>
+ </layer>
+ <layer name="parallax fg 2" width="128" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEKwCAMRFFv1m3PkPsfpFsJEmyp+Afng/vHxNacc865b8VuwAFRN47uuXUR943Bc/9H3Vb9/gpu8r7Zdu3lvErl75L3zTaar0rh79L37V1EX5WCPd+e5swukm0munu0L81Kdc127wZMRDfSfVUKdrqR7qtSsNONdF+Vgp1upPuqFOwrjQ+srR67
+  </data>
+ </layer>
+ <objectgroup name="objects" width="128" height="16">
+  <object name="mapExit1" type="exit" x="1088" y="480" width="32" height="32"/>
+  <object name="mapExit2" type="exit" x="3904" y="480" width="32" height="32"/>
+  <object name="fire1" type="fire" x="2304" y="480" width="1568" height="32"/>
+  <object name="fire2" type="fire" x="3968" y="480" width="128" height="32"/>
+  <object name="door2" type="door" x="3904" y="384" width="32" height="32"/>
+  <object name="entrance" type="destination" x="16" y="112"/>
+  <object name="glass1" type="mapModify" x="1088" y="416" width="32" height="32">
+   <properties>
+    <property name="actions" value="breakGlass,&quot;&quot;"/>
+    <property name="conditions" value="isBowlingBall,speedExceeds2"/>
+   </properties>
+  </object>
+  <object name="glass2" type="mapModify" x="1088" y="448" width="32" height="32">
+   <properties>
+    <property name="actions" value="breakGlass,&quot;&quot;"/>
+    <property name="conditions" value="isBowlingBall,speedExceeds2"/>
+   </properties>
+  </object>
+  <object name="transmorgifier1" type="transmorgifier" x="1153" y="95" width="192" height="160">
+   <properties>
+    <property name="actions" value="ballChangeTo,Bowling"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
