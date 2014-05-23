@@ -3,9 +3,9 @@ package com.touchspin.td;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-public class InputMover extends PhysicsMover {
+public class MoverInput extends MoverPhysics {
 	private Sprite mySprite;
-	public InputMover() {
+	public MoverInput() {
 		super();
 	}
 

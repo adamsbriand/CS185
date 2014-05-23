@@ -4,7 +4,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
 
-public class PhysicsMover extends Mover {
+public class MoverPhysics extends Mover {
 	float previousX;
 	float previousY;	
 	float gravityPerSecond = -20;	
@@ -14,7 +14,7 @@ public class PhysicsMover extends Mover {
 	RectangleMapObject temp;
 	Rectangle rect;
 	
-	public PhysicsMover() {		
+	public MoverPhysics() {		
 		speedXPerSecond = 0;
 		speedYPerSecond = 0;
 	}
