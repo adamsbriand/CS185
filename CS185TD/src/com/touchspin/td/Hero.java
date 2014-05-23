@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public  class Hero extends GameThing {
 	public OrthographicCamera camera;
-	public static InputMover heroMover = new InputMover();
+	public static MoverInput heroMover = new MoverInput();
 	
 	private Texture appearance;
 	private Texture fire;
