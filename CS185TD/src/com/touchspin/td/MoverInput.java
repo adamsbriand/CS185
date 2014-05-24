@@ -36,8 +36,6 @@ public class MoverInput extends MoverPhysics {
 			gameThing.setY(previousY);	
 			speedYPerSecond = 0;
 		}
-		else
-			gravityPerSecond = -9.8F;
 		
 	}
 

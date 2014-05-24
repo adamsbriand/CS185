@@ -126,7 +126,6 @@ public class MoverPhysics extends Mover {
 		{
 			if (gameThing.getY() < 0) // collide with bottom of map
 			{
-				gravityPerSecond = 0;
 				return false;
 			}
 			
@@ -153,9 +152,9 @@ public class MoverPhysics extends Mover {
 						if(circleCenter.dst(countX, rect.y + rect.height) < radius )
 						{
 							previousY = rect.y + rect.height;
-							gravityPerSecond = 0;
 							return false;					
 						}
+						
 					}								
 								
 				}//end of if object is a rectanlgeMapObject
