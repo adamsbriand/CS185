@@ -15,11 +15,11 @@ public class NP extends GameThing {
 	String name;
 	String type;
 	Mover npMover;
-	String conditional;
+	String conditions;
 	String action;
 	String anims;
 	Sprite npSprite;
-	Texture texture;
+	Texture spriteSheet;
 	boolean collidable;
 	public AnimationSet animationSet;
 	
@@ -28,9 +28,10 @@ public class NP extends GameThing {
 	private Map<String,Animation> animationMap = new HashMap<String,Animation>();
 	private int animRows;
 	private int animCols;
+	private int roamingRadius;
 	
 	public NP(int startX, int startY, int width, int height, String name, 
-			String type, String conditional, String action ,String anims, String spriteSheet,
+			String type, String conditions, String action ,String anims,int roamingRadius, String spriteSheet,
 			int animRows, int animCols, boolean collidable)
 	{
 		setX(startX);
@@ -39,12 +40,13 @@ public class NP extends GameThing {
 		setHeight(height);
 		this.name = name;
 		this.type = type;
-		this.conditional = conditional;
+		this.conditions = conditions;
 		this.action = action;
-		this.texture = new Texture(spriteSheet);
+		this.spriteSheet = new Texture(spriteSheet);
 		this.animRows = animRows;
 		this.animCols = animCols;
 		this.collidable = collidable;
+		this.roamingRadius = roamingRadius;
 		if(!collidable)
 			npMover = new MoverNull();
 		else if(collidable)
@@ -59,6 +61,7 @@ public class NP extends GameThing {
 		currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 		npSprite.setRegion(currentFrame);
 		
+		npSprite.setBounds(getX(), getY(), getWidth(), getHeight());	
 
 	}
 	
@@ -101,8 +104,8 @@ public class NP extends GameThing {
 	private void loadAnimation()
 	{
 
-		TextureRegion[][] tmp = TextureRegion.split(texture, texture.getWidth() / animRows,
-				texture.getHeight() / animCols);
+		TextureRegion[][] tmp = TextureRegion.split(spriteSheet, spriteSheet.getWidth() / animRows,
+				spriteSheet.getHeight() / animCols);
 		TextureRegion[] Frames = new TextureRegion[animRows * animCols];
 		int index = 0;
 		for (int i = 0; i < animRows; i++) {

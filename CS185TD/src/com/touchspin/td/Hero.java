@@ -132,6 +132,16 @@ public class Hero extends GameThing {
     {
     	heroMover.accelerationY = delta;
     }
+    
+    public float getYSpeed()
+    {
+    	return heroMover.speedYPerSecond;
+    }
+    
+    public float getXSpeed()
+    {
+    	return heroMover.speedXPerSecond;
+    }
 	
 	
 	
