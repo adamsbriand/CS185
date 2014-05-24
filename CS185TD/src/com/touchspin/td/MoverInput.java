@@ -1,7 +1,6 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class MoverInput extends MoverPhysics {
 	
@@ -10,7 +9,8 @@ public class MoverInput extends MoverPhysics {
 	}
 	
 	@Override
-	public void move(GameThing gameThing) {
+	public void move(GameThing gameThing) 
+	{
 		this.gameThing = gameThing;		
 		
 		// Save the previous position
@@ -25,11 +25,19 @@ public class MoverInput extends MoverPhysics {
 		
 		gameThing.setX(gameThing.getX()+Gdx.graphics.getDeltaTime()*speedXPerSecond);
 		if(!isXFree())
+		{
 			gameThing.setX(previousX);
+			speedXPerSecond = 0;
+		}
 		
 		gameThing.setY(gameThing.getY()+Gdx.graphics.getDeltaTime()*speedYPerSecond);
 		if(!isYFree())		
-			gameThing.setY(previousY);		
+		{
+			gameThing.setY(previousY);	
+			speedYPerSecond = 0;
+		}
+		else
+			gravityPerSecond = -9.8F;
 		
 	}
 

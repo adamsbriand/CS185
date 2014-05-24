@@ -16,11 +16,14 @@ public class TiledMapWrapper {
 	private TiledMapRenderer playerTiledMapRenderer;
 	private TiledMapRenderer foregroundTiledMapRenderer;
 	private int mapPixelWidth;
-	private int mapPixelHeight;
+	private int mapPixelHeight;/*
 	int[] forgroundLayers = {6,7};
 	int[] palyerLayers = {3,4,5,6};
-	int[] backgroundLayers = {0,1,2};
-
+	int[] backgroundLayers = {0,1,2};*/
+	int[] forgroundLayers = {};
+	int[] palyerLayers = {1, 2, 3};
+	int[] backgroundLayers = {0};
+	
 	float backgroundfactor = 0.5f;
 	float foregroundfactor = 1.5f;
 	

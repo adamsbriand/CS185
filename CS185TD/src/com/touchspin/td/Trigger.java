@@ -91,7 +91,7 @@ public class Trigger {
 	private void NewLevel(String Value){
 		if (Value=="Runner"){
 			g.i().gameMode = 'R';
-			game.setScreen(new Runner(game, "maps/Level1Runner1.tmx"));
+			game.setScreen(new Runner(game, "maps/SideScrollerMap1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 		}

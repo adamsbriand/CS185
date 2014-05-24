@@ -3,14 +3,18 @@ package com.touchspin.td;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 public class MoverPhysics extends Mover {
 	float previousX;
 	float previousY;	
-	float gravityPerSecond = -20;	
+	float gravityPerSecond = -9.8F;	
 	float accelerationY = 0;
 	float accelerationX = 0;	
-
+	float tileWidth;
+	float tileHeight;
+	Vector2 circleCenter;
+	float radius;
 	RectangleMapObject temp;
 	Rectangle rect;
 	
@@ -29,7 +33,8 @@ public class MoverPhysics extends Mover {
 		speedYPerSecond += accelerationY;
 		if (g.i().gameMode == 'R') 
 			speedYPerSecond += gravityPerSecond;
-		
+		radius = gameThing.getWidth()/2;
+		tileWidth = tileHeight = 32;
 	}
 	
 	/**
@@ -39,102 +44,163 @@ public class MoverPhysics extends Mover {
 	 */
 	protected boolean isXFree() 
 	{
-		//---Check if player has reached the right or left edge of the map		
-		if (gameThing.getX() + gameThing.getWidth() > gameThing.tiledMapWrapper
-				.getPixelWidth()) 
-		{			
-			speedXPerSecond = 0;
-			return false;			
-		}
-		if (gameThing.getX() < 0) 
-		{			
-			speedXPerSecond = 0;
-			return false;
-		}
-		
-		for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
+		if(speedXPerSecond < 0) // going to the left
 		{
-			if (object instanceof RectangleMapObject)
-			{
-				temp = (RectangleMapObject)object;
-				rect = temp.getRectangle();		
-				
-				// collision from the left
-				if(rect.x < gameThing.getX() + gameThing.getWidth())// 1				
-					if(gameThing.getX() < rect.x)//5
-						if(rect.y + rect.height < gameThing.getY() + gameThing.getHeight() + 1)//3
-							if(rect.y > gameThing.getY())//4
-							{
-								speedXPerSecond = 0;
-								return false;								
-							}
-				
-				// collision from the right
-				if(rect.x + rect.getWidth() > gameThing.getX())// 1b				
-					if(rect.x + rect.getWidth() < gameThing.getX() + gameThing.getWidth())//2b
-						if(rect.y + rect.height < gameThing.getY() + gameThing.getHeight() + 1)//3
-							if(rect.y > gameThing.getY())//4
-							{								
-								speedXPerSecond = 0;
-								return false;							
-							}
-			}
-		}
+			if (gameThing.getX() < 0) // collide with left edge of map
+				return false;
 			
+			//check object collision
+			circleCenter = new Vector2(gameThing.getX() + radius, gameThing.getY() + radius);
+			// iterate through objects
+			for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
+			{
+				if (object instanceof RectangleMapObject)
+				{
+					temp = (RectangleMapObject)object;
+					rect = temp.getRectangle();	
+								
+					//check if object is not to the left of the player
+					//or if the object is more than 1 tile away from the player
+					if(rect.x > (gameThing.getX() + gameThing.getWidth())||
+							gameThing.getX() - (rect.x + rect.width) > tileWidth)
+									continue;
+								
+					//iterate through y values of object
+					for(int countY = (int) rect.y; countY <(rect.y + rect.height); countY++)
+					{
+						//player collides with object
+						if(circleCenter.dst(rect.x + rect.width, countY) < radius )
+						{
+							previousX = rect.x + rect.width;
+							return false;		
+						}
+					}								
+								
+				}//end of if object is a rectanlgeMapObject
+			}// end of for object iterator	
+		}// end of going to the left check
+		
+		else if(speedXPerSecond > 0) // going to the right
+		{			
+			//collide with right edge of the map		
+			if (gameThing.getX() + gameThing.getWidth() > gameThing.tiledMapWrapper
+					.getPixelWidth()) 
+				return false;		
+			
+			// check object collision
+			circleCenter = new Vector2(gameThing.getX() + radius, gameThing.getY() + radius);
+			// iterate through objects
+			for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
+			{
+				if (object instanceof RectangleMapObject)
+				{
+					temp = (RectangleMapObject)object;
+					rect = temp.getRectangle();	
+					
+					//check if object is not to the right of the player
+					//or if the object is more than 1 tile away from the player
+					if(rect.x < gameThing.getX()||
+							rect.x - (gameThing.getX() + gameThing.getWidth()) > tileWidth)
+						continue;
+					
+					//iterate through y values of object
+					for(int countY = (int) rect.y; countY <(rect.y + rect.height); countY++)
+					{
+						//player collides with object
+						if(circleCenter.dst(rect.x, countY) < radius)
+						{
+							previousX = rect.x - gameThing.getWidth();
+							return false;	
+						}
+					}								
+					
+				}//end of if object is a rectanlgeMapObject
+			}// end of for object iterator			
+		}// end of going to the right check			
 		return true;
 	}// end of isXFree()
 
 	protected boolean isYFree() 
 	{
-		//---Check if player has reached the top or bottom of the map		
-		if (gameThing.getY() + gameThing.getHeight() > gameThing.tiledMapWrapper
-				.getPixelHeight()) 
+		if(speedYPerSecond < 0) // going down
 		{
-			speedYPerSecond = 0;
-			return false;			
-		}
-		if (gameThing.getY() < 0) 
-		{
-			speedYPerSecond = 0;
-			gravityPerSecond = 0;
-			return false;
-		}
-		
-		for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
-		{
-			if (object instanceof RectangleMapObject)
+			if (gameThing.getY() < 0) // collide with bottom of map
 			{
-				temp = (RectangleMapObject)object;
-				rect = temp.getRectangle();	
-				
-				if(rect.y + rect.height > gameThing.getY() &&
-						rect.y + rect.height < gameThing.getY() + gameThing.getHeight())
+				gravityPerSecond = 0;
+				return false;
+			}
+			
+			//check object collision
+			circleCenter = new Vector2(gameThing.getX() + radius, gameThing.getY() + radius);
+			// iterate through objects
+			for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
+			{
+				if (object instanceof RectangleMapObject)
 				{
-					if((rect.x + rect.width > gameThing.getX() && rect.x < gameThing.getX()) ||
-						(rect.x + rect.width >gameThing.getX() + gameThing.getWidth() && 
-						rect.x < gameThing.getX() + gameThing.getWidth()))
+					temp = (RectangleMapObject)object;
+					rect = temp.getRectangle();	
+								
+					//check if object is not to the bottom of the player
+					//or if the object is more than 1 tile away from the player
+					if(rect.y > gameThing.getY()||
+							gameThing.getY() - (rect.y + rect.height) > tileHeight)
+									continue;
+								
+					//iterate through x values of object
+					for(int countX = (int) rect.x; countX <(rect.x + rect.width); countX++)
 					{
-						gravityPerSecond = 0;
-						speedYPerSecond = 0;
-						return false;
-					}
-				}	
-				
-
-				// collide with bottom
-				if(rect.x + rect.getWidth() > gameThing.getX())	
-					if(rect.x < gameThing.getX() + gameThing.getWidth() - 1)
-						if(rect.y < gameThing.getY() + gameThing.getHeight())
-							if(rect.y > gameThing.getY())
-							{
-								speedYPerSecond = -1;								
-								return false;	
-							}
-			}}
-				
-		gravityPerSecond = -20;
-		return true;			
+						//player collides with object
+						if(circleCenter.dst(countX, rect.y + rect.height) < radius )
+						{
+							previousY = rect.y + rect.height;
+							gravityPerSecond = 0;
+							return false;					
+						}
+					}								
+								
+				}//end of if object is a rectanlgeMapObject
+			}// end of for object iterator				
+		}// end of going down check
 		
+		else if(speedYPerSecond > 0) // going up
+		{			
+			//collide with top of the map		
+			if (gameThing.getY() + gameThing.getHeight() > gameThing.tiledMapWrapper
+					.getPixelHeight()) 
+				return false;		
+			
+			// check object collision
+			circleCenter = new Vector2(gameThing.getX() + radius, gameThing.getY() + radius);
+			// iterate through objects
+			for(MapObject object : gameThing.tiledMapWrapper.collisionObjects) 
+			{
+				if (object instanceof RectangleMapObject)
+				{
+					temp = (RectangleMapObject)object;
+					rect = temp.getRectangle();	
+					
+					//check if object is not above the player
+					//or if the object is more than 1 tile away from the player
+					if(rect.y < gameThing.getY()||
+							rect.y - (gameThing.getY() + gameThing.getHeight()) > tileHeight)
+						continue;
+					
+					//iterate through y values of object
+					for(int countX = (int) rect.x; countX <(rect.x + rect.width); countX++)
+					{
+						//player collides with object
+						if(circleCenter.dst(countX, rect.y) < radius)
+						{
+							
+							previousY = rect.y - gameThing.getHeight();
+							return false;					
+						}
+					}								
+					
+				}//end of if object is a rectanlgeMapObject
+			}// end of for object iterator			
+		}// end of going up		
+		return true;
 	}//end of isYFree()	
 	
 }// end of PhysicsMover
