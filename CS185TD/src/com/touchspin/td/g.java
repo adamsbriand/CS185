@@ -23,6 +23,7 @@ public class g {
 	public int playerWeight; // The weight of the player for physics
 	public int playerFriction; // The friction of the player for physics
 	public boolean fire;	// Hero is on fire
+	public String currentBallType;
 	
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated

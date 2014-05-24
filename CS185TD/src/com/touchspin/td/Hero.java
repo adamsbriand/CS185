@@ -11,22 +11,20 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Hero extends GameThing {
 	public OrthographicCamera camera;
 	public static MoverInput heroMover = new MoverInput();
 
 	private Map<String,TextureRegion> ballTypeMap = new HashMap<String, TextureRegion>();
-	private Texture appearance;
 	private Animation fireAnimation;
 	private TextureRegion currentFrame;
+	private float stateTime;
+	
 	private int frameCount = 0;
 	public Sprite heroSprite;
 	public Sprite fireEffect;
-	private float stateTime;
-	public boolean fireOn;
+
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -52,7 +50,7 @@ public class Hero extends GameThing {
 		// read in file animation
 		loadFireAnimation();
 		stateTime = 0f;
-		fireOn = true;
+		g.i().fire = true;
 		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
 
 		fireEffect = new Sprite(currentFrame);
@@ -73,7 +71,7 @@ public class Hero extends GameThing {
 			heroSprite.setColor(Color.WHITE);
 		}
 		heroSprite.draw(batch);
-		if (fireOn) {
+		if (g.i().fire) {
 			drawFireEffect(batch);
 		}
 	}
@@ -119,6 +117,7 @@ public class Hero extends GameThing {
 	public void changeBall(String type)
 	{
 		heroSprite.setRegion(ballTypeMap.get(type));
+		g.i().currentBallType = type;
 	}
 	
 	private void loadBallType()
