@@ -120,6 +120,23 @@ public class Hero extends GameThing {
 		g.i().currentBallType = type;
 	}
 	
+	public void igniteBall(boolean fireOn)
+	{
+		g.i().fire = fireOn;
+	}
+	
+    public void changeBalldx(float delta)
+    {
+    	heroMover.accelerationX = delta;
+    }
+    public void changeBalldy(float delta)
+    {
+    	heroMover.accelerationY = delta;
+    }
+	
+	
+	
+	//--------------Private helper method------------------------------------------
 	private void loadBallType()
 	{
 		Texture appearance = new Texture("data/Balls.png");
