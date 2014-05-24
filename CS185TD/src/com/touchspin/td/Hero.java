@@ -1,5 +1,8 @@
 package com.touchspin.td;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -15,10 +18,9 @@ public class Hero extends GameThing {
 	public OrthographicCamera camera;
 	public static MoverInput heroMover = new MoverInput();
 
+	private Map<String,TextureRegion> ballTypeMap = new HashMap<String, TextureRegion>();
 	private Texture appearance;
-	private Texture fire;
 	private Animation fireAnimation;
-	private TextureRegion[] fireFrames;
 	private TextureRegion currentFrame;
 	private int frameCount = 0;
 	public Sprite heroSprite;
@@ -34,31 +36,21 @@ public class Hero extends GameThing {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 
-		appearance = new Texture(
-				Gdx.files.internal("data/Ball100BallBearingBrass.png"));
-		heroSprite = new Sprite(appearance);
+		heroSprite = new Sprite();
 		heroSprite.setBounds(0, 32, 32 * camera.zoom, 32 * camera.zoom);
 		heroSprite.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
+		
+		loadBallType();
+		changeBall("Baseball");
+		
 		setHeight(heroSprite.getHeight() * camera.zoom);
 		setWidth(heroSprite.getWidth() * camera.zoom);
 		setX(10);
 		setY(100);
 
 		// read in file animation
-		fire = new Texture(
-				Gdx.files
-						.internal("data/Fireball_Frame100x240_Sheet_1200x960_RC12x4_Frames48.png"));
-		TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth() / 12,
-				fire.getHeight() / 4);
-		fireFrames = new TextureRegion[12 * 4];
-		int index = 0;
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 12; j++) {
-				fireFrames[index++] = tmp[i][j];
-			}
-		}
-		fireAnimation = new Animation(0.025f, fireFrames);
+		loadFireAnimation();
 		stateTime = 0f;
 		fireOn = true;
 		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
@@ -124,6 +116,47 @@ public class Hero extends GameThing {
 		frameCount = 15;
 	}
 
+	public void changeBall(String type)
+	{
+		heroSprite.setRegion(ballTypeMap.get(type));
+	}
+	
+	private void loadBallType()
+	{
+		Texture appearance = new Texture("data/Balls.png");
+		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 3,
+				appearance.getHeight() / 4);
+		
+		ballTypeMap.put("Baseball", tmp[0][0]);
+		ballTypeMap.put("Basketball", tmp[0][1]);
+		ballTypeMap.put("Beachball", tmp[0][2]);
+		ballTypeMap.put("BearingSteel", tmp[1][0]);
+		ballTypeMap.put("Bowling", tmp[1][1]);
+		ballTypeMap.put("Golfball", tmp[1][2]);
+		ballTypeMap.put("Marble", tmp[2][0]);
+		ballTypeMap.put("PingPong", tmp[2][1]);
+		ballTypeMap.put("Poolball", tmp[2][2]);
+		ballTypeMap.put("Soccerball", tmp[3][0]);
+		ballTypeMap.put("Tennisball", tmp[3][1]);
+		ballTypeMap.put("Blackball", tmp[3][2]);
+	}
+	
+	private void loadFireAnimation()
+	{
+		Texture fire = new Texture(
+				Gdx.files
+						.internal("data/Fireball_Frame100x240_Sheet_1200x960_RC12x4_Frames48.png"));
+		TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth() / 12,
+				fire.getHeight() / 4);
+		TextureRegion[] fireFrames = new TextureRegion[12 * 4];
+		int index = 0;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 12; j++) {
+				fireFrames[index++] = tmp[i][j];
+			}
+		}
+		fireAnimation = new Animation(0.025f, fireFrames);
+	}
 	private void setFireRotation() {
 
 		if (heroMover.speedXPerSecond == 0) {
