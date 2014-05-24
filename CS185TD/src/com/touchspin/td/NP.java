@@ -1,7 +1,9 @@
 package com.touchspin.td;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class NP extends GameThing {
 
@@ -11,9 +13,13 @@ public class NP extends GameThing {
 	String conditional;
 	String action;
 	Sprite npSprite;
+	boolean collidable;
+	
+	private Animation fireAnimation;
+	private TextureRegion currentFrame;
 	
 	public NP(int startX, int startY, int width, int height, String name, 
-			String type, String conditional, String action , Sprite npSprite)
+			String type, String conditional, String action , Sprite npSprite, boolean collidable)
 	{
 		setX(startX);
 		setY(startY);
@@ -23,16 +29,29 @@ public class NP extends GameThing {
 		this.type = type;
 		this.conditional = conditional;
 		this.action = action;
-		
-		if(type == "exampleNPC")
-			npMover = new MoverPhysics();
-		else if(type == "exampleNPO")
-			npMover = new MoverAI();
-		
 		this.npSprite = npSprite;
+		this.collidable = collidable;
 		
+		if(!collidable)
+			npMover = new MoverNull();
+		else if(collidable)
+			if(type == "exampleNPC")
+			npMover = new MoverAI();
+			else if(type == "exampleNPO")
+				npMover = new MoverPhysics();
+
 	}
 	
+	
+	public void setCollidable(boolean collidable)
+	{
+		this.collidable = false;
+	}
+	
+	public void setAnimation(String animationName)
+	{
+		
+	}
 	@Override
 	public void draw(Batch batch, float alpha)
 	{
