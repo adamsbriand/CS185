@@ -47,8 +47,10 @@ public class Runner extends GameObject {
 
 	@Override
 	public void draw() {
-		tiledMapWrapper.renderMap();
+		tiledMapWrapper.renderBackground();
+		tiledMapWrapper.renderPlayerlayer();
 		stage.draw();
+		tiledMapWrapper.renderForeground();
 	}
 
 	@Override

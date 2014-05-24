@@ -47,13 +47,11 @@ public class NP extends GameThing {
 		this.animCols = animCols;
 		this.collidable = collidable;
 		this.roamingRadius = roamingRadius;
-		if(!collidable)
-			npMover = new MoverNull();
-		else if(collidable)
-			if(type == "exampleNPC")
+		
+		if(type == "npcEnemy")
 			npMover = new MoverAI();
-			else if(type == "exampleNPO")
-				npMover = new MoverPhysics();
+		else if(type == "npo")
+			npMover = new MoverPhysics();
 		loadAnimation();
 		setAnimation(animationSet.get(0).name);
 		

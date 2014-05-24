@@ -97,8 +97,22 @@ public class TiledMapWrapper {
 		}
 		else
 			foregroundTiledMapRenderer.render();
-	}		
+	}	
 	
+	public void renderBackground()
+	{
+		backgroundTiledMapRenderer.render(backgroundLayers);
+	}
+	
+	public void renderPlayerlayer()
+	{
+		playerTiledMapRenderer.render(palyerLayers);
+	}
+	
+	public void renderForeground()
+	{
+		foregroundTiledMapRenderer.render(forgroundLayers);
+	}
 	/**
 	 * Mainly called by Maze class
 	 * @param camera
