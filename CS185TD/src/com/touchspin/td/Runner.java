@@ -10,31 +10,18 @@ public class Runner extends GameObject {
 	Stage stage;
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
-	
+	private OrthographicCamera foregroudCamera;
+
 	public Runner(MainGame game, String mapPath) {
-		
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
+
 		this.game = game;
-		
+
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
-		
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
-				tiledMapWrapper.getPixelHeight());
-		camera.update();
-		
-		backGroundCamera = new OrthographicCamera();
-		backGroundCamera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
-				tiledMapWrapper.getPixelHeight());
-		backGroundCamera.update();
-		
+		setUpCamera();
 		stage = new Stage();
-		
-		//anonymizer = game.anonymizer;
-		
+
+		// anonymizer = game.anonymizer;
 		hero = new Hero(camera, tiledMapWrapper);
-				
 		stage.addActor(hero);
 	}
 
@@ -51,22 +38,11 @@ public class Runner extends GameObject {
 		stage.act();
 		camera.update();
 		backGroundCamera.update();
-		
-		cameraTranslate(hero.getX() - tempX,  hero.getY() - tempY);
-		// render the map from 1 pixel before the left of the camera to 1 pixel
-		// after
-		// the right of the map.
-		//render the foreground base one the position of foreground camera
-		tiledMapWrapper.setForegroundView(camera.combined,
-				camera.position.x - camera.viewportWidth - 1, -1,
-				camera.viewportWidth * 2 + 2, camera.viewportHeight+2);
-		//render the background base one the position of background camera
-		setBackGroundCameraView();
-		tiledMapWrapper.setBackGroundView(backGroundCamera.combined,
-				backGroundCamera.position.x - backGroundCamera.viewportWidth - 1, -1,
-				backGroundCamera.viewportWidth * 2 + 2, backGroundCamera.viewportHeight+2);
-		
-		
+		foregroudCamera.update();
+
+		cameraTranslate(hero.getX() - tempX, hero.getY() - tempY);
+		setView();
+
 	}
 
 	@Override
@@ -74,7 +50,6 @@ public class Runner extends GameObject {
 		tiledMapWrapper.renderMap();
 		stage.draw();
 	}
-
 
 	@Override
 	public void resize(int width, int height) {
@@ -108,9 +83,10 @@ public class Runner extends GameObject {
 	public void dispose() {
 
 	}
-	
+
 	/**
 	 * Damian: Camera doesnt follow the user if the user rolls backwards
+	 * 
 	 * @param x
 	 * @param y
 	 */
@@ -121,13 +97,64 @@ public class Runner extends GameObject {
 			camera.translate(x, 0);
 		if (hero.getY() >= camera.viewportHeight / 2
 				&& hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
-				.getPixelHeight())
+						.getPixelHeight())
 			camera.translate(0, y);
 	}
-	
-	private void setBackGroundCameraView()
+
+	private void setBackGroundCameraView() {
+		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor
+				* (camera.position.x - camera.viewportWidth / 2)
+				+ backGroundCamera.viewportWidth / 2;
+		backGroundCamera.position.y = tiledMapWrapper.backgroundfactor
+				* (camera.position.y - camera.viewportHeight / 2)
+				+ backGroundCamera.viewportHeight / 2;
+	}
+
+	private void setForegroundCameraView() {
+		foregroudCamera.position.x = tiledMapWrapper.foregroundfactor
+				* (camera.position.x - camera.viewportWidth / 2)
+				+ foregroudCamera.viewportWidth / 2;
+		foregroudCamera.position.y = tiledMapWrapper.foregroundfactor
+				* (camera.position.y - camera.viewportHeight / 2)
+				+ foregroudCamera.viewportHeight / 2;
+	}
+
+	private void setUpCamera()
+
 	{
-		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor*(camera.position.x-camera.viewportWidth/2)+backGroundCamera.viewportWidth/2;
-		backGroundCamera.position.y = tiledMapWrapper.backgroundfactor*(camera.position.y-camera.viewportHeight/2)+backGroundCamera.viewportHeight/2;
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
+
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
+				tiledMapWrapper.getPixelHeight());
+		camera.update();
+
+		backGroundCamera = new OrthographicCamera();
+		backGroundCamera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight()
+				/ h, tiledMapWrapper.getPixelHeight());
+		backGroundCamera.update();
+
+		foregroudCamera = new OrthographicCamera();
+		foregroudCamera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight()
+				/ h, tiledMapWrapper.getPixelHeight());
+		foregroudCamera.update();
+	}
+
+	private void setView() {
+		tiledMapWrapper.setPlayerLayerView(camera.combined, camera.position.x
+				- camera.viewportWidth - 1, -1, camera.viewportWidth * 2 + 2,
+				camera.viewportHeight + 2);
+		// render the background base one the position of background camera
+		setBackGroundCameraView();
+		tiledMapWrapper.setBackGroundView(backGroundCamera.combined,
+				backGroundCamera.position.x - backGroundCamera.viewportWidth
+						- 1, -1, backGroundCamera.viewportWidth * 2 + 2,
+				backGroundCamera.viewportHeight + 2);
+		setForegroundCameraView();
+		tiledMapWrapper.setForegroundView(foregroudCamera.combined,
+				foregroudCamera.position.x - foregroudCamera.viewportWidth
+						- 1, -1, foregroudCamera.viewportWidth * 2 + 2,
+						foregroudCamera.viewportHeight + 2);
 	}
 }

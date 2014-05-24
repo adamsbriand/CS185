@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="128" height="16" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="BloxDuploGlass" tilewidth="32" tileheight="32">
-  <image source="../img/BloxDuploGlass.png" width="64" height="32"/>
+  <image source="mapTileSet/BloxDuploGlass.png" width="64" height="32"/>
  </tileset>
  <tileset firstgid="3" name="BloxTopDuplo" tilewidth="32" tileheight="32">
-  <image source="../img/BloxTopDuplo.png" width="224" height="256"/>
+  <image source="mapTileSet/BloxTopDuplo.png" width="224" height="256"/>
  </tileset>
  <tileset firstgid="59" name="BloxSideSquare_Frame32x32_Sheet224x288_RC7x9" tilewidth="32" tileheight="32">
-  <image source="../img/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
+  <image source="mapTileSet/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
  </tileset>
  <layer name="bg" width="128" height="16">
   <data encoding="base64" compression="zlib">
