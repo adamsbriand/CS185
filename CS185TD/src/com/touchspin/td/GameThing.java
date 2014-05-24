@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public abstract class GameThing extends Actor {
 	public TiledMapWrapper tiledMapWrapper;
-	public AnimationSet animationSet;
+	protected float stateTime;
 	
 	public void changeLocation(GameThing dest)
 	{

@@ -19,7 +19,6 @@ public class Hero extends GameThing {
 	private Map<String,TextureRegion> ballTypeMap = new HashMap<String, TextureRegion>();
 	private Animation fireAnimation;
 	private TextureRegion currentFrame;
-	private float stateTime;
 	
 	private int frameCount = 0;
 	public Sprite heroSprite;

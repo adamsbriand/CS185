@@ -28,6 +28,17 @@ public class AnimationSet {
 		return null;
     }
     
+    public int getIndexOf(String name)
+    {
+    	for(int i = 0 ; i < anims.size() ; i ++)
+    	{
+    		if(anims.get(i).name == name)
+    			return i;
+    	}
+    	
+    	return -1;
+    }
+    
     public int start(String animName)
     {
         AnimationDescription anim = find(animName);
@@ -44,8 +55,25 @@ public class AnimationSet {
     
     public AnimationDescription next()
     {
-
+    	iCurrAnim = getIndexOf(anims.get(iCurrAnim).nextAnim);
         return find(anims.get(iCurrAnim).nextAnim);
+    }
+    
+    public int getSize()
+    {
+
+        return anims.size();
+    }
+    
+    public  AnimationDescription get(int index)
+    {
+
+        return anims.get(index);
+    }
+    
+    public AnimationDescription getCurrentAnimationDescription()
+    {
+    	return anims.get(iCurrAnim);
     }
 
 }
