@@ -13,6 +13,7 @@ public class MoverPhysics extends Mover {
 	float accelerationX = 0;	
 	float tileWidth;
 	float tileHeight;
+	float fractionAcceleration = 0.5F;;
 	Vector2 circleCenter;
 	float radius;
 	RectangleMapObject temp;
@@ -31,6 +32,22 @@ public class MoverPhysics extends Mover {
 	protected void physicsMove() {
 		speedXPerSecond += accelerationX;
 		speedYPerSecond += accelerationY;
+		if(speedXPerSecond > 0)
+		{
+			speedXPerSecond -= fractionAcceleration;
+		}else if(speedXPerSecond < 0)
+		{
+			speedXPerSecond += fractionAcceleration;
+		}
+		
+		if(speedYPerSecond > 0)
+		{
+			speedYPerSecond -= fractionAcceleration;
+		}else if(speedYPerSecond < 0)
+		{
+			speedYPerSecond += fractionAcceleration;
+		}
+		
 		if (g.i().gameMode == 'R') 
 			speedYPerSecond += gravityPerSecond;
 		radius = gameThing.getWidth()/2;

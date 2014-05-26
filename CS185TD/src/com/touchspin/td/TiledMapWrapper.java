@@ -1,13 +1,17 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 
 public class TiledMapWrapper {
 
@@ -28,7 +32,7 @@ public class TiledMapWrapper {
 	float backgroundfactor = 0.5f;
 	float foregroundfactor = 1.5f;
 	
-	MapObjects collisionObjects;	
+	MapObjects collisionObjects;		
 	MapObjects playerStartPoint;
 
 	
@@ -53,6 +57,7 @@ public class TiledMapWrapper {
 
         mapPixelWidth = mapWidth * tilePixelWidth;
         mapPixelHeight = mapHeight * tilePixelHeight;
+ 
 	}
 	
 	public int getPixelWidth()
@@ -162,19 +167,38 @@ public class TiledMapWrapper {
 	
 	private void getObjects() 
 	{
-	    try
-	    {
+		TiledMapTileLayer temp;
+		RectangleMapObject tempObj = new RectangleMapObject();
+		collisionObjects = new MapObjects();
+		float tileWidth;
+		float tileHeight;
+//	    try
+//	    {
 	    	//Get Collision objects
 	    	if(tiledMap.getLayers().get("Collision") != null)
 	    	collisionObjects = tiledMap.getLayers().get("Collision").getObjects();
-	    	if(tiledMap.getLayers().get("objects") != null)
-	    	collisionObjects = tiledMap.getLayers().get("objects").getObjects();
 
 	    	// get player start point
 	    	if(g.i().gameMode == 'M')				
 	    		playerStartPoint = tiledMap.getLayers().get("Start").getObjects();
+	    	
+	    	if(tiledMap.getLayers().get("blocks") != null)
+	    	{
+	    		temp = (TiledMapTileLayer)tiledMap.getLayers().get("blocks");
+	    		tileWidth = temp.getTileWidth();
+	    		tileHeight = temp.getTileHeight();
+	    		for(int i = 0; i < temp.getWidth(); i ++)
+	    			for(int j = 0; j < temp.getHeight(); j ++)
+	    			{
+	    				if(temp.getCell(i, j) != null)
+	    				{
+	    					tempObj = new RectangleMapObject( i * tileWidth, j * tileHeight , tileWidth, tileHeight);
+	    					collisionObjects.add(tempObj);
+	    				}
+	    			}
+	    	}
 	    }
-	    catch(NullPointerException e)
-	    {}
-	}    	
+//	    catch(NullPointerException e)
+//	    {}
+//	}    	
 }

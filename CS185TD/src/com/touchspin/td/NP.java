@@ -88,7 +88,7 @@ public class NP extends GameThing {
 	@Override
 	public void act(float delta)
 	{
-		npMover.move(this);
+		//npMover.move(this);
 		npSprite.setX(getX());
 		npSprite.setY(getY());
 		
