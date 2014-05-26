@@ -2,6 +2,10 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Runner extends GameObject {
@@ -18,8 +22,8 @@ public class Runner extends GameObject {
 
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
 		setUpCamera();
+		loadNPs();
 		stage = new Stage();
-
 		// anonymizer = game.anonymizer;
 		hero = new Hero(camera, tiledMapWrapper);
 		stage.addActor(hero);
@@ -155,8 +159,106 @@ public class Runner extends GameObject {
 				backGroundCamera.viewportHeight + 2);
 		setForegroundCameraView();
 		tiledMapWrapper.setForegroundView(foregroudCamera.combined,
-				foregroudCamera.position.x - foregroudCamera.viewportWidth
-						- 1, -1, foregroudCamera.viewportWidth * 2 + 2,
-						foregroudCamera.viewportHeight + 2);
+				foregroudCamera.position.x - foregroudCamera.viewportWidth - 1,
+				-1, foregroudCamera.viewportWidth * 2 + 2,
+				foregroudCamera.viewportHeight + 2);
+	}
+
+	private void loadNPs() {
+		NP temp;
+		int startX = 0;
+		int startY = 0;
+		int width = 0;
+		int height = 0;
+		String name = "";
+		String type = "";
+		String conditions = "";
+		String action = "";
+		String anims = "";
+		int roamingRadius = 0;
+		String spriteSheet = "";
+		int animRows = 0;
+		int animCols = 0;
+		boolean collidable = false;
+		MapProperties tempProperties;
+
+		for (MapObject object : tiledMapWrapper.npObjects) {
+			tempProperties = object.getProperties();
+
+			if (tempProperties.get("x") != null) {
+				startX = MathUtils.round((float)tempProperties.get("x"));
+			}
+
+			if (tempProperties.get("y") != null) {
+				startY = MathUtils.round((float)tempProperties.get("y"));
+			}
+
+			width = 32;
+			height = 32;
+			
+			if (tempProperties.get("name") != null) {
+				name = (String) tempProperties.get("name");
+			}
+			
+			if (tempProperties.get("type") != null) {
+				type = (String) tempProperties.get("type");
+			}
+			
+			if (tempProperties.get("conditions") != null) {
+				conditions = (String) tempProperties.get("conditions");
+			}
+			
+			if (tempProperties.get("actions") != null) {
+				action = (String) tempProperties.get("actions");
+			}
+			
+			if (tempProperties.get("anims") != null) {
+				anims = (String) tempProperties.get("anims");
+			}
+			
+			if(tempProperties.get("roamingRadius") != null)
+			{
+				roamingRadius = Integer.parseInt((String) tempProperties.get("roamingRadius"));
+			}
+			
+			if(tempProperties.get("spriteSheet") != null)
+			{
+				spriteSheet = (String)tempProperties.get("spriteSheet");
+			}
+			
+			if(tempProperties.get("collidable") != null)
+			{
+				collidable = Boolean.parseBoolean((String)tempProperties.get("collidable"));
+			}
+			
+			if(spriteSheet == "transmorgifier.png")
+			{
+				animRows = 5;
+				animCols = 5;
+			}
+			else if (spriteSheet == "GlassBreak.png")
+			{
+				animRows = 5;
+				animCols = 5;
+			}
+			else if(spriteSheet == "LightSwitch.png")
+			{
+				animRows = 4;
+				animCols = 5;
+			}
+			else if (spriteSheet == "FlameWall")
+			{
+				animRows = 12;
+				animCols = 4;
+			}
+			else if (spriteSheet == "doorOpen.png")
+			{
+				animRows = 6;
+				animCols = 4;
+			}
+			
+			if(spriteSheet != "")
+			spriteSheet = "data/"+ spriteSheet;
+		}
 	}
 }

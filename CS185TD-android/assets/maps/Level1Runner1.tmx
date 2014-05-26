@@ -74,13 +74,13 @@
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
-    <property name="roamingRadius" value="rect"/>
+    <property name="roamingRadius" value="0"/>
    </properties>
   </object>
   <object name="lava1" type="npo" x="2304" y="480" width="1568" height="32">
    <properties>
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
-    <property name="animations" value="burn,0,49,burn"/>
+    <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value="rect"/>

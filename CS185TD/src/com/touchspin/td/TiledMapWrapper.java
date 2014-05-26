@@ -32,7 +32,8 @@ public class TiledMapWrapper {
 	float backgroundfactor = 0.5f;
 	float foregroundfactor = 1.5f;
 	
-	MapObjects collisionObjects;		
+	MapObjects collisionObjects;
+	MapObjects npObjects;	
 	MapObjects playerStartPoint;
 
 	
@@ -196,6 +197,11 @@ public class TiledMapWrapper {
 	    					collisionObjects.add(tempObj);
 	    				}
 	    			}
+	    	}
+	    	
+	    	if(tiledMap.getLayers().get("objects") != null )
+	    	{
+	    		npObjects = tiledMap.getLayers().get("objects").getObjects();
 	    	}
 	    }
 //	    catch(NullPointerException e)
