@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 
 public class NP extends GameThing {
 
@@ -20,6 +22,8 @@ public class NP extends GameThing {
 	String anims;
 	Sprite npSprite;
 	Texture spriteSheet;
+	Vector2 originalPosition;
+	Vector2 destination;
 	boolean collidable;
 	public AnimationSet animationSet;
 	
@@ -28,12 +32,13 @@ public class NP extends GameThing {
 	private Map<String,Animation> animationMap = new HashMap<String,Animation>();
 	private int animRows;
 	private int animCols;
-	private int roamingRadius;
+	public int roamingRadius;
 	
 	public NP(int startX, int startY, int width, int height, String name, 
 			String type, String conditions, String action ,String anims,int roamingRadius, String spriteSheet,
 			int animRows, int animCols, boolean collidable)
 	{
+		originalPosition = new Vector2(startX,startY);
 		setX(startX);
 		setY(startY);
 		setWidth(width);
@@ -143,5 +148,12 @@ public class NP extends GameThing {
 			temp =  new Animation(0.025f, tempRegion);
 			animationMap.put(animationSet.get(i).name, temp);
 		}
+	}
+	
+	public void chooseDestination()
+	{
+		destination.set(MathUtils.random(0,roamingRadius), MathUtils.random(0,roamingRadius));
+		if(originalPosition.dst(destination) > roamingRadius)
+			chooseDestination();
 	}
 }
