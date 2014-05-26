@@ -177,6 +177,7 @@ public class Runner extends GameObject {
 		String anims = "";
 		int roamingRadius = 0;
 		String spriteSheet = "";
+		String collisionParameter = "";
 		int animRows = 0;
 		int animCols = 0;
 		boolean collidable = false;
@@ -212,8 +213,8 @@ public class Runner extends GameObject {
 				action = (String) tempProperties.get("actions");
 			}
 			
-			if (tempProperties.get("anims") != null) {
-				anims = (String) tempProperties.get("anims");
+			if (tempProperties.get("animations") != null) {
+				anims = (String) tempProperties.get("animations");
 			}
 			
 			if(tempProperties.get("roamingRadius") != null)
@@ -231,34 +232,60 @@ public class Runner extends GameObject {
 				collidable = Boolean.parseBoolean((String)tempProperties.get("collidable"));
 			}
 			
-			if(spriteSheet == "transmorgifier.png")
+			if(tempProperties.get("collisionParams") != null)
+			{
+				collisionParameter = (String)tempProperties.get("collisionParams");
+			}
+			
+			if(spriteSheet.equalsIgnoreCase("transmorgifier.png"))
 			{
 				animRows = 5;
 				animCols = 5;
 			}
-			else if (spriteSheet == "GlassBreak.png")
+			else if (spriteSheet.equalsIgnoreCase("GlassBreak.png"))
 			{
 				animRows = 5;
 				animCols = 5;
 			}
-			else if(spriteSheet == "LightSwitch.png")
+			else if(spriteSheet.equalsIgnoreCase("LightSwitch.png"))
 			{
 				animRows = 4;
 				animCols = 5;
 			}
-			else if (spriteSheet == "FlameWall")
+			else if (spriteSheet.equalsIgnoreCase("FlameWall.png"))
 			{
 				animRows = 12;
 				animCols = 4;
 			}
-			else if (spriteSheet == "doorOpen.png")
+			else if (spriteSheet.equalsIgnoreCase("doorOpen.png"))
 			{
 				animRows = 6;
 				animCols = 4;
 			}
 			
-			if(spriteSheet != "")
+			if(!spriteSheet.equalsIgnoreCase(""))
 			spriteSheet = "data/"+ spriteSheet;
+			
+			temp = new NP(startX,startY, width, height, name,
+			type, conditions, action, anims,
+			roamingRadius, spriteSheet, animRows, animCols,
+			collidable, collisionParameter);
+			
+			startX = 0;
+			startY = 0;
+			width = 0;
+			height = 0;
+			name = "";
+			type = "";
+			conditions = "";
+			action = "";
+			anims = "";
+			roamingRadius = 0;
+			spriteSheet = "";
+			collisionParameter = "";
+			animRows = 0;
+			animCols = 0;
+			collidable = false;
 		}
 	}
 }

@@ -87,7 +87,7 @@
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="FlameWall"/>
+    <property name="spriteSheet" value="FlameWall.png"/>
    </properties>
   </object>
   <object name="lava2" type="npo" x="3968" y="480" width="128" height="32">
@@ -119,7 +119,7 @@
   <object name="glassBlock1" type="npo" x="1056" y="384" width="96" height="96">
    <properties>
     <property name="actions" value="changeMyAnim,break,playSound,sndGlassBreak"/>
-    <property name="anims" value="idle,0,0,idle,break,1,7,broken,broken,8,8,broken"/>
+    <property name="animations" value="idle,0,0,idle,break,1,7,broken,broken,8,8,broken"/>
     <property name="collidable" value="true"/>
     <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
@@ -132,7 +132,7 @@
   <object name="transmorgifier1" type="npo" x="1184" y="96" width="160" height="160">
    <properties>
     <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,bowling"/>
-    <property name="anims" value="idle,0,0,idle,transmorgify,1,11,idle"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,11,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="48,24,192,192"/>
     <property name="collisionShape" value="rect"/>
@@ -145,7 +145,7 @@
   <object name="glassBlock2" type="npo" x="1055" y="419" width="96" height="96">
    <properties>
     <property name="actions" value="changeMyAnim,break,playSound,sndGlassBreak"/>
-    <property name="anims" value="idle,0,0,idle,break,1,7,broken,broken,8,8,broken"/>
+    <property name="animations" value="idle,0,0,idle,break,1,7,broken,broken,8,8,broken"/>
     <property name="collidable" value="true"/>
     <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
