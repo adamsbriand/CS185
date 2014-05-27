@@ -194,8 +194,15 @@ public class Runner extends GameObject {
 				startY = MathUtils.round((float)tempProperties.get("y"));
 			}
 
+			if(object instanceof RectangleMapObject )
+			{
+				width = (int) ((RectangleMapObject)object).getRectangle().width;
+				height = (int) ((RectangleMapObject)object).getRectangle().height;
+			}
+				else{
 			width = 32;
 			height = 32;
+			}
 			
 			if (tempProperties.get("name") != null) {
 				name = (String) tempProperties.get("name");
