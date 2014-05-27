@@ -57,6 +57,10 @@ public class g {
 	InputAnonymizer leAnonymizer;
 	public char gameMode;	// M=Maze
 							// R=Runner
+	
+	// Sound
+	public Sounds snd = new Sounds();
+	
 	Trigger t;
 	
 	// Controls
