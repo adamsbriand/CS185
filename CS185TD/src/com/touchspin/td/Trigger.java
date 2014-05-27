@@ -9,10 +9,13 @@ package com.touchspin.td;
 public class Trigger {
 	MainGame game;
 	
+	
+	// constructor
 	public Trigger(MainGame game){
 		this.game = game;
 	}
 	   
+	// Public Actions
 	public void action(String ChangeType, String ChangeValue) {
 		TriggerActions(ChangeType, ChangeValue);
 	}
@@ -36,6 +39,8 @@ public class Trigger {
 		}
 	}
 	
+	
+	// public Conditions
 	public boolean condition(String conditionString){
 		if (conditionString == null || conditionString == "") {
 			return true;
@@ -63,109 +68,142 @@ public class Trigger {
 		return true;
 	}
    
+	// Change others
+	public void changeOthersAnim(GameThing other, String animName){
+		
+	}
+	
+    public void changeMyAnim(String animName){
+    	// changes animation of object collided with
+    }
+    
+    public void changeMyCollidable(boolean nuCollidable){
+    	// changes collidability of object collided with
+    }
+    
+    public void changeOthersCollidable(boolean nuCollidable){ // changes collidability of other object
+    	
+    }
+    
 	private void TriggerActions(String type, String value) {
 		switch (type){
-		case "NewLevel":
-			NewLevel(value);
-			break;
-		case "menu":
-			menu(value);
-			break;
-		case "changeMyAnim":
-			changeMyAnim(value);
-		case "playSound":
-			playSound(value);
-		case "changeLogic":
-			changeLogic(value);
-		case "changeMusic":
-			changeMusic(value);
-		case "setTarget":
-			setTarget(value);
-		case "changeMap":
-			NewLevel(value);
-		case "changeLocation":
-			changeLocation(value);
-		case "changeBalldY":
-			changeBalldY(value);
-		case "playSoundLoop":
-			playSoundLoop(value);
-		case "changeOthersAnim":
-			changeOthersAnim(value);
-		case "changeOthersCollidable":
-			changeOthersCollidable(value);
-		case "toggleLight":
-			toggleLight(value);
-		case "igniteBall":
-			igniteBall(value);
-		default:
+			case "NewLevel":
+				NewLevel(value);
+				break;
+			case "menu":
+				menu(value);
+				break;
+			case "changeMyAnim":
+				changeMyAnimation(value);
+			case "playSound":
+				playSound(value);
+			case "changeLogic":
+				changeLogic(value);
+			case "changeMusic":
+				changeMusic(value);
+			case "setTarget":
+				setTarget(value);
+			case "changeMap":
+				NewLevel(value);
+			case "changeLocation":
+				changeLocation(value);
+			case "changeBalldY":
+				changeBalldY(value);
+			case "playSoundLoop":
+				playSoundLoop(value);
+			case "changeOthersAnim":
+				changeOthersAnim(value);
+			case "changeOthersCollidable":
+				changeOthersCollidable(value);
+			case "toggleLight":
+				toggleLight(value);
+			case "igniteBall":
+				igniteBall(value);
+			default:
 		}
 	}
 	
 	private void igniteBall(String value) {
-		// true
-		// false
+		if (value=="true"){
+			g.i().fire = true;
+		} else {
+			g.i().fire = false;
+		}
 		
 	}
 
 	private void toggleLight(String value) {
-		// lightSourceGlobal
+		switch (value){
+			case "lightSourceGlobal":
 		
+		}
 	}
 
 	private void changeOthersCollidable(String value) {
 		String[] Values = value.split("-");
 		// door1,false
-		
 	}
 
 	private void changeOthersAnim(String value) {
 		String[] Values = value.split("-");
 		// fan1,on"
 		// door1,open
-		
 	}
 
 	private void playSoundLoop(String value) {
 		// sndFanOn
 		// sndFire
-		
 	}
 
 	private void changeBalldY(String value) {
 		// -10
-		
+		int change = Integer.parseInt(value);
 	}
 
 	private void changeLocation(String value) {
 		// dest1
 		// enter1
-		
 	}
 
 	private void setTarget(String value) {
-		// hero
-		
+		switch (value){
+		case "hero":
+			
+		}
 	}
 
 	private void changeMusic(String value) {
-		// dragon
-		
+		switch (value){
+			case "dragon":
+			
+		}
 	}
 
 	private void changeLogic(String value) {
-		// startAttack
-		
+		switch (value){
+		case "startAttack":
+			
+		}
 	}
 
 	private void playSound(String value) {
-		// sndGlassBreak
-		// sndLightSwitch
-		// sndDoorOpen
-		// sndSlideWhistleDown
+		switch (value){
+		case "sndGlassBreak":
+			
+		case "sndLightSwitch":
+			
+		case "sndDoorOpen":
+			
+		case "sndSlideWhistleDown":
+			
+		}
 	}
 
-	private void changeMyAnim(String value) {
-		// break
+	private void changeMyAnimation(String value) {
+		switch (value){
+		case "break":
+			
+		}
 	}
 
 	private boolean TriggerConditions(String type, String value2){
@@ -250,10 +288,10 @@ public class Trigger {
 	}
 	
 	private boolean ballFlammable(String value){
-		if (value=="true" && g.i().fire){
-			return true;
+		if (value=="true"){
+			return g.i().fire;
 		} else {
-			return false;
+			return !(g.i().fire);
 		}
 	}
 	
