@@ -65,7 +65,6 @@ public class NP extends GameThing {
 			this.animRows = animRows;
 			this.animCols = animCols;
 			loadAnimation();
-			setAnimation(animationSet.get(0).name);
 
 			stateTime = 0;
 			currentFrame = currentAnimation.getKeyFrame(stateTime, true);
@@ -93,6 +92,7 @@ public class NP extends GameThing {
 
 	@Override
 	public void draw(Batch batch, float alpha) {
+		if(!spriteSheet.equalsIgnoreCase(""))
 		npSprite.draw(batch);
 	}
 
@@ -102,7 +102,7 @@ public class NP extends GameThing {
 		npSprite.setX(getX());
 		npSprite.setY(getY());
 
-		if (spriteSheet!= "") {
+		if (!spriteSheet.equalsIgnoreCase("")) {
 			// animation
 			stateTime += Gdx.graphics.getDeltaTime();
 			currentFrame = currentAnimation.getKeyFrame(stateTime, true);
@@ -155,6 +155,8 @@ public class NP extends GameThing {
 			}
 			temp = new Animation(0.025f, tempRegion);
 			animationMap.put(animationSet.get(i).name, temp);
+			if(i == 0)
+				currentAnimation = new Animation(0.025f, tempRegion);
 		}
 	}
 

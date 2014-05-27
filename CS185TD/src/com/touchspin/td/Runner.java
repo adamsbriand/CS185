@@ -22,11 +22,11 @@ public class Runner extends GameObject {
 
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
 		setUpCamera();
-		loadNPs();
 		stage = new Stage();
 		// anonymizer = game.anonymizer;
 		hero = new Hero(camera, tiledMapWrapper);
 		stage.addActor(hero);
+		loadNPs();
 	}
 
 	@Override
@@ -286,6 +286,8 @@ public class Runner extends GameObject {
 			animRows = 0;
 			animCols = 0;
 			collidable = false;
+			
+			stage.addActor(temp);
 		}
 	}
 }
