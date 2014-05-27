@@ -76,7 +76,7 @@ public class ScreenMenu implements Screen {
         
         textButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
-            	g.i().t.action("NewLevel,Runner");
+            	g.i().t.action("NewLevel,Level1Run1");
             }
         });
         
@@ -86,7 +86,7 @@ public class ScreenMenu implements Screen {
         
         textButton2.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("NewLevel,Maze");
+        		g.i().t.action("NewLevel,Level1Maze1");
         	}
         });
     }

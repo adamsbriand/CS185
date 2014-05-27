@@ -1,5 +1,7 @@
 package com.touchspin.td;
 
+import java.util.Random;
+
 /* This class handles any triggers that the user may encounter when colliding with hidden
  * tiles.  This trigger requires the input of two string values, or one comma delimited
  * string.  The first value will indicate the action to be taken.  The second value will 
@@ -25,7 +27,7 @@ public class Trigger {
 			return;
 		}
 		String[] Values = actionString.split(",");
-		for (int i = 0; i < Values.length; i += 2){
+		for (int i = 0; i < Values.length; i +=2){
 			TriggerActions(Values[i], Values[i+1]);
 		}
 	}
@@ -34,7 +36,7 @@ public class Trigger {
 		if (actionArray==null || actionArray[0]==""){
 			return;
 		}
-		for (int i = 0; i < actionArray.length; i += 2){
+		for (int i = 0; i < actionArray.length; i +=2 ){
 			TriggerActions(actionArray[i], actionArray[i+1]);
 		}
 	}
@@ -46,7 +48,7 @@ public class Trigger {
 			return true;
 		}
 		String[] Values = conditionString.split(",");
-		for (int i = 0; i < Values.length; i += 2){
+		for (int i = 0; i < Values.length; i +=2){
 			boolean status = TriggerConditions(Values[i], Values[i+1]);
 			if (!status){
 				return false;
@@ -59,7 +61,7 @@ public class Trigger {
 		if (condistionArray == null || condistionArray[0] == "") {
 			return true;
 		}
-		for (int i = 0; i < condistionArray.length; i += 2){
+		for (int i = 0; i < condistionArray.length; i +=2){
 			boolean status = TriggerConditions(condistionArray[i], condistionArray[i+1]);
 			if (!status){
 				return false;
@@ -92,6 +94,7 @@ public class Trigger {
 				break;
 			case "menu":
 				menu(value);
+				int t = 5;
 				break;
 			case "changeMyAnim":
 				changeMyAnimation(value);
@@ -189,13 +192,19 @@ public class Trigger {
 	private void playSound(String value) {
 		switch (value){
 		case "sndGlassBreak":
-			
+			Random random = new Random();
+			int ran = random.nextInt(2) + 1;
+			if (ran == 1){
+				g.i().sound.sndGlassBreak1.play();
+			} else {
+				g.i().sound.sndGlassBreak2.play();
+			}
 		case "sndLightSwitch":
-			
+			g.i().sound.sndLightSwitch.play();
 		case "sndDoorOpen":
 			
 		case "sndSlideWhistleDown":
-			
+			g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
 		}
 	}
 
@@ -254,29 +263,19 @@ public class Trigger {
 		switch (value){
 		case "Main":
 			game.setScreen(new ScreenMenu(game));
+			int t = 7;
 			break;
 		}
 	}
 
 	private void NewLevel(String Value){
 		switch (Value){
-		case "Runner":
-			g.i().gameMode = 'R';
-			game.setScreen(new Runner(game, "maps/Level1Runner1.tmx"));
-			g.i().leAnonymizer.click = false;
-			g.i().leAnonymizer.resetAll();
-			break;
-		case "Maze":
-			g.i().gameMode = 'M';
-			game.setScreen(new Maze(game, "maps/Maze1.tmx"));
-			g.i().leAnonymizer.click = false;
-			g.i().leAnonymizer.resetAll();
-			break;
 		case "Level1Run1":
 			g.i().gameMode = 'R';
 			game.setScreen(new Runner(game, "maps/Level1Runner1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
+			g.i().sound.sndg1Loopable.play();
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';

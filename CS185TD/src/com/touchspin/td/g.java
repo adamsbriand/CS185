@@ -55,6 +55,7 @@ public class g {
 	public float accelY;	// Support for accelerometer Y axis. This is for the Horizontal axes.
 	public float accelZ;	// Support for accelerometer Z axis. 
 	InputAnonymizer leAnonymizer;
+	Sounds sound;
 	public char gameMode;	// M=Maze
 							// R=Runner
 	
@@ -102,7 +103,7 @@ public class g {
 	
 	public void SetDefaults(MainGame game){
 		// Set defaults after the game loads
-		switch (Gdx.app.getType()) { // Get platform
+		switch (Gdx.app.getType()) { // Other platforms: WebGl iOS Applet
 			case Android:
 				g.i().SetControls('A');
 				break;
@@ -121,6 +122,7 @@ public class g {
 		
 		timeStartGame = System.currentTimeMillis();
 		t = new Trigger(game);
+		sound = new Sounds();
 	}
    
 	public void StartNewLevel(){

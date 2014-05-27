@@ -22,22 +22,12 @@ public class ScreenSplash extends GameObject{
 	{
 		batch = new SpriteBatch();
 		game = mainGame;
-		font = new BitmapFont();
-        font.setScale(3);
-        font.setColor(Color.WHITE);
-        message = "Click to start the game";
-        setMessage(message);
+        setSplash();
 	}
 	
-	public void setMessage(String message)
+	public void setSplash()
 	{
-        int w = Gdx.graphics.getWidth();
-        int h = Gdx.graphics.getHeight();
-		this.message = message;
 		texture = new Texture(Gdx.files.internal("data/splash.png"));
-		TextBounds tb = font.getBounds(message);
-        x = w/2 - texture.getWidth()/2;
-        y = h/2 + texture.getHeight()/2;
 	}
 	
 	@Override
