@@ -83,7 +83,7 @@ public class Trigger {
 	private void menu(String value) {
 		switch (value){
 		case "Main":
-			game.setScreen(new Menu(game));
+			game.setScreen(new ScreenMenu(game));
 			break;
 		}
 	}

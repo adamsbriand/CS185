@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
 
-public class MessageScreen extends GameObject{
+public class ScreenSplash extends GameObject{
 	BitmapFont font;
 	String message;
 	Texture texture;
@@ -18,7 +18,7 @@ public class MessageScreen extends GameObject{
 	float y;
 	MainGame game;
 	
-	public MessageScreen( MainGame mainGame)
+	public ScreenSplash( MainGame mainGame)
 	{
 		batch = new SpriteBatch();
 		game = mainGame;

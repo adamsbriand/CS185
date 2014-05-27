@@ -21,18 +21,18 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider.SliderStyle;
  
-public class Menu implements Screen {
+public class ScreenMenu implements Screen {
     Skin skin;
     Stage stage;
     SpriteBatch batch;
     MainGame game;
     
-    public Menu (MainGame MainGame){
+    public ScreenMenu (MainGame MainGame){
         create();
         this.game=MainGame;
     }
  
-    public Menu(){
+    public ScreenMenu(){
         create();
     }
     

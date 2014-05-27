@@ -17,7 +17,7 @@ public class MainGame extends Game {
 		
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);
-		setScreen(new MessageScreen(this));
+		setScreen(new ScreenSplash(this));
 
 	}
 
