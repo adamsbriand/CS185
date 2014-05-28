@@ -19,10 +19,6 @@ public class Trigger {
 	}
 
 	// Public Actions
-	public void action(String ChangeType, String ChangeValue) {
-		TriggerActions(ChangeType, ChangeValue);
-	}
-
 	public void action(String actionString){
 		if (actionString==null || actionString==""){
 			return;
@@ -97,30 +93,43 @@ public class Trigger {
 				break;
 			case "changeMyAnim":
 				changeMyAnimation(value);
+				break;
 			case "playSound":
 				playSound(value);
+				break;
 			case "changeLogic":
 				changeLogic(value);
+				break;
 			case "changeMusic":
 				changeMusic(value);
+				break;
 			case "setTarget":
 				setTarget(value);
+				break;
 			case "changeMap":
 				NewLevel(value);
+				break;
 			case "changeLocation":
 				changeLocation(value);
+				break;
 			case "changeBalldY":
 				changeBalldY(value);
+				break;
 			case "playSoundLoop":
 				playSoundLoop(value);
+				break;
 			case "changeOthersAnim":
 				changeOthersAnim(value);
+				break;
 			case "changeOthersCollidable":
 				changeOthersCollidable(value);
+				break;
 			case "toggleLight":
 				toggleLight(value);
+				break;
 			case "igniteBall":
 				igniteBall(value);
+				break;
 			default:
 		}
 	}
@@ -137,6 +146,7 @@ public class Trigger {
 		switch (value){
 			case "lightSourceGlobal":
 
+				break;
 		}
 	}
 
@@ -156,8 +166,10 @@ public class Trigger {
 			switch (value){
 				case "sndFanOn":
 					g.i().sound.sndWindBlowing.loop(g.i().sfxLevel);
+					break;
 				case "sndFire":
 					g.i().sound.sndCampFire.loop(g.i().sfxLevel);
+					break;
 			}
 		}
 	}
@@ -174,8 +186,9 @@ public class Trigger {
 
 	private void setTarget(String value) {
 		switch (value){
-		case "hero":
-
+			case "hero":
+				
+				break;
 		}
 	}
 
@@ -186,15 +199,16 @@ public class Trigger {
 			g.i().sound.sndgScaryLoopable.stop();
 			switch (value){
 				case "dragon":
-				g.i().sound.sndgScaryIntro.setVolume(g.i().musicLevel);
-				g.i().sound.sndgScaryIntro.play();
-				g.i().sound.sndgScaryIntro.setOnCompletionListener(
-						new Music.OnCompletionListener(){
-					public void onCompletion(Music music) {
-						g.i().sound.sndgScaryLoopable.setVolume(g.i().musicLevel);
-						g.i().sound.sndgScaryLoopable.play();
-						g.i().sound.sndgScaryLoopable.setLooping(true);
-					}});
+					g.i().sound.sndgScaryIntro.setVolume(g.i().musicLevel);
+					g.i().sound.sndgScaryIntro.play();
+					g.i().sound.sndgScaryIntro.setOnCompletionListener(
+							new Music.OnCompletionListener(){
+						public void onCompletion(Music music) {
+							g.i().sound.sndgScaryLoopable.setVolume(g.i().musicLevel);
+							g.i().sound.sndgScaryLoopable.play();
+							g.i().sound.sndgScaryLoopable.setLooping(true);
+						}});
+					break;
 				default:
 					g.i().sound.sndg1Loopable.setVolume(g.i().musicLevel);
 					g.i().sound.sndg1Loopable.play();
@@ -207,6 +221,7 @@ public class Trigger {
 		switch (value){
 		case "startAttack":
 
+			break;
 		}
 	}
 
@@ -221,12 +236,16 @@ public class Trigger {
 				} else {
 					g.i().sound.sndGlassBreak2.play(g.i().sfxLevel);
 				}
+				break;
 			case "sndLightSwitch":
 				g.i().sound.sndLightSwitch.play(g.i().sfxLevel);
+				break;
 			case "sndDoorOpen":
 	
+				break;
 			case "sndSlideWhistleDown":
 				g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
+				break;
 			}
 		}
 	}
@@ -235,6 +254,7 @@ public class Trigger {
 		switch (value){
 		case "break":
 
+			break;
 		}
 	}
 
@@ -297,8 +317,6 @@ public class Trigger {
 			game.setScreen(new Runner(game, "map/Level1Runner1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
-			g.i().sound.sndg1Loopable.play();
-			g.i().sound.sndg1Loopable.setLooping(true);
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';
