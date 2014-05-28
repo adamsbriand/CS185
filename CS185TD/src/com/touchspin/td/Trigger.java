@@ -337,7 +337,7 @@ public class Trigger {
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';
-			game.setScreen(new Maze(game, "map/Maze1.tmx"));
+			game.setScreen(new Runner(game, "map/Level1Maze1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 			break;

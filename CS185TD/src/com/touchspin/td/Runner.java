@@ -1,5 +1,7 @@
 package com.touchspin.td;
 
+import java.util.Stack;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
@@ -41,8 +43,11 @@ public class Runner extends GameObject {
 		float tempY = hero.getY();
 		stage.act();
 		camera.update();
-		backGroundCamera.update();
-		foregroudCamera.update();
+		if(g.i().gameMode == 'R')
+		{
+			backGroundCamera.update();
+			foregroudCamera.update();
+		}
 
 		cameraTranslate(hero.getX() - tempX, hero.getY() - tempY);
 		setView();
@@ -51,10 +56,19 @@ public class Runner extends GameObject {
 
 	@Override
 	public void draw() {
+		if(g.i().gameMode == 'R')
+		{
 		tiledMapWrapper.renderBackground();
 		tiledMapWrapper.renderPlayerlayer();
 		stage.draw();
 		tiledMapWrapper.renderForeground();
+		}
+		else
+		{
+			tiledMapWrapper.renderMap();
+			stage.draw();
+		}
+			
 	}
 
 	@Override
@@ -128,9 +142,11 @@ public class Runner extends GameObject {
 	private void setUpCamera()
 
 	{
+
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
-
+		
+		if(g.i().gameMode == 'R'){
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
 				tiledMapWrapper.getPixelHeight());
@@ -145,12 +161,22 @@ public class Runner extends GameObject {
 		foregroudCamera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight()
 				/ h, tiledMapWrapper.getPixelHeight());
 		foregroudCamera.update();
+		}
+		else
+		{
+			camera = new OrthographicCamera();
+			camera.setToOrtho(false, w , h);
+			camera.update();
+		}
 	}
 
 	private void setView() {
+
+		
+		if(g.i().gameMode == 'R'){
 		tiledMapWrapper.setPlayerLayerView(camera.combined, camera.position.x
-				- camera.viewportWidth - 1, -1, camera.viewportWidth * 2 + 2,
-				camera.viewportHeight + 2);
+					- camera.viewportWidth - 1, -1, camera.viewportWidth * 2 + 2,
+					camera.viewportHeight + 2);
 		// render the background base one the position of background camera
 		setBackGroundCameraView();
 		tiledMapWrapper.setBackGroundView(backGroundCamera.combined,
@@ -162,10 +188,19 @@ public class Runner extends GameObject {
 				foregroudCamera.position.x - foregroudCamera.viewportWidth - 1,
 				-1, foregroudCamera.viewportWidth * 2 + 2,
 				foregroudCamera.viewportHeight + 2);
+		}
+		else
+		{
+			tiledMapWrapper.setPlayerLayerView(camera.combined, camera.position.x
+					- camera.viewportWidth - 5, camera.position.y
+					- camera.viewportHeight - 5, camera.viewportWidth * 2 + 10,
+					camera.viewportHeight *2  + 10);
+		}
 	}
 
 	private void loadNPs() {
 		NP temp;
+		Stack<NP> tempLightOnOff = new Stack<NP>();
 		int startX = 0;
 		int startY = 0;
 		int width = 0;
@@ -259,8 +294,8 @@ public class Runner extends GameObject {
 			}
 			else if(spriteSheet.equalsIgnoreCase("LightSwitch.png"))
 			{
-				animRows = 4;
-				animCols = 5;
+				animRows = 1;
+				animCols = 2;
 			}
 			else if (spriteSheet.equalsIgnoreCase("FlameWall.png"))
 			{
@@ -272,6 +307,21 @@ public class Runner extends GameObject {
 				animRows = 6;
 				animCols = 4;
 			}
+			else if (spriteSheet.equalsIgnoreCase("TransmorgifierTop.png"))
+			{
+				animRows = 5;
+				animCols = 5;
+			}
+			else if (spriteSheet.equalsIgnoreCase("Fan.png"))
+			{
+				animRows = 3;
+				animCols = 4;
+			}
+			else if (spriteSheet.equalsIgnoreCase("LightOnOff.png"))
+			{
+				animRows = 1;
+				animCols = 2;
+			}
 			
 			if(!spriteSheet.equalsIgnoreCase(""))
 			spriteSheet = "img/spritesheet/"+ spriteSheet;
@@ -280,6 +330,18 @@ public class Runner extends GameObject {
 			type, conditions, action, anims,
 			roamingRadius, spriteSheet, animRows, animCols,
 			collidable, collisionParameter);
+			
+			
+			if(!spriteSheet.equalsIgnoreCase("img/spritesheet/LightOnOff.png"))
+			{
+				g.i().mapObjects.add(temp);
+				stage.addActor(g.i().mapObjects.get(count));
+				count++;
+			}
+			else
+			{
+				tempLightOnOff.push(temp);
+			}
 			
 			startX = 0;
 			startY = 0;
@@ -296,10 +358,14 @@ public class Runner extends GameObject {
 			animRows = 0;
 			animCols = 0;
 			collidable = false;
-			
-			g.i().mapObjects.add(temp);
+		}
+
+		while(!tempLightOnOff.empty())
+		{
+			g.i().mapObjects.add(tempLightOnOff.pop());
 			stage.addActor(g.i().mapObjects.get(count));
 			count++;
 		}
+
 	}
 }
