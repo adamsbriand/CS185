@@ -2,6 +2,11 @@ package com.touchspin.td;
 
 import java.util.Random;
 
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+
 /* This class handles any triggers that the user may encounter when colliding with hidden
  * tiles.  This trigger requires the input of two string values, or one comma delimited
  * string.  The first value will indicate the action to be taken.  The second value will 
@@ -94,7 +99,6 @@ public class Trigger {
 				break;
 			case "menu":
 				menu(value);
-				int t = 5;
 				break;
 			case "changeMyAnim":
 				changeMyAnimation(value);
@@ -154,8 +158,13 @@ public class Trigger {
 	}
 
 	private void playSoundLoop(String value) {
-		// sndFanOn
-		// sndFire
+		switch (value)
+		{
+		case "sndFanOn":
+			g.i().sound.sndWindBlowing.loop();
+		case "sndFire":
+			g.i().sound.sndCampFire.loop();
+		}
 	}
 
 	private void changeBalldY(String value) {
@@ -176,11 +185,22 @@ public class Trigger {
 	}
 
 	private void changeMusic(String value) {
+		g.i().sound.sndg1Loopable.stop();
+		g.i().sound.sndgScaryIntro.stop();
+		g.i().sound.sndgScaryLoopable.stop();
 		switch (value){
 			case "dragon":
-			
+			g.i().sound.sndgScaryIntro.play();
+			g.i().sound.sndgScaryIntro.setOnCompletionListener(new Music.OnCompletionListener(){
+				public void onCompletion(Music music) {
+					g.i().sound.sndgScaryLoopable.loop();
+				}
+			});
+			default:
+				g.i().sound.sndg1Loopable.play();
 		}
 	}
+
 
 	private void changeLogic(String value) {
 		switch (value){
@@ -244,8 +264,8 @@ public class Trigger {
 	}
 
 	private boolean onScreen(String value) {
-		// true
-		return false;
+		//return DragonOnScreen // this does not exist
+		return true;
 	}
 
 	private boolean myAnimationIs(String value) {
@@ -263,7 +283,6 @@ public class Trigger {
 		switch (value){
 		case "Main":
 			game.setScreen(new ScreenMenu(game));
-			int t = 7;
 			break;
 		}
 	}
@@ -275,7 +294,7 @@ public class Trigger {
 			game.setScreen(new Runner(game, "maps/Level1Runner1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
-			g.i().sound.sndg1Loopable.play();
+			g.i().sound.sndg1Loopable.loop();
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';

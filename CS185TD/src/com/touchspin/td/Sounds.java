@@ -1,5 +1,6 @@
 package com.touchspin.td;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
 public class Sounds {
@@ -33,6 +34,6 @@ public class Sounds {
 	public Sound sndTennisBallBounce3=Gdx.audio.newSound(Gdx.files.internal("snd/sndTennisBallBounce3.wav"));
 	public Sound sndWindBlowing=Gdx.audio.newSound(Gdx.files.internal("snd/sndWindBlowing.wav"));
 	public Sound sndg1Loopable=Gdx.audio.newSound(Gdx.files.internal("snd/song1Loopable.wav"));
-	public Sound sndgScaryIntro=Gdx.audio.newSound(Gdx.files.internal("snd/songScaryIntro.wav"));
+	public Music sndgScaryIntro=(Music) Gdx.audio.newSound(Gdx.files.internal("snd/songScaryIntro.wav"));
 	public Sound sndgScaryLoopable=Gdx.audio.newSound(Gdx.files.internal("snd/songScaryLoopable.wav"));
 }

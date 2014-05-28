@@ -3,10 +3,16 @@ package com.touchspin.td;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class ScreenSplash extends GameObject{
@@ -27,8 +33,20 @@ public class ScreenSplash extends GameObject{
 	
 	public void setSplash()
 	{
-		texture = new Texture(Gdx.files.internal("data/splash.png"));
+		float w = Gdx.graphics.getWidth();
+	    float h = Gdx.graphics.getHeight();
+	    camera = new OrthographicCamera(1, h / w);
+	    batch = new SpriteBatch();
+	    texture = new Texture(Gdx.files.internal("data/splash.png"));
+	    texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+	    TextureRegion region = new TextureRegion(texture, 0, 0, 800, 420);
+	    Sprite sprite = new Sprite(region);
+	    sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth() );
+	    sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
+	    sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
 	}
+	
+	
 	
 	@Override
 	public void update() {
