@@ -331,13 +331,13 @@ public class Trigger {
 		switch (Value){
 		case "Level1Run1":
 			g.i().gameMode = 'R';
-			game.setScreen(new Runner(game, "map/Level1Runner1.tmx"));
+			game.setScreen(new GameScreen(game, "map/Level1Runner1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';
-			game.setScreen(new Runner(game, "map/Level1Maze1.tmx"));
+			game.setScreen(new GameScreen(game, "map/Level1Maze1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 			break;

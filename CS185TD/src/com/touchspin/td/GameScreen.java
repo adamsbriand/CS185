@@ -10,7 +10,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-public class Runner extends GameObject {
+public class GameScreen extends GameObject {
 
 	Hero hero;
 	Stage stage;
@@ -18,7 +18,7 @@ public class Runner extends GameObject {
 	private OrthographicCamera backGroundCamera;
 	private OrthographicCamera foregroudCamera;
 
-	public Runner(MainGame game, String mapPath) {
+	public GameScreen(MainGame game, String mapPath) {
 
 		this.game = game;
 
