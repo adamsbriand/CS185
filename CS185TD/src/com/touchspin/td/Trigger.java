@@ -15,18 +15,18 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 public class Trigger {
 	MainGame game;
-	
-	
+
+
 	// constructor
 	public Trigger(MainGame game){
 		this.game = game;
 	}
-	
+
 	// Public Actions
 	public void action(String ChangeType, String ChangeValue) {
 		TriggerActions(ChangeType, ChangeValue);
 	}
-	
+
 	public void action(String actionString){
 		if (actionString==null || actionString==""){
 			return;
@@ -36,7 +36,7 @@ public class Trigger {
 			TriggerActions(Values[i], Values[i+1]);
 		}
 	}
-	
+
 	public void action(String[] actionArray){
 		if (actionArray==null || actionArray[0]==""){
 			return;
@@ -45,8 +45,8 @@ public class Trigger {
 			TriggerActions(actionArray[i], actionArray[i+1]);
 		}
 	}
-	
-	
+
+
 	// public Conditions
 	public boolean condition(String conditionString){
 		if (conditionString == null || conditionString == "") {
@@ -61,7 +61,7 @@ public class Trigger {
 		}
 		return true;
 	}
-	
+
 	public boolean condition(String[] condistionArray){
 		if (condistionArray == null || condistionArray[0] == "") {
 			return true;
@@ -77,9 +77,9 @@ public class Trigger {
    
 	// Change others
 	public void changeOthersAnim(GameThing other, String animName){
-		
+
 	}
-	
+
     public void changeMyAnim(String animName){
     	// changes animation of object collided with
     }
@@ -129,20 +129,20 @@ public class Trigger {
 			default:
 		}
 	}
-	
+
 	private void igniteBall(String value) {
 		if (value=="true"){
 			g.i().fire = true;
 		} else {
 			g.i().fire = false;
 		}
-		
+
 	}
 
 	private void toggleLight(String value) {
 		switch (value){
 			case "lightSourceGlobal":
-			
+
 		}
 	}
 
@@ -180,7 +180,7 @@ public class Trigger {
 	private void setTarget(String value) {
 		switch (value){
 		case "hero":
-			
+
 		}
 	}
 
@@ -205,7 +205,7 @@ public class Trigger {
 	private void changeLogic(String value) {
 		switch (value){
 		case "startAttack":
-			
+
 		}
 	}
 
@@ -222,7 +222,7 @@ public class Trigger {
 		case "sndLightSwitch":
 			g.i().sound.sndLightSwitch.play();
 		case "sndDoorOpen":
-			
+
 		case "sndSlideWhistleDown":
 			g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
 		}
@@ -231,7 +231,7 @@ public class Trigger {
 	private void changeMyAnimation(String value) {
 		switch (value){
 		case "break":
-			
+
 		}
 	}
 
@@ -304,7 +304,7 @@ public class Trigger {
 			break;
 		}
 	}
-	
+
 	private boolean ballFlammable(String value){
 		if (value=="true"){
 			return g.i().fire;
@@ -312,5 +312,5 @@ public class Trigger {
 			return !(g.i().fire);
 		}
 	}
-	
+
 }

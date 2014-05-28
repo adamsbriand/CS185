@@ -23,14 +23,14 @@ public class ScreenSplash extends GameObject{
 	float x;
 	float y;
 	MainGame game;
-	
+
 	public ScreenSplash( MainGame mainGame)
 	{
 		batch = new SpriteBatch();
 		game = mainGame;
         setSplash();
 	}
-	
+
 	public void setSplash()
 	{
 		float w = Gdx.graphics.getWidth();
@@ -45,9 +45,9 @@ public class ScreenSplash extends GameObject{
 	    sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
 	    sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
 	}
-	
-	
-	
+
+
+
 	@Override
 	public void update() {
 		if(g.i().leAnonymizer.click)
@@ -69,7 +69,7 @@ public class ScreenSplash extends GameObject{
         //font.drawMultiLine(batch, message, x, y-100);
         batch.end();	
 	}
-	
+
 	@Override
 	public void render(float delta) {
 
@@ -80,30 +80,30 @@ public class ScreenSplash extends GameObject{
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void hide() {
-		
+
 	}
 
 	@Override
 	public void pause() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
