@@ -66,24 +66,8 @@ public class Trigger {
 		}
 		return true;
 	}
-   
-	// Change others
-	public void changeOthersAnim(GameThing other, String animName){
 
-	}
-
-    public void changeMyAnim(String animName){
-    	// changes animation of object collided with
-    }
-    
-    public void changeMyCollidable(boolean nuCollidable){
-    	// changes collidability of object collided with
-    }
-    
-    public void changeOthersCollidable(boolean nuCollidable){ // changes collidability of other object
-    	
-    }
-    
+    // private Actions
 	private void TriggerActions(String type, String value) {
 		switch (type){
 			case "NewLevel":
@@ -135,6 +119,7 @@ public class Trigger {
 		}
 	}
 
+	// Changes to the hero
 	private void igniteBall(String value) {
 		if (value=="true"){
 			g.i().fire = true;
@@ -142,53 +127,12 @@ public class Trigger {
 			g.i().fire = false;
 		}
 	}
-
-	private void toggleLight(String value) {
-		switch (value){
-			case "lightSourceGlobal":
-
-				break;
-		}
-	}
-
-	private void changeOthersCollidable(String value) {
-		boolean collidable;
-		String[] Values = value.split("-");
-		String objectName = Values[0];
-		if (Values[1]=="true"){
-			collidable = true;
+	
+	private boolean ballFlammable(String value){
+		if (value=="true"){
+			return g.i().fire;
 		} else {
-			collidable = false;
-		}
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (objectName==g.i().mapObjects.get(i).getName()){
-				g.i().mapObjects.get(i).setCollidable(collidable);
-			}
-		}
-		// door1,false
-	}
-
-	private void changeOthersAnim(String value) {
-		String[] Values = value.split("-");
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (Values[0]==g.i().mapObjects.get(i).getName()){
-				g.i().mapObjects.get(i).setAnimation(Values[1]);
-			}
-		}
-		// fan1,on"
-		// door1,open
-	}
-
-	private void playSoundLoop(String value) {
-		if (g.i().sfx){
-			switch (value){
-				case "sndFanOn":
-					g.i().sound.sndWindBlowing.loop(g.i().sfxLevel);
-					break;
-				case "sndFire":
-					g.i().sound.sndCampFire.loop(g.i().sfxLevel);
-					break;
-			}
+			return !(g.i().fire);
 		}
 	}
 
@@ -201,15 +145,63 @@ public class Trigger {
 		// dest1
 		// enter1
 	}
-
-	private void setTarget(String value) {
+	
+	private void changeMyAnimation(String value) {
 		switch (value){
-			case "hero":
-				
+		case "break":
+
+			break;
+		}
+	}
+	
+	// Changes to environment
+	private void toggleLight(String value) {
+		switch (value){
+			case "lightSourceGlobal":
+
 				break;
 		}
 	}
-
+	
+	// Changes to sound
+	private void playSoundLoop(String value) {
+		if (g.i().sfx){
+			switch (value){
+				case "sndFanOn":
+					g.i().sound.sndWindBlowing.loop(g.i().sfxLevel);
+					break;
+				case "sndFire":
+					g.i().sound.sndCampFire.loop(g.i().sfxLevel);
+					break;
+			}
+		}
+	}
+	
+	private void playSound(String value) {
+		if (g.i().sfx){
+			switch (value){
+			case "sndGlassBreak":
+				Random random = new Random();
+				int ran = random.nextInt(2) + 1;
+				if (ran == 1){
+					g.i().sound.sndGlassBreak1.play(g.i().sfxLevel);
+				} else {
+					g.i().sound.sndGlassBreak2.play(g.i().sfxLevel);
+				}
+				break;
+			case "sndLightSwitch":
+				g.i().sound.sndLightSwitch.play(g.i().sfxLevel);
+				break;
+			case "sndDoorOpen":
+	
+				break;
+			case "sndSlideWhistleDown":
+				g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
+				break;
+			}
+		}
+	}
+	
 	private void changeMusic(String value) {
 		/*
 		if (g.i().music){
@@ -259,6 +251,43 @@ public class Trigger {
 		}
 	}
 
+	// Changes to others
+	private void changeOthersCollidable(String value) {
+		boolean collidable;
+		String[] Values = value.split("-");
+		String objectName = Values[0];
+		if (Values[1]=="true"){
+			collidable = true;
+		} else {
+			collidable = false;
+		}
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (objectName==g.i().mapObjects.get(i).getName()){
+				g.i().mapObjects.get(i).setCollidable(collidable);
+			}
+		}
+		// door1,false
+	}
+
+	private void changeOthersAnim(String value) {
+		String[] Values = value.split("-");
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (Values[0]==g.i().mapObjects.get(i).getName()){
+				g.i().mapObjects.get(i).setAnimation(Values[1]);
+			}
+		}
+		// fan1,on"
+		// door1,open
+	}
+
+	private void setTarget(String value) {
+		switch (value){
+			case "hero":
+				
+				break;
+		}
+	}
+
 	private void changeLogic(String value) {
 		switch (value){
 		case "startAttack":
@@ -267,39 +296,33 @@ public class Trigger {
 		}
 	}
 
-	private void playSound(String value) {
-		if (g.i().sfx){
-			switch (value){
-			case "sndGlassBreak":
-				Random random = new Random();
-				int ran = random.nextInt(2) + 1;
-				if (ran == 1){
-					g.i().sound.sndGlassBreak1.play(g.i().sfxLevel);
-				} else {
-					g.i().sound.sndGlassBreak2.play(g.i().sfxLevel);
-				}
-				break;
-			case "sndLightSwitch":
-				g.i().sound.sndLightSwitch.play(g.i().sfxLevel);
-				break;
-			case "sndDoorOpen":
-	
-				break;
-			case "sndSlideWhistleDown":
-				g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
-				break;
-			}
-		}
-	}
-
-	private void changeMyAnimation(String value) {
+	// Change screens
+	private void menu(String value) {
 		switch (value){
-		case "break":
-
+		case "Main":
+			game.setScreen(new ScreenMenu(game));
 			break;
 		}
 	}
 
+	private void NewLevel(String Value){
+		switch (Value){
+		case "Level1Run1":
+			g.i().gameMode = 'R';
+			game.setScreen(new GameScreen(game, "map/Level1Runner1.tmx"));
+			g.i().leAnonymizer.click = false;
+			g.i().leAnonymizer.resetAll();
+			break;
+		case "Level1Maze1":
+			g.i().gameMode = 'M';
+			game.setScreen(new GameScreen(game, "map/Level1Maze1.tmx"));
+			g.i().leAnonymizer.click = false;
+			g.i().leAnonymizer.resetAll();
+			break;
+		}
+	}
+
+	// Private Conditions
 	private boolean TriggerConditions(String type, String value2){
 		switch (type){
 			case "ballFlammable":
@@ -339,42 +362,10 @@ public class Trigger {
 	}
 
 	private boolean ballType(String value) {
-		// pingPong
-		// bowling
+		if (value==g.i().currentBallType){
+			return true;
+		}
 		return false;
-	}
-
-	private void menu(String value) {
-		switch (value){
-		case "Main":
-			game.setScreen(new ScreenMenu(game));
-			break;
-		}
-	}
-
-	private void NewLevel(String Value){
-		switch (Value){
-		case "Level1Run1":
-			g.i().gameMode = 'R';
-			game.setScreen(new GameScreen(game, "map/Level1Runner1.tmx"));
-			g.i().leAnonymizer.click = false;
-			g.i().leAnonymizer.resetAll();
-			break;
-		case "Level1Maze1":
-			g.i().gameMode = 'M';
-			game.setScreen(new GameScreen(game, "map/Level1Maze1.tmx"));
-			g.i().leAnonymizer.click = false;
-			g.i().leAnonymizer.resetAll();
-			break;
-		}
-	}
-
-	private boolean ballFlammable(String value){
-		if (value=="true"){
-			return g.i().fire;
-		} else {
-			return !(g.i().fire);
-		}
 	}
 
 }
