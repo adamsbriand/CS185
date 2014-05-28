@@ -16,7 +16,7 @@ public class Trigger {
 	public Trigger(MainGame game){
 		this.game = game;
 	}
-	   
+	
 	// Public Actions
 	public void action(String ChangeType, String ChangeValue) {
 		TriggerActions(ChangeType, ChangeValue);
@@ -138,7 +138,7 @@ public class Trigger {
 	private void toggleLight(String value) {
 		switch (value){
 			case "lightSourceGlobal":
-		
+			
 		}
 	}
 

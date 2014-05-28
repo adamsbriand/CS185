@@ -121,8 +121,6 @@ public class g {
 		else language="en";
 		
 		timeStartGame = System.currentTimeMillis();
-		t = new Trigger(game);
-		sound = new Sounds();
 	}
    
 	public void StartNewLevel(){

@@ -14,6 +14,8 @@ public class MainGame extends Game {
 		//initialize variable left in g class
 		g.i().SetDefaults(this);
 		g.i().leAnonymizer = new InputAnonymizer();
+		g.i().sound = new Sounds();
+		g.i().t = new Trigger(this);
 		
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);
