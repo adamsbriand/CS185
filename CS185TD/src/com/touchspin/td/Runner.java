@@ -181,8 +181,11 @@ public class Runner extends GameObject {
 		int animRows = 0;
 		int animCols = 0;
 		boolean collidable = false;
+		int count = 0;
 		MapProperties tempProperties;
 
+		g.i().NPObjects.clear();
+		
 		for (MapObject object : tiledMapWrapper.npObjects) {
 			tempProperties = object.getProperties();
 
@@ -294,7 +297,9 @@ public class Runner extends GameObject {
 			animCols = 0;
 			collidable = false;
 			
-			stage.addActor(temp);
+			g.i().NPObjects.add(temp);
+			stage.addActor(g.i().NPObjects.get(count));
+			count++;
 		}
 	}
 }

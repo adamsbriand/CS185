@@ -1,6 +1,8 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+
+import java.util.ArrayList;
 import java.util.Locale;
 
 /* This class holds all game-wide variables.  The name of this class is as short as possible
@@ -62,7 +64,7 @@ public class g {
 	// Sound
 	public Sounds snd = new Sounds();
 	
-	public NP[] NPObjects; 
+	public ArrayList<NP> NPObjects; 
 	
 	Trigger t;
 	
