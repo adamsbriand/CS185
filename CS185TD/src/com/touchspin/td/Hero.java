@@ -21,6 +21,7 @@ public class Hero extends GameThing {
 	private Animation smokeAnimation;
 	private TextureRegion currentFireFrame;
 	private TextureRegion currentSmokeFrame;
+	private float scaleFactor;
 	
 	private int frameCount = 0;
 	public Sprite heroSprite;
@@ -47,6 +48,8 @@ public class Hero extends GameThing {
 		setWidth(heroSprite.getWidth() * camera.zoom);
 		setX(10);
 		setY(100);
+		
+		scaleFactor = 1f;
 
 		// read in file animation
 		loadFireAnimation();
@@ -110,7 +113,7 @@ public class Hero extends GameThing {
 		// Rotation
 		heroSprite.rotate(360 * (heroMover.previousX - getX())
 				/ ((float) Math.PI * heroSprite.getRegionHeight()));
-		setRotation();
+		setRotationAndScale();
 
 		// animation
 		stateTime += Gdx.graphics.getDeltaTime();
@@ -225,7 +228,7 @@ public class Hero extends GameThing {
 		}
 		smokeAnimation = new Animation(0.025f, smokeFrames);
 	}
-	private void setRotation() {
+	private void setRotationAndScale() {
 
 		if (heroMover.speedXPerSecond == 0) {
 			if (heroMover.speedYPerSecond > 0)
@@ -278,6 +281,10 @@ public class Hero extends GameThing {
 		}
 		
 		smokeEffect.setRotation(fireEffect.getRotation());
+		
+		scaleFactor = Math.max((float) Math.hypot(heroMover.speedXPerSecond, heroMover.speedYPerSecond)/300,1f);
+		fireEffect.setScale(1f, scaleFactor);
+		smokeEffect.setScale(1f, scaleFactor);
 	}
 
 }
