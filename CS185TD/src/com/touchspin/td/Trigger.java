@@ -2,6 +2,7 @@ package com.touchspin.td;
 
 import java.util.Random;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 
 /* This class handles any triggers that the user may encounter when colliding with hidden
@@ -210,6 +211,7 @@ public class Trigger {
 	}
 
 	private void changeMusic(String value) {
+		/*
 		if (g.i().music){
 			g.i().sound.sndg1Loopable.stop();
 			g.i().sound.sndgScaryIntro.stop();
@@ -231,6 +233,29 @@ public class Trigger {
 					g.i().sound.sndg1Loopable.play();
 					g.i().sound.sndg1Loopable.setLooping(true);
 			}
+		}
+		*/
+		switch (value){
+			case "dragon":
+				g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryIntro.wav"));
+				g.i().sound.bgMusic.setVolume(g.i().musicLevel);
+				g.i().sound.bgMusic.setOnCompletionListener(
+						new Music.OnCompletionListener(){
+					public void onCompletion(Music music) {
+						g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryLoopable.wav"));
+						g.i().sound.bgMusic.setVolume(g.i().musicLevel);
+						g.i().sound.bgMusic.play();
+						g.i().sound.bgMusic.setLooping(true);
+						g.i().sound.bgMusic.setOnCompletionListener(null);
+					}});
+				break;
+			default:
+				g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/song1Loopable.wav"));
+				g.i().sound.bgMusic.setVolume(g.i().musicLevel);
+				g.i().sound.bgMusic.setLooping(true);
+		}
+		if (g.i().music){
+			g.i().sound.bgMusic.play();
 		}
 	}
 
