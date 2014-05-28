@@ -125,6 +125,7 @@ public class g {
 		else language="en";
 		
 		timeStartGame = System.currentTimeMillis();
+		NPObjects = new ArrayList<NP>();
 	}
    
 	public void StartNewLevel(){
