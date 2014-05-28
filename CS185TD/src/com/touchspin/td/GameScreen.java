@@ -29,6 +29,7 @@ public class GameScreen extends GameObject {
 		hero = new Hero(camera, tiledMapWrapper);
 		stage.addActor(hero);
 		loadNPs();
+		//stage.addActor(hero);
 	}
 
 	@Override

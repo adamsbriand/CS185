@@ -14,16 +14,18 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Hero extends GameThing {
 	public OrthographicCamera camera;
-	public static MoverInput heroMover = new MoverInput();
+	public MoverInput heroMover = new MoverInput();
 
 	private Map<String,TextureRegion> ballTypeMap = new HashMap<String, TextureRegion>();
 	private Animation fireAnimation;
-	private TextureRegion currentFrame;
+	private Animation smokeAnimation;
+	private TextureRegion currentFireFrame;
+	private TextureRegion currentSmokeFrame;
 	
 	private int frameCount = 0;
 	public Sprite heroSprite;
 	public Sprite fireEffect;
-
+	public Sprite smokeEffect;
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -50,13 +52,23 @@ public class Hero extends GameThing {
 		loadFireAnimation();
 		stateTime = 0f;
 		g.i().fire = true;
-		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
+		currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
+		
+		loadSmokeAnimation();
+		currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
 
-		fireEffect = new Sprite(currentFrame);
+		fireEffect = new Sprite(currentFireFrame);
 		fireEffect.setBounds(0, 32, 32 * camera.zoom,
 				32 * fireEffect.getHeight() / fireEffect.getWidth()
 						* camera.zoom);
 		fireEffect.setOrigin(heroSprite.getWidth() / 2,
+				heroSprite.getHeight() / 2);
+		
+		smokeEffect = new Sprite(currentSmokeFrame);
+		smokeEffect.setBounds(0, 32, 32 * camera.zoom,
+				32 * smokeEffect.getHeight() / smokeEffect.getWidth()
+						* camera.zoom);
+		smokeEffect.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
 
 	}
@@ -71,12 +83,13 @@ public class Hero extends GameThing {
 		}
 		heroSprite.draw(batch);
 		if (g.i().fire) {
-			drawFireEffect(batch);
+			drawEffect(batch);
 		}
 	}
 
-	private void drawFireEffect(Batch batch) {
+	private void drawEffect(Batch batch) {
 		// batch.draw(currentFrame,getX(),getY(),32f,currentFrame.getRegionHeight()*32/currentFrame.getRegionWidth());
+		smokeEffect.draw(batch);
 		fireEffect.draw(batch);
 	}
 
@@ -92,20 +105,21 @@ public class Hero extends GameThing {
 			g.i().leAnonymizer.attack = false;
 		}
 		// position
-		heroSprite.setX(getX());
-		heroSprite.setY(getY());
-		fireEffect.setX(getX());
-		fireEffect.setY(getY());
+		setSpritesPosition();
 
 		// Rotation
 		heroSprite.rotate(360 * (heroMover.previousX - getX())
 				/ ((float) Math.PI * heroSprite.getRegionHeight()));
-		setFireRotation();
+		setRotation();
 
-		// Fire animation
+		// animation
 		stateTime += Gdx.graphics.getDeltaTime();
-		currentFrame = fireAnimation.getKeyFrame(stateTime, true);
-		fireEffect.setRegion(currentFrame);
+		
+		currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
+		fireEffect.setRegion(currentFireFrame);
+		
+		currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
+		smokeEffect.setRegion(currentSmokeFrame);
 
 	}
 
@@ -146,7 +160,17 @@ public class Hero extends GameThing {
 	
 	
 	//--------------Private helper method------------------------------------------
-	private void loadBallType()
+	private void setSpritesPosition()
+	{
+		heroSprite.setX(getX());
+		heroSprite.setY(getY());
+		fireEffect.setX(getX());
+		fireEffect.setY(getY());
+		smokeEffect.setX(getX());
+		smokeEffect.setY(getY());
+	}
+    
+    private void loadBallType()
 	{
 		Texture appearance = new Texture("img/obsolete//Balls.png");
 		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 3,
@@ -182,7 +206,26 @@ public class Hero extends GameThing {
 		}
 		fireAnimation = new Animation(0.025f, fireFrames);
 	}
-	private void setFireRotation() {
+	
+	private void loadSmokeAnimation()
+	{
+		Texture fire = new Texture(
+				Gdx.files
+						.internal("img/spritesheet/Smoke.png"));
+		TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth() / 15,
+				fire.getHeight() / 6);
+		TextureRegion[] smokeFrames = new TextureRegion[15 * 6 - 4];
+		int index = 0;
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 15; j++) {
+				smokeFrames[index++] = tmp[i][j];
+				if(index == smokeFrames.length)
+					break;
+			}
+		}
+		smokeAnimation = new Animation(0.025f, smokeFrames);
+	}
+	private void setRotation() {
 
 		if (heroMover.speedXPerSecond == 0) {
 			if (heroMover.speedYPerSecond > 0)
@@ -233,6 +276,8 @@ public class Hero extends GameThing {
 								/ heroMover.speedXPerSecond)
 						/ Math.PI * 180));
 		}
+		
+		smokeEffect.setRotation(fireEffect.getRotation());
 	}
 
 }
