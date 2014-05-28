@@ -96,6 +96,15 @@ public class NP extends GameThing {
 		npSprite.draw(batch);
 	}
 
+	public String getName()
+	{
+		return name;
+	}
+	
+	public boolean nameMatch(String name)
+	{
+		return this.name.equalsIgnoreCase(name);
+	}
 	@Override
 	public void act(float delta) {
 		// npMover.move(this);
