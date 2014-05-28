@@ -62,6 +62,8 @@ public class g {
 	// Sound
 	public Sounds snd = new Sounds();
 	
+	public NP[] NPObjects; 
+	
 	Trigger t;
 	
 	// Controls
