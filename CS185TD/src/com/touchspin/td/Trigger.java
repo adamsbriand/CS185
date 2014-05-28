@@ -151,12 +151,29 @@ public class Trigger {
 	}
 
 	private void changeOthersCollidable(String value) {
+		boolean collidable;
 		String[] Values = value.split("-");
+		String objectName = Values[0];
+		if (Values[1]=="true"){
+			collidable = true;
+		} else {
+			collidable = false;
+		}
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (objectName==g.i().mapObjects.get(i).getName()){
+				g.i().mapObjects.get(i).setCollidable(collidable);
+			}
+		}
 		// door1,false
 	}
 
 	private void changeOthersAnim(String value) {
 		String[] Values = value.split("-");
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (Values[0]==g.i().mapObjects.get(i).getName()){
+				g.i().mapObjects.get(i).setAnimation(Values[1]);
+			}
+		}
 		// fan1,on"
 		// door1,open
 	}

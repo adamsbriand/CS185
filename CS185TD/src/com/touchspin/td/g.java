@@ -64,7 +64,7 @@ public class g {
 	// Sound
 	public Sounds snd = new Sounds();
 	
-	public ArrayList<NP> NPObjects; 
+	public ArrayList<NP> mapObjects; 
 	
 	Trigger t;
 	
@@ -125,7 +125,7 @@ public class g {
 		else language="en";
 		
 		timeStartGame = System.currentTimeMillis();
-		NPObjects = new ArrayList<NP>();
+		mapObjects = new ArrayList<NP>();
 	}
    
 	public void StartNewLevel(){
