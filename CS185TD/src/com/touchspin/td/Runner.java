@@ -271,7 +271,7 @@ public class Runner extends GameObject {
 			}
 			
 			if(!spriteSheet.equalsIgnoreCase(""))
-			spriteSheet = "data/"+ spriteSheet;
+			spriteSheet = "img/spritesheet/"+ spriteSheet;
 			
 			temp = new NP(startX,startY, width, height, name,
 			type, conditions, action, anims,

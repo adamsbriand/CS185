@@ -148,7 +148,7 @@ public class Hero extends GameThing {
 	//--------------Private helper method------------------------------------------
 	private void loadBallType()
 	{
-		Texture appearance = new Texture("data/Balls.png");
+		Texture appearance = new Texture("img/obsolete//Balls.png");
 		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 3,
 				appearance.getHeight() / 4);
 		
@@ -170,7 +170,7 @@ public class Hero extends GameThing {
 	{
 		Texture fire = new Texture(
 				Gdx.files
-						.internal("data/Fireball_Frame100x240_Sheet_1200x960_RC12x4_Frames48.png"));
+						.internal("img/spritesheet/Fireball.png"));
 		TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth() / 12,
 				fire.getHeight() / 4);
 		TextureRegion[] fireFrames = new TextureRegion[12 * 4];

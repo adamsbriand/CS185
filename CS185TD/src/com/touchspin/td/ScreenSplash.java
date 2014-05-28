@@ -33,7 +33,7 @@ public class ScreenSplash extends GameObject{
 	    float h = Gdx.graphics.getHeight();
 	    camera = new OrthographicCamera(1, h / w);
 	    batch = new SpriteBatch();
-	    texture = new Texture(Gdx.files.internal("data/splash.png"));
+	    texture = new Texture(Gdx.files.internal("img/obsolete/splash.png"));
 	    texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 	    TextureRegion region = new TextureRegion(texture, 0, 0, 800, 420);
 	    Sprite sprite = new Sprite(region);

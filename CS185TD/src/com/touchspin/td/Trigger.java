@@ -294,7 +294,7 @@ public class Trigger {
 		switch (Value){
 		case "Level1Run1":
 			g.i().gameMode = 'R';
-			game.setScreen(new Runner(game, "maps/Level1Runner1.tmx"));
+			game.setScreen(new Runner(game, "map/Level1Runner1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 			g.i().sound.sndg1Loopable.play();
@@ -302,7 +302,7 @@ public class Trigger {
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';
-			game.setScreen(new Maze(game, "maps/Maze1.tmx"));
+			game.setScreen(new Maze(game, "map/Maze1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 			break;
