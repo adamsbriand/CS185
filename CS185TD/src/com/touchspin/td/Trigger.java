@@ -3,9 +3,6 @@ package com.touchspin.td;
 import java.util.Random;
 
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 /* This class handles any triggers that the user may encounter when colliding with hidden
  * tiles.  This trigger requires the input of two string values, or one comma delimited
@@ -15,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 public class Trigger {
 	MainGame game;
-
 
 	// constructor
 	public Trigger(MainGame game){
@@ -45,7 +41,6 @@ public class Trigger {
 			TriggerActions(actionArray[i], actionArray[i+1]);
 		}
 	}
-
 
 	// public Conditions
 	public boolean condition(String conditionString){
@@ -136,7 +131,6 @@ public class Trigger {
 		} else {
 			g.i().fire = false;
 		}
-
 	}
 
 	private void toggleLight(String value) {
@@ -158,12 +152,13 @@ public class Trigger {
 	}
 
 	private void playSoundLoop(String value) {
-		switch (value)
-		{
-		case "sndFanOn":
-			g.i().sound.sndWindBlowing.loop();
-		case "sndFire":
-			g.i().sound.sndCampFire.loop();
+		if (g.i().sfx){
+			switch (value){
+				case "sndFanOn":
+					g.i().sound.sndWindBlowing.loop(g.i().sfxLevel);
+				case "sndFire":
+					g.i().sound.sndCampFire.loop(g.i().sfxLevel);
+			}
 		}
 	}
 
@@ -185,22 +180,28 @@ public class Trigger {
 	}
 
 	private void changeMusic(String value) {
-		g.i().sound.sndg1Loopable.stop();
-		g.i().sound.sndgScaryIntro.stop();
-		g.i().sound.sndgScaryLoopable.stop();
-		switch (value){
-			case "dragon":
-			g.i().sound.sndgScaryIntro.play();
-			g.i().sound.sndgScaryIntro.setOnCompletionListener(new Music.OnCompletionListener(){
-				public void onCompletion(Music music) {
-					g.i().sound.sndgScaryLoopable.loop();
-				}
-			});
-			default:
-				g.i().sound.sndg1Loopable.play();
+		if (g.i().music){
+			g.i().sound.sndg1Loopable.stop();
+			g.i().sound.sndgScaryIntro.stop();
+			g.i().sound.sndgScaryLoopable.stop();
+			switch (value){
+				case "dragon":
+				g.i().sound.sndgScaryIntro.setVolume(g.i().musicLevel);
+				g.i().sound.sndgScaryIntro.play();
+				g.i().sound.sndgScaryIntro.setOnCompletionListener(
+						new Music.OnCompletionListener(){
+					public void onCompletion(Music music) {
+						g.i().sound.sndgScaryLoopable.setVolume(g.i().musicLevel);
+						g.i().sound.sndgScaryLoopable.play();
+						g.i().sound.sndgScaryLoopable.setLooping(true);
+					}});
+				default:
+					g.i().sound.sndg1Loopable.setVolume(g.i().musicLevel);
+					g.i().sound.sndg1Loopable.play();
+					g.i().sound.sndg1Loopable.setLooping(true);
+			}
 		}
 	}
-
 
 	private void changeLogic(String value) {
 		switch (value){
@@ -210,21 +211,23 @@ public class Trigger {
 	}
 
 	private void playSound(String value) {
-		switch (value){
-		case "sndGlassBreak":
-			Random random = new Random();
-			int ran = random.nextInt(2) + 1;
-			if (ran == 1){
-				g.i().sound.sndGlassBreak1.play();
-			} else {
-				g.i().sound.sndGlassBreak2.play();
+		if (g.i().sfx){
+			switch (value){
+			case "sndGlassBreak":
+				Random random = new Random();
+				int ran = random.nextInt(2) + 1;
+				if (ran == 1){
+					g.i().sound.sndGlassBreak1.play(g.i().sfxLevel);
+				} else {
+					g.i().sound.sndGlassBreak2.play(g.i().sfxLevel);
+				}
+			case "sndLightSwitch":
+				g.i().sound.sndLightSwitch.play(g.i().sfxLevel);
+			case "sndDoorOpen":
+	
+			case "sndSlideWhistleDown":
+				g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
 			}
-		case "sndLightSwitch":
-			g.i().sound.sndLightSwitch.play();
-		case "sndDoorOpen":
-
-		case "sndSlideWhistleDown":
-			g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
 		}
 	}
 
@@ -294,7 +297,8 @@ public class Trigger {
 			game.setScreen(new Runner(game, "maps/Level1Runner1.tmx"));
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
-			g.i().sound.sndg1Loopable.loop();
+			g.i().sound.sndg1Loopable.play();
+			g.i().sound.sndg1Loopable.setLooping(true);
 			break;
 		case "Level1Maze1":
 			g.i().gameMode = 'M';

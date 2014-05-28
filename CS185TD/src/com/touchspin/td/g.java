@@ -28,8 +28,8 @@ public class g {
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated
 	public boolean music;	// Music is activated
-	public int sfxLevel;	// Sound effect volume. 0=None, 100=Full
-	public int musicLevel;	// Music volume. 0=None, 100=Full
+	public float sfxLevel;	// Sound effect volume. 0=None, 100=Full
+	public float musicLevel;	// Music volume. 0=None, 100=Full
 	
 	// System variables
 	public String language;	/* Language used. This is a to letter code indicating language
@@ -86,8 +86,8 @@ public class g {
 		// Sound
 		sfx = true;
 		music = true;
-		sfxLevel = 100;
-		musicLevel = 100;
+		sfxLevel = 1;
+		musicLevel = 1;
 
 		//Maze
 		cameraWidth = 400;
