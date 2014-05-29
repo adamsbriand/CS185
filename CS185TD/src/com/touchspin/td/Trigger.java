@@ -48,7 +48,7 @@ public class Trigger {
 
 	// public Conditions
 	public boolean condition(String conditionString){
-		if (conditionString == null || conditionString == "") {
+		if (conditionString == null || conditionString.equalsIgnoreCase("")) {
 			return true;
 		}
 		String[] Values = conditionString.split(",");
@@ -295,8 +295,11 @@ public class Trigger {
 	private void changeOthersAnim(String value) {
 		String[] Values = value.split("-");
 		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (Values[0]==g.i().mapObjects.get(i).getName()){
+			
+			if (Values[0].equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
 				g.i().mapObjects.get(i).setAnimation(Values[1]);
+				NP test = g.i().mapObjects.get(i);
+				int stop =8;
 			}
 		}
 		// fan1,on"

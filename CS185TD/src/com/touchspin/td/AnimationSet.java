@@ -20,7 +20,7 @@ public class AnimationSet {
     {
     	for(int i = 0; i < anims.size();i++)
     	{
-    		if(anims.get(i).name == name)
+    		if(anims.get(i).name.equals(name))
     		{
     			return anims.get(i);
     		}

@@ -157,12 +157,12 @@
   </object>
   <object name="door1Opener" type="npo" x="1500" y="197" width="40" height="60">
    <properties>
-    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1,open,changeOthersCollidable,door1,false"/>
+    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="off,0,0,off,on,1,1,on"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="LightSwitch.png"/>
