@@ -221,6 +221,7 @@ public class GameScreen extends GameObject {
 		MapProperties tempProperties;
 
 		g.i().mapObjects.clear();
+		g.i().npMap.clear();
 		
 		for (MapObject object : tiledMapWrapper.npObjects) {
 			tempProperties = object.getProperties();
@@ -344,16 +345,19 @@ public class GameScreen extends GameObject {
 				tempLightOnOff.push(temp);
 			}
 			
+			MapObject tempMapObject; 
 			if(!temp.collisionParameter.equalsIgnoreCase(""))
 			{
 				String[] tempCP = temp.collisionParameter.split(",");
-				tiledMapWrapper.collisionObjects.add(new RectangleMapObject(temp.getX()+
+				tempMapObject = new RectangleMapObject(temp.getX()+
 						Float.parseFloat(tempCP[0]),temp.getY() + Float.parseFloat(tempCP[1]),
-						Float.parseFloat(tempCP[2]), Float.parseFloat(tempCP[3])));
+						Float.parseFloat(tempCP[2]), Float.parseFloat(tempCP[3]));
+				tiledMapWrapper.collisionObjects.add(tempMapObject);
 			}
 			else
-			tiledMapWrapper.collisionObjects.add(new RectangleMapObject(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight()));
-			
+				tempMapObject = new RectangleMapObject(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+			tiledMapWrapper.collisionObjects.add(tempMapObject);
+			g.i().npMap.put(tempMapObject, temp);
 			startX = 0;
 			startY = 0;
 			width = 0;

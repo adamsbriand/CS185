@@ -1,9 +1,12 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.MapObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 /* This class holds all game-wide variables.  The name of this class is as short as possible
  * for easy access.  To access variables in this class, use "g.i()." followed by the name of
@@ -65,6 +68,7 @@ public class g {
 	public Sounds snd = new Sounds();
 	
 	public ArrayList<NP> mapObjects; 
+	public Map<MapObject,NP> npMap; 
 	
 	Trigger t;
 	
@@ -126,6 +130,7 @@ public class g {
 		
 		timeStartGame = System.currentTimeMillis();
 		mapObjects = new ArrayList<NP>();
+		npMap = new HashMap<MapObject,NP>();
 	}
    
 	public void StartNewLevel(){
