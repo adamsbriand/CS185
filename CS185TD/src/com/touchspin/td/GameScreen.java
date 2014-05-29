@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class GameScreen extends GameObject {
 
-	Hero hero;
 	Stage stage;
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
@@ -26,8 +25,8 @@ public class GameScreen extends GameObject {
 		setUpCamera();
 		stage = new Stage();
 		// anonymizer = game.anonymizer;
-		hero = new Hero(camera, tiledMapWrapper);
-		stage.addActor(hero);
+		g.i().hero = new Hero(camera, tiledMapWrapper);
+		stage.addActor(g.i().hero);
 		loadNPs();
 		//stage.addActor(hero);
 	}
@@ -40,8 +39,8 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void update() {
-		float tempX = hero.getX();
-		float tempY = hero.getY();
+		float tempX = g.i().hero.getX();
+		float tempY = g.i().hero.getY();
 		stage.act();
 		camera.update();
 		if(g.i().gameMode == 'R')
@@ -50,7 +49,7 @@ public class GameScreen extends GameObject {
 			foregroudCamera.update();
 		}
 
-		cameraTranslate(hero.getX() - tempX, hero.getY() - tempY);
+		cameraTranslate(g.i().hero.getX() - tempX, g.i().hero.getY() - tempY);
 		setView();
 
 	}
@@ -112,12 +111,12 @@ public class GameScreen extends GameObject {
 	 * @param y
 	 */
 	private void cameraTranslate(float x, float y) {
-		if (hero.getX() >= camera.viewportWidth / 2
-				&& hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
+		if (g.i().hero.getX() >= camera.viewportWidth / 2
+				&& g.i().hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
 						.getPixelWidth())
 			camera.translate(x, 0);
-		if (hero.getY() >= camera.viewportHeight / 2
-				&& hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
+		if (g.i().hero.getY() >= camera.viewportHeight / 2
+				&& g.i().hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
 						.getPixelHeight())
 			camera.translate(0, y);
 	}
