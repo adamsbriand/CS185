@@ -212,9 +212,11 @@ public class MoverPhysics extends Mover {
 									previousY = rect.y - gameThing.getHeight();
 									return false;
 								}
-							}
+							}else
+							{
 							previousY = rect.y - gameThing.getHeight();
 							return false;
+							}
 						}
 					}
 

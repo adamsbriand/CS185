@@ -339,25 +339,32 @@ public class GameScreen extends GameObject {
 				g.i().mapObjects.add(temp);
 				stage.addActor(g.i().mapObjects.get(count));
 				count++;
+				
+				MapObject tempMapObject; 
+				if(!temp.collisionParameter.equalsIgnoreCase(""))
+				{
+					String[] tempCP = temp.collisionParameter.split(",");
+					if(tempCP.length == 4)
+					{
+						tempMapObject = new RectangleMapObject(temp.getX()+
+							Float.parseFloat(tempCP[0]),temp.getY() + Float.parseFloat(tempCP[1]),
+							Float.parseFloat(tempCP[2]), Float.parseFloat(tempCP[3]));
+						tiledMapWrapper.collisionObjects.add(tempMapObject);
+					}
+					else
+						tempMapObject = new RectangleMapObject(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+				}
+				else
+					tempMapObject = new RectangleMapObject(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+				
+				tiledMapWrapper.collisionObjects.add(tempMapObject);
+				g.i().npMap.put(tempMapObject, temp);
 			}
 			else
 			{
 				tempLightOnOff.push(temp);
 			}
 			
-			MapObject tempMapObject; 
-			if(!temp.collisionParameter.equalsIgnoreCase(""))
-			{
-				String[] tempCP = temp.collisionParameter.split(",");
-				tempMapObject = new RectangleMapObject(temp.getX()+
-						Float.parseFloat(tempCP[0]),temp.getY() + Float.parseFloat(tempCP[1]),
-						Float.parseFloat(tempCP[2]), Float.parseFloat(tempCP[3]));
-				tiledMapWrapper.collisionObjects.add(tempMapObject);
-			}
-			else
-				tempMapObject = new RectangleMapObject(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-			tiledMapWrapper.collisionObjects.add(tempMapObject);
-			g.i().npMap.put(tempMapObject, temp);
 			startX = 0;
 			startY = 0;
 			width = 0;

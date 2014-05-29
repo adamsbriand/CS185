@@ -24,7 +24,7 @@
     <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,pingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="50,50,100,100"/>
+    <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="isHero,true"/>
     <property name="mover" value="null"/>
@@ -38,7 +38,7 @@
     <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,basketball"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="50,50,100,100"/>
+    <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="isHero,true"/>
     <property name="mover" value="null"/>
@@ -52,7 +52,7 @@
     <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="50,50,100,100"/>
+    <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="isHero,true"/>
     <property name="mover" value="null"/>
@@ -66,7 +66,7 @@
     <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,baseball"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="50,50,100,100"/>
+    <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="isHero,true"/>
     <property name="mover" value="null"/>
