@@ -222,6 +222,9 @@ public class GameScreen extends GameObject {
 		g.i().npMap.clear();
 		
 		for (MapObject object : tiledMapWrapper.npObjects) {
+			
+			name = object.getName();
+			
 			tempProperties = object.getProperties();
 
 			if (tempProperties.get("x") != null) {
@@ -240,10 +243,6 @@ public class GameScreen extends GameObject {
 			else{
 				width = 32;
 				height = 32;
-			}
-			
-			if (tempProperties.get("name") != null) {
-				name = (String) tempProperties.get("name");
 			}
 			
 			if (tempProperties.get("type") != null) {
