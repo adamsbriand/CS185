@@ -21,7 +21,7 @@ public class Trigger {
 
 	// Public Actions
 	public void action(String actionString){
-		if (actionString==null || actionString==""){
+		if (actionString==null || actionString.equalsIgnoreCase("")){
 			return;
 		}
 		String[] Values = actionString.split(",");
@@ -285,7 +285,7 @@ public class Trigger {
 			collidable = false;
 		}
 		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (objectName==g.i().mapObjects.get(i).getName()){
+			if (objectName.equals(g.i().mapObjects.get(i).getName())){
 				g.i().mapObjects.get(i).setCollidable(collidable);
 			}
 		}

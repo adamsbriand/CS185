@@ -82,7 +82,7 @@ public class NP extends GameThing {
 	}
 
 	public void setCollidable(boolean collidable) {
-		this.collidable = false;
+		this.collidable = collidable;
 	}
 
 	public void setAnimation(String animationName) {

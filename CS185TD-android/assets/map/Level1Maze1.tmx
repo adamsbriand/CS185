@@ -142,7 +142,7 @@
   </object>
   <object name="switchAllOff" type="npo" x="485" y="288" width="40" height="60">
    <properties>
-    <property name="actions" value="toggleState,switchAllOff,changeOthersAnim,lightedAreaUL,unlit,changeOthersAnim,lightedAreaUR,unlit,changeOthersAnim,lightedAreaLL,unlit,changeOthersAnim,lightedAreaLR,unlit"/>
+    <property name="actions" value="toggleState,switchAllOff,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
     <property name="animations" value="on,0,0,on,off,1,1,off"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -221,7 +221,7 @@
   </object>
   <object name="bottomlessPit1" type="npo" x="128" y="768" width="352" height="128">
    <properties>
-    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL,unlit,changeOthersAnim,lightedAreaUR,unlit,changeOthersAnim,lightedAreaLL,unlit,changeOthersAnim,lightedAreaLR,unlit"/>
+    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -234,7 +234,7 @@
   </object>
   <object name="bottomlessPit2" type="npo" x="544" y="768" width="352" height="128">
    <properties>
-    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL,unlit,changeOthersAnim,lightedAreaUR,unlit,changeOthersAnim,lightedAreaLL,unlit,changeOthersAnim,lightedAreaLR,unlit"/>
+    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
