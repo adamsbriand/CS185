@@ -38,6 +38,13 @@ public class Trigger {
 			TriggerActions(actionArray[i], actionArray[i+1]);
 		}
 	}
+	
+	public void action(String Conditional, String Action){
+		boolean go = condition(Conditional);
+		if (go){
+			action(Action);
+		}
+	}
 
 	// public Conditions
 	public boolean condition(String conditionString){
