@@ -85,6 +85,16 @@ public class ScreenMenu implements Screen {
         		g.i().t.action("NewLevel,Level1Maze1");
         	}
         });
+        
+        final TextButton textButton3=new TextButton("New Dialog",textButtonStyle);
+        textButton3.setPosition(200, 320);
+        stage.addActor(textButton3);
+        
+        textButton3.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("NewLevel,Level1Dialog1");
+        	}
+        });
     }
  
     public void render (float delta) {

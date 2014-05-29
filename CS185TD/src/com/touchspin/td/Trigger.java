@@ -138,7 +138,8 @@ public class Trigger {
 
 	private void changeBalldY(String value) {
 		// -10
-		int change = Integer.parseInt(value);
+		float change = Float.parseFloat(value);
+		g.i().hero.changeBalldy(change);
 	}
 
 	private void changeLocation(String value) {
@@ -147,11 +148,7 @@ public class Trigger {
 	}
 	
 	private void changeMyAnimation(String value) {
-		switch (value){
-		case "break":
-
-			break;
-		}
+		g.i().hero.changeBall(value);
 	}
 	
 	// Changes to environment
@@ -338,6 +335,9 @@ public class Trigger {
 			g.i().leAnonymizer.click = false;
 			g.i().leAnonymizer.resetAll();
 			break;
+		case "Level1Dialog1":
+			g.i().gameMode = 'D';
+			game.setScreen(new GameDialog(game, "BeginingDialog.xml"));
 		}
 	}
 

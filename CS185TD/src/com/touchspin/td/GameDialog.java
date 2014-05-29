@@ -3,7 +3,7 @@ package com.touchspin.td;
 public class GameDialog extends GameObject {
 
 	MainGame game;
-	public GameDialog(MainGame game){
+	public GameDialog(MainGame game, String string){
 		this.game = game;
 		//anonymizer = game.anonymizer;
 		}
