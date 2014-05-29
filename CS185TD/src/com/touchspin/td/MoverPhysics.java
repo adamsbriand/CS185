@@ -1,5 +1,7 @@
 package com.touchspin.td;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
@@ -18,6 +20,9 @@ public class MoverPhysics extends Mover {
 	float radius;
 	RectangleMapObject temp;
 	Rectangle rect;
+	ArrayList<NP> triggeredNP = new ArrayList<NP>();
+	
+	
 
 	public MoverPhysics() {
 		speedXPerSecond = 0;
@@ -75,6 +80,7 @@ public class MoverPhysics extends Mover {
 						// player collides with object
 						if (circleCenter.dst(rect.x + rect.width, countY) < radius) {
 							if (g.i().npMap.get(object) != null) {
+								triggeredNP.add(g.i().npMap.get(object));
 								if (g.i().npMap.get(object).collidable) {
 									previousX = rect.x + rect.width;
 									return false;
@@ -118,6 +124,7 @@ public class MoverPhysics extends Mover {
 						if (circleCenter.dst(rect.x, countY) < radius) {
 							
 							if (g.i().npMap.get(object) != null) {
+								triggeredNP.add(g.i().npMap.get(object));
 								if (g.i().npMap.get(object).collidable) {
 									previousX = rect.x - gameThing.getWidth();
 									return false;
@@ -162,6 +169,7 @@ public class MoverPhysics extends Mover {
 						// player collides with object
 						if (circleCenter.dst(countX, rect.y + rect.height) < radius) {
 							if (g.i().npMap.get(object) != null) {
+								triggeredNP.add(g.i().npMap.get(object));
 								if (g.i().npMap.get(object).collidable) {
 									previousY = rect.y + rect.height;
 									return false;
@@ -208,6 +216,7 @@ public class MoverPhysics extends Mover {
 						if (circleCenter.dst(countX, rect.y) < radius) {
 							
 							if (g.i().npMap.get(object) != null) {
+								triggeredNP.add(g.i().npMap.get(object));
 								if (g.i().npMap.get(object).collidable) {
 									previousY = rect.y - gameThing.getHeight();
 									return false;

@@ -37,6 +37,14 @@ public class MoverInput extends MoverPhysics {
 			speedYPerSecond = 0;
 		}
 		
+		if(triggeredNP != null)
+		{
+			for(int i = 0 ; i < triggeredNP.size(); i++)
+			{
+				g.i().t.action(triggeredNP.get(i).conditions, triggeredNP.get(i).action);
+			}
+		}
+		
 	}
 
 	private void inputMove() 

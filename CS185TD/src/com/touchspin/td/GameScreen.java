@@ -20,7 +20,6 @@ public class GameScreen extends GameObject {
 	public GameScreen(MainGame game, String mapPath) {
 
 		this.game = game;
-
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
 		setUpCamera();
 		stage = new Stage();
