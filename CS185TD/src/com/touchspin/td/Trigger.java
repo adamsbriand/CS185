@@ -179,11 +179,12 @@ public class Trigger {
 	
 	private void playSound(String value) {
 		if (g.i().sfx){
+			Random random = new Random();
+			int rand;
 			switch (value){
 			case "sndGlassBreak":
-				Random random = new Random();
-				int ran = random.nextInt(2) + 1;
-				if (ran == 1){
+				rand = random.nextInt(2) + 1;
+				if (rand == 1){
 					g.i().sound.sndGlassBreak1.play(g.i().sfxLevel);
 				} else {
 					g.i().sound.sndGlassBreak2.play(g.i().sfxLevel);
@@ -198,6 +199,24 @@ public class Trigger {
 			case "sndSlideWhistleDown":
 				g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
 				break;
+			case "bounce":
+				rand = random.nextInt(3) + 1;
+				switch (g.i().currentBallType){
+					case "pingpong":
+						switch (rand){
+							case 1:
+								g.i().sound.sndPingPongBounce1.play(g.i().sfxLevel);
+								break;
+							case 2:
+								g.i().sound.sndPingPongBounce2.play(g.i().sfxLevel);
+								break;
+							case 3:
+								g.i().sound.sndPingPongBounce3.play(g.i().sfxLevel);
+								break;
+						}
+						break;
+					case "":
+				}
 			}
 		}
 	}
@@ -230,7 +249,7 @@ public class Trigger {
 		switch (value){
 			case "dragon":
 				g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryIntro.wav"));
-				g.i().sound.bgMusic.setVolume(g.i().musicLevel);
+				g.i().sound.bgMusic.setLooping(false);
 				g.i().sound.bgMusic.setOnCompletionListener(
 						new Music.OnCompletionListener(){
 					public void onCompletion(Music music) {
@@ -243,10 +262,10 @@ public class Trigger {
 				break;
 			default:
 				g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/song1Loopable.wav"));
-				g.i().sound.bgMusic.setVolume(g.i().musicLevel);
 				g.i().sound.bgMusic.setLooping(true);
 		}
 		if (g.i().music){
+			g.i().sound.bgMusic.setVolume(g.i().musicLevel);
 			g.i().sound.bgMusic.play();
 		}
 	}

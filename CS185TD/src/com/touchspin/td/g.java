@@ -29,12 +29,14 @@ public class g {
 	public int playerFriction; // The friction of the player for physics
 	public boolean fire;	// Hero is on fire
 	public String currentBallType;
+	public float playerHealth;  // Health of the player. 1=full health. 
+	public Hero hero;
 	
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated
 	public boolean music;	// Music is activated
-	public float sfxLevel;	// Sound effect volume. 0=None, 100=Full
-	public float musicLevel;	// Music volume. 0=None, 100=Full
+	public float sfxLevel;	// Sound effect volume. 0=None, 1=Full
+	public float musicLevel;	// Music volume. 0=None, 1=Full
 	
 	// System variables
 	public String language;	/* Language used. This is a to letter code indicating language
