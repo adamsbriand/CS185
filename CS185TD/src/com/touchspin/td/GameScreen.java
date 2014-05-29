@@ -238,9 +238,9 @@ public class GameScreen extends GameObject {
 				width = (int) ((RectangleMapObject)object).getRectangle().width;
 				height = (int) ((RectangleMapObject)object).getRectangle().height;
 			}
-				else{
-			width = 32;
-			height = 32;
+			else{
+				width = 32;
+				height = 32;
 			}
 			
 			if (tempProperties.get("name") != null) {
@@ -343,6 +343,16 @@ public class GameScreen extends GameObject {
 			{
 				tempLightOnOff.push(temp);
 			}
+			
+			if(!temp.collisionParameter.equalsIgnoreCase(""))
+			{
+				String[] tempCP = temp.collisionParameter.split(",");
+				tiledMapWrapper.collisionObjects.add(new RectangleMapObject(temp.getX()+
+						Float.parseFloat(tempCP[0]),temp.getY() + Float.parseFloat(tempCP[1]),
+						Float.parseFloat(tempCP[2]), Float.parseFloat(tempCP[3])));
+			}
+			else
+			tiledMapWrapper.collisionObjects.add(new RectangleMapObject(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight()));
 			
 			startX = 0;
 			startY = 0;

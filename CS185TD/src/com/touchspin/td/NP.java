@@ -53,6 +53,7 @@ public class NP extends GameThing {
 		this.roamingRadius = roamingRadius;
 		this.spriteSheet = spriteSheet;
 		this.anims = anims;
+		this.collisionParameter = collisionParameter;
 		npSprite = new Sprite();
 		animationSet = new AnimationSet();
 
@@ -70,7 +71,7 @@ public class NP extends GameThing {
 			currentFrame = currentAnimation.getKeyFrame(stateTime, true);
 			npSprite.setRegion(currentFrame);
 
-			npSprite.setBounds(getX(), getY(), getWidth(), getHeight());
+			npSprite.setBounds(getX(), getY(), getWidth(), getHeight() );
 		}
 		else
 		{
