@@ -1,6 +1,7 @@
 package com.touchspin.td;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -20,7 +21,7 @@ public class MoverPhysics extends Mover {
 	float radius;
 	RectangleMapObject temp;
 	Rectangle rect;
-	ArrayList<NP> triggeredNP = new ArrayList<NP>();
+	HashSet<NP> triggeredNP = new HashSet<NP>();
 	
 	
 
