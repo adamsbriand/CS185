@@ -138,13 +138,13 @@ public class Hero extends GameThing {
 		switch(type)
 		{
 			case "PingPong":
-				g.i().playerFriction = 0.09f;
+				g.i().playerFriction = 0.005f;
 				flammable = true;
-				ballWidth = 16f;
-				ballHeight = 16f;
+				ballWidth = 24f;
+				ballHeight = 24f;
 				break;
 			case "Bowling":
-				g.i().playerFriction = 2.4f;
+				g.i().playerFriction = 0.03f;
 				ballWidth = 32f;
 				ballHeight = 32f;
 				flammable = false;

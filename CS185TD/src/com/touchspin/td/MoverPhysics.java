@@ -37,6 +37,7 @@ public class MoverPhysics extends Mover {
 
 	protected void physicsMove() {
 
+		fractionFactor = g.i().playerFriction;
 		speedXPerSecond *= (1 - fractionFactor);
 		speedYPerSecond *= (1 - fractionFactor);
 
