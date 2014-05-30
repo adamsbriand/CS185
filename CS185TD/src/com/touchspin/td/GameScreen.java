@@ -78,13 +78,11 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -94,13 +92,11 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -170,7 +166,7 @@ public class GameScreen extends GameObject {
 			foregroudCamera.update();
 		} else {
 			camera = new OrthographicCamera();
-			camera.setToOrtho(false, w, h);
+			camera.setToOrtho(false, 320, 320*h/w);
 			camera.update();
 		}
 	}

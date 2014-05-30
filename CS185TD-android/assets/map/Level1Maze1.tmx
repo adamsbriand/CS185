@@ -82,7 +82,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
-    <property name="conditions" value="rect"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="LightOnOff.png"/>
@@ -95,7 +95,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
-    <property name="conditions" value="rect"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="LightOnOff.png"/>
@@ -108,7 +108,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
-    <property name="conditions" value="rect"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="LightOnOff.png"/>
@@ -121,7 +121,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
-    <property name="conditions" value="rect"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="LightOnOff.png"/>
