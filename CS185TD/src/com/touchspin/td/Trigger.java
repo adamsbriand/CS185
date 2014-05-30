@@ -1,10 +1,5 @@
 package com.touchspin.td;
 
-import java.util.Random;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
-
 /* This class handles any triggers that the user may encounter when colliding with hidden
  * tiles.  This trigger requires the input of two string values, or one comma delimited
  * string.  The first value will indicate the action to be taken.  The second value will 
@@ -18,8 +13,10 @@ public class Trigger {
 	public Trigger(MainGame game){
 		this.game = game;
 	}
-
+	
+	//=========================================================================
 	// Public Actions
+	//=========================================================================
 	public void action(String actionString){
 		if (actionString==null || actionString.equalsIgnoreCase("")){
 			return;
@@ -27,15 +24,6 @@ public class Trigger {
 		String[] Values = actionString.split(",");
 		for (int i = 0; i < Values.length; i +=2){
 			TriggerActions(Values[i], Values[i+1]);
-		}
-	}
-
-	public void action(String[] actionArray){
-		if (actionArray==null || actionArray[0]==""){
-			return;
-		}
-		for (int i = 0; i < actionArray.length; i +=2 ){
-			TriggerActions(actionArray[i], actionArray[i+1]);
 		}
 	}
 	
@@ -46,35 +34,9 @@ public class Trigger {
 		}
 	}
 
-	// public Conditions
-	public boolean condition(String conditionString){
-		if (conditionString == null || conditionString.equalsIgnoreCase("")) {
-			return true;
-		}
-		String[] Values = conditionString.split(",");
-		for (int i = 0; i < Values.length; i +=2){
-			boolean status = TriggerConditions(Values[i], Values[i+1]);
-			if (!status){
-				return false;
-			}
-		}
-		return true;
-	}
-
-	public boolean condition(String[] condistionArray){
-		if (condistionArray == null || condistionArray[0] == "") {
-			return true;
-		}
-		for (int i = 0; i < condistionArray.length; i +=2){
-			boolean status = TriggerConditions(condistionArray[i], condistionArray[i+1]);
-			if (!status){
-				return false;
-			}
-		}
-		return true;
-	}
-
+	//=========================================================================
     // private Actions
+	//=========================================================================
 	private void TriggerActions(String type, String value) {
 		switch (type){
 			case "NewLevel":
@@ -160,8 +122,6 @@ public class Trigger {
 				i=1000;
 			}
 		}
-		// dest1
-		// enter1
 	}
 	
 	private void changeMyAnimation(String value) {
@@ -172,7 +132,7 @@ public class Trigger {
 	private void toggleLight(String value) {
 		switch (value){
 			case "lightSourceGlobal":
-
+				
 				break;
 		}
 	}
@@ -237,7 +197,6 @@ public class Trigger {
 				g.i().mapObjects.get(i).setCollidable(collidable);
 			}
 		}
-		// door1,false
 	}
 
 	private void changeOthersAnim(String value) {
@@ -294,33 +253,49 @@ public class Trigger {
 		}
 	}
 
-	// Private Conditions
-	private boolean TriggerConditions(String type, String value2){
+	//=========================================================================
+	// Conditions
+	//=========================================================================
+	private boolean condition(String conditionString){
+		if (conditionString == null || conditionString.equalsIgnoreCase("")) {
+			return true;
+		}
+		String[] Values = conditionString.split(",");
+		for (int i = 0; i < Values.length; i +=2){
+			boolean status = TriggerConditions(Values[i], Values[i+1]);
+			if (!status){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private boolean TriggerConditions(String type, String value){
 		switch (type){
 			case "ballFlammable":
-				return ballFlammable(value2);
+				return ballFlammable(value);
 			case "ballType":
-				return ballType(value2);
+				return ballType(value);
 			case "myAnimationIs":
-				return myAnimationIs(value2);
+				return myAnimationIs(value);
 			case "onScreen":
-				return onScreen(value2);
+				return onScreen(value);
 			case "animationName":
-				return animationName(value2);
+				return animationName(value);
 			case "velGTE":
-				return velGTE(value2);
+				return velGTE(value);
 			}
 		return false;
 	}
 
 	private boolean velGTE(String value) {
 		// 3
-		return false;
+		return true;
 	}
 
 	private boolean animationName(String value) {
 		// idle
-		return false;
+		return true;
 	}
 
 	private boolean onScreen(String value) {
@@ -330,11 +305,11 @@ public class Trigger {
 
 	private boolean myAnimationIs(String value) {
 		// on
-		return false;
+		return true;
 	}
 
 	private boolean ballType(String value) {
-		if (value==g.i().currentBallType){
+		if (value.equalsIgnoreCase(g.i().currentBallType)){
 			return true;
 		}
 		return false;

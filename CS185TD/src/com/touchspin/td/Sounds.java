@@ -71,22 +71,28 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBasketBallBounce2.wav"));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBasketBallBounce3.wav"));
 				break;
+			default:
+				bounce1 = null;
+				bounce2 = null;
+				bounce3 = null;
 		}
 	}
 	
 	public void Bounce(){
-		Random random = new Random();
-		int rand = random.nextInt(3) + 1;
-		switch (rand){
-			case 1:
-				bounce1.play();
-				break;
-			case 2:
-				bounce2.play();
-				break;
-			case 3:
-				bounce3.play();
-				break;
+		if (bounce1!=null){
+			Random random = new Random();
+			int rand = random.nextInt(3) + 1;
+			switch (rand){
+				case 1:
+					bounce1.play();
+					break;
+				case 2:
+					bounce2.play();
+					break;
+				case 3:
+					bounce3.play();
+					break;
+			}
 		}
 	}
 	
