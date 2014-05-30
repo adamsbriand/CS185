@@ -27,6 +27,7 @@ public class NP extends GameThing {
 	Vector2 originalPosition;
 	Vector2 destination;
 	boolean collidable;
+	boolean inCollision;
 	public AnimationSet animationSet;
 
 	private Animation currentAnimation;
@@ -56,6 +57,7 @@ public class NP extends GameThing {
 		this.collisionParameter = collisionParameter;
 		npSprite = new Sprite();
 		animationSet = new AnimationSet();
+		inCollision = false;
 
 		if (type.equalsIgnoreCase("npcEnemy"))
 			npMover = new MoverAI();
