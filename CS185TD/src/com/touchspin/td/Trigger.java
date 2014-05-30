@@ -150,6 +150,16 @@ public class Trigger {
 	}
 
 	private void changeLocation(String value) {
+		float x;
+		float y;
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
+				x = g.i().mapObjects.get(i).getOriginX();
+				y = g.i().mapObjects.get(i).getOriginY();
+				g.i().hero.setPosition(x, y);
+				i=1000;
+			}
+		}
 		// dest1
 		// enter1
 	}
@@ -172,10 +182,16 @@ public class Trigger {
 		if (g.i().sfx){
 			switch (value){
 				case "sndFanOn":
-					g.i().sound.sndWindBlowing.loop(g.i().sfxLevel);
+					g.i().sound.wind(true);
+					break;
+				case "sndFanOff":
+					g.i().sound.wind(false);
 					break;
 				case "sndFire":
-					g.i().sound.sndCampFire.loop(g.i().sfxLevel);
+					g.i().sound.fire(true);
+					break;
+				case "sndFireOff":
+					g.i().sound.fire(false);
 					break;
 			}
 		}
@@ -183,95 +199,27 @@ public class Trigger {
 	
 	private void playSound(String value) {
 		if (g.i().sfx){
-			Random random = new Random();
-			int rand;
 			switch (value){
 			case "sndGlassBreak":
-				rand = random.nextInt(2) + 1;
-				if (rand == 1){
-					g.i().sound.sndGlassBreak1.play(g.i().sfxLevel);
-				} else {
-					g.i().sound.sndGlassBreak2.play(g.i().sfxLevel);
-				}
+				g.i().sound.sndSwitch("break");
 				break;
 			case "sndLightSwitch":
-				g.i().sound.sndLightSwitch.play(g.i().sfxLevel);
+				g.i().sound.sndSwitch("light");
 				break;
 			case "sndDoorOpen":
 	
 				break;
 			case "sndSlideWhistleDown":
-				g.i().sound.sndSlideWhistleDown.play(g.i().sfxLevel);
+				g.i().sound.SlideWhistle("down");
 				break;
 			case "bounce":
-				rand = random.nextInt(3) + 1;
-				switch (g.i().currentBallType){
-					case "pingpong":
-						switch (rand){
-							case 1:
-								g.i().sound.sndPingPongBounce1.play(g.i().sfxLevel);
-								break;
-							case 2:
-								g.i().sound.sndPingPongBounce2.play(g.i().sfxLevel);
-								break;
-							case 3:
-								g.i().sound.sndPingPongBounce3.play(g.i().sfxLevel);
-								break;
-						}
-						break;
-					case "":
-				}
+				g.i().sound.Bounce();
 			}
 		}
 	}
 	
 	private void changeMusic(String value) {
-		/*
-		if (g.i().music){
-			g.i().sound.sndg1Loopable.stop();
-			g.i().sound.sndgScaryIntro.stop();
-			g.i().sound.sndgScaryLoopable.stop();
-			switch (value){
-				case "dragon":
-					g.i().sound.sndgScaryIntro.setVolume(g.i().musicLevel);
-					g.i().sound.sndgScaryIntro.play();
-					g.i().sound.sndgScaryIntro.setOnCompletionListener(
-							new Music.OnCompletionListener(){
-						public void onCompletion(Music music) {
-							g.i().sound.sndgScaryLoopable.setVolume(g.i().musicLevel);
-							g.i().sound.sndgScaryLoopable.play();
-							g.i().sound.sndgScaryLoopable.setLooping(true);
-						}});
-					break;
-				default:
-					g.i().sound.sndg1Loopable.setVolume(g.i().musicLevel);
-					g.i().sound.sndg1Loopable.play();
-					g.i().sound.sndg1Loopable.setLooping(true);
-			}
-		}
-		*/
-		switch (value){
-			case "dragon":
-				g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryIntro.wav"));
-				g.i().sound.bgMusic.setLooping(false);
-				g.i().sound.bgMusic.setOnCompletionListener(
-						new Music.OnCompletionListener(){
-					public void onCompletion(Music music) {
-						g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryLoopable.wav"));
-						g.i().sound.bgMusic.setVolume(g.i().musicLevel);
-						g.i().sound.bgMusic.play();
-						g.i().sound.bgMusic.setLooping(true);
-						g.i().sound.bgMusic.setOnCompletionListener(null);
-					}});
-				break;
-			default:
-				g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/song1Loopable.wav"));
-				g.i().sound.bgMusic.setLooping(true);
-		}
-		if (g.i().music){
-			g.i().sound.bgMusic.setVolume(g.i().musicLevel);
-			g.i().sound.bgMusic.play();
-		}
+		g.i().sound.BGMusic(value);
 	}
 
 	// Changes to others
@@ -295,15 +243,10 @@ public class Trigger {
 	private void changeOthersAnim(String value) {
 		String[] Values = value.split("-");
 		for (int i=0; i < g.i().mapObjects.size(); i++){
-			
 			if (Values[0].equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
 				g.i().mapObjects.get(i).setAnimation(Values[1]);
-				NP test = g.i().mapObjects.get(i);
-				int stop =8;
 			}
 		}
-		// fan1,on"
-		// door1,open
 	}
 
 	private void setTarget(String value) {
