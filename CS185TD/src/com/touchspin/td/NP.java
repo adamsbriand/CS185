@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -36,12 +38,14 @@ public class NP extends GameThing {
 	private int animRows;
 	private int animCols;
 	public int roamingRadius;
+	private Camera camera;
 
 	public NP(int startX, int startY, int width, int height, String name,
 			String type, String conditions, String action, String anims,
 			int roamingRadius, String spriteSheet, int animRows, int animCols,
-			boolean collidable, String collisionParameter) {
+			boolean collidable, String collisionParameter,OrthographicCamera camera) {
 		originalPosition = new Vector2(startX, startY);
+		this.camera = camera;
 		setX(startX);
 		setY(startY);
 		setWidth(width);
@@ -96,7 +100,10 @@ public class NP extends GameThing {
 	@Override
 	public void draw(Batch batch, float alpha) {
 		if(!spriteSheet.equalsIgnoreCase(""))
-		npSprite.draw(batch);
+		{
+			batch.setProjectionMatrix(camera.combined);
+			npSprite.draw(batch);
+		}
 	}
 
 	public String getName()
