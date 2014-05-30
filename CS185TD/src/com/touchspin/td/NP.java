@@ -90,7 +90,7 @@ public class NP extends GameThing {
 	public void setAnimation(String animationName) {
 		stateTime = 0;
 		currentAnimation = animationMap
-				.get(animationSet.find(animationName).name);
+				.get(animationName);
 	}
 
 	@Override
