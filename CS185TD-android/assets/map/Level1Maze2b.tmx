@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="32" height="32" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="DuploTop" tilewidth="32" tileheight="32">
-  <image source="../BloxTopDuplo.png" width="224" height="256"/>
+  <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
   <tile id="0">
    <properties>
     <property name="red" value=""/>
