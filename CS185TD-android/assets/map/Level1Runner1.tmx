@@ -131,7 +131,7 @@
   </object>
   <object name="transmorgifier1" type="npo" x="1184" y="96" width="160" height="160">
    <properties>
-    <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,bowling"/>
+    <property name="actions" value="changeOthersAnim,transmorgifier1-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,11,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>

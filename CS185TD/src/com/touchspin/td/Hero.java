@@ -23,9 +23,12 @@ public class Hero extends GameThing {
 	private float scaleFactor;
 	
 	private int frameCount = 0;
-	public Sprite heroSprite;
-	public Sprite fireEffect;
-	public Sprite smokeEffect;
+	private Sprite heroSprite;
+	private Sprite fireEffect;
+	private Sprite smokeEffect;
+	public boolean flammable;
+	private float ballHeight;
+	private float ballWidth;
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -36,12 +39,13 @@ public class Hero extends GameThing {
 		this.camera = camera;
 
 		heroSprite = new Sprite();
-		heroSprite.setBounds(0, 32, 32 * camera.zoom, 32 * camera.zoom);
-		heroSprite.setOrigin(heroSprite.getWidth() / 2,
-				heroSprite.getHeight() / 2);
 		
 		loadBallType();
-		changeBall("Baseball");
+		changeBall("PingPong");
+		
+		heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight * camera.zoom);
+		heroSprite.setOrigin(heroSprite.getWidth() / 2,
+				heroSprite.getHeight() / 2);
 		
 		setHeight(heroSprite.getHeight() * camera.zoom);
 		setWidth(heroSprite.getWidth() * camera.zoom);
@@ -60,15 +64,15 @@ public class Hero extends GameThing {
 		currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
 
 		fireEffect = new Sprite(currentFireFrame);
-		fireEffect.setBounds(0, 32, 32 * camera.zoom,
-				32 * fireEffect.getHeight() / fireEffect.getWidth()
+		fireEffect.setBounds(0, 32, ballWidth * camera.zoom,
+				ballHeight * fireEffect.getHeight() / fireEffect.getWidth()
 						* camera.zoom);
 		fireEffect.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
 		
 		smokeEffect = new Sprite(currentSmokeFrame);
-		smokeEffect.setBounds(0, 32, 32 * camera.zoom,
-				32 * smokeEffect.getHeight() / smokeEffect.getWidth()
+		smokeEffect.setBounds(0, 32, ballWidth * camera.zoom,
+				ballHeight * smokeEffect.getHeight() / smokeEffect.getWidth()
 						* camera.zoom);
 		smokeEffect.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
@@ -131,9 +135,26 @@ public class Hero extends GameThing {
 
 	public void changeBall(String type)
 	{
+		switch(type)
+		{
+			case "PingPong":
+				g.i().playerFriction = 0.09f;
+				flammable = true;
+				ballWidth = 16f;
+				ballHeight = 16f;
+				break;
+			case "Bowling":
+				g.i().playerFriction = 2.4f;
+				ballWidth = 32f;
+				ballHeight = 32f;
+				flammable = false;
+				break;
+		}
 		heroSprite.setRegion(ballTypeMap.get(type));
 		g.i().currentBallType = type;
 		g.i().sound.setBounce();
+		
+		setSpriteBounds();
 	}
 	
 	public void igniteBall(boolean fireOn)
@@ -175,22 +196,22 @@ public class Hero extends GameThing {
     
     private void loadBallType()
 	{
-		Texture appearance = new Texture("img/obsolete//Balls.png");
-		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 3,
-				appearance.getHeight() / 4);
+		Texture appearance = new Texture("img/spritesheet/BallSquish.png");
+		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 6,
+				appearance.getHeight() / 12);
 		
-		ballTypeMap.put("Baseball", tmp[0][0]);
-		ballTypeMap.put("Basketball", tmp[0][1]);
-		ballTypeMap.put("Beachball", tmp[0][2]);
-		ballTypeMap.put("BearingSteel", tmp[1][0]);
-		ballTypeMap.put("Bowling", tmp[1][1]);
-		ballTypeMap.put("Golfball", tmp[1][2]);
-		ballTypeMap.put("Marble", tmp[2][0]);
-		ballTypeMap.put("PingPong", tmp[2][1]);
-		ballTypeMap.put("Poolball", tmp[2][2]);
-		ballTypeMap.put("Soccerball", tmp[3][0]);
-		ballTypeMap.put("Tennisball", tmp[3][1]);
-		ballTypeMap.put("Blackball", tmp[3][2]);
+		ballTypeMap.put("Baseball", tmp[4][0]);
+		ballTypeMap.put("Basketball", tmp[1][0]);
+		ballTypeMap.put("Beachball", tmp[5][0]);
+		ballTypeMap.put("BearingSteel", tmp[3][0]);
+		ballTypeMap.put("Bowling", tmp[0][0]);
+		ballTypeMap.put("Golfball", tmp[10][0]);
+		ballTypeMap.put("Marble", tmp[6][0]);
+		ballTypeMap.put("PingPong", tmp[2][0]);
+		ballTypeMap.put("Poolball", tmp[8][0]);
+		ballTypeMap.put("Soccerball", tmp[7][0]);
+		ballTypeMap.put("Tennisball", tmp[9][0]);
+		ballTypeMap.put("Blackball", tmp[11][0]);
 	}
 	
 	private void loadFireAnimation()
@@ -287,4 +308,26 @@ public class Hero extends GameThing {
 		smokeEffect.setScale(1f, scaleFactor);
 	}
 
+	private void setSpriteBounds()
+	{
+		if(heroSprite != null){
+		heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight * camera.zoom);
+		heroSprite.setOrigin(heroSprite.getWidth() / 2,
+				heroSprite.getHeight() / 2);}
+		setHeight(heroSprite.getHeight() * camera.zoom);
+		setWidth(heroSprite.getWidth() * camera.zoom);
+		if(fireEffect != null){
+		fireEffect.setBounds(0, 32, ballWidth * camera.zoom,
+				ballHeight * fireEffect.getHeight() / fireEffect.getWidth()
+						* camera.zoom);
+		fireEffect.setOrigin(heroSprite.getWidth() / 2,
+				heroSprite.getHeight() / 2);}
+		if(smokeEffect != null){
+		smokeEffect.setBounds(0, 32, ballWidth * camera.zoom,
+				ballHeight * smokeEffect.getHeight() / smokeEffect.getWidth()
+						* camera.zoom);
+		smokeEffect.setOrigin(heroSprite.getWidth() / 2,
+				heroSprite.getHeight() / 2);
+		}
+	}
 }

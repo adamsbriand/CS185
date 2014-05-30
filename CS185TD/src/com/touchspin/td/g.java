@@ -26,7 +26,7 @@ public class g {
 	public float levelTimer; // Time stamp at start of level. Time is measured in seconds.
 	public String playerGraphic; // Type of ball for graphics and physics
 	public int playerWeight; // The weight of the player for physics
-	public int playerFriction; // The friction of the player for physics
+	public float playerFriction; // The friction of the player for physics
 	public boolean fire;	// Hero is on fire
 	public String currentBallType;
 	public float playerHealth;  // Health of the player. 1=full health. 
