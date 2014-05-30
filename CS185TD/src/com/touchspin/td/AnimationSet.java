@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 public class AnimationSet {
 
 	private ArrayList<AnimationDescription> anims;
-    private int iCurrAnim=0;
+    public int iCurrAnim=0;
     
     public AnimationSet( ) {
         anims = new ArrayList<>();

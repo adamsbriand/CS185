@@ -74,7 +74,7 @@ public class NP extends GameThing {
 			loadAnimation();
 
 			stateTime = 0;
-			currentFrame = currentAnimation.getKeyFrame(stateTime, true);
+			currentFrame = currentAnimation.getKeyFrame(stateTime, false);
 			npSprite.setRegion(currentFrame);
 
 			npSprite.setBounds(getX(), getY(), getWidth(), getHeight() );
@@ -92,9 +92,13 @@ public class NP extends GameThing {
 	}
 
 	public void setAnimation(String animationName) {
+		if(animationSet.getCurrentAnimationDescription().name.equalsIgnoreCase("Broken"))
+			return;
 		stateTime = 0;
 		currentAnimation = animationMap
 				.get(animationName);
+		animationSet.iCurrAnim = animationSet.getIndexOf(animationName);
+		
 	}
 
 	@Override
@@ -124,10 +128,9 @@ public class NP extends GameThing {
 		if (!spriteSheet.equalsIgnoreCase("")) {
 			// animation
 			stateTime += Gdx.graphics.getDeltaTime();
-			currentFrame = currentAnimation.getKeyFrame(stateTime, true);
+			currentFrame = currentAnimation.getKeyFrame(stateTime, false);
 			npSprite.setRegion(currentFrame);
-			if (currentAnimation.getKeyFrameIndex(stateTime) == (animationSet
-					.getCurrentAnimationDescription().frameRange - 1)) {
+			if (currentAnimation.isAnimationFinished(stateTime)) {
 				setAnimation(animationSet.next().name);
 			}
 		}

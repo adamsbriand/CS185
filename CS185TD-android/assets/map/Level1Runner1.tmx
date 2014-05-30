@@ -119,7 +119,7 @@
   <object name="glassBlock1" type="npo" x="1056" y="384" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,glassBlock1-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock1-false"/>
-    <property name="animations" value="idle,0,0,idle,break,1,7,broken,broken,8,8,broken"/>
+    <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
     <property name="collidable" value="true"/>
     <property name="collisionParams" value="32,32,32,32"/>
     <property name="collisionShape" value="rect"/>
@@ -145,7 +145,7 @@
   <object name="glassBlock2" type="npo" x="1055" y="419" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,glassBlock2-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock2-false"/>
-    <property name="animations" value="idle,0,0,idle,break,1,7,broken,broken,8,8,broken"/>
+    <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
     <property name="collidable" value="true"/>
     <property name="collisionParams" value="32,32,32,32"/>
     <property name="collisionShape" value="rect"/>
