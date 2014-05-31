@@ -7,9 +7,48 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
 public class Sounds {
+	
+	// Bounce files
+	private static final String bounce1BasketBall = "snd/sndBasketBallBounce1.wav";
+	private static final String bounce2BasketBall = "snd/sndBasketBallBounce2.wav";
+	private static final String bounce3BasketBall = "snd/sndBasketBallBounce3.wav";
+	private static final String bounce1BowlingBall = "snd/sndBowlingBallBounce1.wav";
+	private static final String bounce2BowlingBall = "snd/sndBowlingBallBounce2.wav";
+	private static final String bounce3BowlingBall = "snd/sndBowlingBallBounce3.wav";
+	private static final String bounce1PingPong = "snd/sndPingPongBounce1.wav";
+	private static final String bounce2PingPong = "snd/sndPingPongBounce2.wav";
+	private static final String bounce3PingPong = "snd/sndPingPongBounce3.wav";
+	private static final String bounce1SoccerBall = "snd/sndSoccerBallBounce1.wav";
+	private static final String bounce2SoccerBall = "snd/sndSoccerBallBounce2.wav";
+	private static final String bounce3SoccerBall = "snd/sndSoccerBallBounce3.wav";
+	private static final String bounce1TennisBall = "snd/sndTennisBallBounce1.wav";
+	private static final String bounce2TennisBall = "snd/sndTennisBallBounce2.wav";
+	private static final String bounce3TennisBall = "snd/sndTennisBallBounce3.wav";
+	
+	// Sound effects
+	private static final String arrowfile1 = "snd/sndArrow1.wav";
+	private static final String arrowfile2 = "snd/sndArrow2.wav";
+	private static final String brickCrash = "snd/sndBrickCrash.wav";
+	private static final String glassBreak1 = "snd/sndGlassBreak1.wav";
+	private static final String glassBreak2 = "snd/sndGlassBreak2.wav";
+	private static final String lightSwitch = "snd/sndLightSwitch.wav";
+	private static final String switchFile = "snd/sndSwitch.wav";
+	private static final String Transmorgification = "snd/sndBallTransmorgification.wav";
+	private static final String tubeDown = "snd/sndDownTube.wav";
+	private static final String whistleDown = "snd/sndSlideWhistleDown.wav";
+	private static final String whistleUp = "snd/sndSlideWhistleUp.wav";
+
+	// Music files
+	private static final String scaryIntro = "snd/songScaryIntro.wav";
+	private static final String scary = "snd/songScaryLoopable.wav";
+	private static final String song1 = "snd/song1Loopable.wav";
+	private static final String wind = "snd/sndWindBlowing.wav";
+	private static final String fireburn = "snd/sndFire.wav";
+	private static final String campfire = "snd/sndCampFire.wav";
+	
 	private Sound arrow1=null;
 	private Sound arrow2=null;
-	private Sound SlideWhistle=null;
+	private Sound whistle=null;
 	private Sound sndSwitch=null;
 	private Music fire=null;
 	private Music campFire=null;
@@ -22,12 +61,12 @@ public class Sounds {
 	public void BGMusic(String file){
 		switch (file){
 		case "dragon":
-			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryIntro.wav"));
+			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
 			g.i().sound.bgMusic.setLooping(false);
 			g.i().sound.bgMusic.setOnCompletionListener(
 					new Music.OnCompletionListener(){
 				public void onCompletion(Music music) {
-					g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/songScaryLoopable.wav"));
+					g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scary));
 					g.i().sound.bgMusic.setVolume(g.i().musicLevel);
 					g.i().sound.bgMusic.play();
 					g.i().sound.bgMusic.setLooping(true);
@@ -35,7 +74,7 @@ public class Sounds {
 				}});
 			break;
 		default:
-			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal("snd/song1Loopable.wav"));
+			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
 			g.i().sound.bgMusic.setLooping(true);
 		}
 		if (g.i().music){
@@ -47,29 +86,29 @@ public class Sounds {
 	public void setBounce(){
 		switch (g.i().currentBallType.toLowerCase()){
 			case "pingpong":
-				bounce1 = Gdx.audio.newSound(Gdx.files.internal("snd/sndPingPongBounce1.wav"));
-				bounce2 = Gdx.audio.newSound(Gdx.files.internal("snd/sndPingPongBounce2.wav"));
-				bounce3 = Gdx.audio.newSound(Gdx.files.internal("snd/sndPingPongBounce3.wav"));
+				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1PingPong));
+				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2PingPong));
+				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3PingPong));
 				break;
 			case "soccerball":
-				bounce1 = Gdx.audio.newSound(Gdx.files.internal("snd/sndSoccerBallBounce1.wav"));
-				bounce2 = Gdx.audio.newSound(Gdx.files.internal("snd/sndSoccerBallBounce2.wav"));
-				bounce3 = Gdx.audio.newSound(Gdx.files.internal("snd/sndSoccerBallBounce3.wav"));
+				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1SoccerBall));
+				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2SoccerBall));
+				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3SoccerBall));
 				break;
 			case "tennisball":
-				bounce1 = Gdx.audio.newSound(Gdx.files.internal("snd/sndTennisBallBounce1.wav"));
-				bounce2 = Gdx.audio.newSound(Gdx.files.internal("snd/sndTennisBallBounce2.wav"));
-				bounce3 = Gdx.audio.newSound(Gdx.files.internal("snd/sndTennisBallBounce3.wav"));
+				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1TennisBall));
+				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2TennisBall));
+				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3TennisBall));
 				break;
 			case "bowlingball":
-				bounce1 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBowlingBallBounce1.wav"));
-				bounce2 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBowlingBallBounce2.wav"));
-				bounce3 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBowlingBallBounce3.wav"));
+				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1BowlingBall));
+				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2BowlingBall));
+				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3BowlingBall));
 				break;
 			case "basketball":
-				bounce1 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBasketBallBounce1.wav"));
-				bounce2 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBasketBallBounce2.wav"));
-				bounce3 = Gdx.audio.newSound(Gdx.files.internal("snd/sndBasketBallBounce3.wav"));
+				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1BasketBall));
+				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2BasketBall));
+				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3BasketBall));
 				break;
 			default:
 				bounce1 = null;
@@ -98,7 +137,7 @@ public class Sounds {
 	
 	public void wind(Boolean on){
 		if (on){
-			windBlowing=Gdx.audio.newMusic(Gdx.files.internal("snd/sndWindBlowing.wav"));
+			windBlowing=Gdx.audio.newMusic(Gdx.files.internal(wind));
 			windBlowing.setLooping(true);
 			windBlowing.setVolume(g.i().sfxLevel);
 			windBlowing.play();
@@ -110,7 +149,7 @@ public class Sounds {
 	
 	public void fire(Boolean on){
 		if (on){
-			fire=Gdx.audio.newMusic(Gdx.files.internal("snd/sndFire.wav"));
+			fire=Gdx.audio.newMusic(Gdx.files.internal(fireburn));
 			fire.setLooping(true);
 			fire.setVolume(g.i().sfxLevel);
 			fire.play();
@@ -122,7 +161,7 @@ public class Sounds {
 	
 	public void campfire(Boolean on){
 		if (on){
-			campFire=Gdx.audio.newMusic(Gdx.files.internal("snd/sndCampFire.wav"));
+			campFire=Gdx.audio.newMusic(Gdx.files.internal(campfire));
 			campFire.setLooping(true);
 			campFire.setVolume(g.i().sfxLevel);
 			campFire.play();
@@ -135,25 +174,25 @@ public class Sounds {
 	public void sndSwitch(String type){
 		switch (type){
 			case "switch":
-				sndSwitch=Gdx.audio.newSound(Gdx.files.internal("snd/sndSwitch.wav"));
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(switchFile));
 				break;
 			case "light":
-				sndSwitch=Gdx.audio.newSound(Gdx.files.internal("snd/sndLightSwitch.wav"));
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(lightSwitch));
 				break;
 			case "ball":
-				sndSwitch=Gdx.audio.newSound(Gdx.files.internal("snd/sndBallTransmorgification.wav"));
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(Transmorgification));
 				break;
 			case "break":
 				Random random = new Random();
 				int rand = random.nextInt(2) + 1;
 				if (rand==1){
-					sndSwitch=Gdx.audio.newSound(Gdx.files.internal("snd/sndGlassBreak1.wav"));
+					sndSwitch=Gdx.audio.newSound(Gdx.files.internal(glassBreak1));
 				} else {
-					sndSwitch=Gdx.audio.newSound(Gdx.files.internal("snd/sndGlassBreak2.wav"));
+					sndSwitch=Gdx.audio.newSound(Gdx.files.internal(glassBreak2));
 				}
 				break;
 			case "brick":
-				sndSwitch=Gdx.audio.newSound(Gdx.files.internal("snd/sndBrickCrash.wav"));
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(brickCrash));
 		}
 		sndSwitch.play(g.i().sfxLevel);
 	}
@@ -161,24 +200,24 @@ public class Sounds {
 	public void SlideWhistle(String direction){
 		switch (direction){
 			case "up":
-				SlideWhistle=Gdx.audio.newSound(Gdx.files.internal("snd/sndSlideWhistleUp.wav"));
+				whistle=Gdx.audio.newSound(Gdx.files.internal(whistleUp));
 				break;
 			case "down":
-				SlideWhistle=Gdx.audio.newSound(Gdx.files.internal("snd/sndSlideWhistleDown.wav"));
+				whistle=Gdx.audio.newSound(Gdx.files.internal(whistleDown));
 				break;
 			case "tube":
-				SlideWhistle=Gdx.audio.newSound(Gdx.files.internal("snd/sndDownTube.wav"));
+				whistle=Gdx.audio.newSound(Gdx.files.internal(tubeDown));
 				break;
 		}
-		SlideWhistle.play(g.i().sfxLevel);
+		whistle.play(g.i().sfxLevel);
 	}
 	
 	public void arrow(){
 		Random random = new Random();
 		int rand = random.nextInt(2) + 1;
 		if (arrow1!=null){
-			arrow1=Gdx.audio.newSound(Gdx.files.internal("snd/sndArrow1.wav"));
-			arrow2=Gdx.audio.newSound(Gdx.files.internal("snd/sndArrow2.wav"));
+			arrow1=Gdx.audio.newSound(Gdx.files.internal(arrowfile1));
+			arrow2=Gdx.audio.newSound(Gdx.files.internal(arrowfile2));
 		}
 		if (rand==1){
 			arrow1.play(g.i().sfxLevel);
