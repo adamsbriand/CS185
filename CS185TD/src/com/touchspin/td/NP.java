@@ -100,6 +100,10 @@ public class NP extends GameThing {
 		animationSet.iCurrAnim = animationSet.getIndexOf(animationName);
 		
 	}
+	
+	public String getAnimation(){
+		return animationSet.getCurrentAnimationDescription().name;
+	}
 
 	@Override
 	public void draw(Batch batch, float alpha) {
