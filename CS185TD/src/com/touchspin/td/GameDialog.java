@@ -1,79 +1,133 @@
 package com.touchspin.td;
 
 import java.io.IOException;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 
 public class GameDialog extends GameObject
 {
+	//used to parse XML file
 	private XmlReader xml;
-	private FileHandle script;		
+	private FileHandle script;	
 	private Element root;
 	private Array<Element> items;
-	private DialogSnippet speakerA;
-	private DialogSnippet speakerB;
-	private SpriteBatch batch;
-	private Texture backGround;
-	private String backGroundPath;
-	private String songPath;
-	private int count;
-	private boolean currentSpeakerisA = true;
 	
+	private Sprite sprite;
+	//private OrthographicCamera backGroundCamera;	
+	//private DialogSnippet currentSnippet;
+	private SpriteBatch batch;
+	private BitmapFont font;
+	//private String songPath;
+	//private float pauseTime;
+	//private float currentTime;
+	
+	private int snippetCount;		
+	
+	// info from XML file for a single snippet
+	private int dialogCount; //next strip to read from
+	private String[] textArray;
+	private String speakerName;
+	private char position;
+	private String backGroundPath;
+	private String songPath;	
+	private String imagePath;
 	
 	public GameDialog(MainGame game, String scriptPath)
-	{
-				
-		this.xml = new XmlReader();
-		this.script = new FileHandle(scriptPath);
-		// get script xml
+	{				
+		//parse XML file
+		xml = new XmlReader();		
+		script = Gdx.files.internal(scriptPath);	
 		try
-		{
-			this.root = this.xml.parse(script);
-		}
+		{	root = xml.parse(script);	}
 		catch(IOException e)
-		{
-			
-		}
-		this.items = root.getChildrenByName("Snippet");	
-		this.count = 0;
-		this.backGround = null;
-		this.songPath = null;		
+		{}		
+		items = root.getChildrenByName("Snippet");	
+		
+		font = new BitmapFont();
+		
+		backGroundPath = null;
+		songPath = null;	
+		snippetCount = 0;
+		batch = new SpriteBatch();
+		next();		
 	}
 	
 	@Override
-	public void update() 
-	{
-		next();
-		if(currentSpeakerisA) 
-		{			
-			if(!speakerA.getBackgroundPath().equals(backGroundPath))			
-				switchBackground(speakerA.getBackgroundPath());	
-				
-			//if(!speakerA.getSongPath().equals(songPath))
-				//switchSong(speakerA.getSongPath());		
-			//speak(speakerA);
-			//currentSpeakerisA = false;
-		}
-		else 
-		{
-			if(!speakerB.getBackgroundPath().equals(backGroundPath))			
-				switchBackground(speakerB.getBackgroundPath());		
-			
-			//if(!speakerB.getSongPath().equals(songPath))
-				//switchSong(speakerA.getSongPath());
-			//speak(speakerB);
-			//currentSpeakerisA = true;
-		}		
+	public void render(float delta) 
+	{		
+		update();		
+		draw();		
 	}
 	
-	private void speak(DialogSnippet speaker)
+	@Override
+	public void draw() 
+	{
+		Gdx.graphics.getGL20().glClearColor( 0, 0, 0, 0 );
+		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );	
+		Texture background = new Texture(Gdx.files.internal(backGroundPath));
+		Texture speechBubble = new Texture(Gdx.files.internal("DialogImages/DlgSpeechBubble.png"));
+		Skin mySkin = new Skin();
+		//Label text = new Label("sup niga!", mySkin,"times-12");
+		
+		batch.begin();
+		
+		//draw background
+		batch.draw(background, 0, 0);
+		
+		//draw speech bubble
+		batch.draw(speechBubble, 0, 0);		
+		
+		//used to display text
+		font.draw(batch, "sup people", 50, 50);
+		batch.end();
+	}	
+	
+	@Override
+	public void update() 
+	{		
+		
+	}
+	
+	/**
+	 * Get the next snippet.
+	 */
+	private void next()
+	{	
+		speakerName = items.get(snippetCount).getAttribute("name");
+		textArray = items.get(snippetCount).getAttribute("text").split(":");	
+		position = items.get(snippetCount).getAttribute("position").charAt(0);		
+		backGroundPath = items.get(snippetCount).getAttribute("background");		
+		songPath = items.get(snippetCount).getAttribute("music");		
+		dialogCount = 0;
+		snippetCount++;
+	}
+	
+	private void createBackGround()
+	{
+		float w = Gdx.graphics.getWidth();
+	    float h = Gdx.graphics.getHeight();		
+		
+		Texture backGround = new Texture(Gdx.files.internal(backGroundPath));	
+		TextureRegion region = new TextureRegion(backGround, 0, 0, 800, 420);
+		sprite = new Sprite(region);
+		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth() );
+		sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
+		sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
+			
+	}
+	
+	/*private void speak(DialogSnippet speaker)
 	{
 		Texture speakerImage = new Texture(Gdx.files.internal(speaker.getImagePath()));
 		float x, y;
@@ -88,41 +142,18 @@ public class GameDialog extends GameObject
 			y = backGround.getHeight();
 		}
 		
-	}
+	}*/
 	
-	private void switchBackground(String path)
-	{
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);	
-		backGroundPath = path;
-		backGround = new Texture(Gdx.files.internal(backGroundPath));	
-		batch.draw(backGround, 0, 0);
-	}
 	
-	private void switchSong(String path)
+	
+	/*private void switchSong(String path)
 	{
 		songPath = path;
 		// need to switch the song here and play it. might not need this method
-	}
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		
-	}
+	}*/
 	
-	@Override
-	public void render(float delta) {
-		update();
-		draw();		
-	}
 	
-	// get next snippets
-	private void next()
-	{
-		speakerA = new DialogSnippet(items.get(count++));
-		speakerB = new DialogSnippet(items.get(count++));
-	}
+	
 	
 	@Override
 	public void resize(int width, int height) {
@@ -151,8 +182,6 @@ public class GameDialog extends GameObject
 	}
 	@Override
 	public void dispose() {
-		backGround.dispose();
-		
-		
+		//backGround.dispose();		
 	}
 }

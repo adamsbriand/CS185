@@ -23,7 +23,7 @@ public class DialogSnippet
 		this.textArray = item.getAttribute("text").split(":");	
 		this.position = item.getAttribute("position").charAt(0);
 		this.backGroundPath = item.getAttribute("background");
-		this.songPath = item.getAttribute("song");
+		this.songPath = item.getAttribute("music");
 		this.textPoint = 0;			
 	}
 	
