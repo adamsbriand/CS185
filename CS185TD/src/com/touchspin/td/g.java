@@ -31,6 +31,7 @@ public class g {
 	public String currentBallType;
 	public float playerHealth;  // Health of the player. 1=full health. 
 	public Hero hero;
+	public HUD hud;
 	
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated

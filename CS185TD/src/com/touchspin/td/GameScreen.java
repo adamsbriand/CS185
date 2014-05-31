@@ -15,6 +15,7 @@ public class GameScreen extends GameObject {
 	Stage behideStage;
 	Stage playerStage;
 	Stage aboveStage;
+	Stage hudStage;
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
 	private OrthographicCamera foregroudCamera;
@@ -28,6 +29,8 @@ public class GameScreen extends GameObject {
 		playerStage = new Stage(behideStage.getViewport(),
 				behideStage.getSpriteBatch());
 		aboveStage = new Stage(behideStage.getViewport(),
+				behideStage.getSpriteBatch());
+		hudStage = new Stage(behideStage.getViewport(),
 				behideStage.getSpriteBatch());
 		g.i().hero = new Hero(camera, tiledMapWrapper);
 		loadNPs();
@@ -47,6 +50,7 @@ public class GameScreen extends GameObject {
 		behideStage.act();
 		playerStage.act();
 		aboveStage.act();
+		hudStage.act();
 		camera.update();
 		if (g.i().gameMode == 'R') {
 			backGroundCamera.update();
@@ -73,7 +77,7 @@ public class GameScreen extends GameObject {
 			playerStage.draw();
 			aboveStage.draw();
 		}
-
+		//hudStage.draw();
 	}
 
 	@Override

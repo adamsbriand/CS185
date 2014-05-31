@@ -277,7 +277,7 @@ public class Trigger {
 			case "ballType":
 				return ballType(value);
 			case "myAnimationIs":
-				return myAnimationIs(value);
+				return AnimationIs(value);
 			case "onScreen":
 				return onScreen(value);
 			case "animationName":
@@ -303,9 +303,18 @@ public class Trigger {
 		return true;
 	}
 
-	private boolean myAnimationIs(String value) {
-		// on
-		return true;
+	private boolean AnimationIs(String value) {
+		String[] split = value.split("-");
+		if (split.length > 0){						// Check to make sure proper format used. 
+			for (int i = 0; i < g.i().mapObjects.size(); i++){
+				if (split[0].equalsIgnoreCase(g.i().mapObjects.get(i).name)){
+					if (split[1].equalsIgnoreCase(g.i().mapObjects.get(i).getAnimation())){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private boolean ballType(String value) {
