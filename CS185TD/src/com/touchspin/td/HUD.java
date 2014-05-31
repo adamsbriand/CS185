@@ -13,7 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class HUD extends GameThing {
 	public OrthographicCamera camera;
-	public MoverInput heroMover = new MoverInput();
+
 
 	private Map<String,TextureRegion> HealthMap = new HashMap<String, TextureRegion>();
 	
@@ -21,16 +21,18 @@ public class HUD extends GameThing {
 	private Sprite heroHealth;
 	private int healthWidth;
 	private int healthHeight;
+	private TextureRegion [][] frames;
 
 	public HUD(OrthographicCamera camera, TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
 
 		heroHealth = new Sprite();
+		loadHealthBar();
 		
-		heroHealth.setBounds(0, 32, healthWidth * camera.zoom, healthHeight * camera.zoom);
-		heroHealth.setOrigin(heroHealth.getWidth() / 2,
-				heroHealth.getHeight() / 2);
+//		heroHealth.setBounds(0, 32, healthWidth * camera.zoom, healthHeight * camera.zoom);
+//		heroHealth.setOrigin(heroHealth.getWidth() / 2,
+//				heroHealth.getHeight() / 2);
 		
 		setHeight(heroHealth.getHeight() * camera.zoom);
 		setWidth(heroHealth.getWidth() * camera.zoom);
@@ -52,7 +54,6 @@ public class HUD extends GameThing {
 
 	@Override
 	public void act(float delta) {
-		heroMover.move(this);
 
 		// position
 		setSpritesPosition();
@@ -66,28 +67,20 @@ public class HUD extends GameThing {
 	//--------------Private helper method------------------------------------------
 	private void setSpritesPosition()
 	{
+		setX(camera.position.x-camera.viewportWidth/2 + 40);
+		setY(camera.position.y + camera.viewportHeight/2 - 70);
 		heroHealth.setX(getX());
 		heroHealth.setY(getY());
 	}
     
 	
-    private void loadBallType()
+    private void loadHealthBar()
 	{
-		Texture appearance = new Texture("img/hud/HeartBarl.png");
-		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 6,
-				appearance.getHeight() / 12);
-		
-		HealthMap.put("Baseball", tmp[4][0]);
+		Texture appearance = new Texture("img/hud/HeartBar.png");
+		frames = TextureRegion.split(appearance, appearance.getWidth() / 2,
+				appearance.getHeight() / 26);
+		heroHealth.setRegion(frames[0][0]);
+		heroHealth.setBounds(getX(), getY(), appearance.getWidth() / 2, appearance.getHeight() / 26);
 	}
-    
-	private void setSpriteBounds()
-	{
-		if(heroHealth != null){
-			heroHealth.setBounds(0, 32, healthWidth * camera.zoom, healthHeight * camera.zoom);
-			heroHealth.setOrigin(heroHealth.getWidth() / 2,
-					heroHealth.getHeight() / 2);}
-		setHeight(heroHealth.getHeight() * camera.zoom);
-		setWidth(heroHealth.getWidth() * camera.zoom);
 
-	}
 }

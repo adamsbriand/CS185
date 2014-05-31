@@ -33,8 +33,10 @@ public class GameScreen extends GameObject {
 		hudStage = new Stage(behideStage.getViewport(),
 				behideStage.getSpriteBatch());
 		g.i().hero = new Hero(camera, tiledMapWrapper);
+		g.i().hud = new HUD(camera, tiledMapWrapper);
 		loadNPs();
 		playerStage.addActor(g.i().hero);
+		aboveStage.addActor(g.i().hud);
 	}
 
 	@Override
@@ -69,8 +71,8 @@ public class GameScreen extends GameObject {
 			tiledMapWrapper.renderPlayerlayer();
 			behideStage.draw();
 			playerStage.draw();
-			aboveStage.draw();
 			tiledMapWrapper.renderForeground();
+			aboveStage.draw();
 		} else {
 			tiledMapWrapper.renderMap();
 			behideStage.draw();
