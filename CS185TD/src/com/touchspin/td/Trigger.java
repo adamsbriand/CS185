@@ -97,7 +97,7 @@ public class Trigger {
 
 	// Changes to the hero
 	private void igniteBall(String value) {
-		if (value=="true"){
+		if (value.equalsIgnoreCase("true")){
 			g.i().fire = true;
 		} else {
 			g.i().fire = false;
@@ -105,10 +105,10 @@ public class Trigger {
 	}
 	
 	private boolean ballFlammable(String value){
-		if (value=="true"){
-			return g.i().fire;
+		if (value.equalsIgnoreCase("true")){
+			return g.i().hero.flammable;
 		} else {
-			return !(g.i().fire);
+			return g.i().hero.flammable;
 		}
 	}
 

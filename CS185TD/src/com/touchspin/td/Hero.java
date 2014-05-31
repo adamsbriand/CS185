@@ -57,7 +57,6 @@ public class Hero extends GameThing {
 		// read in file animation
 		loadFireAnimation();
 		stateTime = 0f;
-		g.i().fire = true;
 		currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
 		
 		loadSmokeAnimation();
@@ -145,6 +144,7 @@ public class Hero extends GameThing {
 				break;
 			case "Bowling":
 				g.i().playerFriction = 0.03f;
+				g.i().fire = false;
 				ballWidth = 32f;
 				ballHeight = 32f;
 				flammable = false;
@@ -154,13 +154,19 @@ public class Hero extends GameThing {
 				ballWidth = 32f;
 				ballHeight = 32f;
 				flammable = false;
+				g.i().fire = false;
 				break;
 			case "Baseball":
 				g.i().playerFriction = 0.008f;
 				ballWidth = 28f;
 				ballHeight = 28f;
 				flammable = false;
+				g.i().fire = false;
 				break;
+		}
+		if(!g.i().fire)
+		{
+			g.i().sound.fire(false);
 		}
 		heroSprite.setRegion(ballTypeMap.get(type));
 		g.i().currentBallType = type;

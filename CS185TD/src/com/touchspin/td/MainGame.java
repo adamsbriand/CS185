@@ -17,6 +17,7 @@ public class MainGame extends Game {
 		g.i().sound = new Sounds();
 		g.i().t = new Trigger(this);
 		g.i().currentBallType = "PingPong";
+		g.i().fire = false;
 		
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);

@@ -154,8 +154,11 @@ public class Sounds {
 			fire.setVolume(g.i().sfxLevel);
 			fire.play();
 		} else {
-			fire.stop();
-			fire=null;
+			if(fire != null)
+			{
+				fire.stop();
+				fire=null;
+			}
 		}
 	}
 	

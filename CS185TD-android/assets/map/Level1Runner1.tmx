@@ -82,7 +82,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
+    <property name="collisionParams" value="0,0,1764,36"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
