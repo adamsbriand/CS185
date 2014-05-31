@@ -41,7 +41,7 @@ public class Hero extends GameThing {
 		heroSprite = new Sprite();
 		
 		loadBallType();
-		changeBall("PingPong");
+		changeBall(g.i().currentBallType);
 		
 		heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight * camera.zoom);
 		heroSprite.setOrigin(heroSprite.getWidth() / 2,
@@ -147,6 +147,18 @@ public class Hero extends GameThing {
 				g.i().playerFriction = 0.03f;
 				ballWidth = 32f;
 				ballHeight = 32f;
+				flammable = false;
+				break;
+			case "basketball":
+				g.i().playerFriction = 0.01f;
+				ballWidth = 32f;
+				ballHeight = 32f;
+				flammable = false;
+				break;
+			case "baseball":
+				g.i().playerFriction = 0.008f;
+				ballWidth = 28f;
+				ballHeight = 28f;
 				flammable = false;
 				break;
 		}

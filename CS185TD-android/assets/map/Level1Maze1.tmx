@@ -21,12 +21,12 @@
  <objectgroup name="objects" width="32" height="32">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
-    <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,pingPong"/>
+    <property name="actions" value="changeMyAnim,transmorgify,playSound,transmorgify,changeBall,PingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="isHero,true"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a pingPong ball"/>
     <property name="roamingRadius" value="0"/>
@@ -40,7 +40,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="isHero,true"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a basket ball"/>
     <property name="roamingRadius" value="0"/>
@@ -54,7 +54,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="isHero,true"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a bowling ball"/>
     <property name="roamingRadius" value="0"/>
@@ -68,7 +68,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="20,20,32,32"/>
     <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="isHero,true"/>
+    <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a base ball"/>
     <property name="roamingRadius" value="0"/>
