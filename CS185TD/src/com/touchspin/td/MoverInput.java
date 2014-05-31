@@ -37,7 +37,10 @@ public class MoverInput extends MoverPhysics {
 		if (!isYFree()) {
 			gameThing.setY(previousY);
 			speedYPerSecond = 0;
-
+		}
+		
+		if(triggeredNP.size()!=0)
+		{
 			for (NP object : triggeredNP) {
 				if (!prev.contains(object)) {
 					g.i().t.action(object.conditions, object.action);
