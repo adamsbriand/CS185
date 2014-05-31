@@ -67,8 +67,11 @@ public class HUD extends GameThing {
 	//--------------Private helper method------------------------------------------
 	private void setSpritesPosition()
 	{
-		setX(camera.position.x-camera.viewportWidth/2 + 40);
-		setY(camera.position.y + camera.viewportHeight/2 - 70);
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
+		
+		setX(camera.position.x-camera.viewportWidth/2 + 0.1f * camera.viewportWidth/2);
+		setY(camera.position.y + camera.viewportHeight/2 - 0.15f*w/h*  camera.viewportHeight/2);
 		heroHealth.setX(getX());
 		heroHealth.setY(getY());
 	}
@@ -77,10 +80,13 @@ public class HUD extends GameThing {
     private void loadHealthBar()
 	{
 		Texture appearance = new Texture("img/hud/HeartBar.png");
-		frames = TextureRegion.split(appearance, appearance.getWidth() / 2,
-				appearance.getHeight() / 26);
+		healthWidth = appearance.getWidth() / 2;
+		healthHeight = appearance.getHeight() / 26;
+		frames = TextureRegion.split(appearance, healthWidth,
+				healthHeight);
 		heroHealth.setRegion(frames[0][0]);
-		heroHealth.setBounds(getX(), getY(), appearance.getWidth() / 2, appearance.getHeight() / 26);
+		heroHealth.setOrigin(healthWidth/2, healthHeight/2);
+		heroHealth.setBounds(getX(),getY(), camera.viewportWidth * 0.3f,camera.viewportWidth * 0.3f *  (appearance.getHeight() / 26)/(appearance.getWidth() / 2));
 	}
 
 }
