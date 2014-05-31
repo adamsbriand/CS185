@@ -149,10 +149,13 @@ public class Sounds {
 	
 	public void fire(Boolean on){
 		if (on){
+			if(fire == null)
+			{
 			fire=Gdx.audio.newMusic(Gdx.files.internal(fireburn));
 			fire.setLooping(true);
 			fire.setVolume(g.i().sfxLevel);
 			fire.play();
+			}
 		} else {
 			if(fire != null)
 			{

@@ -42,7 +42,7 @@ public class MoverInput extends MoverPhysics {
 		if(triggeredNP.size()!=0)
 		{
 			for (NP object : triggeredNP) {
-				if (!prev.contains(object)) {
+				if (!prev.contains(object) && object.active) {
 					g.i().t.action(object.conditions, object.action);
 				}
 			}

@@ -39,6 +39,7 @@ public class NP extends GameThing {
 	private int animCols;
 	public int roamingRadius;
 	private Camera camera;
+	public boolean active;
 
 	public NP(int startX, int startY, int width, int height, String name,
 			String type, String conditions, String action, String anims,
@@ -62,6 +63,7 @@ public class NP extends GameThing {
 		npSprite = new Sprite();
 		animationSet = new AnimationSet();
 		inCollision = false;
+		active = true;
 
 		if (type.equalsIgnoreCase("npcEnemy"))
 			npMover = new MoverAI();
@@ -93,7 +95,10 @@ public class NP extends GameThing {
 
 	public void setAnimation(String animationName) {
 		if(animationSet.getCurrentAnimationDescription().name.equalsIgnoreCase("Broken"))
+			{
+			active = false;
 			return;
+			}
 		stateTime = 0;
 		currentAnimation = animationMap
 				.get(animationName);
@@ -107,10 +112,12 @@ public class NP extends GameThing {
 
 	@Override
 	public void draw(Batch batch, float alpha) {
+		if(active){
 		if(!spriteSheet.equalsIgnoreCase(""))
 		{
 			batch.setProjectionMatrix(camera.combined);
 			npSprite.draw(batch);
+		}
 		}
 	}
 
@@ -125,6 +132,7 @@ public class NP extends GameThing {
 	}
 	@Override
 	public void act(float delta) {
+		if(active){
 		// npMover.move(this);
 		npSprite.setX(getX());
 		npSprite.setY(getY());
@@ -137,6 +145,7 @@ public class NP extends GameThing {
 			if (currentAnimation.isAnimationFinished(stateTime)) {
 				setAnimation(animationSet.next().name);
 			}
+		}
 		}
 	}
 
