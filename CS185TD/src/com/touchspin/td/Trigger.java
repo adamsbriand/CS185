@@ -7,6 +7,13 @@ package com.touchspin.td;
  */
 
 public class Trigger {
+	private final static String L1R1 = "map/Level1Runner1.tmx";
+	private final static String L1R2 = "";
+	private final static String L1M1 = "map/Level1Maze1.tmx";
+	private final static String L1M2 = "map/Level1Maze2.tmx";
+	private final static String L1D1 = "scripts/BeginingDialog.xml";
+	private final static String L1D2 = "";
+	
 	MainGame game;
 
 	// constructor
@@ -235,21 +242,27 @@ public class Trigger {
 
 	private void NewLevel(String Value){
 		switch (Value){
-		case "Level1Run1":
-			g.i().gameMode = 'R';
-			game.setScreen(new GameScreen(game, "map/Level1Runner1.tmx"));
-			g.i().leAnonymizer.click = false;
-			g.i().leAnonymizer.resetAll();
-			break;
-		case "Level1Maze1":
-			g.i().gameMode = 'M';
-			game.setScreen(new GameScreen(game, "map/Level1Maze1.tmx"));
-			g.i().leAnonymizer.click = false;
-			g.i().leAnonymizer.resetAll();
-			break;
-		case "Level1Dialog1":
-			g.i().gameMode = 'D';
-			game.setScreen(new GameDialog(game, "BeginingDialog.xml"));
+			case "Level1Run1":
+				g.i().gameMode = 'R';
+				game.setScreen(new GameScreen(game, L1R1));
+				g.i().leAnonymizer.click = false;
+				g.i().leAnonymizer.resetAll();
+				break;
+			case "Level1Maze1":
+				g.i().gameMode = 'M';
+				game.setScreen(new GameScreen(game, L1M1));
+				g.i().leAnonymizer.click = false;
+				g.i().leAnonymizer.resetAll();
+				break;
+			case "Level1Maze2":
+				g.i().gameMode = 'M';
+				game.setScreen(new GameScreen(game, L1M2));
+				g.i().leAnonymizer.click = false;
+				g.i().leAnonymizer.resetAll();
+				break;
+			case "Level1Dialog1":
+				g.i().gameMode = 'D';
+				game.setScreen(new GameDialog(game, L1D1));
 		}
 	}
 
