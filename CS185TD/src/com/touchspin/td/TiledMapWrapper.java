@@ -1,6 +1,9 @@
 package com.touchspin.td;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
@@ -21,14 +24,15 @@ public class TiledMapWrapper {
 	private TiledMapRenderer foregroundTiledMapRenderer;
 	private int mapPixelWidth;
 	private int mapPixelHeight;
-	int[] forgroundLayers = { 6, 7 };
-	int[] palyerLayers = { 3, 4, 5, 6 };
-	int[] backgroundLayers = { 0, 1, 2 };
-	int[] test = {0,1,2};
-	/*
-	 * int[] forgroundLayers = {}; int[] palyerLayers = {1, 2, 3}; int[]
-	 * backgroundLayers = {0};
-	 */
+	// int[] forgroundLayers = { 6, 7 };
+	// int[] palyerLayers = { 3, 4, 5, 6 };
+	// int[] backgroundLayers = { 0, 1, 2 };
+
+	int[] forgroundLayers;
+	int[] palyerLayers;
+	int[] backgroundLayers;
+
+	int[] test = { 0, 1, 2 };
 
 	float backgroundfactor = 0.5f;
 	float foregroundfactor = 1.5f;
@@ -38,8 +42,24 @@ public class TiledMapWrapper {
 	MapObjects playerStartPoint;
 
 	public TiledMapWrapper(String path) {
+		ArrayList<Integer> foregroundLayer = new ArrayList<Integer>();
+		ArrayList<Integer> playerLayer = new ArrayList<Integer>();
+		ArrayList<Integer> backgroundLayer = new ArrayList<Integer>();
 		tiledMap = new TmxMapLoader().load(path);
-		
+		int i = 0;
+		for (MapLayer layer : tiledMap.getLayers()) {
+			if (layer.getName().contains("fg"))
+				foregroundLayer.add(i);
+			else if (layer.getName().contains("bg"))
+				backgroundLayer.add(i);
+			else
+				playerLayer.add(i);
+			i++;
+		}
+		forgroundLayers = convertIntegers(foregroundLayer);
+		palyerLayers = convertIntegers(playerLayer);
+		backgroundLayers = convertIntegers(backgroundLayer);
+
 		if (g.i().gameMode == 'R')// only the runner needs a background
 		{
 			backgroundTiledMapRenderer = new OrthogonalTiledMapRenderer(
@@ -47,7 +67,7 @@ public class TiledMapWrapper {
 			foregroundTiledMapRenderer = new OrthogonalTiledMapRenderer(
 					tiledMap);
 		}
-		
+
 		playerTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
 		collisionObjects = new MapObjects();
@@ -165,7 +185,7 @@ public class TiledMapWrapper {
 					}
 				}
 		}
-		
+
 		if (tiledMap.getLayers().get("walls") != null) {
 			temp = (TiledMapTileLayer) tiledMap.getLayers().get("walls");
 			tileWidth = temp.getTileWidth();
@@ -182,6 +202,20 @@ public class TiledMapWrapper {
 
 		if (tiledMap.getLayers().get("objects") != null) {
 			npObjects = tiledMap.getLayers().get("objects").getObjects();
+		}
+	}
+
+	private int[] convertIntegers(ArrayList<Integer> integers) {
+
+		if (integers.size() != 0) {
+			int[] ret = new int[integers.size()];
+			for (int i = 0; i < ret.length; i++) {
+				ret[i] = integers.get(i).intValue();
+			}
+			return ret;
+		} else {
+			int[] ret = { 0 };
+			return ret;
 		}
 	}
 	// catch(NullPointerException e)
