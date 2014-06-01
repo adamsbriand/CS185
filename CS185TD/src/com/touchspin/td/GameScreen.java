@@ -32,9 +32,9 @@ public class GameScreen extends GameObject {
 				behideStage.getSpriteBatch());
 		hudStage = new Stage(behideStage.getViewport(),
 				behideStage.getSpriteBatch());
-		g.i().hero = new Hero(camera, tiledMapWrapper);
 		g.i().hud = new HUD(camera, tiledMapWrapper);
 		loadNPs();
+		g.i().hero = new Hero(camera, tiledMapWrapper);
 		playerStage.addActor(g.i().hero);
 		aboveStage.addActor(g.i().hud);
 	}
@@ -108,7 +108,9 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void dispose() {
-
+		playerStage.dispose();
+		aboveStage.dispose();
+		hudStage.dispose();
 	}
 
 	/**

@@ -75,6 +75,19 @@ public class Hero extends GameThing {
 						* camera.zoom);
 		smokeEffect.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
+		
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (g.i().mapObjects.get(i).getName().equalsIgnoreCase("enter1")){
+				setX(g.i().mapObjects.get(i).getX());
+				setY(g.i().mapObjects.get(i).getY());
+			}
+		}
+		
+		if(g.i().gameMode == 'M')
+		{
+			camera.position.x = getX() + getWidth()/2;
+	    	camera.position.y = getY() + getHeight()/2;
+		}
 
 	}
 
@@ -199,6 +212,14 @@ public class Hero extends GameThing {
     	return heroMover.speedXPerSecond;
     }
 	
+    @Override
+    public void setPosition(float x, float y)
+    {
+    	setX(x);
+    	setY(y);
+    	camera.position.x = getX() + getWidth()/2;
+    	camera.position.y = getY() + getHeight()/2;
+    }
 	
 	
 	//--------------Private helper method------------------------------------------

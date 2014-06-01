@@ -123,8 +123,8 @@ public class Trigger {
 		float y;
 		for (int i=0; i < g.i().mapObjects.size(); i++){
 			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
-				x = g.i().mapObjects.get(i).getOriginX();
-				y = g.i().mapObjects.get(i).getOriginY();
+				x = g.i().mapObjects.get(i).getX();
+				y = g.i().mapObjects.get(i).getY();
 				g.i().hero.setPosition(x, y);
 				i=1000;
 			}
