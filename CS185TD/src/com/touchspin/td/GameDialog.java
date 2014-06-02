@@ -30,18 +30,29 @@ public class GameDialog extends GameObject
 	private BitmapFont font;
 	//private String songPath;
 	//private float pauseTime;
-	//private float currentTime;
-	
-	private int snippetCount;		
+	//private float currentTime;			
 	
 	// info from XML file for a single snippet
-	private int dialogCount; //next strip to read from
+	
 	private String[] textArray;
+	private String currentText;
 	private String speakerName;
 	private char position;
 	private String backGroundPath;
+	private String bubblePath;
 	private String songPath;	
 	private String imagePath;
+	private short dialogCount; //text strip to read from in the current dialog snippet
+	private short snippetCount;//dialog snippet being used
+	private short charCount;// used to create substrings for display text one at a time.
+	private int h;//holds screen height
+	private int w;//holds screen width
+	private final long secondsPerChar;//how many seconds past between each char print
+	private long nextPrintTime;//next time that a char will be printed
+	
+	private float textX = 0;
+	private int textY = 0;
+	
 	
 	public GameDialog(MainGame game, String scriptPath)
 	{				
@@ -56,11 +67,17 @@ public class GameDialog extends GameObject
 		
 		font = new BitmapFont();
 		
+		w = Gdx.graphics.getWidth();
+		h = Gdx.graphics.getHeight();
+		currentText = "";
+		secondsPerChar = 250;
+		nextPrintTime = 0;
 		backGroundPath = null;
 		songPath = null;	
 		snippetCount = 0;
+		charCount = 0;
 		batch = new SpriteBatch();
-		next();		
+		nextSnippet();		
 	}
 	
 	@Override
@@ -75,21 +92,22 @@ public class GameDialog extends GameObject
 	{
 		Gdx.graphics.getGL20().glClearColor( 0, 0, 0, 0 );
 		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );	
-		Texture background = new Texture(Gdx.files.internal(backGroundPath));
-		Texture speechBubble = new Texture(Gdx.files.internal("DialogImages/DlgSpeechBubble.png"));
-		Skin mySkin = new Skin();
-		
-		
 		batch.begin();
 		
 		//draw background
-		batch.draw(background, 0, 0);
-		
+		if(!backGroundPath.equals("black"))			
+		{
+			Texture background = new Texture(Gdx.files.internal(backGroundPath));
+			batch.draw(background, 0, 0);
+		}
 		//draw speech bubble
-		batch.draw(speechBubble, 0, 0);		
+		if(!bubblePath.equals("none"))
+		{
+			Texture speechBubble = new Texture(Gdx.files.internal("DialogImages/DlgSpeechBubble.png"));
+			batch.draw(speechBubble, 0, 0);		
+		}
 		
-		//used to display text
-		font.draw(batch, "sup people", 50, 50);
+		font.draw(batch, currentText, textX, textY);
 		
 		batch.end();
 	}	
@@ -97,21 +115,62 @@ public class GameDialog extends GameObject
 	@Override
 	public void update() 
 	{		
+		if(System.currentTimeMillis() >= nextPrintTime)
+			nextChar();
+		
+		//used to display text
+		if(position == 'L')
+		{
+			textX = 50;
+			textY = 50;
+		}
+		else if (position == 'C')
+		{
+			textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
+			textY = h/2;
+		}
+		else if(position == 'R')
+		{
+			textX = w - 50;
+			textY = h - 50;
+		}
 		
 	}
 	
 	/**
 	 * Get the next snippet.
 	 */
-	private void next()
+	private void nextSnippet()
 	{	
 		speakerName = items.get(snippetCount).getAttribute("name");
 		textArray = items.get(snippetCount).getAttribute("text").split(":");	
 		position = items.get(snippetCount).getAttribute("position").charAt(0);		
 		backGroundPath = items.get(snippetCount).getAttribute("background");		
 		songPath = items.get(snippetCount).getAttribute("music");		
+		bubblePath = items.get(snippetCount).getAttribute("textBubble");
 		dialogCount = 0;
 		snippetCount++;
+	}
+	
+	/**
+	 * Adds the next char for displaying text
+	 */
+	private void nextChar()
+	{
+		nextPrintTime = System.currentTimeMillis();
+		try
+		{
+			currentText += textArray[dialogCount].charAt(charCount++);
+			if(textArray[dialogCount].charAt(charCount - 1) == ' ')
+				currentText += textArray[dialogCount].charAt(charCount++);
+		}
+		catch(StringIndexOutOfBoundsException e)
+		{
+			dialogCount += 4;// a command is next
+			charCount = 0;
+			performAction(textArray[dialogCount - 2], textArray[dialogCount - 1]);
+		}
+		nextPrintTime += secondsPerChar;
 	}
 	
 	private void createBackGround()
@@ -124,37 +183,16 @@ public class GameDialog extends GameObject
 		sprite = new Sprite(region);
 		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth() );
 		sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
-		sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
-			
+		sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);					
+	}	
+	
+	private void performAction(String command, String value)
+	{
+		if(command.equals("pause"))
+		{
+			nextPrintTime += Integer.parseInt(value) * 1000;
+		}
 	}
-	
-	/*private void speak(DialogSnippet speaker)
-	{
-		Texture speakerImage = new Texture(Gdx.files.internal(speaker.getImagePath()));
-		float x, y;
-		if(speaker.getPosition() == 'L')
-		{
-			x = 0;
-			y = backGround.getHeight();
-		}
-		else
-		{
-			x = backGround.getWidth() - speakerImage.getWidth();
-			y = backGround.getHeight();
-		}
-		
-	}*/
-	
-	
-	
-	/*private void switchSong(String path)
-	{
-		songPath = path;
-		// need to switch the song here and play it. might not need this method
-	}*/
-	
-	
-	
 	
 	@Override
 	public void resize(int width, int height) {

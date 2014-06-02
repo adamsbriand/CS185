@@ -3,11 +3,12 @@
 	<Snippet 
 	    name = "Ollie"	
 	    image = "OllieHuman"
-	    background = "DialogImages/HeroAtDesk.png"
-	    position = "L"
+	    background = "black"
+	    position = "C"
 	    music = ""
-	    text = "...:C_:pause:5:Why?......why am I not stronger?:C_:pause:5:Braver?..:C_:pause:5:they deserve better..."
-	    finalPause = "5"/>
+	    textBubble = "none"
+	    text = "...:C_:pause:2:Why?...why am I not stronger?:C_:pause:2:Braver?...:C_:pause:2:they deserve better....."
+	    finalPause = "4"/>
 	<Snippet
 	    name = "Ollie"	
 	    image = "OllieHuman"
