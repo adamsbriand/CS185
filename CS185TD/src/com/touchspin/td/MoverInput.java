@@ -28,6 +28,8 @@ public class MoverInput extends MoverPhysics {
 		gameThing.setX(gameThing.getX() + Gdx.graphics.getDeltaTime()
 				* speedXPerSecond);
 		if (!isXFree()) {
+			if(speedXPerSecond < -100 || speedXPerSecond > 100)
+				g.i().sound.Bounce();
 			gameThing.setX(previousX);
 			speedXPerSecond = 0;
 		}
@@ -35,6 +37,8 @@ public class MoverInput extends MoverPhysics {
 		gameThing.setY(gameThing.getY() + Gdx.graphics.getDeltaTime()
 				* speedYPerSecond);
 		if (!isYFree()) {
+			if(speedYPerSecond < -100 || speedYPerSecond > 100)
+				g.i().sound.Bounce();
 			gameThing.setY(previousY);
 			speedYPerSecond = 0;
 		}

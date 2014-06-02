@@ -100,7 +100,7 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2TennisBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3TennisBall));
 				break;
-			case "bowlingball":
+			case "bowling":
 				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1BowlingBall));
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2BowlingBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3BowlingBall));
