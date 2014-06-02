@@ -8,37 +8,35 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class GameScreen extends GameObject {
 
-	Stage behideStage;
-	Stage playerStage;
-	Stage aboveStage;
-	Stage hudStage;
+	Stage stage;
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
 	private OrthographicCamera foregroudCamera;
 	private boolean soundLoaded = false;
 	private int frameCount = 15;
+	private Group bgg = new Group();
+	private Group fgg = new Group();
+	private Group toppest = new Group();
 
 	public GameScreen(MainGame game, String mapPath) {
 
 		this.game = game;
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
 		setUpCamera();
-		behideStage = new Stage();
-		playerStage = new Stage(behideStage.getViewport(),
-				behideStage.getSpriteBatch());
-		aboveStage = new Stage(behideStage.getViewport(),
-				behideStage.getSpriteBatch());
-		hudStage = new Stage(behideStage.getViewport(),
-				behideStage.getSpriteBatch());
+		stage = new Stage();
 		g.i().hud = new HUD(camera, tiledMapWrapper);
 		loadNPs();
 		g.i().hero = new Hero(camera, tiledMapWrapper);
-		playerStage.addActor(g.i().hero);
-		aboveStage.addActor(g.i().hud);
+		stage.addActor(bgg);
+		stage.addActor(g.i().hero);
+		stage.addActor(fgg);
+		stage.addActor(toppest);
+		stage.addActor(g.i().hud);
 	}
 
 	@Override
@@ -51,10 +49,7 @@ public class GameScreen extends GameObject {
 	public void update() {
 		float tempX = g.i().hero.getX();
 		float tempY = g.i().hero.getY();
-		behideStage.act();
-		playerStage.act();
-		aboveStage.act();
-		hudStage.act();
+		stage.act();
 		camera.update();
 		if (g.i().gameMode == 'R') {
 			backGroundCamera.update();
@@ -87,15 +82,11 @@ public class GameScreen extends GameObject {
 		if (g.i().gameMode == 'R') {
 			tiledMapWrapper.renderBackground();
 			tiledMapWrapper.renderPlayerlayer();
-			behideStage.draw();
-			playerStage.draw();
+			stage.draw();
 			tiledMapWrapper.renderForeground();
-			aboveStage.draw();
 		} else {
 			tiledMapWrapper.renderMap();
-			behideStage.draw();
-			playerStage.draw();
-			aboveStage.draw();
+			stage.draw();
 		}
 		//hudStage.draw();
 	}
@@ -126,9 +117,7 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void dispose() {
-		playerStage.dispose();
-		aboveStage.dispose();
-		hudStage.dispose();
+		stage.dispose();
 	}
 
 	/**
@@ -339,10 +328,17 @@ public class GameScreen extends GameObject {
 					animRows, animCols, collidable, collisionParameter, camera);
 
 			g.i().mapObjects.add(temp);
-			if (spriteSheet.equalsIgnoreCase("img/spritesheet/LightOnOff.png"))
-				aboveStage.addActor(g.i().mapObjects.get(count));
+
+			if (spriteSheet
+					.equalsIgnoreCase("img/spritesheet/TransmorgifierTop.png")
+					|| spriteSheet
+							.equalsIgnoreCase("img/spritesheet/transmorgifier.png"))
+				fgg.addActor(g.i().mapObjects.get(count));
+			else if (spriteSheet
+					.equalsIgnoreCase("img/spritesheet/LightOnOff.png"))
+				toppest.addActor(g.i().mapObjects.get(count));
 			else
-				behideStage.addActor(g.i().mapObjects.get(count));
+				bgg.addActor(g.i().mapObjects.get(count));
 			count++;
 
 			MapObject tempMapObject;
