@@ -19,6 +19,7 @@ public class ScreenSplash extends GameObject{
 	float x;
 	float y;
 	MainGame game;
+	Sprite sprite;
 
 	public ScreenSplash( MainGame mainGame)
 	{
@@ -31,15 +32,12 @@ public class ScreenSplash extends GameObject{
 	{
 		float w = Gdx.graphics.getWidth();
 	    float h = Gdx.graphics.getHeight();
-	    camera = new OrthographicCamera(1, h / w);
+	    camera = new OrthographicCamera();
 	    batch = new SpriteBatch();
-	    texture = new Texture(Gdx.files.internal("img/obsolete/splash.png"));
-	    texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-	    TextureRegion region = new TextureRegion(texture, 0, 0, 800, 420);
-	    Sprite sprite = new Sprite(region);
-	    sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth() );
+	    texture = new Texture(Gdx.files.internal("img/menu/Title.png"));
+	    sprite = new Sprite(texture);
 	    sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
-	    sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
+	    sprite.setBounds(0, 0, w, h);
 	}
 
 
@@ -61,8 +59,7 @@ public class ScreenSplash extends GameObject{
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        batch.draw(texture,0,0);
-        //font.drawMultiLine(batch, message, x, y-100);
+        sprite.draw(batch);
         batch.end();	
 	}
 
