@@ -49,7 +49,7 @@ public class Sounds {
 	private Sound arrow1=null;
 	private Sound arrow2=null;
 	private Sound whistle=null;
-	private Sound sndSwitch=null;
+	public Sound sndSwitch=null;
 	private Music fire=null;
 	private Music campFire=null;
 	private Music windBlowing=null;

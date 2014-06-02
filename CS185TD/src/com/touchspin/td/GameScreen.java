@@ -19,6 +19,8 @@ public class GameScreen extends GameObject {
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
 	private OrthographicCamera foregroudCamera;
+	private boolean soundLoaded = false;
+	private int frameCount = 15;
 
 	public GameScreen(MainGame game, String mapPath) {
 
@@ -61,6 +63,22 @@ public class GameScreen extends GameObject {
 
 		cameraTranslate(g.i().hero.getX() - tempX, g.i().hero.getY() - tempY);
 		setView();
+		if(soundLoaded)
+		{
+			g.i().sound.sndSwitch.play(g.i().sfxLevel);
+			g.i().sound.sndSwitch = null;
+			soundLoaded = false;
+			frameCount = 15;
+		}
+		
+		if(g.i().sound.sndSwitch != null)
+		{
+			frameCount--;
+			if(frameCount == 0)
+			{
+				soundLoaded = true;
+			}
+		}
 
 	}
 
