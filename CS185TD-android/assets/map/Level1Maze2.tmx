@@ -36,13 +36,13 @@
    eJztlDEOgDAMA/OHFlgKbGWDL+cpfRquYAwCNaKTT/JSFLsYEZGLQ6TskDSCWc1Q6/yG7PyQH+Ab7mfhYR731+0lP185zQRHPxV0VO9JSBMRGozzEZo65CdoNs4XaHX4wrMk57/lAZ2WaOR79gXeR6NjH1asfYGudfzgi051cOZb4Dvr9IMvIYQQQgjpwwneyhSP
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="32" height="32">
+ <objectgroup name="objects" width="32" height="32">
   <object name="exit" type="trigger" x="205" y="124" width="37" height="40">
    <properties>
     <property name="gotoLevel" value="2"/>
    </properties>
   </object>
-  <object name="enter" type="destination" x="45" y="937" width="37" height="40"/>
+  <object name="enter1" type="destination" x="556" y="860" width="37" height="40"/>
   <object name="fire" type="trigger" x="640" y="352" width="24" height="25">
    <properties>
     <property name="fireOn" value=""/>

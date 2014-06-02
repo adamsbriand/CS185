@@ -90,6 +90,7 @@ public class GameDialog extends GameObject
 		
 		//used to display text
 		font.draw(batch, "sup people", 50, 50);
+		
 		batch.end();
 	}	
 	
