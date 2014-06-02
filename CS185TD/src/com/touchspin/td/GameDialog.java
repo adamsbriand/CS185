@@ -78,7 +78,7 @@ public class GameDialog extends GameObject
 		Texture background = new Texture(Gdx.files.internal(backGroundPath));
 		Texture speechBubble = new Texture(Gdx.files.internal("DialogImages/DlgSpeechBubble.png"));
 		Skin mySkin = new Skin();
-		//Label text = new Label("sup niga!", mySkin,"times-12");
+		
 		
 		batch.begin();
 		
