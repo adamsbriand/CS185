@@ -4,10 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -16,20 +18,36 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
  
-public class ScreenMenu implements Screen {
+public class ScreenMenu extends GameObject {
     Skin skin;
     Stage stage;
     SpriteBatch batch;
+    Texture texture;
     MainGame game;
+    Sprite sprite;
+    //Camera camera;
+    
     
     public ScreenMenu (MainGame MainGame){
         create();
+        setBG();
         this.game=MainGame;
     }
  
     public ScreenMenu(){
         create();
+    }
+    
+    private void setBG(){
+    	float w = Gdx.graphics.getWidth();
+	    float h = Gdx.graphics.getHeight();
+	    camera = new OrthographicCamera();
+	    texture = new Texture(Gdx.files.internal("img/menu/ScreenBG.png"));
+	    sprite = new Sprite(texture);
+	    sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
+	    sprite.setBounds(0, 0, w, h);
     }
     
     public void create(){
@@ -46,6 +64,17 @@ public class ScreenMenu implements Screen {
         pixmap.fill();
  
         skin.add("white", new Texture(pixmap));
+        
+        Texture buttonTexture = new Texture(Gdx.files.internal("img/menu/Btn9SliceDown.png"));
+        NinePatch np = new NinePatch(buttonTexture);
+        np.setLeftWidth(20);
+        np.setRightWidth(20);
+        np.setMiddleWidth(20);
+        np.setTopHeight(20);
+        np.setBottomHeight(20);
+        np.setMiddleHeight(20);
+        
+        skin.add("red", np);
  
         // Store the default libgdx font under the name "default".
         BitmapFont bfont=new BitmapFont();
@@ -54,10 +83,10 @@ public class ScreenMenu implements Screen {
  
         // Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
         TextButtonStyle textButtonStyle = new TextButtonStyle();
-        textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY);
-        textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY);
-        textButtonStyle.checked = skin.newDrawable("white", Color.BLUE);
-        textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY);
+        textButtonStyle.up = skin.newDrawable("red", Color.DARK_GRAY);
+        textButtonStyle.down = skin.newDrawable("red", Color.DARK_GRAY);
+        textButtonStyle.checked = skin.newDrawable("red", Color.BLUE);
+        textButtonStyle.over = skin.newDrawable("red", Color.LIGHT_GRAY);
  
         textButtonStyle.font = skin.getFont("default");
  
@@ -130,4 +159,16 @@ public class ScreenMenu implements Screen {
         // TODO Auto-generated method stub
  
     }
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -60,9 +60,11 @@ public class Sounds {
 	
 	public void BGMusic(String file){
 		
-		if(bgMusic != null)
+		if(bgMusic != null){
 			bgMusic.stop();
+		}
 		switch (file){
+			case "scaryIntro":
 			case "dragon":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
 				bgMusic.setLooping(false);
@@ -75,7 +77,7 @@ public class Sounds {
 						bgMusic.setLooping(true);
 						bgMusic.setOnCompletionListener(null);
 					}});
-				break;			
+				break;
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
 				bgMusic.setLooping(true);
