@@ -66,7 +66,7 @@ public class ScreenTest implements Screen {
         //Slider slider = new Slider(0, 100, 1, false, );
  
         // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-        final TextButton textButton=new TextButton("New Runner",textButtonStyle);
+        final TextButton textButton=new TextButton("New Runner1",textButtonStyle);
         textButton.setPosition(200, 200);
         stage.addActor(textButton);
         
@@ -76,7 +76,7 @@ public class ScreenTest implements Screen {
             }
         });
         
-        final TextButton textButton2=new TextButton("New Maze",textButtonStyle);
+        final TextButton textButton2=new TextButton("New Maze1",textButtonStyle);
         textButton2.setPosition(500, 200);
         stage.addActor(textButton2);
         
@@ -86,13 +86,23 @@ public class ScreenTest implements Screen {
         	}
         });
         
-        final TextButton textButton3=new TextButton("New Dialog",textButtonStyle);
+        final TextButton textButton3=new TextButton("New Dialog1",textButtonStyle);
         textButton3.setPosition(200, 320);
         stage.addActor(textButton3);
         
         textButton3.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("NewLevel,Level1Dialog1");
+        	}
+        });
+        
+        final TextButton textButton4=new TextButton("New Maze2",textButtonStyle);
+        textButton4.setPosition(500, 320);
+        stage.addActor(textButton4);
+        
+        textButton4.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("NewLevel,Level1Maze2");
         	}
         });
     }
