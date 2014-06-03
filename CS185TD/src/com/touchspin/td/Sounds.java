@@ -60,38 +60,29 @@ public class Sounds {
 	
 	public void BGMusic(String file){
 		
-		if(g.i().sound.bgMusic != null)
-			g.i().sound.bgMusic.stop();
+		if(bgMusic != null)
+			bgMusic.stop();
 		switch (file){
-		case "dragon":
-			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
-			g.i().sound.bgMusic.setLooping(false);
-			g.i().sound.bgMusic.setOnCompletionListener(
-					new Music.OnCompletionListener(){
-				public void onCompletion(Music music) {
-					g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scary));
-					g.i().sound.bgMusic.setVolume(g.i().musicLevel);
-					g.i().sound.bgMusic.play();
-					g.i().sound.bgMusic.setLooping(true);
-					g.i().sound.bgMusic.setOnCompletionListener(null);
-				}});
-			break;
-		case "scaryIntro":
-			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
-			g.i().sound.bgMusic.setLooping(true);
-			break;
-		case "scary":
-			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scary));
-			g.i().sound.bgMusic.setLooping(true);
-			break;
-		case "song1":			
-		default:
-			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
-			g.i().sound.bgMusic.setLooping(true);
+			case "dragon":
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
+				bgMusic.setLooping(false);
+				bgMusic.setOnCompletionListener(
+						new Music.OnCompletionListener(){
+					public void onCompletion(Music music) {
+						bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scary));
+						bgMusic.setVolume(g.i().musicLevel);
+						bgMusic.play();
+						bgMusic.setLooping(true);
+						bgMusic.setOnCompletionListener(null);
+					}});
+				break;			
+			default:
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
+				bgMusic.setLooping(true);
 		}
 		if (g.i().music){
-			g.i().sound.bgMusic.setVolume(g.i().musicLevel);
-			g.i().sound.bgMusic.play();
+			bgMusic.setVolume(g.i().musicLevel);
+			bgMusic.play();
 		}
 	}
 	
@@ -212,6 +203,10 @@ public class Sounds {
 			case "brick":
 				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(brickCrash));
 		}
+		sndSwitch.play(g.i().sfxLevel);
+	}
+	
+	public void playSwitch(){
 		sndSwitch.play(g.i().sfxLevel);
 	}
 	
