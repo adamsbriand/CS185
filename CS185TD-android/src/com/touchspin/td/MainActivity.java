@@ -1,10 +1,5 @@
 package com.touchspin.td;
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;

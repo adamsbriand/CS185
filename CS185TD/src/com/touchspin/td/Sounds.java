@@ -59,6 +59,9 @@ public class Sounds {
 	private Sound bounce3=null;
 	
 	public void BGMusic(String file){
+		
+		if(g.i().sound.bgMusic != null)
+			g.i().sound.bgMusic.stop();
 		switch (file){
 		case "dragon":
 			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
@@ -73,6 +76,15 @@ public class Sounds {
 					g.i().sound.bgMusic.setOnCompletionListener(null);
 				}});
 			break;
+		case "scaryIntro":
+			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scaryIntro));
+			g.i().sound.bgMusic.setLooping(true);
+			break;
+		case "scary":
+			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(scary));
+			g.i().sound.bgMusic.setLooping(true);
+			break;
+		case "song1":			
 		default:
 			g.i().sound.bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
 			g.i().sound.bgMusic.setLooping(true);

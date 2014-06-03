@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScriptEn music = "songScaryLoopable">    
+<DialogScriptEn music = "scaryIntro">    
 	<Snippet 
 	    name = "Ollie"	
 	    background = "black"
 	    position = "B"
-	    text = "...:C_:pause:2:Why?...why am I not stronger?:C_:pause:2:Braver?..."
-	    finalPause = "10"/>
+	    text = "...:C_:pause:2:Why?...why am I not stronger?:C_:pause:2:Braver?...:C_:pause:4"/>
 	<Snippet
 	    name = "Ollie"	
 	    background = "DialogImages/OlliesFamily.png"
 	    position = "B"
-	    text = "They deserve better...Chase, Dorithy...you both deserve better."
-	    finalPause = "10"/>
+	    text = "They deserve better...Chase, Dorithy...you both deserve better.:C_:pause:4"/>
 	<Snippet
 	    name = "Ollie"	
 	    background = "black"
 	    position = "B"
-	    text = "I know what I must do...:C_:pause:3:Wizard!:C_:changeBackground:DialogImages/HeroAndWizard.png"
-	    finalPause = "10"/>	    
+	    text = "I know what I must do...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
 	<Snippet
 	    name = "Ollie"	
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "L"
-	    text = "C_:pause:2: Please make me braver!, stronger!."
-	    finalPause = "10"/>	
+	    text = "Please make me braver!, stronger!.:C_:pause:6"/>	
 	<Snippet
 	    name = "Wizard"	
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "R"
-	    text = "...:C_:pause:2:Ollie..:C_:pause:2:you already are brave."
-	    finalPause = "10"/>	
+	    text = "...Ollie..:C_:pause:2:I already know you are brave.:C_:pause:4"/>	
 	 <Snippet
 	    name = "Wizard"	
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "R"
-	    text = "And by the time your jounry is over you too will know how brave you truly are!:C_:end:null"
-	    finalPause = "10"/>		
-	 <End>NewLevel,Level1Run1,changeMusic,mainloop</End>
+	    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
+	 <End>NewLevel,Level1Run1,changeMusic,song1</End>
 </DialogScriptEn>

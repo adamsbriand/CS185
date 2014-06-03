@@ -28,6 +28,7 @@ public class GameDialog extends GameObject
 	private String speakerName;
 	private char position;
 	private String backGroundPath;	
+	private String lastPath;
 	private short dialogCount; //text strip to read from in the current dialog snippet
 	private short snippetCount;//dialog snippet being used
 	private short charCount;// used to create substrings for display text one at a time.
@@ -35,8 +36,7 @@ public class GameDialog extends GameObject
 	private int w;//holds screen width
 	private final long secondsPerChar;//how many seconds past between each char print
 	private long nextPrintTime;//next time that a char will be printed
-	private long finalPrintPause;
-		
+	private Texture background;	
 	private float textX = 0;
 	private int textY = 0;	
 	private boolean finishedWithSnippet = false;
@@ -51,7 +51,8 @@ public class GameDialog extends GameObject
 		catch(IOException e)
 		{}		
 		items = root.getChildrenByName("Snippet");	
-		g.i().t.action("changeMusic," + root.getAttribute("music"));
+			//root.getAttribute("music").toString()
+		g.i().sound.BGMusic(root.getAttribute("music"));
 		
 		font = new BitmapFont();
 		
@@ -64,7 +65,9 @@ public class GameDialog extends GameObject
 		snippetCount = 0;
 		charCount = 0;
 		batch = new SpriteBatch();
-		nextSnippet();		
+		nextSnippet();	
+				
+		lastPath = null;
 	}
 	
 	@Override
@@ -84,7 +87,11 @@ public class GameDialog extends GameObject
 		//draw background
 		if(!backGroundPath.equals("black"))			
 		{
-			Texture background = new Texture(Gdx.files.internal(backGroundPath));
+			if(!backGroundPath.equals(lastPath))
+			{
+				lastPath = backGroundPath;
+				background = new Texture(Gdx.files.internal(backGroundPath));
+			}
 			batch.draw(background, w/2 - (background.getWidth()/2), h/2 - (background.getHeight()/2));
 		}
 			
@@ -118,7 +125,7 @@ public class GameDialog extends GameObject
 				textY = h/2;
 				break;
 			case'R':
-				textX = w - 100 - ((currentText.length() * font.getSpaceWidth())/2);
+				textX = w - 150 - ((currentText.length() * font.getSpaceWidth())/2);
 				textY = h - 50;	
 				break;
 			case 'B':
@@ -137,7 +144,6 @@ public class GameDialog extends GameObject
 		textArray = items.get(snippetCount).getAttribute("text").split(":");	
 		position = items.get(snippetCount).getAttribute("position").charAt(0);		
 		backGroundPath = items.get(snippetCount).getAttribute("background");		
-		finalPrintPause = Integer.parseInt(items.get(snippetCount).getAttribute("finalPause"));
 		currentText = speakerName + ":\n";
 		dialogCount = 0;
 		snippetCount++;
@@ -170,7 +176,6 @@ public class GameDialog extends GameObject
 				if(dialogCount > textArray.length)
 				{
 					dialogCount = 0;
-					nextPrintTime += finalPrintPause;
 					finishedWithSnippet = true;
 					currentText = "";					
 				}
@@ -194,6 +199,10 @@ public class GameDialog extends GameObject
 		else if(command.equals("end"))
 		{
 			g.i().t.action(root.get("End"));
+		}
+		else if(command.equals("instaPrint"))
+		{
+			currentText += textArray[dialogCount++];			
 		}
 	}
 	
