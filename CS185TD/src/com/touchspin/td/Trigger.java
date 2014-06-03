@@ -103,6 +103,10 @@ public class Trigger {
 			g.i().fire = true;
 		} else {
 			g.i().fire = false;
+			if(!g.i().fire)
+			{
+				g.i().sound.fire(false);
+			}
 		}
 	}
 	

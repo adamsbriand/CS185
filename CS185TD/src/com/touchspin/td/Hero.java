@@ -204,6 +204,10 @@ public class Hero extends GameThing {
 	public void igniteBall(boolean fireOn)
 	{
 		g.i().fire = fireOn;
+		if(!g.i().fire)
+		{
+			g.i().sound.fire(false);
+		}
 	}
 	
     public void changeBalldx(float delta)
