@@ -105,7 +105,7 @@
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="100,100,100"/>
     <property name="collisionShape" value="circle"/>
-    <property name="conditions" value="ballType,pingPong,myAnimationIs,on"/>
+    <property name="conditions" value="ballType,PingPong,myAnimationIs,fan-on"/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="fan.png"/>
