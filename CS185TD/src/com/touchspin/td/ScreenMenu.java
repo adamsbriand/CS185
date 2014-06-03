@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
  
 public class ScreenMenu extends GameObject {
@@ -27,8 +28,7 @@ public class ScreenMenu extends GameObject {
     Texture texture;
     MainGame game;
     Sprite sprite;
-    //Camera camera;
-    
+    NinePatch np;
     
     public ScreenMenu (MainGame MainGame){
         create();
@@ -66,13 +66,15 @@ public class ScreenMenu extends GameObject {
         skin.add("white", new Texture(pixmap));
         
         Texture buttonTexture = new Texture(Gdx.files.internal("img/menu/Btn9SliceDown.png"));
-        NinePatch np = new NinePatch(buttonTexture);
+        np = new NinePatch(buttonTexture);
         np.setLeftWidth(20);
         np.setRightWidth(20);
         np.setMiddleWidth(20);
         np.setTopHeight(20);
         np.setBottomHeight(20);
         np.setMiddleHeight(20);
+        
+        NinePatchDrawable npDraw = new NinePatchDrawable(np);
         
         skin.add("red", np);
  
@@ -83,10 +85,10 @@ public class ScreenMenu extends GameObject {
  
         // Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
         TextButtonStyle textButtonStyle = new TextButtonStyle();
-        textButtonStyle.up = skin.newDrawable("red", Color.DARK_GRAY);
-        textButtonStyle.down = skin.newDrawable("red", Color.DARK_GRAY);
-        textButtonStyle.checked = skin.newDrawable("red", Color.BLUE);
-        textButtonStyle.over = skin.newDrawable("red", Color.LIGHT_GRAY);
+        textButtonStyle.up = skin.newDrawable("red");
+        textButtonStyle.down = skin.newDrawable("red");
+        textButtonStyle.checked = skin.newDrawable("red");
+        textButtonStyle.over = skin.newDrawable("red");
  
         textButtonStyle.font = skin.getFont("default");
  
@@ -121,6 +123,9 @@ public class ScreenMenu extends GameObject {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        batch.begin();
+        sprite.draw(batch);
+        batch.end();
         stage.draw();
         Table.drawDebug(stage);
     }

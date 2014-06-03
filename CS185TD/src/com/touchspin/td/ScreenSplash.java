@@ -38,8 +38,6 @@ public class ScreenSplash extends GameObject{
 	    sprite.setBounds(0, 0, w, h);
 	}
 
-
-
 	@Override
 	public void update() {
 		if(g.i().leAnonymizer.click)
