@@ -2,8 +2,6 @@ package com.touchspin.td;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
-
 public class AnimationSet {
 
 	private ArrayList<AnimationDescription> anims;

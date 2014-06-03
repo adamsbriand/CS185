@@ -6,11 +6,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -23,25 +19,15 @@ public class GameDialog extends GameObject
 	private Element root;
 	private Array<Element> items;
 	
-	private Sprite sprite;
-	//private OrthographicCamera backGroundCamera;	
-	//private DialogSnippet currentSnippet;
 	private SpriteBatch batch;
-	private BitmapFont font;
-	//private String songPath;
-	//private float pauseTime;
-	//private float currentTime;			
+	private BitmapFont font;				
 	
 	// info from XML file for a single snippet
-	
 	private String[] textArray;
 	private String currentText;
 	private String speakerName;
 	private char position;
-	private String backGroundPath;
-	private String bubblePath;
-	private String songPath;	
-	private String imagePath;
+	private String backGroundPath;	
 	private short dialogCount; //text strip to read from in the current dialog snippet
 	private short snippetCount;//dialog snippet being used
 	private short charCount;// used to create substrings for display text one at a time.
@@ -49,10 +35,11 @@ public class GameDialog extends GameObject
 	private int w;//holds screen width
 	private final long secondsPerChar;//how many seconds past between each char print
 	private long nextPrintTime;//next time that a char will be printed
-	
+	private long finalPrintPause;
+		
 	private float textX = 0;
-	private int textY = 0;
-	
+	private int textY = 0;	
+	private boolean finishedWithSnippet = false;
 	
 	public GameDialog(MainGame game, String scriptPath)
 	{				
@@ -64,6 +51,7 @@ public class GameDialog extends GameObject
 		catch(IOException e)
 		{}		
 		items = root.getChildrenByName("Snippet");	
+		g.i().t.action("changeMusic," + root.getAttribute("music"));
 		
 		font = new BitmapFont();
 		
@@ -73,7 +61,6 @@ public class GameDialog extends GameObject
 		secondsPerChar = 250;
 		nextPrintTime = 0;
 		backGroundPath = null;
-		songPath = null;	
 		snippetCount = 0;
 		charCount = 0;
 		batch = new SpriteBatch();
@@ -83,7 +70,7 @@ public class GameDialog extends GameObject
 	@Override
 	public void render(float delta) 
 	{		
-		update();		
+		update();	
 		draw();		
 	}
 	
@@ -98,16 +85,10 @@ public class GameDialog extends GameObject
 		if(!backGroundPath.equals("black"))			
 		{
 			Texture background = new Texture(Gdx.files.internal(backGroundPath));
-			batch.draw(background, 0, 0);
+			batch.draw(background, w/2 - (background.getWidth()/2), h/2 - (background.getHeight()/2));
 		}
-		//draw speech bubble
-		if(!bubblePath.equals("none"))
-		{
-			Texture speechBubble = new Texture(Gdx.files.internal("DialogImages/DlgSpeechBubble.png"));
-			batch.draw(speechBubble, 0, 0);		
-		}
-		
-		font.draw(batch, currentText, textX, textY);
+			
+		font.drawMultiLine(batch, currentText, textX, textY);	
 		
 		batch.end();
 	}	
@@ -116,25 +97,35 @@ public class GameDialog extends GameObject
 	public void update() 
 	{		
 		if(System.currentTimeMillis() >= nextPrintTime)
+		{
+			if(finishedWithSnippet)
+			{
+				nextSnippet();
+				finishedWithSnippet = false;
+			}
 			nextChar();
+		}
 		
 		//used to display text
-		if(position == 'L')
+		switch(position)
 		{
-			textX = 50;
-			textY = 50;
-		}
-		else if (position == 'C')
-		{
-			textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
-			textY = h/2;
-		}
-		else if(position == 'R')
-		{
-			textX = w - 50;
-			textY = h - 50;
-		}
-		
+			case'L':		
+				textX = 50;
+				textY = 50;
+				break;
+			case 'C':
+				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
+				textY = h/2;
+				break;
+			case'R':
+				textX = w - 100 - ((currentText.length() * font.getSpaceWidth())/2);
+				textY = h - 50;	
+				break;
+			case 'B':
+				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
+				textY = 50;
+				break;
+		}		
 	}
 	
 	/**
@@ -146,8 +137,8 @@ public class GameDialog extends GameObject
 		textArray = items.get(snippetCount).getAttribute("text").split(":");	
 		position = items.get(snippetCount).getAttribute("position").charAt(0);		
 		backGroundPath = items.get(snippetCount).getAttribute("background");		
-		songPath = items.get(snippetCount).getAttribute("music");		
-		bubblePath = items.get(snippetCount).getAttribute("textBubble");
+		finalPrintPause = Integer.parseInt(items.get(snippetCount).getAttribute("finalPause"));
+		currentText = speakerName + ":\n";
 		dialogCount = 0;
 		snippetCount++;
 	}
@@ -158,39 +149,51 @@ public class GameDialog extends GameObject
 	private void nextChar()
 	{
 		nextPrintTime = System.currentTimeMillis();
-		try
-		{
-			currentText += textArray[dialogCount].charAt(charCount++);
-			if(textArray[dialogCount].charAt(charCount - 1) == ' ')
-				currentText += textArray[dialogCount].charAt(charCount++);
-		}
-		catch(StringIndexOutOfBoundsException e)
-		{
-			dialogCount += 4;// a command is next
-			charCount = 0;
-			performAction(textArray[dialogCount - 2], textArray[dialogCount - 1]);
-		}
-		nextPrintTime += secondsPerChar;
-	}
-	
-	private void createBackGround()
-	{
-		float w = Gdx.graphics.getWidth();
-	    float h = Gdx.graphics.getHeight();		
 		
-		Texture backGround = new Texture(Gdx.files.internal(backGroundPath));	
-		TextureRegion region = new TextureRegion(backGround, 0, 0, 800, 420);
-		sprite = new Sprite(region);
-		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth() );
-		sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
-		sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);					
-	}	
+			try
+			{
+				if(textArray[dialogCount].equals("C_"))// check if current text is for a command
+				{
+					dialogCount += 3;
+					performAction(textArray[dialogCount - 2], textArray[dialogCount - 1]);
+				}
+				else
+				{
+					currentText += textArray[dialogCount].charAt(charCount++);
+					if(textArray[dialogCount].charAt(charCount - 1) == ' ')
+						currentText += textArray[dialogCount].charAt(charCount++);
+				}
+			}			
+			catch(Exception e)
+			{
+				charCount = 0;
+				if(dialogCount > textArray.length)
+				{
+					dialogCount = 0;
+					nextPrintTime += finalPrintPause;
+					finishedWithSnippet = true;
+					currentText = "";					
+				}
+				else
+					dialogCount++;				
+			}
+		
+		nextPrintTime += secondsPerChar;
+		
+	}
 	
 	private void performAction(String command, String value)
 	{
-		if(command.equals("pause"))
-		{
+		if(command.equals("pause"))		
 			nextPrintTime += Integer.parseInt(value) * 1000;
+		
+		else if(command.equals("changeBackground"))
+		{
+			backGroundPath = value;
+		}
+		else if(command.equals("end"))
+		{
+			g.i().t.action(root.get("End"));
 		}
 	}
 	

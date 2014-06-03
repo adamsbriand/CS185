@@ -1,84 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScriptEn>
+<DialogScriptEn music = "songScaryLoopable">    
 	<Snippet 
 	    name = "Ollie"	
-	    image = "OllieHuman"
 	    background = "black"
-	    position = "C"
-	    music = ""
-	    textBubble = "none"
-	    text = "...:C_:pause:2:Why?...why am I not stronger?:C_:pause:2:Braver?...:C_:pause:2:they deserve better....."
-	    finalPause = "4"/>
+	    position = "B"
+	    text = "...:C_:pause:2:Why?...why am I not stronger?:C_:pause:2:Braver?..."
+	    finalPause = "10"/>
 	<Snippet
 	    name = "Ollie"	
-	    image = "OllieHuman"
-	    background = "DialogImages/HeroAtDesk.png"
-	    position = "L"
-	    music = ""
-	    text = "Chase, Dorithy:C_:pause:5:. I must become braver:pause:2:, I must..:C_:pause:2:become...:C_:pause:3:braver"
-	    finalPause = "7"/>	    
+	    background = "DialogImages/OlliesFamily.png"
+	    position = "B"
+	    text = "They deserve better...Chase, Dorithy...you both deserve better."
+	    finalPause = "10"/>
 	<Snippet
 	    name = "Ollie"	
-	    image = "OllieHuman"
+	    background = "black"
+	    position = "B"
+	    text = "I know what I must do...:C_:pause:3:Wizard!:C_:changeBackground:DialogImages/HeroAndWizard.png"
+	    finalPause = "10"/>	    
+	<Snippet
+	    name = "Ollie"	
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "L"
-	    music = ""
-	    text = "Wizard!:C_:pause:2: Please make me braver, stronger!."
-	    finalPause = "5"/>	
+	    text = "C_:pause:2: Please make me braver!, stronger!."
+	    finalPause = "10"/>	
 	<Snippet
 	    name = "Wizard"	
-	    image = "Wizard"
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "R"
-	    music = ""
 	    text = "...:C_:pause:2:Ollie..:C_:pause:2:you already are brave."
-	    finalPause = "5"/>	
-	<Snippet
-	    name = "Ollie"	
-	    image = "OllieHuman"
+	    finalPause = "10"/>	
+	 <Snippet
+	    name = "Wizard"	
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "R"
-	    music = ""
-	    text = "...:C_:pause:4:No I am not.:C_:pause:4: I will pay however much it cost..just make me strong."
-	    finalPause = "5"/>	
-	<Snippet
-	    name = "Wizard"	
-	    image = "Wizard"
-	    background = "DialogImages/HeroAndWizard.png"
-	    position = "R"
-	    music = ""
-	    text = "Fine...:C_:pause:2:but:C_:pause:4:...careful what you wish for."
-	    finalPause = "5"/>	
-	<Snippet
-	    name = "Ollie"	
-	    image = "OllieHuman"
-	    background = "cutScene/OllieAndLevel1.jpg"
-	    position = "L"
-	    music = ""
-	    text = ":C_:flashbackground:10:C_:pause:5:What?!:C_:pause:4: whats going on??"
-	    finalPause = "5"/>
-	<Snippet
-	    name = "Wizard"	
-	    image = "Wizard"
-	    background = "DialogImages/OllieAndLevel1.jpg"
-	    position = "R"
-	    music = ""
-	    text = "You are in another dimension.:C_:pause:3: You asked me to make you brave,:C_:pause:2: I already know that you are. And by the end of this journy, :C_:pause:4:you will know it as well."
-	    finalPause = "5"/>	
-	<Snippet
-	    name = "Ollie"	
-	    image = "OllieHuman"
-	    background = "DialogImages/OllieAndLevel1.jpg"
-	    position = "L"
-	    music = ""
-	    text = ".....what?! This is not what I had in mind when I came to you."
-	    finalPause = "5"/>	    
-	<Snippet
-	    name = "Wizard"	
-	    image = "Wizard"
-	    background = "DialogImages/OllieAndLevel1.jpg"
-	    position = "R"
-	    music = ""
-	    text = "And now you have no choice.:C_:pause:4: I have taken your kids away. :C_:pause:4:And if you want to see them again you must make it out of here alive...:C_:pause:2:now..roll Ollie:C_:pause:4:, roll!!"
-	    finalPause = "5"/>	
+	    text = "And by the time your jounry is over you too will know how brave you truly are!:C_:end:null"
+	    finalPause = "10"/>		
+	 <End>NewLevel,Level1Run1,changeMusic,mainloop</End>
 </DialogScriptEn>

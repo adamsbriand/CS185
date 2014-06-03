@@ -1,8 +1,7 @@
 package com.touchspin.td;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 
+import java.util.HashSet;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
