@@ -40,11 +40,11 @@
  </tileset>
  <layer name="grass" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="objects" width="32" height="32">
-  <object name="enter1" type="npo" x="63" y="62" width="32" height="32">
+  <object name="enter1" type="distance" x="175" y="139" width="32" height="32">
    <ellipse/>
   </object>
   <object name="fire0" type="npo" x="192" y="672" width="32" height="32">
@@ -77,7 +77,7 @@
   </object>
   <object name="exit" type="npo" x="447" y="390" width="32" height="32">
    <properties>
-    <property name="actions" value=""/>
+    <property name="actions" value="menu,gameOver"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="0,0,1,1"/>

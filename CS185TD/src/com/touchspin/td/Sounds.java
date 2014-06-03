@@ -40,6 +40,7 @@ public class Sounds {
 
 	// Music files
 	private static final String scaryIntro = "snd/songScaryIntro.wav";
+	private static final String outro = "snd/outro.mp3";
 	private static final String scary = "snd/songScaryLoopable.wav";
 	private static final String song1 = "snd/song1Loopable.wav";
 	private static final String wind = "snd/sndWindBlowing.wav";
@@ -77,6 +78,10 @@ public class Sounds {
 						bgMusic.setLooping(true);
 						bgMusic.setOnCompletionListener(null);
 					}});
+				break;
+			case "outro":
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
+				bgMusic.setLooping(true);
 				break;
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));

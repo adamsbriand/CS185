@@ -57,7 +57,7 @@
  <objectgroup name="objects" width="128" height="16">
   <object name="exit2" type="npo" x="1088" y="480" width="32" height="32">
    <properties>
-    <property name="actions" value="changeMap,Level1Maze2,changeLocation,enter1,playSound,sndSlideWhistleDown"/>
+    <property name="actions" value="changeMap,Level1Maze2,changeLocation,enter1,playSound,sndSlideWhistleDown,changeMusic,outro"/>
     <property name="animations" value=""/>
     <property name="collidable" value=""/>
     <property name="collisionParams" value=""/>
