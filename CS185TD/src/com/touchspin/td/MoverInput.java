@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 
 public class MoverInput extends MoverPhysics {
 	private HashSet<NP> prev = new HashSet<NP>();
+	private boolean jumpable = true;
 
 	public MoverInput() {
 		super();
@@ -28,7 +29,7 @@ public class MoverInput extends MoverPhysics {
 		gameThing.setX(gameThing.getX() + Gdx.graphics.getDeltaTime()
 				* speedXPerSecond);
 		if (!isXFree()) {
-			if(speedXPerSecond < -100 || speedXPerSecond > 100)
+			if (speedXPerSecond < -100 || speedXPerSecond > 100)
 				g.i().sound.Bounce();
 			gameThing.setX(previousX);
 			speedXPerSecond = 0;
@@ -37,14 +38,15 @@ public class MoverInput extends MoverPhysics {
 		gameThing.setY(gameThing.getY() + Gdx.graphics.getDeltaTime()
 				* speedYPerSecond);
 		if (!isYFree()) {
-			if(speedYPerSecond < -100 || speedYPerSecond > 100)
+			if (speedYPerSecond < 0)
+				jumpable = true;
+			if (speedYPerSecond < -100 || speedYPerSecond > 100)
 				g.i().sound.Bounce();
 			gameThing.setY(previousY);
 			speedYPerSecond = 0;
 		}
-		
-		if(triggeredNP.size()!=0)
-		{
+
+		if (triggeredNP.size() != 0) {
 			for (NP object : triggeredNP) {
 				if (!prev.contains(object) && object.active) {
 					g.i().t.action(object.conditions, object.action);
@@ -72,10 +74,14 @@ public class MoverInput extends MoverPhysics {
 		}
 
 		else if (g.i().gameMode == 'R') {
-			if (g.i().leAnonymizer.jump) {
-				speedYPerSecond = 500;
+			if (jumpable) {
+				if (g.i().leAnonymizer.jump) {
+					speedYPerSecond = 400;
+					jumpable = false;
+					g.i().leAnonymizer.jump = false;
+				}
+			} else
 				g.i().leAnonymizer.jump = false;
-			}
 		}
 	}
 }
