@@ -325,6 +325,10 @@ public class GameScreen extends GameObject {
 			} else if (spriteSheet.equalsIgnoreCase("Campfire.png")) {
 				animRows = 4;
 				animCols = 3;
+			} else if(spriteSheet.equalsIgnoreCase("Water.png"))
+			{
+				animRows = 12;
+				animCols = 4;
 			}
 
 			if (!spriteSheet.equalsIgnoreCase(""))

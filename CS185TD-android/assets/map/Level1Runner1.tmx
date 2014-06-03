@@ -31,7 +31,7 @@
  </layer>
  <layer name="blocks" width="128" height="16">
   <data encoding="base64" compression="zlib">
-   eJztmFsOhCAMRd0Cy2K+RlbA/lfhmGhy05TydEDoSRp8FFq4FaPbpiiK8h9M7wR+2N4JLEwL/S1YaX+lDy30v8corYMR9K+t4bdSq79hxshdSwvtCjYSLZ9/SuqcR1uTlajR35A2xKi1r9TvZdz+nxJLmZdYTaxUB6vMs4QZ62C2+dSQ8254O6p5P+g+Ih1jS++nnHOxc/mQdnae2AdSv6l95rgp/rGY7rIQqH9KPCmHJ96ho9anNF/P+O+XnbiAD/Xd4drt77a4ph7MwTGXC64vxjvp/W/Kkvx650LtKxhqyJ07wZ/2QT/s54X4WCdSHKo/xjsAGL1amg==
+   eJztmNsNwyAMRVmBsehXwwTsP0UbKZGuLGOeLQR8JAtoDTZch6g1RlEU5T/Y0Ql8caMT2Jge+juw2vnKGHrof69RWwcz6N9aw0+lVX/LrFF6lg7aHWwmej7/lNw9z3YmO9GivyVtjFlrX2m/y7j7PyeWsi6pmtipDnbZZw0r1sFq+2mh5N3wdFTzcdB7ROpjS7/PGXOxS3mRdnV+cQ/k/qYOhevm+Kdi+stioP458WI5SOMWZq1PSfPA+B+XnfiID/U94LPb35u0pgHMQ5/LBc8X452M/m/KkfxG50LtLRhqyI294E/noB/OC0J8rBMpDtUf430A1ZFZvw==
   </data>
  </layer>
  <layer name="decorations" width="128" height="16">
@@ -169,5 +169,18 @@
    </properties>
   </object>
   <object name="enter2" type="destination" x="1002" y="101"/>
+  <object name="water1" type="npo" x="351" y="448" width="95" height="34">
+   <properties>
+    <property name="actions" value="igniteBall,false"/>
+    <property name="animations" value="flow,0,47,flow"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,96,15"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="Water.png"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
