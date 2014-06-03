@@ -22,10 +22,15 @@ public class GameScreen extends GameObject {
 	private Group bgg = new Group();
 	private Group fgg = new Group();
 	private Group toppest = new Group();
+	private char mode;
 
 	public GameScreen(MainGame game, String mapPath) {
 
 		this.game = game;
+		if(g.i().gameMode == 'R')
+			mode = 'R';
+		else
+			mode = 'M';
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
 		setUpCamera();
 		stage = new Stage();
@@ -51,7 +56,7 @@ public class GameScreen extends GameObject {
 		float tempY = g.i().hero.getY();
 		stage.act();
 		camera.update();
-		if (g.i().gameMode == 'R') {
+		if (mode == 'R') {
 			backGroundCamera.update();
 			foregroudCamera.update();
 		}
@@ -76,7 +81,7 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void draw() {
-		if (g.i().gameMode == 'R') {
+		if (mode == 'R') {
 			tiledMapWrapper.renderBackground();
 			tiledMapWrapper.renderPlayerlayer();
 			stage.draw();
@@ -100,6 +105,7 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void hide() {
+		dispose();
 	}
 
 	@Override
@@ -160,7 +166,7 @@ public class GameScreen extends GameObject {
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 
-		if (g.i().gameMode == 'R') {
+		if (mode == 'R') {
 			camera = new OrthographicCamera();
 			camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
 					tiledMapWrapper.getPixelHeight());
@@ -186,7 +192,7 @@ public class GameScreen extends GameObject {
 
 	private void setView() {
 
-		if (g.i().gameMode == 'R') {
+		if (mode == 'R') {
 			tiledMapWrapper.setPlayerLayerView(camera.combined,
 					camera.position.x - camera.viewportWidth - 1, -1,
 					camera.viewportWidth * 2 + 2, camera.viewportHeight + 2);

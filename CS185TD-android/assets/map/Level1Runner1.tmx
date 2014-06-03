@@ -168,5 +168,6 @@
     <property name="spriteSheet" value="LightSwitch.png"/>
    </properties>
   </object>
+  <object name="enter2" type="destination" x="1002" y="101"/>
  </objectgroup>
 </map>
