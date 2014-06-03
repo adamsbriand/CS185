@@ -19,6 +19,126 @@
   </data>
  </layer>
  <objectgroup name="objects" width="32" height="32">
+  <object name="switchLR" type="npo" x="489" y="449" width="40" height="60">
+   <properties>
+    <property name="actions" value="toggleState,switchLR,toggleState,lightedAreaLR"/>
+    <property name="animations" value="on,0,0,on,off,1,1,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchAllOff" type="npo" x="485" y="288" width="40" height="60">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,toggleState,switchAllOff,toggleState,lightedAreaUL,toggleState,lightedAreaUR,toggleState,lightedAreaLL,toggleState,lightedAreaLR"/>
+    <property name="animations" value="on,0,0,on,off,1,1,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchLL" type="npo" x="414" y="417" width="40" height="60">
+   <properties>
+    <property name="actions" value="toggleState,switchLL,toggleState,lightedAreaLL"/>
+    <property name="animations" value="on,0,0,on,off,1,1,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchUR" type="npo" x="569" y="420" width="40" height="60">
+   <properties>
+    <property name="actions" value="toggleState,switchUR,toggleState,lightedAreaUR"/>
+    <property name="animations" value="on,0,0,on,off,1,1,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchFan" type="npo" x="571" y="318" width="40" height="60">
+   <properties>
+    <property name="actions" value="toggleState,switchFan,toggleState,fan"/>
+    <property name="animations" value="on,0,0,on,off,1,1,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchUL" type="npo" x="408" y="325" width="40" height="60">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,toggleState,switchUL,toggleState,lightedAreaUL"/>
+    <property name="animations" value="on,0,0,on,off,1,1,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="enter1" type="destination" x="509" y="399"/>
+  <object name="fan1" type="npo" x="462" y="576" width="100" height="100">
+   <properties>
+    <property name="actions" value="changeMap,Level1Runner1,changeLocation,enter1,changeBalldY,-10"/>
+    <property name="animations" value="off,0,0,off,on,0,11,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="100,100,100"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value="ballType,pingPong,myAnimationIs,on"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="fan.png"/>
+   </properties>
+  </object>
+  <object name="bottomlessPit1" type="npo" x="128" y="768" width="352" height="128">
+   <properties>
+    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit2" type="npo" x="544" y="768" width="352" height="128">
+   <properties>
+    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objectsForeground" width="32" height="32">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
@@ -78,7 +198,7 @@
   <object name="lightedAreaUR" type="npc" x="512" y="0" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="unlit,1,1,unlit,lit,0,0,lit"/>
+    <property name="animations" value="off,1,1,off,on,0,0,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
@@ -91,7 +211,7 @@
   <object name="lightedAreaUL" type="npc" x="0" y="0" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="unlit,1,1,unlit,lit,0,0,lit"/>
+    <property name="animations" value="off,1,1,off,on,0,0,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
@@ -104,7 +224,7 @@
   <object name="lightedAreaLL" type="npc" x="0" y="512" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="unlit,1,1,unlit,lit,0,0,lit"/>
+    <property name="animations" value="off,1,1,off,on,0,0,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
@@ -117,7 +237,7 @@
   <object name="lightedAreaLR" type="npc" x="512" y="512" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="unlit,1,1,unlit,lit,0,0,lit"/>
+    <property name="animations" value="off,1,1,off,on,0,0,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
@@ -125,124 +245,6 @@
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="LightOnOff.png"/>
-   </properties>
-  </object>
-  <object name="switchLR" type="npo" x="489" y="449" width="40" height="60">
-   <properties>
-    <property name="actions" value="toggleState,switchLR,toggleState,lightedAreaLR"/>
-    <property name="animations" value="on,0,0,on,off,1,1,off"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightSwitch.png"/>
-   </properties>
-  </object>
-  <object name="switchAllOff" type="npo" x="485" y="288" width="40" height="60">
-   <properties>
-    <property name="actions" value="toggleState,switchAllOff,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
-    <property name="animations" value="on,0,0,on,off,1,1,off"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightSwitch.png"/>
-   </properties>
-  </object>
-  <object name="switchLL" type="npo" x="414" y="417" width="40" height="60">
-   <properties>
-    <property name="actions" value="toggleState,switchLL,toggleState,lightedAreaLL"/>
-    <property name="animations" value="on,0,0,on,off,1,1,off"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightSwitch.png"/>
-   </properties>
-  </object>
-  <object name="switchUR" type="npo" x="569" y="420" width="40" height="60">
-   <properties>
-    <property name="actions" value="toggleState,switchUR,toggleState,lightedAreaUR"/>
-    <property name="animations" value="on,0,0,on,off,1,1,off"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightSwitch.png"/>
-   </properties>
-  </object>
-  <object name="switchFan" type="npo" x="571" y="318" width="40" height="60">
-   <properties>
-    <property name="actions" value="toggleState,switchFan,toggleState,fan"/>
-    <property name="animations" value="on,0,0,on,off,1,1,off"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightSwitch.png"/>
-   </properties>
-  </object>
-  <object name="switchUL" type="npo" x="408" y="325" width="40" height="60">
-   <properties>
-    <property name="actions" value="toggleState,switchUL,toggleState,lightedAreaUL"/>
-    <property name="animations" value="on,0,0,on,off,1,1,off"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightSwitch.png"/>
-   </properties>
-  </object>
-  <object name="enter1" type="destination" x="509" y="399"/>
-  <object name="fan1" type="npo" x="462" y="576" width="100" height="100">
-   <properties>
-    <property name="actions" value="changeMap,Level1Runner1,changeLocation,enter1,changeBalldY,-10"/>
-    <property name="animations" value="off,0,0,off,on,0,11,on"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value="100,100,100"/>
-    <property name="collisionShape" value="circle"/>
-    <property name="conditions" value="ballType,pingPong,myAnimationIs,on"/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="fan.png"/>
-   </properties>
-  </object>
-  <object name="bottomlessPit1" type="npo" x="128" y="768" width="352" height="128">
-   <properties>
-    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
-    <property name="animations" value=""/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value=""/>
-   </properties>
-  </object>
-  <object name="bottomlessPit2" type="npo" x="544" y="768" width="352" height="128">
-   <properties>
-    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
-    <property name="animations" value=""/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value=""/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value=""/>
    </properties>
   </object>
  </objectgroup>

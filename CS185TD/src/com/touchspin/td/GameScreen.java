@@ -58,19 +58,16 @@ public class GameScreen extends GameObject {
 
 		cameraTranslate(g.i().hero.getX() - tempX, g.i().hero.getY() - tempY);
 		setView();
-		if(soundLoaded)
-		{
+		if (soundLoaded) {
 			g.i().sound.sndSwitch.play(g.i().sfxLevel);
 			g.i().sound.sndSwitch = null;
 			soundLoaded = false;
 			frameCount = 15;
 		}
-		
-		if(g.i().sound.sndSwitch != null)
-		{
+
+		if (g.i().sound.sndSwitch != null) {
 			frameCount--;
-			if(frameCount == 0)
-			{
+			if (frameCount == 0) {
 				soundLoaded = true;
 			}
 		}
@@ -88,7 +85,7 @@ public class GameScreen extends GameObject {
 			tiledMapWrapper.renderMap();
 			stage.draw();
 		}
-		//hudStage.draw();
+		// hudStage.draw();
 	}
 
 	@Override
@@ -118,6 +115,7 @@ public class GameScreen extends GameObject {
 	@Override
 	public void dispose() {
 		stage.dispose();
+		tiledMapWrapper.dispose();
 	}
 
 	/**
@@ -181,7 +179,7 @@ public class GameScreen extends GameObject {
 			foregroudCamera.update();
 		} else {
 			camera = new OrthographicCamera();
-			camera.setToOrtho(false, 320, 320*h/w);
+			camera.setToOrtho(false, 320, 320 * h / w);
 			camera.update();
 		}
 	}
@@ -318,6 +316,9 @@ public class GameScreen extends GameObject {
 			} else if (spriteSheet.equalsIgnoreCase("LightOnOff.png")) {
 				animRows = 1;
 				animCols = 2;
+			} else if (spriteSheet.equalsIgnoreCase("Campfire.png")) {
+				animRows = 4;
+				animCols = 3;
 			}
 
 			if (!spriteSheet.equalsIgnoreCase(""))

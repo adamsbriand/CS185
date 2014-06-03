@@ -3,6 +3,7 @@ package com.touchspin.td;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -21,15 +22,13 @@ public class TiledMapWrapper {
 	private TiledMapRenderer foregroundTiledMapRenderer;
 	private int mapPixelWidth;
 	private int mapPixelHeight;
-	// int[] forgroundLayers = { 6, 7 };
-	// int[] palyerLayers = { 3, 4, 5, 6 };
-	// int[] backgroundLayers = { 0, 1, 2 };
 
 	int[] forgroundLayers;
 	int[] palyerLayers;
 	int[] backgroundLayers;
 
-	int[] test = { 0, 1, 2 };
+	int[] m1 = { 0, 1, 2 };
+	int[] m2 = { 0};
 
 	float backgroundfactor = 0.5f;
 	float foregroundfactor = 1.5f;
@@ -110,9 +109,9 @@ public class TiledMapWrapper {
 	 * the same.
 	 */
 	public void renderMap() {
-		playerTiledMapRenderer.render(test);
+		playerTiledMapRenderer.render();
 	}
-
+	
 	public void renderBackground() {
 		backgroundTiledMapRenderer.render(backgroundLayers);
 	}
@@ -200,6 +199,11 @@ public class TiledMapWrapper {
 		if (tiledMap.getLayers().get("objects") != null) {
 			npObjects = tiledMap.getLayers().get("objects").getObjects();
 		}
+		if(tiledMap.getLayers().get("objectsForeground") != null)
+		{
+			for(MapObject object:tiledMap.getLayers().get("objectsForeground").getObjects())
+			npObjects.add(object);
+		}
 	}
 
 	private int[] convertIntegers(ArrayList<Integer> integers) {
@@ -215,7 +219,10 @@ public class TiledMapWrapper {
 			return ret;
 		}
 	}
-	// catch(NullPointerException e)
-	// {}
-	// }
+	
+	public void dispose()
+	{
+
+		tiledMap.dispose();
+	}
 }
