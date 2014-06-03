@@ -18,6 +18,7 @@ public class MainGame extends Game {
 		g.i().t = new Trigger(this);
 		g.i().currentBallType = "PingPong";
 		g.i().fire = false;
+		g.i().playerHealth = 39;
 		
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);

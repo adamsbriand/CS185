@@ -21,7 +21,9 @@ public class HUD extends GameThing {
 	private Sprite heroHealth;
 	private int healthWidth;
 	private int healthHeight;
-	private TextureRegion [][] frames;
+	private TextureRegion [][] tempFrames;
+	private TextureRegion [] frames;
+	private int previousHealth;
 
 	public HUD(OrthographicCamera camera, TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
@@ -57,9 +59,9 @@ public class HUD extends GameThing {
 
 		// position
 		setSpritesPosition();
-
-		// animation
-		stateTime += Gdx.graphics.getDeltaTime();
+		//if(previousHealth != g.i().playerHealth)
+		heroHealth.setRegion(frames[51-g.i().playerHealth]);
+		previousHealth = g.i().playerHealth;
 
 	}
 
@@ -82,9 +84,16 @@ public class HUD extends GameThing {
 		Texture appearance = new Texture("img/hud/HeartBar.png");
 		healthWidth = appearance.getWidth() / 2;
 		healthHeight = appearance.getHeight() / 26;
-		frames = TextureRegion.split(appearance, healthWidth,
+		tempFrames = TextureRegion.split(appearance, healthWidth,
 				healthHeight);
-		heroHealth.setRegion(frames[0][0]);
+		int index = 0;
+		frames = new TextureRegion[52];
+		for (int i = 0; i < 26; i++) {
+			for (int j = 0; j < 2; j++) {
+				frames[index++] = tempFrames[i][j];
+			}
+		}
+		heroHealth.setRegion(frames[51-g.i().playerHealth]);
 		heroHealth.setOrigin(healthWidth/2, healthHeight/2);
 		heroHealth.setBounds(getX(),getY(), camera.viewportWidth * 0.3f,camera.viewportWidth * 0.3f *  (appearance.getHeight() / 26)/(appearance.getWidth() / 2));
 	}

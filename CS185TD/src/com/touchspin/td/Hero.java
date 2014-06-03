@@ -29,6 +29,7 @@ public class Hero extends GameThing {
 	public boolean flammable;
 	private float ballHeight;
 	private float ballWidth;
+	private float countTime;
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -138,6 +139,18 @@ public class Hero extends GameThing {
 		
 		currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
 		smokeEffect.setRegion(currentSmokeFrame);
+		
+		if(g.i().fire)
+		{
+			countTime += Gdx.graphics.getDeltaTime();
+			if(countTime > 2)
+			{
+				g.i().playerHealth--;
+				countTime = 0;
+			}
+			if(g.i().playerHealth < 0)
+				g.i().playerHealth = 0;
+		}
 
 	}
 
