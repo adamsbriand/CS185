@@ -98,7 +98,7 @@
    </properties>
   </object>
   <object name="enter1" type="destination" x="509" y="399"/>
-  <object name="fan1" type="npo" x="462" y="576" width="100" height="100">
+  <object name="fan" type="npo" x="462" y="576" width="100" height="100">
    <properties>
     <property name="actions" value="changeMap,Level1Runner1,changeLocation,enter1,changeBalldY,-10"/>
     <property name="animations" value="off,0,0,off,on,0,11,on"/>
@@ -138,7 +138,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objectsForeground" width="32" height="32">
+ <objectgroup name="objectsForeground" width="32" height="32" visible="0">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>

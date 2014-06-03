@@ -91,6 +91,8 @@ public class Trigger {
 			case "igniteBall":
 				igniteBall(value);
 				break;
+			case "toggleState":
+				toggleState(value);
 			default:
 		}
 	}
@@ -142,6 +144,21 @@ public class Trigger {
 				
 				break;
 		}
+	}
+	
+	private void toggleState(String value)
+	{
+		String currentAnim;
+		for (int i=0; i < g.i().mapObjects.size(); i++){
+			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
+				currentAnim = g.i().mapObjects.get(i).getAnimation();
+				if(currentAnim.equalsIgnoreCase("off"))
+					g.i().mapObjects.get(i).setAnimation("on");
+				else
+					g.i().mapObjects.get(i).setAnimation("off");
+			}
+		}
+		
 	}
 	
 	// Changes to sound
