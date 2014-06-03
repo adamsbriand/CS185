@@ -32,7 +32,7 @@ public class ScreenGameOver extends GameObject{
 	    float h = Gdx.graphics.getHeight();
 	    camera = new OrthographicCamera();
 	    batch = new SpriteBatch();
-	    texture = new Texture(Gdx.files.internal("img/menu/Title.png"));
+	    texture = new Texture(Gdx.files.internal("img/menu/GameOver.png"));
 	    sprite = new Sprite(texture);
 	    sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
 	    sprite.setBounds(0, 0, w, h);
