@@ -17,18 +17,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  
-public class ScreenMenu implements Screen {
+public class ScreenTest implements Screen {
     Skin skin;
     Stage stage;
     SpriteBatch batch;
     MainGame game;
     
-    public ScreenMenu (MainGame MainGame){
+    public ScreenTest (MainGame MainGame){
         create();
         this.game=MainGame;
     }
  
-    public ScreenMenu(){
+    public ScreenTest(){
         create();
     }
     
@@ -66,26 +66,35 @@ public class ScreenMenu implements Screen {
         //Slider slider = new Slider(0, 100, 1, false, );
  
         // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-        final TextButton textButton=new TextButton("New Game",textButtonStyle);
+        final TextButton textButton=new TextButton("New Runner",textButtonStyle);
         textButton.setPosition(200, 200);
         stage.addActor(textButton);
         
         textButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
-            	g.i().t.action("NewLevel,Level1Dialog1");
+            	g.i().t.action("NewLevel,Level1Run1,changeMusic,song1");
             }
         });
         
-        final TextButton textButton2=new TextButton("Test Menu",textButtonStyle);
+        final TextButton textButton2=new TextButton("New Maze",textButtonStyle);
         textButton2.setPosition(500, 200);
         stage.addActor(textButton2);
         
         textButton2.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("menu,Test");
+        		g.i().t.action("NewLevel,Level1Maze1");
         	}
         });
-
+        
+        final TextButton textButton3=new TextButton("New Dialog",textButtonStyle);
+        textButton3.setPosition(200, 320);
+        stage.addActor(textButton3);
+        
+        textButton3.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("NewLevel,Level1Dialog1");
+        	}
+        });
     }
  
     public void render (float delta) {

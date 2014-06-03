@@ -254,6 +254,9 @@ public class Trigger {
 		case "Main":
 			game.setScreen(new ScreenMenu(game));
 			break;
+		case "Test":
+			game.setScreen(new ScreenTest(game));
+			break;
 		}
 	}
 
