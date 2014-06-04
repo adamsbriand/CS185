@@ -102,7 +102,7 @@ public class ScreenTest implements Screen {
         
         textButton4.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("NewLevel,Level1Maze2");
+        		g.i().t.action("NewLevel,Level1Maze2,changeMyAnim,Bowling");
         	}
         });
     }

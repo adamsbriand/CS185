@@ -4,9 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class ScreenGameOver extends GameMenu{
+	long timeStartGame;
 	
 	public ScreenGameOver(MainGame MainGame){
 		super(MainGame);
+		timeStartGame = System.currentTimeMillis();
 	}
 
 	void buttons() {
@@ -18,7 +20,7 @@ public class ScreenGameOver extends GameMenu{
 	}
 	
 	public void update() {
-		if (TimeUtils.millis()>(g.i().timeStartGame+7000)){
+		if (TimeUtils.millis()>(timeStartGame+7000)){
 			g.i().t.action("menu,Main");
 		}
 	}
