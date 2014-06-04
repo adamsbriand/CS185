@@ -105,17 +105,21 @@ public class Sounds {
 			case "outro2":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3));
 				bgMusic.setLooping(true);
+				bgMusic.setOnCompletionListener(null);
 				break;
 			case "outro":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3b));
 				bgMusic.setLooping(false);
 				bgMusic.setOnCompletionListener(song3Switcher);		
 				break;
+			case "mute":
+				break;
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
 				bgMusic.setLooping(true);
+				bgMusic.setOnCompletionListener(null);
 		}
-		if (g.i().music){
+		if (g.i().music && bgMusic != null){
 			bgMusic.setVolume(g.i().musicLevel);
 			bgMusic.play();
 		}
@@ -272,5 +276,9 @@ public class Sounds {
 		}else{
 			arrow2.play(g.i().sfxLevel);
 		}
+	}
+	
+	public void buttonClick(){
+		
 	}
 }

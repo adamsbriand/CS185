@@ -206,6 +206,10 @@ public class Trigger {
 				break;
 			case "bounce":
 				g.i().sound.Bounce();
+				break;
+			case "buttonClick":
+				g.i().sound.buttonClick();
+				break;
 			}
 		}
 	}
@@ -274,11 +278,17 @@ public class Trigger {
 		case "gameOver":
 			game.setScreen(new ScreenGameOver(game));
 			break;
+		case "options":
+			game.setScreen(new ScreenOptions(game));
+			break;
 		}
 	}
 
 	private void NewLevel(String Value){
 		switch (Value){
+			case "Main":
+				game.setScreen(new ScreenMenu(game));
+				break;
 			case "Level1Run1":
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L1R1));
