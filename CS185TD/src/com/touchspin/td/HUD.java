@@ -5,6 +5,7 @@ import java.util.Map;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -19,9 +20,9 @@ public class HUD extends GameThing {
 	private Sprite heroHealth;
 	private int healthWidth;
 	private int healthHeight;
-	private TextureRegion [][] tempFrames;
-	private TextureRegion [] frames;
+	private TextureRegion currentFrame;
 	private int previousHealth;
+	private Animation  healthBarAnimation;
 
 	public HUD(OrthographicCamera camera, TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
@@ -29,10 +30,6 @@ public class HUD extends GameThing {
 
 		heroHealth = new Sprite();
 		loadHealthBar();
-		
-//		heroHealth.setBounds(0, 32, healthWidth * camera.zoom, healthHeight * camera.zoom);
-//		heroHealth.setOrigin(heroHealth.getWidth() / 2,
-//				heroHealth.getHeight() / 2);
 		
 		setHeight(heroHealth.getHeight() * camera.zoom);
 		setWidth(heroHealth.getWidth() * camera.zoom);
@@ -58,7 +55,9 @@ public class HUD extends GameThing {
 		// position
 		setSpritesPosition();
 		//if(previousHealth != g.i().playerHealth)
-		heroHealth.setRegion(frames[51-g.i().playerHealth]);
+		stateTime += Gdx.graphics.getDeltaTime();
+		currentFrame = healthBarAnimation.getKeyFrame(stateTime, true);
+		heroHealth.setRegion(currentFrame);
 		previousHealth = g.i().playerHealth;
 
 	}
@@ -79,6 +78,8 @@ public class HUD extends GameThing {
 	
     private void loadHealthBar()
 	{
+    	TextureRegion [][] tempFrames;
+    	TextureRegion [] frames;
 		Texture appearance = new Texture("img/hud/HeartBar.png");
 		healthWidth = appearance.getWidth() / 2;
 		healthHeight = appearance.getHeight() / 26;
@@ -91,9 +92,14 @@ public class HUD extends GameThing {
 				frames[index++] = tempFrames[i][j];
 			}
 		}
-		heroHealth.setRegion(frames[51-g.i().playerHealth]);
+		healthBarAnimation = new Animation(0.01f, frames);
 		heroHealth.setOrigin(healthWidth/2, healthHeight/2);
 		heroHealth.setBounds(getX(),getY(), camera.viewportWidth * 0.3f,camera.viewportWidth * 0.3f *  (appearance.getHeight() / 26)/(appearance.getWidth() / 2));
+		
+		stateTime = 0f;
+		currentFrame = healthBarAnimation.getKeyFrame(stateTime, true);
 	}
+    
+
 
 }
