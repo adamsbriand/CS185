@@ -12,10 +12,16 @@ public class Main {
 		cfg.title = "Ollie";
 		cfg.width = 800;
 		cfg.height = 500;
-		cfg.addIcon("img/icons/OllieIcon64.png", Files.FileType.Internal);
-		cfg.addIcon("img/icons/OllieIcon128.png", Files.FileType.Internal);
-		cfg.addIcon("img/icons/OllieIcon256.png", Files.FileType.Internal);
 		cfg.addIcon("img/icons/OllieIcon512.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon256.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon144.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon128.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon96.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon72.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon64.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon48.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon32.png", Files.FileType.Internal);
+		cfg.addIcon("img/icons/OllieIcon16.png", Files.FileType.Internal);
 		
 		new LwjglApplication(new MainGame(), cfg);
 		Keyboard.enableRepeatEvents(true);
