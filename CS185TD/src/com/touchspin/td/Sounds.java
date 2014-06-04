@@ -46,6 +46,10 @@ public class Sounds {
 	private static final String wind = "snd/sndWindBlowing.wav";
 	private static final String fireburn = "snd/sndFire.wav";
 	private static final String campfire = "snd/sndCampFire.wav";
+	private static final String song3 = "snd/song3.wav";
+	private static final String song3a = "snd/song3A.wav";
+	private static final String song3b = "snd/song3B.wav";
+	private static final String song3c = "snd/song3C.wav";
 	
 	private Sound arrow1=null;
 	private Sound arrow2=null;
@@ -58,6 +62,25 @@ public class Sounds {
 	private Sound bounce1=null;
 	private Sound bounce2=null;
 	private Sound bounce3=null;
+	private Music.OnCompletionListener song3Switcher = new Music.OnCompletionListener(){
+		public void onCompletion(Music music) {
+			Random randomPart = new Random();
+			int randomInt = randomPart.nextInt(3) + 1;
+			switch (randomInt){
+				case 1:
+					bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3a));
+					break;
+				case 2:
+					bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3c));
+					break;
+				case 3:
+					bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3b));
+					break;
+			}
+			bgMusic.setVolume(g.i().musicLevel);
+			bgMusic.play();
+			bgMusic.setOnCompletionListener(song3Switcher);
+		}};
 	
 	public void BGMusic(String file){
 		
@@ -79,9 +102,14 @@ public class Sounds {
 						bgMusic.setOnCompletionListener(null);
 					}});
 				break;
+			case "outro2":
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3));
+				bgMusic.setLooping(true);
+				break;
 			case "outro":
-				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
-				//bgMusic.setLooping(true);
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3b));
+				bgMusic.setLooping(false);
+				bgMusic.setOnCompletionListener(song3Switcher);		
 				break;
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
