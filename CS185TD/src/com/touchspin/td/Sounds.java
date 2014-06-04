@@ -80,8 +80,8 @@ public class Sounds {
 					}});
 				break;
 			case "outro":
-				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
-				bgMusic.setLooping(true);
+				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
+				//bgMusic.setLooping(true);
 				break;
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));

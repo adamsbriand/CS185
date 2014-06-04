@@ -29,6 +29,8 @@ public class ScreenMenu extends GameObject {
     MainGame game;
     Sprite sprite;
     NinePatch np;
+    TextButton textButton;
+    TextButton textButton2;
     
     public ScreenMenu (MainGame MainGame){
         create();
@@ -54,16 +56,6 @@ public class ScreenMenu extends GameObject {
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
- 
-        // A skin can be loaded via JSON or defined programmatically, either is fine. Using a skin is optional but strongly
-        // recommended solely for the convenience of getting a texture, region, etc as a drawable, tinted drawable, etc.
-        skin = new Skin();
-        // Generate a 1x1 white texture and store it in the skin named "white".
-        Pixmap pixmap = new Pixmap(100, 100, Format.RGBA8888);
-        pixmap.setColor(Color.GREEN);
-        pixmap.fill();
- 
-        skin.add("white", new Texture(pixmap));
         
         Texture buttonTexture = new Texture(Gdx.files.internal("img/menu/Btn9SliceDown.png"));
         np = new NinePatch(buttonTexture);
@@ -75,29 +67,18 @@ public class ScreenMenu extends GameObject {
         np.setMiddleHeight(20);
         
         NinePatchDrawable npDraw = new NinePatchDrawable(np);
-        
-        skin.add("red", np);
  
         // Store the default libgdx font under the name "default".
         BitmapFont bfont=new BitmapFont();
         bfont.scale(1);
-        skin.add("default",bfont);
- 
+        
         // Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
-        TextButtonStyle textButtonStyle = new TextButtonStyle();
-        textButtonStyle.up = skin.newDrawable("red");
-        textButtonStyle.down = skin.newDrawable("red");
-        textButtonStyle.checked = skin.newDrawable("red");
-        textButtonStyle.over = skin.newDrawable("red");
- 
-        textButtonStyle.font = skin.getFont("default");
- 
-        skin.add("default", textButtonStyle);
+        TextButtonStyle textButtonStyle = new TextButtonStyle(npDraw,  npDraw, npDraw, bfont);
         
         //Slider slider = new Slider(0, 100, 1, false, );
  
         // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-        final TextButton textButton=new TextButton("New Game",textButtonStyle);
+        textButton=new TextButton("New Game",textButtonStyle);
         textButton.setPosition(200, 200);
         stage.addActor(textButton);
         
@@ -107,16 +88,17 @@ public class ScreenMenu extends GameObject {
             }
         });
         
-        final TextButton textButton2=new TextButton("Test Menu",textButtonStyle);
+        textButton2=new TextButton("Test Menu",textButtonStyle);
         textButton2.setPosition(500, 200);
         stage.addActor(textButton2);
+        
+        
         
         textButton2.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("menu,Test");
         	}
         });
-
     }
  
     public void render (float delta) {
@@ -125,6 +107,8 @@ public class ScreenMenu extends GameObject {
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         batch.begin();
         sprite.draw(batch);
+        //np.draw(batch, textButton.getOriginX(), textButton.getOriginY(), textButton.getWidth(), textButton.getHeight());
+        //np.draw(batch, textButton2.getOriginX(), textButton2.getOriginY(), textButton2.getWidth(), textButton2.getHeight());
         batch.end();
         stage.draw();
         Table.drawDebug(stage);
