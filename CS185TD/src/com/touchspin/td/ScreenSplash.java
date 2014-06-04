@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
 
-public class ScreenSplash extends GameObject{
+public class ScreenSplash extends GameMenu{
 	BitmapFont font;
 	String message;
 	Texture texture;
@@ -19,24 +19,20 @@ public class ScreenSplash extends GameObject{
 	MainGame game;
 	Sprite sprite;
 
-	public ScreenSplash( MainGame mainGame)
-	{
-		batch = new SpriteBatch();
-		game = mainGame;
-        setSplash();
+	public ScreenSplash( MainGame mainGame){
+		super(mainGame);
+		//batch = new SpriteBatch();
 	}
 
-	public void setSplash()
-	{
-		float w = Gdx.graphics.getWidth();
+	@Override
+	protected void setBG(){
+    	float w = Gdx.graphics.getWidth();
 	    float h = Gdx.graphics.getHeight();
 	    camera = new OrthographicCamera();
-	    batch = new SpriteBatch();
-	    texture = new Texture(Gdx.files.internal("img/menu/Title.png"));
-	    sprite = new Sprite(texture);
-	    sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
-	    sprite.setBounds(0, 0, w, h);
-	}
+	    bg = new Sprite(new Texture(Gdx.files.internal("img/menu/Title.png")));
+	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
+	    bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+    }
 
 	@Override
 	public void update() {
@@ -44,11 +40,12 @@ public class ScreenSplash extends GameObject{
 		{
 			g.i().t.action("menu,Main");
 		}
-		if (TimeUtils.millis()>(g.i().timeStartGame+5000)){
+		if (TimeUtils.millis()>(g.i().timeStartGame+1000)){
 			g.i().t.action("menu,Main");
 		}
 	}
 
+	/*
 	@Override
 	public void draw() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -65,39 +62,23 @@ public class ScreenSplash extends GameObject{
 			update();
 			draw();
 	}
-
-	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void hide() {
-
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-
-	}
-
+*/
+	
 	@Override
 	public void dispose() {
 		texture.dispose();
         batch.dispose();
+	}
+
+	@Override
+	void buttons() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void logo() {
+		// TODO Auto-generated method stub
+		
 	}
 }
