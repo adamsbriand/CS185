@@ -61,7 +61,7 @@ public class GameScreen extends GameObject {
 			foregroudCamera.update();
 		}
 
-		cameraTranslate(g.i().hero.getX() - tempX, g.i().hero.getY() - tempY);
+		setCamera(g.i().hero.getX(),g.i().hero.getY());
 		setView();
 		if (soundLoaded) {
 			g.i().sound.sndSwitch.play(g.i().sfxLevel);
@@ -139,6 +139,17 @@ public class GameScreen extends GameObject {
 				&& g.i().hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
 						.getPixelHeight())
 			camera.translate(0, y);
+	}
+	
+	private void setCamera(float x, float y) {
+		if (g.i().hero.getX() >= camera.viewportWidth / 2
+				&& g.i().hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
+						.getPixelWidth())
+			camera.position.x = x;
+		if (g.i().hero.getY() >= camera.viewportHeight / 2
+				&& g.i().hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
+						.getPixelHeight())
+			camera.position.y = y;
 	}
 
 	private void setBackGroundCameraView() {

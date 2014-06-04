@@ -182,8 +182,8 @@ public class TiledMapWrapper {
 				}
 		}
 
-		if (tiledMap.getLayers().get("walls") != null) {
-			temp = (TiledMapTileLayer) tiledMap.getLayers().get("walls");
+		if (tiledMap.getLayers().get("collisions") != null) {
+			temp = (TiledMapTileLayer) tiledMap.getLayers().get("collisions");
 			tileWidth = temp.getTileWidth();
 			tileHeight = temp.getTileHeight();
 			for (int i = 0; i < temp.getWidth(); i++)
