@@ -18,6 +18,7 @@ public class HUD extends GameThing {
 	
 	private float scaleFactor;
 	private Sprite heroHealth;
+	private Sprite cover;
 	private int healthWidth;
 	private int healthHeight;
 	private TextureRegion currentFrame;
@@ -43,6 +44,7 @@ public class HUD extends GameThing {
 	public void draw(Batch batch, float alpha) {
 		batch.setProjectionMatrix(camera.combined);
 		heroHealth.draw(batch);
+		cover.draw(batch);
 	}
 
 	private void drawEffect(Batch batch) {
@@ -54,10 +56,12 @@ public class HUD extends GameThing {
 
 		// position
 		setSpritesPosition();
-		//if(previousHealth != g.i().playerHealth)
+		if(previousHealth != g.i().playerHealth)
+			cover.setScale((100f -g.i().playerHealth)/100f, 1f);
 		stateTime += Gdx.graphics.getDeltaTime();
 		currentFrame = healthBarAnimation.getKeyFrame(stateTime, true);
 		heroHealth.setRegion(currentFrame);
+		
 		previousHealth = g.i().playerHealth;
 
 	}
@@ -73,6 +77,10 @@ public class HUD extends GameThing {
 		setY(camera.position.y + camera.viewportHeight/2 - 0.15f*w/h*  camera.viewportHeight/2);
 		heroHealth.setX(getX());
 		heroHealth.setY(getY());
+		
+		cover.setX(getX() + 10f/270f * heroHealth.getWidth());
+		cover.setY(getY());
+		
 	}
     
 	
@@ -98,6 +106,13 @@ public class HUD extends GameThing {
 		
 		stateTime = 0f;
 		currentFrame = healthBarAnimation.getKeyFrame(stateTime, true);
+		
+		
+		Texture tempT = new Texture("img/hud/HeartBarCover.jpg");
+		cover = new Sprite(tempT);
+		cover.setSize(250f/270f * heroHealth.getWidth(), heroHealth.getHeight());
+		cover.setOrigin(cover.getWidth(), cover.getHeight()/2);
+		cover.setScale(1f, 1f);
 	}
     
 

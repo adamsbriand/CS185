@@ -16,9 +16,9 @@ public class MainGame extends Game {
 		g.i().leAnonymizer = new InputAnonymizer();
 		g.i().sound = new Sounds();
 		g.i().t = new Trigger(this);
-		g.i().currentBallType = "PingPong";
+		g.i().currentBallType = "Baseball";
 		g.i().fire = false;
-		g.i().playerHealth = 39;
+		g.i().playerHealth = 100;
 		
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);

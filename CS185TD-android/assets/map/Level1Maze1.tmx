@@ -16,7 +16,7 @@
    eJztVsENwyAMNAt0AjYwC3T/xdpItYLSwzYkMkrLSf5ENufDB4FoYRTph/n5HdnIKY51sjOv1YNWa/V3hrvuocXDSl1S6kZ6QDpa2nq5iyM/ka63XsvKY/r2biZ7Xh5+TYfo1M6N5Fw1O+mpUJ8XPfvogXduC/+NzW/pE+JVufskuMrhwzem/Z6q1yigBp2tSI+i8x/JP1s/4jr7n7wTP5r/lfe9BaQ18i2p6X90BA3WaP7fcp6OOPL31KD9j+RH/o/cf6R/tv8X5uAFLuMW5w==
   </data>
  </layer>
- <layer name="collisions" width="32" height="32" visible="0">
+ <layer name="collisions" width="32" height="32">
   <data encoding="base64" compression="zlib">
    eJztVm0OgCAIxXt4A7z/+aotlisE/Jis8m3+aeDjycMEWGhF+DA/7isqMcmwTzTGlWqQcrX6erjzGko8KOQFIa+lBk5HSVstdzLEB5D15ntpcQhP70bQ+2Xhl3SQTmluKGZU76imBHVetJyjBda+Lfwbh9/CucirdPfRwiwGb98Qrnsq3yMxOdxszfQoN/8z+b31c1y9/8k38XP9H3nfa+C0znxLeuv39j93/t7z5+0/b/4FH2yDPAwL
   </data>
@@ -116,7 +116,7 @@
   </object>
   <object name="bottomlessPit1" type="npo" x="160" y="800" width="288" height="64">
    <properties>
-    <property name="actions" value="changeLocation,enter1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-off,changeOthersAnim,lightedAreaUR-off,changeOthersAnim,lightedAreaLL-off,changeOthersAnim,lightedAreaLR-off"/>
+    <property name="actions" value="changeLocation,enter1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-off,changeOthersAnim,lightedAreaUR-off,changeOthersAnim,lightedAreaLL-off,changeOthersAnim,lightedAreaLR-off,reduceHealth,20"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -129,7 +129,7 @@
   </object>
   <object name="bottomlessPit2" type="npo" x="576" y="800" width="288" height="64">
    <properties>
-    <property name="actions" value="changeLocation,enter1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-off,changeOthersAnim,lightedAreaUR-off,changeOthersAnim,lightedAreaLL-off,changeOthersAnim,lightedAreaLR-off"/>
+    <property name="actions" value="changeLocation,enter1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-off,changeOthersAnim,lightedAreaUR-off,changeOthersAnim,lightedAreaLL-off,changeOthersAnim,lightedAreaLR-off,reduceHealth,20"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -141,7 +141,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objectsForeground" width="32" height="32" visible="0">
+ <objectgroup name="objectsForeground" width="32" height="32">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>

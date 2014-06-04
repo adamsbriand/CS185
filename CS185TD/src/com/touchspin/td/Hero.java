@@ -95,7 +95,7 @@ public class Hero extends GameThing {
 	@Override
 	public void draw(Batch batch, float alpha) {
 		batch.setProjectionMatrix(camera.combined);
-		if (frameCount == 15) {
+		if (frameCount == 60) {
 			heroSprite.setColor(Color.RED);
 		} else if (frameCount == 1) {
 			heroSprite.setColor(Color.WHITE);
@@ -119,10 +119,6 @@ public class Hero extends GameThing {
 		// Attack
 		if (frameCount > 1)
 			frameCount--;
-		if (g.i().leAnonymizer.attack) {
-			attack();
-			g.i().leAnonymizer.attack = false;
-		}
 		// position
 		setSpritesPosition();
 
@@ -145,7 +141,8 @@ public class Hero extends GameThing {
 			countTime += Gdx.graphics.getDeltaTime();
 			if(countTime > 2)
 			{
-				g.i().playerHealth--;
+				g.i().playerHealth -= 5;
+				getHurt();
 				countTime = 0;
 			}
 			if(g.i().playerHealth < 0)
@@ -154,8 +151,8 @@ public class Hero extends GameThing {
 
 	}
 
-	public void attack() {
-		frameCount = 15;
+	public void getHurt() {
+		frameCount = 20;
 	}
 
 	public void changeBall(String type)
@@ -186,8 +183,7 @@ public class Hero extends GameThing {
 				g.i().playerFriction = 0.008f;
 				ballWidth = 28f;
 				ballHeight = 28f;
-				flammable = false;
-				g.i().fire = false;
+				flammable = true;
 				break;
 		}
 		if(!g.i().fire)

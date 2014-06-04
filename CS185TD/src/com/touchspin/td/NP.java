@@ -2,6 +2,7 @@ package com.touchspin.td;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -75,7 +76,16 @@ public class NP extends GameThing {
 			this.animCols = animCols;
 			loadAnimation();
 
-			stateTime = 0;
+			if(!spriteSheet.equalsIgnoreCase("img/spritesheet/Campfire.png"))
+			{
+				stateTime = 0;
+			}
+			else
+			{	Random randomno = new Random();
+				float timePerFrame = 0.025f; 
+				stateTime = randomno.nextInt(12) * timePerFrame;
+
+			}
 			currentFrame = currentAnimation.getKeyFrame(stateTime, false);
 			npSprite.setRegion(currentFrame);
 
@@ -96,8 +106,8 @@ public class NP extends GameThing {
 	public void setAnimation(String animationName) {
 		if(animationSet.getCurrentAnimationDescription().name.equalsIgnoreCase("Broken"))
 			{
-			active = false;
-			return;
+				active = false;
+				return;
 			}
 		stateTime = 0;
 		currentAnimation = animationMap

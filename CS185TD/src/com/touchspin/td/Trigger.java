@@ -93,6 +93,10 @@ public class Trigger {
 				break;
 			case "toggleState":
 				toggleState(value);
+				break;
+			case "reduceHealth":
+				reduceHealth(value);
+				break;
 			default:
 		}
 	}
@@ -250,6 +254,12 @@ public class Trigger {
 
 			break;
 		}
+	}
+	
+	private void reduceHealth(String value)
+	{
+		g.i().playerHealth -= Integer.parseInt(value);
+		g.i().hero.getHurt();
 	}
 
 	// Change screens

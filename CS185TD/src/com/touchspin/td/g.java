@@ -29,7 +29,7 @@ public class g {
 	public float playerFriction; // The friction of the player for physics
 	public boolean fire;	// Hero is on fire
 	public String currentBallType;
-	public int playerHealth;  // Health of the player. 39=full health. 
+	public int playerHealth;  // Health of the player. 100=full health. 
 	public Hero hero;
 	public HUD hud;
 	
