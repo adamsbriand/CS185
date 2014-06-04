@@ -14,55 +14,71 @@ public class ScreenMenu extends GameMenu {
     }
     
     public void buttons(){
-    	float x;
-    	float y;
-    	TextButton textButton;
-        textButton = new TextButton("New Game", textButtonStyle);
-        x = ((Gdx.graphics.getHeight() / 15) * 6) - (textButton.getHeight() / 2);
-        y = (Gdx.graphics.getWidth() / 3) - (textButton.getWidth() / 2);
-        textButton.setPosition(y, x);
-        textButton.addListener(new ChangeListener() {
+    	final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
+    	final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
+    	final float yRow1 = Gdx.graphics.getWidth() / 3;
+    	final float yRow2 = Gdx.graphics.getWidth() / 3 * 2;
+    	float height = 0;
+    	float width = 0;
+    	
+    	final TextButton newGame = new TextButton("New Game", textButtonStyle);
+        newGame.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("NewLevel,Level1Dialog1,playSound,buttonClick");
             }
         });
-        stage.addActor(textButton);
+        stage.addActor(newGame);
         
-        textButton = new TextButton("Options", textButtonStyle);
-        x = ((Gdx.graphics.getHeight() / 15) * 6) - (textButton.getHeight() / 2);
-        y = ((Gdx.graphics.getWidth() / 3) * 2)  - (textButton.getWidth() / 2);
-        textButton.setPosition(y, x);
-        textButton.addListener(new ChangeListener() {
+        final TextButton options = new TextButton("Options", textButtonStyle);
+        options.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("menu,options,playSound,buttonClick");
         	}
         });
-        stage.addActor(textButton);
+        stage.addActor(options);
         
-        textButton = new TextButton("Exit", textButtonStyle);
-        x = ((Gdx.graphics.getHeight() / 15) * 3) - (textButton.getHeight() / 2);
-        y = ((Gdx.graphics.getWidth() / 3) * 2)  - (textButton.getWidth() / 2);
-        textButton.setPosition(y, x);
-        textButton.addListener(new ChangeListener() {
+        final TextButton highScore = new TextButton("High Score", textButtonStyle);
+        //highScore.setDisabled(true);
+        highScore.setColor(Color.GRAY);
+        highScore.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("menu,Test,playSound,buttonClick");
+        	}
+        });
+        stage.addActor(highScore);
+        
+        final TextButton exit = new TextButton("Exit", textButtonStyle);
+        exit.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("playSound,buttonClick");
         		Gdx.app.exit();
         	}
         });
-        stage.addActor(textButton);
+        stage.addActor(exit);
         
-        textButton = new TextButton("High Score", textButtonStyle);
-        x = ((Gdx.graphics.getHeight() / 15) * 3) - (textButton.getHeight() / 2);
-        y = ((Gdx.graphics.getWidth() / 3))  - (textButton.getWidth() / 2);
-        textButton.setPosition(y, x);
-        //textButton.setDisabled(true);
-        textButton.setColor(Color.GRAY);
-        textButton.addListener(new ChangeListener() {
-        	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("menu,Test,playSound,buttonClick");
+        for (int i=0; i < stage.getActors().size; i++){
+        	if (height < stage.getActors().items[i].getHeight()){
+        		height = stage.getActors().items[i].getHeight();
         	}
-        });
-        stage.addActor(textButton);
+        	if (width < stage.getActors().items[i].getWidth()){
+        		width = stage.getActors().items[i].getWidth();
+        	}
+        	@SuppressWarnings("unused")
+			int teststop = stage.getActors().size;
+        	@SuppressWarnings("unused")
+			int test = 0;
+        }
+        for (int i=0; i < stage.getActors().size; i++){
+        	stage.getActors().items[i].setHeight(height);
+        	stage.getActors().items[i].setWidth(width);
+        }
+        height = height / 2;
+        width = width / 2;
+        
+        newGame.setPosition(yRow1 - width, xRow1 - height);
+        options.setPosition(yRow2 - width, xRow1 - height);
+        highScore.setPosition(yRow1 - width, xRow2 - height);
+        exit.setPosition(yRow2 - width, xRow2 - height);
     }
 
     public void logo(){
