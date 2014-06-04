@@ -40,8 +40,6 @@ public abstract class GameMenu extends GameObject {
     }
     
     protected void setBG(){
-    	float w = Gdx.graphics.getWidth();
-	    float h = Gdx.graphics.getHeight();
 	    camera = new OrthographicCamera();
 	    bg = new Sprite(new Texture(Gdx.files.internal("img/menu/ScreenBG.png")));
 	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
