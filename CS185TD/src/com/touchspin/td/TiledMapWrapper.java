@@ -157,17 +157,11 @@ public class TiledMapWrapper {
 		collisionObjects = new MapObjects();
 		float tileWidth;
 		float tileHeight;
-		// try
-		// {
-		// Get Collision objects
+
 		if (tiledMap.getLayers().get("Collision") != null)
 			collisionObjects = tiledMap.getLayers().get("Collision")
 					.getObjects();
-
-		// get player start point
-		// if(g.i().gameMode == 'M')
-		// playerStartPoint = tiledMap.getLayers().get("Start").getObjects();
-
+		
 		if (tiledMap.getLayers().get("blocks") != null) {
 			temp = (TiledMapTileLayer) tiledMap.getLayers().get("blocks");
 			tileWidth = temp.getTileWidth();
