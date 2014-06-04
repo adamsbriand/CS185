@@ -3,6 +3,9 @@
  <tileset firstgid="1" name="BloxTopDuplo" tilewidth="32" tileheight="32">
   <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
  </tileset>
+ <tileset firstgid="57" name="Untitled" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/Untitled.png" width="32" height="32"/>
+ </tileset>
  <layer name="bg" width="32" height="32">
   <data encoding="base64" compression="zlib">
    eJyNlUuqxDAMBAPZ+Ry+/xlnkwFTVClZmDcvyPq0utv3dV3rOfs493P+v9dx7iN+HXG8yxxb7p73lsTYWUfuhTr8f0ec9Wk5Vpw9/OZd9lqxZ33iuVGH8czJ3NbXktjChHcN6+IJeyUW/G642N7IGfZg+ytOWG3Gsc75t+ZlbtON6cr6qW/MQf1wZ8TJtGV6Nl1Qu5yjdlI9TBhUr4zj3MSveDDltt5Z421ezmJ7KgytN87HHOZzxKP0bn1Su6bn0nZhMfF+8jby0/g48XbCo/RtfCotmvZtH/U+TR7Hd8FwLe2a/5j2yQXjHfdrfLD92E5MA7ZLzsN7Vsv8oLhG3ItvpTmbf9JT+bZxkr2b15Cztn/TvOm8ZmaM7a/0YZwyr598iXjb7OTltC97K754d+mm5mH/pqvJk2yu8gfbz8Qnct+8t3DnW2O8MS+1mc1H6m1gzsK//Kv0Wd5pXmA6q11N89guOKN5RPGU9QrX0sI0A/MYfsY5w/+LJxo+plvjn/VjHCZvpjjO9rXv0rt9e+PGG4/LWxn/A4S8P8I=
@@ -10,7 +13,7 @@
  </layer>
  <layer name="walls" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   eJztVsENwyAMNAt0AjYwn+6/XBupVlB62IZERmk5yZ/I5nz4IBAtjCL9MD+/Ixs5xbFOdua1etBqrf7OcNc9tHhYqUtK3UgPSEdLWy93ceQn0vXWa1l5TN/ezWTPy8Ov6RCd2rmRnKtmJz0V6vOiZx898M5t4b+x+S19Qrwqd58EVzl8+Ma031P1GgXUoLMV6VF0/iP5Z+tHXGf/k3fiR/O/8r63gLRGviU1/Y+OoMEazf9bztMRR/6eGrT/kfzI/5H7j/TP9v/CHLwAzGcVxw==
+   eJztVsENwyAMNAt0AjYwC3T/xdpItYLSwzYkMkrLSf5ENufDB4FoYRTph/n5HdnIKY51sjOv1YNWa/V3hrvuocXDSl1S6kZ6QDpa2nq5iyM/ka63XsvKY/r2biZ7Xh5+TYfo1M6N5Fw1O+mpUJ8XPfvogXduC/+NzW/pE+JVufskuMrhwzem/Z6q1yigBp2tSI+i8x/JP1s/4jr7n7wTP5r/lfe9BaQ18i2p6X90BA3WaP7fcp6OOPL31KD9j+RH/o/cf6R/tv8X5uAFLuMW5w==
   </data>
  </layer>
  <layer name="collisions" width="32" height="32">
@@ -111,9 +114,9 @@
     <property name="spriteSheet" value="fan.png"/>
    </properties>
   </object>
-  <object name="bottomlessPit1" type="npo" x="128" y="768" width="352" height="128">
+  <object name="bottomlessPit1" type="npo" x="160" y="800" width="288" height="64">
    <properties>
-    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
+    <property name="actions" value="changeLocation,enter1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -124,9 +127,9 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="bottomlessPit2" type="npo" x="544" y="768" width="352" height="128">
+  <object name="bottomlessPit2" type="npo" x="576" y="800" width="288" height="64">
    <properties>
-    <property name="actions" value="changeLocation,dest1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
+    <property name="actions" value="changeLocation,enter1,changeBalldY,0,changeBalldX,0,playSound,sndSlideWhistleDown,changeOthersAnim,lightedAreaUL-unlit,changeOthersAnim,lightedAreaUR-unlit,changeOthersAnim,lightedAreaLL-unlit,changeOthersAnim,lightedAreaLR-unlit"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -138,7 +141,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objectsForeground" width="32" height="32" visible="0">
+ <objectgroup name="objectsForeground" width="32" height="32">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
