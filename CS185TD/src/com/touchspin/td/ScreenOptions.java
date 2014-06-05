@@ -12,6 +12,7 @@ public class ScreenOptions extends GameMenu {
 
 	public ScreenOptions (MainGame MainGame){
 		super(MainGame);
+		levelReturn = new String[1];
 		levelReturn[0] = "Main";
     }
 	
