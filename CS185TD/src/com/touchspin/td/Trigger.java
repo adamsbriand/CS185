@@ -210,6 +210,10 @@ public class Trigger {
 				break;
 			case "sndSplash":
 				g.i().sound.sndSwitch("splash");
+				break;
+			case "Teleport":
+				g.i().sound.sndSwitch("Teleport");
+				break;
 			case "buttonClick":
 				g.i().sound.buttonClick();
 				break;
