@@ -62,6 +62,8 @@ public class InputAnonymizer extends Actor implements GestureListener,
 			tiltSpeed.y = 5;
 		if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
 			tiltSpeed.y = -5;
+		if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+			pausePressed = true;
 	}
 
 	@Override
@@ -104,7 +106,7 @@ public class InputAnonymizer extends Actor implements GestureListener,
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		click = true;
-		if (screenX < 100 && screenY < 100){
+		if (g.i().controls == 'A' && screenX < 100 && screenY < 100){
 			pausePressed=true;
 		}
 		return true;
