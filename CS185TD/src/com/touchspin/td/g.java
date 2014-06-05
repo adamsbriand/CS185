@@ -87,17 +87,24 @@ public class g {
 	private static g singleton = new g( ); // Only this class can create this class.
 	
 	private g(){
-
-		// Player
-		level = 0;
-		levelTimer = 0;
-		
 		// Sound
 		sfx = true;
 		music = true;
 		sfxLevel = 1;
 		musicLevel = 1;
 
+		setZero();
+	}
+	
+	public static g i( ) {
+		return singleton;
+	}
+	
+	public void setZero(){
+		// Player
+		level = 0;
+		levelTimer = 0;
+		
 		//Maze
 		cameraWidth = 400;
 		cameraHeight = 400;
@@ -106,10 +113,6 @@ public class g {
 		accelX = 0;
 		accelY = 0;
 		accelZ = 0;
-	}
-	
-	public static g i( ) {
-		return singleton;
 	}
 	
 	public void SetDefaults(MainGame game){
