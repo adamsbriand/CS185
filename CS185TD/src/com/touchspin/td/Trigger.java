@@ -10,7 +10,7 @@ public class Trigger {
 	private final static String L1R1 = "map/Level1Runner1.tmx";
 	private final static String L1R2 = "";
 	private final static String L1M1 = "map/Level1Maze1.tmx";
-	//private final static String L1M1 = "map/Level2Maze1.tmx";
+	private final static String L2M1 = "map/Level2Maze1.tmx";
 	private final static String L1M2 = "map/Level1Maze2.tmx";
 	private final static String L1D1 = "scripts/BeginingDialog.xml";
 	private final static String L1D2 = "";
@@ -334,6 +334,11 @@ public class Trigger {
 			case "Level1Dialog1":
 				g.i().gameMode = 'D';
 				game.setScreen(new GameDialog(game, L1D1));
+				break;
+			case "Level2Maze1":
+				g.i().gameMode = 'M';
+				game.setScreen(new GameScreen(game, L2M1));
+				break;
 		}
 	}
 

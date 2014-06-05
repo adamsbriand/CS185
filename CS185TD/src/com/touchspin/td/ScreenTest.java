@@ -86,13 +86,13 @@ public class ScreenTest implements Screen {
         	}
         });
         
-        final TextButton textButton3=new TextButton("New Dialog1",textButtonStyle);
+        final TextButton textButton3=new TextButton("Level 2 Maze 1",textButtonStyle);
         textButton3.setPosition(200, 320);
         stage.addActor(textButton3);
         
         textButton3.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("NewLevel,Level1Dialog1");
+        		g.i().t.action("NewLevel,Level2Maze1");
         	}
         });
         
