@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="36" height="28" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="BloxTopMonochrome" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="6" name="BloxTopDuplo" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
+ </tileset>
+ <layer name="bg3" width="36" height="28">
+  <data encoding="base64" compression="zlib">
+   eJyNlUsSAiEQQzkEcP+j6kKr8PkSZmGNYtOfJJ2ZY4z9/qzPc5bn/MTN4/x7jznWEbPlN3Oe9xbytf+tlvVvfS7ksJxLctjZHL+4WH5iyLlYf+Ge9WO5z1m35NjjHyvGMNbyG98JD85i2JtWiIfxR74Nd+OZfZK7jXPyYricsxieNqvNlnpse5X0ajvHXky35Iy5WCtxwXrGn/XXMGevphXmSL0x3jSf9oE7ZHPxu/GX9pNc0NOYj3tjPRBfi3uCpfWWdpo8WlzaLeOAWqfXGOc3rswniTXjbzpLvse7aTeSn968hb1YvaR70+st3jBPNZPPmU7My8xXyJe9e7jT9NjElflew8Owe+IjrMu75kmt9+TLyXstLr0XDA/jkHOzf+LftMLZkgeYxpJW06f1mfbP9t1wY33bXXtftBrml8Qt+ZlhmmpbTdOFzZP2pu1D65/8pPqm7Yahadx2LflRikvauOks6bN5pu2Kccq65LLlSjtodxlvvBofpqWJc/M64pT0aP2b9p76sfFku998gXPbTN/nCyooUrM=
+  </data>
+ </layer>
+ <layer name="bg2" width="36" height="28" opacity="0.44">
+  <data encoding="base64" compression="zlib">
+   eJyNlUuOAyEMBfsQDfc/6mSRSKimyt0LRJQA9vP7ZF/XtT/r/qz13e/vd+vYf7+f363j7o3PfIdrH+et1vn7irf2sc4zZ/2qW+f5JjGebz31tq7/ePjejbdsBqzBvvl5YT/XLTvr2++cAfFyBtSL6YC1ahEPa9bsyMUTFutjoYbhmTg6e6WGylPWq92hRuhf051plJ6llqixmgH1yt00Rt8Rs3HJ3sgbZ2c42JNxZHv1XT4sX/BNOzN5zPo031fWVq0Jn2mstMwsKj0XNt61DOG7pUnWsxmYPu193jGOjWfzoOWKzeUp2zg768F8PemWXn6Df+LM5vjGu4W5soZcW76YVpmbb3zJGVhtzuIJS2UIuaFmpv8Fq8E8N1+xb/N8ednOm58mviwbzIvUMedm8zCOTC9TBtaZiWfWq7lbDhJ75aVpszKltGQaMC+XzyoT2BPnUZot3iorpjnVvCb8T7y+0c6OxXymdgszsducTdvFmWG2OU85y97rvnFefi0cls/m18oU0xmx835lMTkofdjOPozP4v8Px8BSwA==
+  </data>
+ </layer>
+ <layer name="walls" width="36" height="28">
+  <data encoding="base64" compression="zlib">
+   eJytV0EOxCAI5NibD+kL/P/HNiaSkNlBBndJDC0OFnGg7TCzucfY49ljwtxDcHPrdw+fjz4jYCbBDLDbxiuS4VT/k/jeLNHZyPCVHxszxFLFc5IM183TA9e/7Debr/wQ55wZ9s2fat9VPlR+sfVWLC+Z7/LlX/5vEudJunxT87zEOY149dzVe4VfHo/af255oq7nts7+VBzjjZ/F4shI/E/5ua0vlE4e1Xxk+pd+w+Yjn6t8dOqE4RQ7nqOqb/hTrbeE8afSp+vTfaZjv2HnddIeuwvrp1Er72usv0483XPpnJvH1OUx4jI/7PuZIIdZ7eH66nyM45TPSWxmWn7QnuFu636Jf2Pg909Wx/hcNY8KDmuCvd/ZfcWjLs8yLKsv1l+q/RvBZX7MbnZ+X7B4FFF5xHDYr27OX91/Nz+V/Cs/J2G9J/6/4j8y2tAn9pfog70nfpu9YPsAB5EecA==
+  </data>
+ </layer>
+ <layer name="collisions" width="36" height="28" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzNk0EOgEAIA9n/f9qrIZQOrAdNjK6Upq1wIuL87I7X010KR/sdd9ZzUs3pn/Q5PsLfealw05xOer/xq+qur8JRPdmHy4POV8Wn9Ezn5av+m/2i80Zzfmuqvm32gc5PVc966D6ps/tOcFN/FDedy65P6ae4fE1ynOgk+zCdO5Jr1k/r6rrJhz6389PxbfV0792Z8m580P4N/wZP/8uEP/sLgaPzSPsqHuc589K66yMZ0z2+zaOrd7s28a2+T/Mm+VTanbeurs655vaa+s+cZP66fLb+Fd7VKxzZtc3eUD4yP87XVzjV+7f7AXkYAhU=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="36" height="28">
+  <object name="enter1" type="destination" x="32" y="32" width="32" height="32"/>
+  <object name="exit1" type="npo" x="608" y="832" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeMap,Level2Run1,changeLocation,enter1"/>
+    <property name="animations" value="show,0,0,show"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="ExitMarker.png"/>
+   </properties>
+  </object>
+  <object name="teleporter1" type="npo" x="160" y="128" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,dest1"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporter2" type="npo" x="576" y="736" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,dest2"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="dest2" type="destination" x="990" y="97" width="32" height="32"/>
+  <object name="dest1" type="destination" x="480" y="416" width="32" height="32"/>
+  <object name="doorOpener1" type="npo" x="675" y="557" width="26" height="48">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,door1Opener-on"/>
+    <property name="animations" value="off,0,0,off,on,1,1,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="doorOpener2" type="npo" x="226" y="748" width="26" height="48">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door2-false,changeOthersAnim,door1Opener-on"/>
+    <property name="animations" value="off,0,0,off,on,1,1,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="door1" type="npo" x="352" y="800" width="32" height="32">
+   <properties>
+    <property name="actions" value=""/>
+    <property name="animations" value="closed,0,0,closed,open,0,23,opened,opened,23,23,opened"/>
+    <property name="collidable" value="true"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="doorOpen.png"/>
+   </properties>
+  </object>
+  <object name="door2" type="npo" x="863" y="383" width="32" height="32">
+   <properties>
+    <property name="actions" value=""/>
+    <property name="animations" value="closed,0,0,closed,open,0,23,opened,opened,23,23,opened"/>
+    <property name="collidable" value="true"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="doorOpen.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objectsForeground" width="36" height="28">
+  <object name="transmorgifierPingPong" type="npo" x="800" y="448" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="26,26,48,48"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="notes" value="if hero touches collision rect, he becomes a pingPong ball"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="TransmorgifierTop.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBowling" type="npo" x="864" y="480" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="26,26,48,48"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="notes" value="if hero touches collision rect, he becomes a bowling ball"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="TransmorgifierTop.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBasket" type="npo" x="928" y="512" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBasket-transmorgify,playSound,transmorgify,changeMyAnim,Basket"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="26,26,48,48"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="notes" value="if hero touches collision rect, he becomes a basket ball"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="TransmorgifierTop.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
