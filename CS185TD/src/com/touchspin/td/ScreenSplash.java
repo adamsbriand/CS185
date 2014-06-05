@@ -12,15 +12,18 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class ScreenSplash extends GameMenu{
+	long timeStartGame;
 
 	public ScreenSplash( MainGame mainGame){
 		super(mainGame);
+		timeStartGame = System.currentTimeMillis();
 		//batch = new SpriteBatch();
 	}
 
 	@Override
 	public void update() {
-		if (TimeUtils.millis()>(g.i().timeStartGame+5000)){
+		final int secondsWait = 5;
+		if (TimeUtils.millis()>(timeStartGame + ( 1000 * secondsWait))){
 			g.i().t.action("menu,Main");
 		}
 	}

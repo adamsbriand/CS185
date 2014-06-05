@@ -53,7 +53,7 @@ public class g {
 							 * M=Mouse
 							 * D=Desktop (Mouse + Keyboard)
 							 */ 
-	public long timeStartGame; //Time stamp at start of game
+	//public long timeStartGame; //Time stamp at start of game
 	// Maze const Variables
 	public float cameraWidth;
 	public float cameraHeight;
@@ -104,6 +104,7 @@ public class g {
 		// Player
 		level = 0;
 		levelTimer = 0;
+		fire = false;
 		
 		//Maze
 		cameraWidth = 400;
@@ -134,7 +135,7 @@ public class g {
 			language="en";
 		else language="en";
 		
-		timeStartGame = System.currentTimeMillis();
+	//	timeStartGame = System.currentTimeMillis();
 		mapObjects = new ArrayList<NP>();
 		npMap = new HashMap<MapObject,NP>();
 	}
