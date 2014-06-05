@@ -207,6 +207,8 @@ public class Trigger {
 			case "bounce":
 				g.i().sound.Bounce();
 				break;
+			case "sndSplash":
+				g.i().sound.sndSwitch("splash");
 			case "buttonClick":
 				g.i().sound.buttonClick();
 				break;
