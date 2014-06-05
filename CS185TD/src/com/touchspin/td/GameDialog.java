@@ -59,7 +59,7 @@ public class GameDialog extends GameObject
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
 		currentText = "";
-		secondsPerChar = 250;
+		secondsPerChar = 150;
 		nextPrintTime = 0;
 		backGroundPath = null;
 		snippetCount = 0;
@@ -93,12 +93,9 @@ public class GameDialog extends GameObject
 				background = new Texture(Gdx.files.internal(backGroundPath));
 			}
 			batch.draw(background, w/2 - (background.getWidth()/2), h/2 - (background.getHeight()/2));
-		}
+		}		
 		
-		
-		
-		font.drawMultiLine(batch, currentText, textX, textY);
-		
+		font.drawMultiLine(batch, currentText, textX, textY);		
 		
 		batch.end();
 	}	
@@ -128,7 +125,7 @@ public class GameDialog extends GameObject
 				textY = h/2;
 				break;
 			case'R':
-				textX = w - 170 - ((currentText.length() * font.getSpaceWidth())/2);
+				textX = w - 50 - ((getSnippetTextLenght() * font.getSpaceWidth()));
 				textY = h - 50;	
 				break;
 			case 'B':
@@ -150,6 +147,22 @@ public class GameDialog extends GameObject
 		currentText = speakerName + ":\n";
 		dialogCount = 0;
 		snippetCount++;
+	}
+	
+	private int getSnippetTextLenght()
+	{
+		int length = 0;
+		
+		for(int count = 0; count < textArray.length; count++)
+		{
+			if(textArray[count].equals("C_"))
+			{
+				count += 2;
+				continue;
+			}
+			length += textArray[count].length();
+		}
+		return length;
 	}
 	
 	/**
@@ -192,20 +205,23 @@ public class GameDialog extends GameObject
 	
 	private void performAction(String command, String value)
 	{
-		if(command.equals("pause"))		
-			nextPrintTime += Integer.parseInt(value) * 1000;
+		switch(command)
+		{
+		case "pause":		
+			nextPrintTime += Integer.parseInt(value) * 100;
+			break;
 		
-		else if(command.equals("changeBackground"))
-		{
+		case "changeBackground":		
 			backGroundPath = value;
-		}
-		else if(command.equals("end"))
-		{
+			break;
+		
+		case "end":		
 			g.i().t.action(root.get("End"));
-		}
-		else if(command.equals("instaPrint"))
-		{
-			currentText += textArray[dialogCount++];			
+			break;
+		
+		case "instaPrint":		
+			currentText += textArray[dialogCount++];	
+		default :				
 		}
 	}
 	
