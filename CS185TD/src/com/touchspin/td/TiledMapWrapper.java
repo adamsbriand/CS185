@@ -167,20 +167,6 @@ public class TiledMapWrapper {
 					.getObjects();
 		
 //		if (tiledMap.getLayers().get("blocks") != null) {
-<<<<<<< HEAD
-//		temp = (TiledMapTileLayer) tiledMap.getLayers().get("blocks");
-//		tileWidth = temp.getTileWidth();
-//		tileHeight = temp.getTileHeight();
-//		for (int i = 0; i < temp.getWidth(); i++)
-//			for (int j = 0; j < temp.getHeight(); j++) {
-//				if (temp.getCell(i, j) != null) {
-//					tempObj = new RectangleMapObject(i * tileWidth, j
-//							* tileHeight, tileWidth, tileHeight);
-//					collisionObjects.add(tempObj);
-//				}
-//			}
-//	}
-=======
 //			temp = (TiledMapTileLayer) tiledMap.getLayers().get("blocks");
 //			tileWidth = temp.getTileWidth();
 //			tileHeight = temp.getTileHeight();
@@ -193,7 +179,6 @@ public class TiledMapWrapper {
 //					}
 //				}
 //		}
->>>>>>> refs/remotes/origin/master
 
 		if (tiledMap.getLayers().get("collisions") != null) {
 			temp = (TiledMapTileLayer) tiledMap.getLayers().get("collisions");
