@@ -32,7 +32,7 @@ public class MoverInput extends MoverPhysics {
 			if (speedXPerSecond < -100 || speedXPerSecond > 100)
 				g.i().sound.Bounce();
 			gameThing.setX(previousX);
-			speedXPerSecond = 0;
+			speedXPerSecond = -0.5f * speedXPerSecond;
 		}
 
 		gameThing.setY(gameThing.getY() + Gdx.graphics.getDeltaTime()
@@ -43,7 +43,7 @@ public class MoverInput extends MoverPhysics {
 			if (speedYPerSecond < -100 || speedYPerSecond > 100)
 				g.i().sound.Bounce();
 			gameThing.setY(previousY);
-			speedYPerSecond = 0;
+			speedYPerSecond = -0.5f * speedYPerSecond;
 		}else{
 			jumpable = false;
 		}
