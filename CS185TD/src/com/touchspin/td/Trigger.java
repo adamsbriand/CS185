@@ -77,8 +77,8 @@ public class Trigger {
 			case "changeLocationXY":
 				changeLocationXY(value);
 				break;
-			case "changeBalldY":
-				changeBalldY(value);
+			case "changeBallY":
+				changeBallY(value);
 				break;
 			case "playSoundLoop":
 				playSoundLoop(value);
@@ -126,10 +126,10 @@ public class Trigger {
 		}
 	}
 
-	private void changeBalldY(String value) {
+	private void changeBallY(String value) {
 		// -10
 		float change = Float.parseFloat(value);
-		g.i().hero.changeBalldy(change);
+		g.i().hero.changeBallY(change);
 	}
 
 	private void changeLocation(String value) {

@@ -168,7 +168,7 @@
     <property name="spriteSheet" value="LightSwitch.png"/>
    </properties>
   </object>
-  <object name="enter2" type="destination" x="1002" y="101"/>
+  <object name="enter2" type="destination" x="3918" y="444"/>
   <object name="water1" type="npo" x="351" y="448" width="95" height="34">
    <properties>
     <property name="actions" value="igniteBall,false,playSound,sndSplash"/>

@@ -199,13 +199,13 @@ public class Hero extends GameThing {
 		}
 	}
 	
-    public void changeBalldx(float delta)
+    public void changeBallX(float speed)
     {
-    	heroMover.accelerationX = delta;
+    	heroMover.speedXPerSecond = speed;
     }
-    public void changeBalldy(float delta)
+    public void changeBallY(float speed)
     {
-    	heroMover.accelerationY = delta;
+    	heroMover.speedYPerSecond = speed;
     }
     
     public float getYSpeed()
@@ -234,6 +234,11 @@ public class Hero extends GameThing {
     		camera.position.x = camera.viewportWidth/2;
     	if(camera.position.y + camera.viewportHeight > tiledMapWrapper.getPixelHeight())
     		camera.position.y = tiledMapWrapper.getPixelHeight() - camera.viewportHeight/2;
+    	}else
+    	{
+    		camera.position.x = getX() + getWidth()/2;
+    		if(camera.position.x + camera.viewportWidth/2 > tiledMapWrapper.getPixelWidth())
+        		camera.position.x = tiledMapWrapper.getPixelWidth() - camera.viewportWidth/2;
     	}
     }
 	
