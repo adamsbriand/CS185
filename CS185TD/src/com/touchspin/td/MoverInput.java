@@ -44,6 +44,8 @@ public class MoverInput extends MoverPhysics {
 				g.i().sound.Bounce();
 			gameThing.setY(previousY);
 			speedYPerSecond = 0;
+		}else{
+			jumpable = false;
 		}
 
 		if (triggeredNP.size() != 0) {

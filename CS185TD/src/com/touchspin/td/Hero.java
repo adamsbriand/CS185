@@ -237,6 +237,8 @@ public class Hero extends GameThing {
     	}else
     	{
     		camera.position.x = getX() + getWidth()/2;
+    		if(camera.position.x - camera.viewportWidth/2 < 0)
+        		camera.position.x = camera.viewportWidth/2;
     		if(camera.position.x + camera.viewportWidth/2 > tiledMapWrapper.getPixelWidth())
         		camera.position.x = tiledMapWrapper.getPixelWidth() - camera.viewportWidth/2;
     	}
