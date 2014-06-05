@@ -22,6 +22,7 @@ public class TiledMapWrapper {
 	private TiledMapRenderer foregroundTiledMapRenderer;
 	private int mapPixelWidth;
 	private int mapPixelHeight;
+	public String name;
 
 	int[] forgroundLayers;
 	int[] palyerLayers;
@@ -42,6 +43,9 @@ public class TiledMapWrapper {
 		ArrayList<Integer> playerLayer = new ArrayList<Integer>();
 		ArrayList<Integer> backgroundLayer = new ArrayList<Integer>();
 		tiledMap = new TmxMapLoader().load(path);
+		int start = path.indexOf('/') + 1;
+		int stop = path.indexOf('.');
+		name = path.substring(start, stop);
 		int i = 0;
 		for (MapLayer layer : tiledMap.getLayers()) {
 			if (layer.getName().contains("fg"))
@@ -162,19 +166,19 @@ public class TiledMapWrapper {
 			collisionObjects = tiledMap.getLayers().get("Collision")
 					.getObjects();
 		
-		if (tiledMap.getLayers().get("blocks") != null) {
-			temp = (TiledMapTileLayer) tiledMap.getLayers().get("blocks");
-			tileWidth = temp.getTileWidth();
-			tileHeight = temp.getTileHeight();
-			for (int i = 0; i < temp.getWidth(); i++)
-				for (int j = 0; j < temp.getHeight(); j++) {
-					if (temp.getCell(i, j) != null) {
-						tempObj = new RectangleMapObject(i * tileWidth, j
-								* tileHeight, tileWidth, tileHeight);
-						collisionObjects.add(tempObj);
-					}
-				}
-		}
+//		if (tiledMap.getLayers().get("blocks") != null) {
+//		temp = (TiledMapTileLayer) tiledMap.getLayers().get("blocks");
+//		tileWidth = temp.getTileWidth();
+//		tileHeight = temp.getTileHeight();
+//		for (int i = 0; i < temp.getWidth(); i++)
+//			for (int j = 0; j < temp.getHeight(); j++) {
+//				if (temp.getCell(i, j) != null) {
+//					tempObj = new RectangleMapObject(i * tileWidth, j
+//							* tileHeight, tileWidth, tileHeight);
+//					collisionObjects.add(tempObj);
+//				}
+//			}
+//	}
 
 		if (tiledMap.getLayers().get("collisions") != null) {
 			temp = (TiledMapTileLayer) tiledMap.getLayers().get("collisions");

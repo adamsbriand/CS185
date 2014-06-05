@@ -7,15 +7,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  
 public class ScreenOptions extends GameMenu {
-	String levelReturn;
+	String levelReturn[];
 	char menuLevel;
 
 	public ScreenOptions (MainGame MainGame){
 		super(MainGame);
-		levelReturn = "Main";
+		levelReturn[0] = "Main";
     }
 	
-	public ScreenOptions (MainGame MainGame, String level){
+	public ScreenOptions (MainGame MainGame, String[] level){
 		super(MainGame);
 		levelReturn = level;
 	}
@@ -57,7 +57,17 @@ public class ScreenOptions extends GameMenu {
         	}};
         ChangeListener mainMenuListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("NewLevel," + levelReturn + ",playSound,buttonClick");
+        		if (levelReturn[0] == "Main") {
+        			g.i().t.action("NewLevel,Main,playSound,buttonClick");
+        		} else {
+        			String commands = "";
+        			for (int i = 1; i < levelReturn.length; i++){
+        				commands = commands + levelReturn[i] + ",";
+        			}
+        			commands = commands;
+        			g.i().leAnonymizer.pausePressed = false;
+        			g.i().t.action("NewLevel," + commands + "playSound,buttonClick");
+        		}
         	}};
         ChangeListener soundsListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor){
@@ -228,7 +238,8 @@ public class ScreenOptions extends GameMenu {
         button2.setPosition(yRow2 - (width / 2), xRow1 - (height / 2));
         button3.setPosition(yRow1 - (width / 2), xRow2 - (height / 2));
         button4.setPosition(yRow2 - (width / 2), xRow2 - (height / 2));
-        button5.setPosition((Gdx.graphics.getWidth() / 2) - ((button5.getWidth() / 2)), xRow1 - (button5.getHeight() / 2));
+        button5.setPosition((Gdx.graphics.getWidth() / 2) - 
+        		((button5.getWidth() / 2)), xRow1 - (button5.getHeight() / 2));
     }
 
     public void logo(){

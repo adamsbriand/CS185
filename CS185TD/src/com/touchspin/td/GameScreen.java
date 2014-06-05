@@ -46,8 +46,12 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void render(float delta) {
-		update();
-		draw();
+		if (g.i().leAnonymizer.pausePressed){
+			pause();
+		} else {
+			update();
+			draw();
+		}
 	}
 
 	@Override
@@ -110,7 +114,8 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void pause() {
-
+		g.i().t.action("menu,options-" + tiledMapWrapper.name + 
+				"-changeLocationXY-" + g.i().hero.getX() + "_" + g.i().hero.getY());
 	}
 
 	@Override
@@ -339,6 +344,15 @@ public class GameScreen extends GameObject {
 			} else if(spriteSheet.equalsIgnoreCase("Water.png"))
 			{
 				animRows = 12;
+				animCols = 4;
+			}else if(spriteSheet.equalsIgnoreCase("ExitMarker.png"))
+			{
+				animRows = 1;
+				animCols = 1;
+			}
+			else if(spriteSheet.equalsIgnoreCase("Teleporter.png"))
+			{
+				animRows = 6;
 				animCols = 4;
 			}
 

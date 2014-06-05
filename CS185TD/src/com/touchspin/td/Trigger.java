@@ -10,6 +10,7 @@ public class Trigger {
 	private final static String L1R1 = "map/Level1Runner1.tmx";
 	private final static String L1R2 = "";
 	private final static String L1M1 = "map/Level1Maze1.tmx";
+	//private final static String L1M1 = "map/Level2Maze1.tmx";
 	private final static String L1M2 = "map/Level1Maze2.tmx";
 	private final static String L1D1 = "scripts/BeginingDialog.xml";
 	private final static String L1D2 = "";
@@ -72,6 +73,9 @@ public class Trigger {
 				break;
 			case "changeLocation":
 				changeLocation(value);
+				break;
+			case "changeLocationXY":
+				changeLocationXY(value);
 				break;
 			case "changeBalldY":
 				changeBalldY(value);
@@ -141,6 +145,11 @@ public class Trigger {
 		}
 	}
 	
+	private void changeLocationXY(String value) {
+		String[] Value = value.split("_");
+		g.i().hero.setPosition(Float.parseFloat(Value[0]), Float.parseFloat(Value[1]));
+	}
+	
 	private void changeMyAnimation(String value) {
 		g.i().hero.changeBall(value);
 	}
@@ -207,6 +216,12 @@ public class Trigger {
 			case "bounce":
 				g.i().sound.Bounce();
 				break;
+			case "sndSplash":
+				g.i().sound.sndSwitch("splash");
+				break;
+			case "Teleport":
+				g.i().sound.sndSwitch("Teleport");
+				break;
 			case "buttonClick":
 				g.i().sound.buttonClick();
 				break;
@@ -268,7 +283,8 @@ public class Trigger {
 
 	// Change screens
 	private void menu(String value) {
-		switch (value){
+		String[] options = value.split("-");
+		switch (options[0]){
 		case "Main":
 			game.setScreen(new ScreenMenu(game));
 			break;
@@ -279,7 +295,11 @@ public class Trigger {
 			game.setScreen(new ScreenGameOver(game));
 			break;
 		case "options":
-			game.setScreen(new ScreenOptions(game));
+			if (options.length==1){
+				game.setScreen(new ScreenOptions(game));
+			} else {
+				game.setScreen(new ScreenOptions(game, options));
+			}
 			break;
 		}
 	}
@@ -289,6 +309,7 @@ public class Trigger {
 			case "Main":
 				game.setScreen(new ScreenMenu(game));
 				break;
+			case "Level1Runner1":
 			case "Level1Run1":
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L1R1));
