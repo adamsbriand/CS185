@@ -14,6 +14,8 @@ public class ScreenGameOver extends GameMenu{
 	public ScreenGameOver(MainGame MainGame){
 		super(MainGame);
 		timeStartGame = System.currentTimeMillis();
+		g.i().sound.sfxMute(true);
+		g.i().sound.BGMusic("menu");
 		
 		//reset
 		g.i().currentBallType = "Baseball";

@@ -17,6 +17,7 @@ public class ScreenSplash extends GameMenu{
 	public ScreenSplash( MainGame mainGame){
 		super(mainGame);
 		timeStartGame = System.currentTimeMillis();
+		g.i().sound.BGMusic("menu");
 		//batch = new SpriteBatch();
 	}
 

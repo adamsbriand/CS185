@@ -52,6 +52,7 @@ public class Sounds {
 	private static final String song3a = "snd/song3A.wav";
 	private static final String song3b = "snd/song3B.wav";
 	private static final String song3c = "snd/song3C.wav";
+	private static final String song4 = "snd/song4.wav";
 	
 	private Sound arrow1=null;
 	private Sound arrow2=null;
@@ -95,6 +96,10 @@ public class Sounds {
 				bgMusic.setLooping(true);
 				bgMusic.setOnCompletionListener(null);		
 				break;
+			case "menu":
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song4));
+				bgMusic.setLooping(true);
+				bgMusic.setOnCompletionListener(null);	
 			case "mute":
 				break;
 			default:

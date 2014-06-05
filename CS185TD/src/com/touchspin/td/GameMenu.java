@@ -64,7 +64,14 @@ public abstract class GameMenu extends GameObject {
         NinePatchDrawable npCheck = new NinePatchDrawable(np);
  
         bfont = new BitmapFont();
-        bfont.scale(1);
+        if (Gdx.app.getType().toString() == "Desktop"){
+        	float dpi = Gdx.graphics.getDensity();
+        	int stop = 0;
+        	bfont.scale(1);
+        } else {
+        	bfont.scale(3);
+        }
+        bfont.scale(Gdx.graphics.getDensity() / 4);
         new TextButtonStyle();
         textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, bfont);
         textButtonStyle.pressedOffsetX = 3;
