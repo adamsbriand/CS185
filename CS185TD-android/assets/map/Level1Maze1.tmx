@@ -76,7 +76,7 @@
   </object>
   <object name="switchFan" type="npo" x="571" y="318" width="40" height="60">
    <properties>
-    <property name="actions" value="toggleState,switchFan,toggleState,fan,playSound,sndLightSwitch"/>
+    <property name="actions" value="toggleState,switchFan,toggleState,fan,playSound,sndLightSwitch,playSoundLoop,sndFanOn"/>
     <property name="animations" value="on,0,0,on,off,1,1,off"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -103,7 +103,7 @@
   <object name="enter1" type="destination" x="509" y="399"/>
   <object name="fan" type="npo" x="462" y="576" width="100" height="100">
    <properties>
-    <property name="actions" value="changeMap,Level1Run1,changeLocation,enter2,changeBallY,600,changeOthersCollidable,door1-false,changeOthersAnim,door1-open"/>
+    <property name="actions" value="changeMap,Level1Run1,changeLocation,enter2,changeBallY,550,changeOthersCollidable,door1-false,changeOthersAnim,door1-open,playSoundLoop,sndFanOff"/>
     <property name="animations" value="off,0,0,off,on,0,11,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="100,100,100"/>
