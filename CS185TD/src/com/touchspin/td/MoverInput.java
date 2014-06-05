@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 public class MoverInput extends MoverPhysics {
 	private HashSet<NP> prev = new HashSet<NP>();
 	private boolean jumpable = true;
+	private int frameCount = 30;
 
 	public MoverInput() {
 		super();
@@ -39,12 +40,18 @@ public class MoverInput extends MoverPhysics {
 				* speedYPerSecond);
 		if (!isYFree()) {
 			if (speedYPerSecond < 0)
+			{
+				frameCount = 30;
 				jumpable = true;
+			}
 			if (speedYPerSecond < -100 || speedYPerSecond > 100)
 				g.i().sound.Bounce();
 			gameThing.setY(previousY);
 			speedYPerSecond = -0.5f * speedYPerSecond;
 		}else{
+			if(frameCount != 0)
+			frameCount--;
+			if(frameCount == 0)
 			jumpable = false;
 		}
 
