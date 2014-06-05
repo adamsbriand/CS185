@@ -330,9 +330,9 @@ public class GameScreen extends GameObject {
 			} else if (spriteSheet.equalsIgnoreCase("Fan.png")) {
 				animRows = 3;
 				animCols = 4;
-			} else if (spriteSheet.equalsIgnoreCase("LightOnOff.png")) {
-				animRows = 1;
-				animCols = 2;
+			} else if (spriteSheet.equalsIgnoreCase("CornerLightOnOff.png")) {
+				animRows = 2;
+				animCols = 3;
 			} else if (spriteSheet.equalsIgnoreCase("Campfire.png")) {
 				animRows = 4;
 				animCols = 3;
@@ -357,7 +357,7 @@ public class GameScreen extends GameObject {
 							.equalsIgnoreCase("img/spritesheet/transmorgifier.png"))
 				fgg.addActor(g.i().mapObjects.get(count));
 			else if (spriteSheet
-					.equalsIgnoreCase("img/spritesheet/LightOnOff.png"))
+					.equalsIgnoreCase("img/spritesheet/CornerLightOnOff.png"))
 				toppest.addActor(g.i().mapObjects.get(count));
 			else
 				bgg.addActor(g.i().mapObjects.get(count));
