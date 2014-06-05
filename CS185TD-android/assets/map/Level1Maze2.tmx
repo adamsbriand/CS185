@@ -75,20 +75,6 @@
    </properties>
    <ellipse/>
   </object>
-  <object name="exit" type="npo" x="447" y="390" width="32" height="32">
-   <properties>
-    <property name="actions" value="menu,gameOver"/>
-    <property name="animations" value=""/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,1,1"/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value=""/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value=""/>
-   </properties>
-   <ellipse/>
-  </object>
   <object name="fire0" type="npo" x="96" y="288" width="32" height="32">
    <properties>
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
@@ -826,6 +812,19 @@
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="exit1" type="npo" x="448" y="386" width="32" height="32">
+   <properties>
+    <property name="actions" value="menu,gameOver"/>
+    <property name="animations" value="show,0,0,show"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="ExitMarker.png"/>
    </properties>
   </object>
  </objectgroup>
