@@ -1,6 +1,11 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class ScreenGameOver extends GameMenu{
@@ -17,6 +22,28 @@ public class ScreenGameOver extends GameMenu{
 	}
 
 	void buttons() {
+		final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
+		final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
+    	final float yRow1 = Gdx.graphics.getWidth() / 3;
+    	final float yRow1_2 = Gdx.graphics.getWidth() / 2;
+    	final float yRow2 = Gdx.graphics.getWidth() / 3 * 2;
+    	float height = 0;
+    	float width = 0;
+    	
+    	//final Label message = new Label("You have won the game.", null);
+    	
+    	final TextButton continueButton = new TextButton("Continue", textButtonStyle);
+    	continueButton.addListener(new ChangeListener() {
+            public void changed (ChangeEvent event, Actor actor) {
+            	g.i().t.action("menu,Main");
+            }
+        });
+        stage.addActor(continueButton);
+        
+        height = continueButton.getHeight() / 2;
+        width = continueButton.getWidth() / 2;
+        
+        continueButton.setPosition(yRow1_2 - width, xRow2 - height);
 	}
 
 	@Override
@@ -25,7 +52,8 @@ public class ScreenGameOver extends GameMenu{
 	}
 	
 	public void update() {
-		if (TimeUtils.millis()>(timeStartGame+7000)){
+		int secondsWait = 30;
+		if (TimeUtils.millis()>(timeStartGame + (1000 * secondsWait))){
 			g.i().t.action("menu,Main");
 		}
 	}
