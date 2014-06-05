@@ -43,11 +43,12 @@ public class ScreenOptions extends GameMenu {
             	g.i().music = ! g.i().music;
             	if (g.i().music){
             		button1.setChecked(false);
-            		g.i().sound.BGMusic("mute");
             	} else {
             		button1.setChecked(true);
-            		g.i().sound.BGMusic("mute");
-            	}}};
+            		
+            	}
+            	g.i().sound.BGMusic("mute");
+            }};
         ChangeListener muteSFXListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("playSound,buttonClick");
@@ -58,7 +59,9 @@ public class ScreenOptions extends GameMenu {
             	} else {
             		button2.setChecked(true);
             		g.i().sfxLevel = 0;
-            	}}};
+            	}
+            	g.i().sound.sfxMute();
+            }};
         ChangeListener languageListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("playSound,buttonClick");
@@ -70,7 +73,6 @@ public class ScreenOptions extends GameMenu {
         		if (levelReturn == "Main") {
         			g.i().t.action("NewLevel,Main,playSound,buttonClick");
         		} else {
-        			
         			
         			g.i().t.action("playSound,buttonClick");
         			g.i().leAnonymizer.pausePressed = false;

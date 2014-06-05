@@ -275,6 +275,32 @@ public class Sounds {
 		}
 	}
 	
+	public void sfxMute(){
+		if (!g.i().sfx){
+			if (arrow1!=null) arrow1.stop();
+			if (arrow2!=null) arrow2.stop();
+			if (whistle!=null) whistle.stop();
+			if (sndSwitch!=null) sndSwitch.stop();
+			if (fire!=null) fire.stop();
+			if (campFire!=null) campFire.stop();
+			if (windBlowing!=null) windBlowing.stop();
+			if (bounce1!=null) bounce1.stop();
+			if (bounce2!=null) bounce2.stop();
+			if (bounce3!=null) bounce3.stop();
+		} else {
+			if (g.i().fire){
+				fire(true);
+			}
+			for (int i = 0; i < g.i().npMap.size(); i++){
+				if (g.i().npMap.get(i).name == "fan1") {
+					if (g.i().npMap.get(i).getAnimation() == "on"){
+						wind(true);
+					}
+				}
+			}
+		}
+	}
+	
 	public void buttonClick(){
 		
 	}
