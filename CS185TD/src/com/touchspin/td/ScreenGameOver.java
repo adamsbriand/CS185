@@ -9,6 +9,11 @@ public class ScreenGameOver extends GameMenu{
 	public ScreenGameOver(MainGame MainGame){
 		super(MainGame);
 		timeStartGame = System.currentTimeMillis();
+		
+		//reset
+		g.i().currentBallType = "Baseball";
+		g.i().fire = false;
+		g.i().playerHealth = 100;
 	}
 
 	void buttons() {

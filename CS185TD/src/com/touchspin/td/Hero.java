@@ -15,13 +15,13 @@ public class Hero extends GameThing {
 	public OrthographicCamera camera;
 	public MoverInput heroMover = new MoverInput();
 
-	private Map<String,TextureRegion> ballTypeMap = new HashMap<String, TextureRegion>();
+	private Map<String, TextureRegion> ballTypeMap = new HashMap<String, TextureRegion>();
 	private Animation fireAnimation;
 	private Animation smokeAnimation;
 	private TextureRegion currentFireFrame;
 	private TextureRegion currentSmokeFrame;
 	private float scaleFactor;
-	
+
 	private int frameCount = 0;
 	private Sprite heroSprite;
 	private Sprite fireEffect;
@@ -40,46 +40,47 @@ public class Hero extends GameThing {
 		this.camera = camera;
 
 		heroSprite = new Sprite();
-		
+
 		loadBallType();
 		changeBall(g.i().currentBallType);
-		
-		heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight * camera.zoom);
+
+		heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
+				* camera.zoom);
 		heroSprite.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
-		
+
 		setHeight(heroSprite.getHeight() * camera.zoom);
 		setWidth(heroSprite.getWidth() * camera.zoom);
 		setX(10);
 		setY(100);
-		
+
 		scaleFactor = 1f;
 
 		// read in file animation
 		loadFireAnimation();
 		stateTime = 0f;
 		currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
-		
+
 		loadSmokeAnimation();
 		currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
 
 		fireEffect = new Sprite(currentFireFrame);
-		fireEffect.setBounds(0, 32, ballWidth * camera.zoom,
-				ballHeight * fireEffect.getHeight() / fireEffect.getWidth()
-						* camera.zoom);
+		fireEffect.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
+				* fireEffect.getHeight() / fireEffect.getWidth() * camera.zoom);
 		fireEffect.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
-		
+
 		smokeEffect = new Sprite(currentSmokeFrame);
-		smokeEffect.setBounds(0, 32, ballWidth * camera.zoom,
-				ballHeight * smokeEffect.getHeight() / smokeEffect.getWidth()
-						* camera.zoom);
+		smokeEffect.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
+				* smokeEffect.getHeight() / smokeEffect.getWidth()
+				* camera.zoom);
 		smokeEffect.setOrigin(heroSprite.getWidth() / 2,
 				heroSprite.getHeight() / 2);
-		
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (g.i().mapObjects.get(i).getName().equalsIgnoreCase("enter1")){
-				setPosition(g.i().mapObjects.get(i).getX(),g.i().mapObjects.get(i).getY());
+
+		for (int i = 0; i < g.i().mapObjects.size(); i++) {
+			if (g.i().mapObjects.get(i).getName().equalsIgnoreCase("enter1")) {
+				setPosition(g.i().mapObjects.get(i).getX(), g.i().mapObjects
+						.get(i).getY());
 			}
 		}
 
@@ -122,24 +123,24 @@ public class Hero extends GameThing {
 
 		// animation
 		stateTime += Gdx.graphics.getDeltaTime();
-		
+
 		currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
 		fireEffect.setRegion(currentFireFrame);
-		
+
 		currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
 		smokeEffect.setRegion(currentSmokeFrame);
-		
-		if(g.i().fire)
-		{
+
+		if (g.i().fire) {
 			countTime += Gdx.graphics.getDeltaTime();
-			if(countTime > 2)
-			{
+			if (countTime > 2) {
 				g.i().playerHealth -= 5;
 				getHurt();
 				countTime = 0;
 			}
-			if(g.i().playerHealth < 0)
+			if (g.i().playerHealth < 0) {
 				g.i().playerHealth = 0;
+				g.i().t.action("menu,gameOver");
+			}
 		}
 
 	}
@@ -148,106 +149,98 @@ public class Hero extends GameThing {
 		frameCount = 20;
 	}
 
-	public void changeBall(String type)
-	{
-		switch(type)
-		{
-			case "PingPong":
-				g.i().playerFriction = 0.005f;
-				flammable = true;
-				ballWidth = 5.33f;
-				ballHeight = 5.33f;
-				break;
-			case "Bowling":
-				g.i().playerFriction = 0.03f;
-				g.i().fire = false;
-				ballWidth = 29.3f;
-				ballHeight = 29.3f;
-				flammable = false;
-				break;
-			case "Basketball":
-				g.i().playerFriction = 0.01f;
-				ballWidth = 32f;
-				ballHeight = 32f;
-				flammable = false;
-				g.i().fire = false;
-				break;
-			case "Baseball":
-				g.i().playerFriction = 0.008f;
-				ballWidth = 8.933f;
-				ballHeight = 8.933f;
-				flammable = true;
-				break;
+	public void changeBall(String type) {
+		switch (type) {
+		case "PingPong":
+			g.i().playerFriction = 0.005f;
+			flammable = true;
+			ballWidth = 5.33f;
+			ballHeight = 5.33f;
+			break;
+		case "Bowling":
+			g.i().playerFriction = 0.03f;
+			g.i().fire = false;
+			ballWidth = 29.3f;
+			ballHeight = 29.3f;
+			flammable = false;
+			break;
+		case "Basketball":
+			g.i().playerFriction = 0.01f;
+			ballWidth = 32f;
+			ballHeight = 32f;
+			flammable = false;
+			g.i().fire = false;
+			break;
+		case "Baseball":
+			g.i().playerFriction = 0.008f;
+			ballWidth = 8.933f;
+			ballHeight = 8.933f;
+			flammable = true;
+			break;
 		}
-		if(!g.i().fire)
-		{
+		if (!g.i().fire) {
 			g.i().sound.fire(false);
 		}
 		heroSprite.setRegion(ballTypeMap.get(type));
 		g.i().currentBallType = type;
 		g.i().sound.setBounce();
-		
+
 		setSpriteBounds();
 	}
-	
-	public void igniteBall(boolean fireOn)
-	{
+
+	public void igniteBall(boolean fireOn) {
 		g.i().fire = fireOn;
-		if(!g.i().fire)
-		{
+		if (!g.i().fire) {
 			g.i().sound.fire(false);
 		}
 	}
-	
-    public void changeBallX(float speed)
-    {
-    	heroMover.speedXPerSecond = speed;
-    }
-    public void changeBallY(float speed)
-    {
-    	heroMover.speedYPerSecond = speed;
-    }
-    
-    public float getYSpeed()
-    {
-    	return heroMover.speedYPerSecond;
-    }
-    
-    public float getXSpeed()
-    {
-    	return heroMover.speedXPerSecond;
-    }
-	
-    @Override
-    public void setPosition(float x, float y)
-    {
-    	setX(x);
-    	setY(y);
-    	float w = Gdx.graphics.getWidth();
+
+	public void changeBallX(float speed) {
+		heroMover.speedXPerSecond = speed;
+	}
+
+	public void changeBallY(float speed) {
+		heroMover.speedYPerSecond = speed;
+	}
+
+	public float getYSpeed() {
+		return heroMover.speedYPerSecond;
+	}
+
+	public float getXSpeed() {
+		return heroMover.speedXPerSecond;
+	}
+
+	@Override
+	public void setPosition(float x, float y) {
+		setX(x);
+		setY(y);
+		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
-    	
-    	if(g.i().gameMode == 'M')
-    	{
-    	camera.position.x = getX() + getWidth()/2;
-    	camera.position.y = getY() + getHeight()/2;
-    	if(camera.position.x - camera.viewportWidth/2 < 0)
-    		camera.position.x = camera.viewportWidth/2;
-    	if(camera.position.y + camera.viewportHeight > tiledMapWrapper.getPixelHeight())
-    		camera.position.y = tiledMapWrapper.getPixelHeight() - camera.viewportHeight/2;
-    	}else
-    	{
-    		camera.position.x = getX() + getWidth()/2;
-    		if(camera.position.x - camera.viewportWidth/2 < 0)
-        		camera.position.x = camera.viewportWidth/2;
-    		if(camera.position.x + camera.viewportWidth/2 > tiledMapWrapper.getPixelWidth())
-        		camera.position.x = tiledMapWrapper.getPixelWidth() - camera.viewportWidth/2;
-    	}
-    }
-	
-	
-	//--------------Private helper method------------------------------------------
-	private void setSpritesPosition()
-	{
+
+		if (g.i().gameMode == 'M') {
+			camera.position.x = getX() + getWidth() / 2;
+			camera.position.y = getY() + getHeight() / 2;
+			if (camera.position.x - camera.viewportWidth / 2 < 0)
+				camera.position.x = camera.viewportWidth / 2;
+			if (camera.position.y + camera.viewportHeight > tiledMapWrapper
+					.getPixelHeight())
+				camera.position.y = tiledMapWrapper.getPixelHeight()
+						- camera.viewportHeight / 2;
+		} else {
+			camera.position.x = getX() + getWidth() / 2;
+			if (camera.position.x - camera.viewportWidth / 2 < 0)
+				camera.position.x = camera.viewportWidth / 2;
+			if (camera.position.x + camera.viewportWidth / 2 > tiledMapWrapper
+					.getPixelWidth())
+				camera.position.x = tiledMapWrapper.getPixelWidth()
+						- camera.viewportWidth / 2;
+		}
+	}
+
+	// --------------Private helper
+	// method------------------------------------------
+	private void setSpritesPosition() {
 		heroSprite.setX(getX());
 		heroSprite.setY(getY());
 		fireEffect.setX(getX());
@@ -255,13 +248,12 @@ public class Hero extends GameThing {
 		smokeEffect.setX(getX());
 		smokeEffect.setY(getY());
 	}
-    
-    private void loadBallType()
-	{
+
+	private void loadBallType() {
 		Texture appearance = new Texture("img/spritesheet/BallSquish.png");
-		TextureRegion [][] tmp = TextureRegion.split(appearance, appearance.getWidth() / 6,
-				appearance.getHeight() / 12);
-		
+		TextureRegion[][] tmp = TextureRegion.split(appearance,
+				appearance.getWidth() / 6, appearance.getHeight() / 12);
+
 		ballTypeMap.put("Baseball", tmp[4][0]);
 		ballTypeMap.put("Basketball", tmp[1][0]);
 		ballTypeMap.put("Beachball", tmp[5][0]);
@@ -275,12 +267,10 @@ public class Hero extends GameThing {
 		ballTypeMap.put("Tennisball", tmp[9][0]);
 		ballTypeMap.put("Blackball", tmp[11][0]);
 	}
-	
-	private void loadFireAnimation()
-	{
+
+	private void loadFireAnimation() {
 		Texture fire = new Texture(
-				Gdx.files
-						.internal("img/spritesheet/Fireball.png"));
+				Gdx.files.internal("img/spritesheet/Fireball.png"));
 		TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth() / 12,
 				fire.getHeight() / 4);
 		TextureRegion[] fireFrames = new TextureRegion[12 * 4];
@@ -292,12 +282,10 @@ public class Hero extends GameThing {
 		}
 		fireAnimation = new Animation(0.025f, fireFrames);
 	}
-	
-	private void loadSmokeAnimation()
-	{
+
+	private void loadSmokeAnimation() {
 		Texture fire = new Texture(
-				Gdx.files
-						.internal("img/spritesheet/Smoke.png"));
+				Gdx.files.internal("img/spritesheet/Smoke.png"));
 		TextureRegion[][] tmp = TextureRegion.split(fire, fire.getWidth() / 15,
 				fire.getHeight() / 6);
 		TextureRegion[] smokeFrames = new TextureRegion[15 * 6 - 4];
@@ -305,12 +293,13 @@ public class Hero extends GameThing {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 15; j++) {
 				smokeFrames[index++] = tmp[i][j];
-				if(index == smokeFrames.length)
+				if (index == smokeFrames.length)
 					break;
 			}
 		}
 		smokeAnimation = new Animation(0.025f, smokeFrames);
 	}
+
 	private void setRotationAndScale() {
 
 		if (heroMover.speedXPerSecond == 0) {
@@ -362,34 +351,37 @@ public class Hero extends GameThing {
 								/ heroMover.speedXPerSecond)
 						/ Math.PI * 180));
 		}
-		
+
 		smokeEffect.setRotation(fireEffect.getRotation());
-		
-		scaleFactor = Math.max((float) Math.hypot(heroMover.speedXPerSecond, heroMover.speedYPerSecond)/300,1f);
+
+		scaleFactor = Math.max((float) Math.hypot(heroMover.speedXPerSecond,
+				heroMover.speedYPerSecond) / 300, 1f);
 		fireEffect.setScale(1f, scaleFactor);
 		smokeEffect.setScale(1f, scaleFactor);
 	}
 
-	private void setSpriteBounds()
-	{
-		if(heroSprite != null){
-		heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight * camera.zoom);
-		heroSprite.setOrigin(heroSprite.getWidth() / 2,
-				heroSprite.getHeight() / 2);}
+	private void setSpriteBounds() {
+		if (heroSprite != null) {
+			heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
+					* camera.zoom);
+			heroSprite.setOrigin(heroSprite.getWidth() / 2,
+					heroSprite.getHeight() / 2);
+		}
 		setHeight(heroSprite.getHeight() * camera.zoom);
 		setWidth(heroSprite.getWidth() * camera.zoom);
-		if(fireEffect != null){
-		fireEffect.setBounds(0, 32, ballWidth * camera.zoom,
-				ballHeight * fireEffect.getHeight() / fireEffect.getWidth()
-						* camera.zoom);
-		fireEffect.setOrigin(heroSprite.getWidth() / 2,
-				heroSprite.getHeight() / 2);}
-		if(smokeEffect != null){
-		smokeEffect.setBounds(0, 32, ballWidth * camera.zoom,
-				ballHeight * smokeEffect.getHeight() / smokeEffect.getWidth()
-						* camera.zoom);
-		smokeEffect.setOrigin(heroSprite.getWidth() / 2,
-				heroSprite.getHeight() / 2);
+		if (fireEffect != null) {
+			fireEffect.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
+					* fireEffect.getHeight() / fireEffect.getWidth()
+					* camera.zoom);
+			fireEffect.setOrigin(heroSprite.getWidth() / 2,
+					heroSprite.getHeight() / 2);
+		}
+		if (smokeEffect != null) {
+			smokeEffect.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
+					* smokeEffect.getHeight() / smokeEffect.getWidth()
+					* camera.zoom);
+			smokeEffect.setOrigin(heroSprite.getWidth() / 2,
+					heroSprite.getHeight() / 2);
 		}
 	}
 }
