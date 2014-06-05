@@ -340,6 +340,15 @@ public class GameScreen extends GameObject {
 			{
 				animRows = 12;
 				animCols = 4;
+			}else if(spriteSheet.equalsIgnoreCase("ExitMarker.png"))
+			{
+				animRows = 1;
+				animCols = 1;
+			}
+			else if(spriteSheet.equalsIgnoreCase("Teleporter.png"))
+			{
+				animRows = 6;
+				animCols = 4;
 			}
 
 			if (!spriteSheet.equalsIgnoreCase(""))
