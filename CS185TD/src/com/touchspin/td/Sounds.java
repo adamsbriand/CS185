@@ -275,8 +275,8 @@ public class Sounds {
 		}
 	}
 	
-	public void sfxMute(){
-		if (!g.i().sfx){
+	public void sfxMute(boolean tempMute){
+		if (!g.i().sfx || tempMute){
 			if (arrow1!=null) arrow1.stop();
 			if (arrow2!=null) arrow2.stop();
 			if (whistle!=null) whistle.stop();

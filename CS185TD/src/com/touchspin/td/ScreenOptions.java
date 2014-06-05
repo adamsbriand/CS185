@@ -16,6 +16,7 @@ public class ScreenOptions extends GameMenu {
 	public ScreenOptions (MainGame MainGame){
 		super(MainGame);
 		levelReturn = "Main";
+		g.i().sound.sfxMute(true);
     }
 	
 	public ScreenOptions (MainGame MainGame, MainGame SavedGame){
@@ -60,7 +61,7 @@ public class ScreenOptions extends GameMenu {
             		button2.setChecked(true);
             		g.i().sfxLevel = 0;
             	}
-            	g.i().sound.sfxMute();
+            	g.i().sound.sfxMute(false);
             }};
         ChangeListener languageListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
