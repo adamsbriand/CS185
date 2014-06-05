@@ -814,7 +814,7 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="exit1" type="npo" x="448" y="386" width="32" height="32">
+  <object name="exit1" type="npo" x="991" y="383" width="32" height="32">
    <properties>
     <property name="actions" value="menu,gameOver"/>
     <property name="animations" value="show,0,0,show"/>
@@ -823,6 +823,18 @@
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="ExitMarker.png"/>
+   </properties>
+  </object>
+  <object name="exit1" type="npo" x="446" y="384" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeMap,Level2Maze1,changeLocation,enter1"/>
+    <property name="animations" value="show,0,0,show"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="ExitMarker.png"/>
    </properties>
