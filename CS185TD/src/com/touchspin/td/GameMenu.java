@@ -59,11 +59,14 @@ public abstract class GameMenu extends GameObject {
         
         np = new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceDown.png")), 20, 20, 20, 20);
         NinePatchDrawable npDown = new NinePatchDrawable(np);
+        
+        np = new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceChecked.png")), 20, 20, 20, 20);
+        NinePatchDrawable npCheck = new NinePatchDrawable(np);
  
         bfont = new BitmapFont();
         bfont.scale(1);
         new TextButtonStyle();
-        textButtonStyle = new TextButtonStyle(npUP,  npDown, npDown, bfont);
+        textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, bfont);
         textButtonStyle.pressedOffsetX = 3;
         textButtonStyle.pressedOffsetY = -3;
     }
