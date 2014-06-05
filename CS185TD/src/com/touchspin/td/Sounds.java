@@ -64,25 +64,6 @@ public class Sounds {
 	private Sound bounce1=null;
 	private Sound bounce2=null;
 	private Sound bounce3=null;
-	private Music.OnCompletionListener song3Switcher = new Music.OnCompletionListener(){
-		public void onCompletion(Music music) {
-			Random randomPart = new Random();
-			int randomInt = randomPart.nextInt(3) + 1;
-			switch (randomInt){
-				case 1:
-					bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3a));
-					break;
-				case 2:
-					bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3c));
-					break;
-				case 3:
-					bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3b));
-					break;
-			}
-			bgMusic.setVolume(g.i().musicLevel);
-			bgMusic.play();
-			bgMusic.setOnCompletionListener(song3Switcher);
-		}};
 	
 	public void BGMusic(String file){
 		
@@ -110,9 +91,9 @@ public class Sounds {
 				bgMusic.setOnCompletionListener(null);
 				break;
 			case "outro":
-				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3b));
-				bgMusic.setLooping(false);
-				bgMusic.setOnCompletionListener(song3Switcher);		
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3));
+				bgMusic.setLooping(true);
+				bgMusic.setOnCompletionListener(null);		
 				break;
 			case "mute":
 				break;
