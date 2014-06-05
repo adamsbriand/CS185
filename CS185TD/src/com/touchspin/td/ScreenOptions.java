@@ -8,22 +8,26 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  
 public class ScreenOptions extends GameMenu {
-	String levelReturn[];
+	String levelReturn;
+	Screen previousScreen;
 	char menuLevel;
+	MainGame saved;
 
 	public ScreenOptions (MainGame MainGame){
 		super(MainGame);
-		levelReturn = new String[1];
-		levelReturn[0] = "Main";
+		levelReturn = "Main";
     }
 	
-	public ScreenOptions (MainGame MainGame, String[] level){
+	public ScreenOptions (MainGame MainGame, MainGame SavedGame){
 		super(MainGame);
-		levelReturn = level;
+		levelReturn = "level";
+		saved = SavedGame;
 	}
 	
 	public ScreenOptions (MainGame MainGame, Screen savedScreen){
 		super(MainGame);
+		levelReturn = "level";
+		previousScreen = savedScreen;
 	}
     
     public void buttons(){
@@ -63,16 +67,26 @@ public class ScreenOptions extends GameMenu {
         	}};
         ChangeListener mainMenuListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		if (levelReturn[0] == "Main") {
+        		if (levelReturn == "Main") {
         			g.i().t.action("NewLevel,Main,playSound,buttonClick");
         		} else {
-        			String commands = "";
-        			for (int i = 1; i < levelReturn.length; i++){
-        				commands = commands + levelReturn[i] + ",";
-        			}
-        			commands = commands;
+        			
+        			
+        			g.i().t.action("playSound,buttonClick");
         			g.i().leAnonymizer.pausePressed = false;
-        			g.i().t.action("NewLevel," + commands + "playSound,buttonClick");
+        			
+        			game.setScreen(previousScreen);
+        			
+        			//g.i().t.action(previousScreen);
+        			
+        			
+        			//String commands = "";
+        			//for (int i = 1; i < levelReturn; i++){
+        			//	commands = commands + levelReturn + ",";
+        			//}
+        			//commands = commands;
+        			//g.i().leAnonymizer.pausePressed = false;
+        			//g.i().t.action("NewLevel," + commands + "playSound,buttonClick");
         		}
         	}};
         ChangeListener soundsListen = new ChangeListener() {

@@ -109,13 +109,17 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void hide() {
-		dispose();
+		if (!g.i().leAnonymizer.pausePressed){
+			dispose();
+		}
 	}
 
 	@Override
 	public void pause() {
-		g.i().t.action("menu,options-" + tiledMapWrapper.name + 
-				"-changeLocationXY-" + g.i().hero.getX() + "_" + g.i().hero.getY());
+		g.i().t.pause(this);
+		//g.i().t.action("menu,options-return");
+				//+ "-" + tiledMapWrapper.name + 
+				//"-changeLocationXY-" + g.i().hero.getX() + "_" + g.i().hero.getY());
 	}
 
 	@Override

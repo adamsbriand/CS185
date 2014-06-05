@@ -43,6 +43,14 @@ public class Trigger {
 			action(Action);
 		}
 	}
+	
+	public void action(Screen setScreen){
+		game.setScreen(setScreen);
+	}
+	
+	public void pause(Screen pausedScreen){
+		game.setScreen(new ScreenOptions(game, pausedScreen));
+	}
 
 	//=========================================================================
     // private Actions
@@ -304,7 +312,7 @@ public class Trigger {
 				game.setScreen(new ScreenOptions(game));
 			} else {
 				Screen screen = game.getScreen();
-				game.setScreen(new ScreenOptions(game, options));
+				game.setScreen(new ScreenOptions(game, screen));
 			}
 			break;
 		}
