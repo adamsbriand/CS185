@@ -132,7 +132,7 @@ public class ScreenOptions extends GameMenu {
     	
     	switch (menuLevel){
 	    	case 'S':
-	    		super.setLogo(Gdx.files.internal("img/menu/LogoOptions.png"));
+	    		super.setLogo(Gdx.files.internal("img/menu/LogoSounds.png"));
 	    		button1.setText("Mute Music");
 	            button1.setChecked(! g.i().music);
 	            button1.addListener(muteMusicListen);
@@ -146,7 +146,7 @@ public class ScreenOptions extends GameMenu {
 	            button5.setVisible(false);
 	    		break;
 	    	case 'L':
-	    		super.setLogo(Gdx.files.internal("img/menu/LogoOptions.png"));
+	    		super.setLogo(Gdx.files.internal("img/menu/LogoLanguage.png"));
 	    		switch (g.i().language) {
 		    		case "en":
 		    			button5.setText("English");
@@ -161,7 +161,7 @@ public class ScreenOptions extends GameMenu {
 	    		button5.addListener(changeLanguage);
 	    		break;
 	    	case 'C':
-	    		super.setLogo(Gdx.files.internal("img/menu/LogoOptions.png"));
+	    		super.setLogo(Gdx.files.internal("img/menu/LogoControls.png"));
 	    		switch (g.i().controls) {
 		    		case 'A':
 		    			button5.setText("Gyro");
