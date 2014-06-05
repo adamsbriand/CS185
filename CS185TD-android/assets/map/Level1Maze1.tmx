@@ -201,53 +201,53 @@
   <object name="lightedAreaUR" type="npc" x="512" y="0" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="off,1,1,off,on,0,0,on"/>
+    <property name="animations" value="off,2,2,off,on,3,3,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightOnOff.png"/>
+    <property name="spriteSheet" value="CornerLightOnOff.png"/>
    </properties>
   </object>
   <object name="lightedAreaUL" type="npc" x="0" y="0" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="off,1,1,off,on,0,0,on"/>
+    <property name="animations" value="off,2,2,off,on,4,4,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightOnOff.png"/>
+    <property name="spriteSheet" value="CornerLightOnOff.png"/>
    </properties>
   </object>
   <object name="lightedAreaLL" type="npc" x="0" y="512" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="off,1,1,off,on,0,0,on"/>
+    <property name="animations" value="off,2,2,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightOnOff.png"/>
+    <property name="spriteSheet" value="CornerLightOnOff.png"/>
    </properties>
   </object>
   <object name="lightedAreaLR" type="npc" x="512" y="512" width="512" height="512">
    <properties>
     <property name="actions" value=""/>
-    <property name="animations" value="off,1,1,off,on,0,0,on"/>
+    <property name="animations" value="off,2,2,off,on,0,0,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="LightOnOff.png"/>
+    <property name="spriteSheet" value="CornerLightOnOff.png"/>
    </properties>
   </object>
  </objectgroup>
