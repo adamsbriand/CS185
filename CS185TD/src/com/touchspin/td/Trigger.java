@@ -1,5 +1,7 @@
 package com.touchspin.td;
 
+import com.badlogic.gdx.Screen;
+
 /* This class handles any triggers that the user may encounter when colliding with hidden
  * tiles.  This trigger requires the input of two string values, or one comma delimited
  * string.  The first value will indicate the action to be taken.  The second value will 
@@ -301,6 +303,7 @@ public class Trigger {
 			if (options.length==1){
 				game.setScreen(new ScreenOptions(game));
 			} else {
+				Screen screen = game.getScreen();
 				game.setScreen(new ScreenOptions(game, options));
 			}
 			break;

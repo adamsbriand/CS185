@@ -2,6 +2,7 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Peripheral;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -19,6 +20,10 @@ public class ScreenOptions extends GameMenu {
 	public ScreenOptions (MainGame MainGame, String[] level){
 		super(MainGame);
 		levelReturn = level;
+	}
+	
+	public ScreenOptions (MainGame MainGame, Screen savedScreen){
+		super(MainGame);
 	}
     
     public void buttons(){
