@@ -222,6 +222,9 @@ public class Trigger {
 			case "Teleport":
 				g.i().sound.sndSwitch("Teleport");
 				break;
+			case "transmorgify":
+				g.i().sound.sndSwitch("transmorgify");
+				break;
 			case "buttonClick":
 				g.i().sound.buttonClick();
 				break;

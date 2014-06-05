@@ -250,6 +250,8 @@ public class Sounds {
 			case "Teleport":
 				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(Teleport));
 				break;
+			case "transmorgify":
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(Transmorgification));
 		}
 		sndSwitch.play(g.i().sfxLevel);
 	}
