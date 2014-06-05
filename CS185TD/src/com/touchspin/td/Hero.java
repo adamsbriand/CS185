@@ -154,27 +154,27 @@ public class Hero extends GameThing {
 		case "PingPong":
 			g.i().playerFriction = 0.005f;
 			flammable = true;
-			ballWidth = 5.33f;
-			ballHeight = 5.33f;
+			ballWidth = 5.8f;
+			ballHeight = 5.8f;
 			break;
 		case "Bowling":
 			g.i().playerFriction = 0.03f;
 			g.i().fire = false;
-			ballWidth = 29.3f;
-			ballHeight = 29.3f;
+			ballWidth = 32f;
+			ballHeight = 32f;
 			flammable = false;
 			break;
 		case "Basketball":
 			g.i().playerFriction = 0.01f;
-			ballWidth = 32f;
-			ballHeight = 32f;
+			ballWidth = 35.2f;
+			ballHeight = 35.2f;
 			flammable = false;
 			g.i().fire = false;
 			break;
 		case "Baseball":
 			g.i().playerFriction = 0.008f;
-			ballWidth = 8.933f;
-			ballHeight = 8.933f;
+			ballWidth = 22.16f;
+			ballHeight = 22.16f;
 			flammable = true;
 			break;
 		}
