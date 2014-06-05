@@ -24,7 +24,7 @@
  <objectgroup name="objects" width="32" height="32">
   <object name="switchLR" type="npo" x="489" y="449" width="40" height="60">
    <properties>
-    <property name="actions" value="toggleState,switchLR,toggleState,lightedAreaLR"/>
+    <property name="actions" value="toggleState,switchLR,toggleState,lightedAreaLR,playSound,sndLightSwitch"/>
     <property name="animations" value="on,0,0,on,off,1,1,off"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -50,7 +50,7 @@
   </object>
   <object name="switchLL" type="npo" x="414" y="417" width="40" height="60">
    <properties>
-    <property name="actions" value="toggleState,switchLL,toggleState,lightedAreaLL"/>
+    <property name="actions" value="toggleState,switchLL,toggleState,lightedAreaLL,playSound,sndLightSwitch"/>
     <property name="animations" value="on,0,0,on,off,1,1,off"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -63,7 +63,7 @@
   </object>
   <object name="switchUR" type="npo" x="569" y="420" width="40" height="60">
    <properties>
-    <property name="actions" value="toggleState,switchUR,toggleState,lightedAreaUR"/>
+    <property name="actions" value="toggleState,switchUR,toggleState,lightedAreaUR,playSound,sndLightSwitch"/>
     <property name="animations" value="on,0,0,on,off,1,1,off"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -76,7 +76,7 @@
   </object>
   <object name="switchFan" type="npo" x="571" y="318" width="40" height="60">
    <properties>
-    <property name="actions" value="toggleState,switchFan,toggleState,fan"/>
+    <property name="actions" value="toggleState,switchFan,toggleState,fan,playSound,sndLightSwitch"/>
     <property name="animations" value="on,0,0,on,off,1,1,off"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -141,7 +141,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objectsForeground" width="32" height="32">
+ <objectgroup name="objectsForeground" width="32" height="32" visible="0">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
