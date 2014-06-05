@@ -79,15 +79,8 @@ public class Hero extends GameThing {
 		
 		for (int i=0; i < g.i().mapObjects.size(); i++){
 			if (g.i().mapObjects.get(i).getName().equalsIgnoreCase("enter1")){
-				setX(g.i().mapObjects.get(i).getX());
-				setY(g.i().mapObjects.get(i).getY());
+				setPosition(g.i().mapObjects.get(i).getX(),g.i().mapObjects.get(i).getY());
 			}
-		}
-		
-		if(g.i().gameMode == 'M')
-		{
-			camera.position.x = getX();
-	    	camera.position.y = getY();
 		}
 
 	}
@@ -230,14 +223,17 @@ public class Hero extends GameThing {
     {
     	setX(x);
     	setY(y);
+    	float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
     	
     	if(g.i().gameMode == 'M')
     	{
     	camera.position.x = getX() + getWidth()/2;
     	camera.position.y = getY() + getHeight()/2;
-    	}else
-    	{
-    		camera.position.x = getX() + getWidth()/2;
+    	if(camera.position.x - camera.viewportWidth/2 < 0)
+    		camera.position.x = camera.viewportWidth/2;
+    	if(camera.position.y + camera.viewportHeight > tiledMapWrapper.getPixelHeight())
+    		camera.position.y = tiledMapWrapper.getPixelHeight() - camera.viewportHeight/2;
     	}
     }
 	

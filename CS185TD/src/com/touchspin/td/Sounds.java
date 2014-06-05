@@ -24,6 +24,8 @@ public class Sounds {
 	private static final String bounce1TennisBall = "snd/sndTennisBallBounce1.wav";
 	private static final String bounce2TennisBall = "snd/sndTennisBallBounce2.wav";
 	private static final String bounce3TennisBall = "snd/sndTennisBallBounce3.wav";
+	private static final String splash = "snd/sndSplash.wav";
+	private static final String Teleport = "snd/Teleport.wav";
 	
 	// Sound effects
 	private static final String arrowfile1 = "snd/sndArrow1.wav";
@@ -241,6 +243,13 @@ public class Sounds {
 				break;
 			case "brick":
 				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(brickCrash));
+				break;
+			case "splash":
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(splash));
+				break;
+			case "Teleport":
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(Teleport));
+				break;
 		}
 		sndSwitch.play(g.i().sfxLevel);
 	}

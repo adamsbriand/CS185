@@ -51,7 +51,7 @@
  </layer>
  <layer name="collisions" width="128" height="16" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztmOEKwCAIhHvrXn+/BjKilWleeR9EazFS7xBWKYQQsocaHUDBiCErFrWvYkTFQHRY6f/OGh8g6L/q4VOx1F+uZ2rZ8s/NAwkP/eX7kZzRapIJT/3lPqL3yd6eRh/k4E/jTD7IkqeGG31wWz4rZKpFljwR+faR3rOcv/sj69bZmni1356IRx+I/KdePdNCf897BVR/It+jzNCrb/TdVKt3cuyr7wMFQ4ir
+   eJztmG0LwCAIhPvX/f19GkRIK3V55T0Q7S3S8yZspRBCyB5qdAAFI4aseGhfmxEVA9HhVf931vgAof5WD5+KNV9Js1UtJf/cPJDwfP+l6zM5o2mSCYv2tZtHzyF6n+ztafRBDr5qnMkHWfLUcKMPbsvHQiYtsuSJSN9HRsft3N+fOZf21sSrXXsif/SByG9q654e9e/XemqA6k/k/ygrjPSN/jcl9U6Offo+qyOINA==
   </data>
  </layer>
  <objectgroup name="objects" width="128" height="16">
@@ -171,7 +171,7 @@
   <object name="enter2" type="destination" x="1002" y="101"/>
   <object name="water1" type="npo" x="351" y="448" width="95" height="34">
    <properties>
-    <property name="actions" value="igniteBall,false"/>
+    <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
     <property name="animations" value="flow,0,47,flow"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="0,0,96,15"/>
