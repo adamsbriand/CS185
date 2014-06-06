@@ -16,7 +16,7 @@ public class MainGame extends Game {
 		g.i().leAnonymizer = new InputAnonymizer();
 		g.i().sound = new Sounds();
 		g.i().t = new Trigger(this);
-		g.i().currentBallType = "Baseball";
+		g.i().currentBallType = "Base";
 		g.i().fire = false;
 		g.i().playerHealth = 100;
 		

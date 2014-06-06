@@ -158,7 +158,7 @@
   </object>
   <object name="transmorgifierBasket" type="npo" x="576" y="96" width="96" height="96">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBasket-transmorgify,playSound,transmorgify,changeMyAnim,Basketball"/>
+    <property name="actions" value="changeOthersAnim,transmorgifierBasket-transmorgify,playSound,transmorgify,changeMyAnim,Basket"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="26,26,48,48"/>
@@ -186,7 +186,7 @@
   </object>
   <object name="transmorgifierBaseball" type="npo" x="832" y="192" width="96" height="96">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBaseball-transmorgify,playSound,transmorgify,changeMyAnim,Baseball"/>
+    <property name="actions" value="changeOthersAnim,transmorgifierBaseball-transmorgify,playSound,transmorgify,changeMyAnim,Base"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="26,26,48,48"/>

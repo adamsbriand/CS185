@@ -27,7 +27,19 @@
   </data>
  </layer>
  <objectgroup name="objects" width="36" height="28">
-  <object name="enter1" type="destination" x="32" y="32" width="32" height="32"/>
+  <object name="enter1" type="destination" x="32" y="32" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBall,Baseball"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
   <object name="exit1" type="npo" x="608" y="832" width="32" height="32">
    <properties>
     <property name="actions" value="changeMap,Level2Run1,changeLocation,enter1"/>
@@ -69,9 +81,9 @@
   </object>
   <object name="dest2" type="destination" x="990" y="97" width="32" height="32"/>
   <object name="dest1" type="destination" x="480" y="416" width="32" height="32"/>
-  <object name="doorOpener1" type="npo" x="675" y="557" width="26" height="48">
+  <object name="doorOpener2" type="npo" x="675" y="557" width="26" height="48">
    <properties>
-    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,door1Opener-on"/>
+    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door2-open,changeOthersCollidable,door2-false,changeOthersAnim,door2Opener-on"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -82,7 +94,7 @@
     <property name="spriteSheet" value="LightSwitch.png"/>
    </properties>
   </object>
-  <object name="doorOpener2" type="npo" x="226" y="748" width="26" height="48">
+  <object name="doorOpener1" type="npo" x="226" y="748" width="26" height="48">
    <properties>
     <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door2-false,changeOthersAnim,door1Opener-on"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>

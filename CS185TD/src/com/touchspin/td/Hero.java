@@ -164,14 +164,14 @@ public class Hero extends GameThing {
 			ballHeight = 30f;
 			flammable = false;
 			break;
-		case "Basketball":
+		case "Basket":
 			g.i().playerFriction = 0.01f;
 			ballWidth = 35.2f;
 			ballHeight = 35.2f;
 			flammable = false;
 			g.i().fire = false;
 			break;
-		case "Baseball":
+		case "Base":
 			g.i().playerFriction = 0.008f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
@@ -254,8 +254,8 @@ public class Hero extends GameThing {
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
 				appearance.getWidth() / 6, appearance.getHeight() / 12);
 
-		ballTypeMap.put("Baseball", tmp[4][0]);
-		ballTypeMap.put("Basketball", tmp[1][0]);
+		ballTypeMap.put("Base", tmp[4][0]);
+		ballTypeMap.put("Basket", tmp[1][0]);
 		ballTypeMap.put("Beachball", tmp[5][0]);
 		ballTypeMap.put("BearingSteel", tmp[3][0]);
 		ballTypeMap.put("Bowling", tmp[0][0]);
