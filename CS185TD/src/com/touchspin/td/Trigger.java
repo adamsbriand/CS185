@@ -117,23 +117,27 @@ public class Trigger {
 
 	// Changes to the hero
 	private void igniteBall(String value) {
-		if (value.equalsIgnoreCase("true")){
-			g.i().fire = true;
-		} else {
-			g.i().fire = false;
-			if(!g.i().fire)
-			{
-				g.i().sound.fire(false);
-			}
-		}
+		g.i().fire = (value.equalsIgnoreCase("true"));
+		if (!g.i().fire) g.i().sound.fire( false );
+//		if (g.i().fire)
+//		if (value.equalsIgnoreCase("true")){
+//			g.i().fire = true;
+//		} else {
+//			g.i().fire = false;
+//			if(!g.i().fire)
+//			{
+//				g.i().sound.fire(false);
+//			}
+//		}
 	}
 	
 	private boolean ballFlammable(String value){
-		if (value.equalsIgnoreCase("true")){
-			return g.i().hero.flammable;
-		} else {
-			return g.i().hero.flammable;
-		}
+		return g.i().hero.flammable;
+//		if (value.equalsIgnoreCase("true")){
+//			return g.i().hero.flammable;
+//		} else {
+//			return g.i().hero.flammable;
+//		}
 	}
 
 	private void changeBallY(String value) {
@@ -176,15 +180,19 @@ public class Trigger {
 	private void toggleState(String value)
 	{
 		String currentAnim;
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
-				currentAnim = g.i().mapObjects.get(i).getAnimation();
-				if(currentAnim.equalsIgnoreCase("off"))
-					g.i().mapObjects.get(i).setAnimation("on");
-				else
-					g.i().mapObjects.get(i).setAnimation("off");
-			}
-		}
+		NP obj = getObjNamed(value);
+		if (obj!=null) 
+			obj.setAnimation( (obj.getAnimation().equalsIgnoreCase("on")) ? "off" : "on");
+		
+//		for (int i=0; i < g.i().mapObjects.size(); i++){
+//			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
+//				currentAnim = g.i().mapObjects.get(i).getAnimation();
+//				if(currentAnim.equalsIgnoreCase("off"))
+//					g.i().mapObjects.get(i).setAnimation("on");
+//				else
+//					g.i().mapObjects.get(i).setAnimation("off");
+//			}
+//		}
 		
 	}
 	
@@ -251,27 +259,38 @@ public class Trigger {
 		boolean collidable;
 		String[] Values = value.split("-");
 		String objectName = Values[0];
-		if (Values[1]=="true"){
-			collidable = true;
-		} else {
-			collidable = false;
-		}
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (objectName.equals(g.i().mapObjects.get(i).getName())){
-				g.i().mapObjects.get(i).setCollidable(collidable);
-			}
-		}
+		collidable = (Values[1]=="true");
+//		if (Values[1]=="true") collidable = true;
+//		else                   collidable = false;
+		NP obj = getObjNamed(objectName);
+		if (obj!=null) 
+			obj.setCollidable(collidable);
+//		for (int i=0; i < g.i().mapObjects.size(); i++){
+//			if (objectName.equals(g.i().mapObjects.get(i).getName())){
+//				g.i().mapObjects.get(i).setCollidable(collidable);
+//			}
+//		}
 	}
 
 	private void changeOthersAnim(String value) {
 		String[] Values = value.split("-");
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (Values[0].equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
-				g.i().mapObjects.get(i).setAnimation(Values[1]);
-			}
-		}
+		NP obj = getObjNamed(Values[0]);
+		if (obj!=null) 
+			obj.setAnimation(Values[1]);
+//		for (int i=0; i < g.i().mapObjects.size(); i++){
+//			if (Values[0].equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
+//				g.i().mapObjects.get(i).setAnimation(Values[1]);
+//			}
+//		}
 	}
 
+	private NP getObjNamed(String name) {
+		for (int iO=0; iO < g.i().mapObjects.size(); iO++)
+			if (name.equalsIgnoreCase(  g.i().mapObjects.get(iO).getName()  ) )
+					return g.i().mapObjects.get(iO);
+		return null;
+	}
+	
 	private void setTarget(String value) {
 		switch (value){
 			case "hero":
@@ -406,13 +425,17 @@ public class Trigger {
 	private boolean AnimationIs(String value) {
 		String[] split = value.split("-");
 		if (split.length > 0){						// Check to make sure proper format used. 
-			for (int i = 0; i < g.i().mapObjects.size(); i++){
-				if (split[0].equalsIgnoreCase(g.i().mapObjects.get(i).name)){
-					if (split[1].equalsIgnoreCase(g.i().mapObjects.get(i).getAnimation())){
-						return true;
-					}
-				}
-			}
+			NP obj = getObjNamed(split[0]);
+			if (obj!=null)
+				return  (boolean)( split[1].equalsIgnoreCase( obj.getAnimation() ) );
+			
+//			for (int i = 0; i < g.i().mapObjects.size(); i++){
+//				if (split[0].equalsIgnoreCase(g.i().mapObjects.get(i).name)){
+//					if (split[1].equalsIgnoreCase(g.i().mapObjects.get(i).getAnimation())){
+//						return true;
+//					}
+//				}
+//			}
 		}
 		return false;
 	}
