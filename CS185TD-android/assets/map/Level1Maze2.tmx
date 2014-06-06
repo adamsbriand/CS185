@@ -38,13 +38,29 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="57" name="BloxSideSquare_Frame32x32_Sheet224x288_RC7x9" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
+ </tileset>
+ <tileset firstgid="120" name="Untitled" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/Untitled.png" width="32" height="32"/>
+ </tileset>
  <layer name="grass" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   eJx9lsvKo0AQhUtoFAJh8muyHGeW7ULIRpL3f7JRqIOfJ2YWhZfursvpU5c+IsZVplWWfJcs9iy2tp2p+V3zXzF9C9a5R/vuq/xJ+Yt17p/w378n+OO+jLbm+7f3Nm1v/37nvimlQF/Bmse3YK3iH/eUL3oeq7xXucKP2yo/J3gq/maVOc88V7nke/MfLOgTY+rTfpf4/6TcUpY4YjGmzSfiaMwPvT9zjViMJve0LQxkV36Id4pDsTeGJbmm55x+8P7Jo5r2N3nl3hnxT3aWsetOqu0hR4ULbdPHmnb7xOCSZ8R94a6n9DU4z/jJzQl3QS5Il3wa0gftZZ4TJ2EvH7VGvV4jCu6qxicONe/9jX0657WG8cuHxWwxLxUjMaimW/gL+ymOPOV7TZvEQMLYPfcb6Gb+S+/GvTaOPBnjyBXWlk0fc5RckB9+h1fDitxR7l8QF/Pdc4r2f8UxD3mvBf8vceQq49zsP1J0t+wr3C88b2lb8bOmea1vzL7nwhZ7n/eg2uL9Tbqkz4U5Qh7K9hO6ZF972thr8DX30z/2K+cu+cbaI9yZK6wRPLvZHVI8dtaexezJB3KKQh+uKSU+Mb2n7S73nNWQavZH00G9Z/NIk7rJP+G65f8jnzPsMffpD3lE39iDvCctiN8xaNP2EHuelvi8a9qcbN33sw4Ij9n8lA/qP+/Ye4vXQY+XOI723+u8asYzPnNU/HvEzj/OMtTh90buUaYTUV557x1jz78B9uQH9Z3NesXena/6Vg44fpr/+rwHrYmv7gN5z5hZa3n/8ld1jTxRHI/E4I44mbuN6TzT8W0O47w4x5F7Bfa79KEDBmMca6fOfevP3vvYe9hTvE+p/wuHt2GtGjrjrGqKZvAZWDEHOQMrJvJngv0u9jn0FUeu+nw9Q6Sba+o7F9ilTXKTcWsO7WKvi8wj57VjLrx435wjnDu038KmevIrdm6yz/hselbvaMt7v3xfUncPOy88hQOxYH9zrpGj3sN8PtZe9T/1gMHsDrlHczLzyudDnwfoC3nJ+vAPnnx57A==
+   eJydV0GOozAQNBICCSnaTCDHZfdoDkhwiMjT5vmLpSq5xovbnjmUSHDj6i632+2Hc24+sZx44XfADnwK+G6GbfjG47/HuzaZ75WZi5hO/AH+yhze4F/EbhF/Ul+sWIgO3MHuN75dACt+je8l33l5l2pwxf888T5xEz/uJz4y/GGu5sSKb7YTA343hhY5/gf4e+j/AdyBlH8G5yYxN4kf/L1hzOKfwE0NyEs/Un7GHp5tYW1X+FHiDzhgu0r8V/oz9lJefYouV7lMHFiDHvwN7K++4XyqqcV/q+Af4QNtZ0PXRnxsK3zYZa1yNm+Adsqf05M+cI/XaGDpT+113+f4VQOilAODYRNyr5N1ysWu+a97tMS/QwNLf8Y/FOZL+X9V2O+F+AP/E9gKtuS/g7sUP+2tOUPsD6wDa0tu/Tlfitzc5Lbyr3OxBt/E1xw/z1fmilXbdK9Y+o/A6uz9xPOH+85X2G+I65axmcDdw6aGX+O/OqdTvRqDP+z/J56rs8+U3cXaTH6rtqpeOf4O3CNs2Nfk+Nn/tAVf1X5GbLn4mX88W0r9zxUsftZta/8z/7SXsWphLVj/BkP/B/i5n+hH6Wyp5eceuBp/gj+sA/OK+WrVre/ws67l+IMGk/vaV3sX8+Ena67YCvw9fOhFg9nF2km/dM45w8U9zxh4rpXOf+rwdvFOQQ3YF+odR3vwVbTS+4/2wCX+3sU+9HCxzrHf1/56FbBf1DGeO4P7WqOvoHGzD+1drIuLQO9Vevfif+rF9WadquHvhJNn8uFibpJH+fXexXEv45oHPhljTk3gIs8hT+qgWrCetwkPtaFWHE+14nva8vzjGTAmvCNs3sDs/tfCC6f6p75oXuqd+R9iqfgu
   </data>
  </layer>
  <objectgroup name="objects" width="32" height="32">
-  <object name="enter1" type="distance" x="175" y="139" width="32" height="32">
+  <object name="enter1" type="destination" x="161" y="130" width="60" height="58">
+   <properties>
+    <property name="actions" value="changeBall,Tennis"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
    <ellipse/>
   </object>
   <object name="fire0" type="npo" x="192" y="672" width="32" height="32">
@@ -837,6 +853,58 @@
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="ExitMarker.png"/>
+   </properties>
+  </object>
+  <object name="bottomlessPit1" x="260" y="7" width="81" height="659">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit2" x="305" y="677" width="455" height="87">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit3" x="583" y="169" width="139" height="503">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit4" x="866" y="13" width="121" height="859">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
    </properties>
   </object>
  </objectgroup>

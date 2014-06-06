@@ -161,16 +161,16 @@
     <property name="spriteSheet" value="TransmorgifierTop.png"/>
    </properties>
   </object>
-  <object name="transmorgifierBasket" type="npo" x="928" y="512" width="32" height="32">
+  <object name="transmorgifierTennis" type="npo" x="928" y="512" width="32" height="32">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBasket-transmorgify,playSound,transmorgify,changeMyAnim,Basket"/>
+    <property name="actions" value="changeOthersAnim,transmorgifierTennis-transmorgify,playSound,transmorgify,changeMyAnim,Tennis"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="26,26,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
-    <property name="notes" value="if hero touches collision rect, he becomes a basket ball"/>
+    <property name="notes" value="if hero touches collision rect, he becomes a Tennis ball"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="TransmorgifierTop.png"/>
    </properties>
