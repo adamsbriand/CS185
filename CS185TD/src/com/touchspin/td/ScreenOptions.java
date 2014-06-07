@@ -77,7 +77,7 @@ public class ScreenOptions extends GameMenu {
         			
         			g.i().t.action("playSound,buttonClick");
         			g.i().leAnonymizer.pausePressed = false;
-        			
+        			g.i().leAnonymizer.resetAll();
         			game.setScreen(previousScreen);
         			
         			//g.i().t.action(previousScreen);
