@@ -252,6 +252,7 @@ public class GameScreen extends GameObject {
 		int roamingRadius = 0;
 		String spriteSheet = "";
 		String collisionParameter = "";
+		String active = "true";
 		int animRows = 0;
 		int animCols = 0;
 		boolean collidable = false;
@@ -317,6 +318,11 @@ public class GameScreen extends GameObject {
 				collisionParameter = (String) tempProperties
 						.get("collisionParams");
 			}
+			
+			if (tempProperties.get("active") != null) {
+				active = (String) tempProperties
+						.get("active");
+			}
 
 			if (spriteSheet.equalsIgnoreCase("transmorgifier.png")) {
 				animRows = 5;
@@ -358,6 +364,10 @@ public class GameScreen extends GameObject {
 			{
 				animRows = 6;
 				animCols = 4;
+			}else if(spriteSheet.equalsIgnoreCase("AirPuff.png"))
+			{
+				animRows = 6;
+				animCols = 9;
 			}
 
 			if (!spriteSheet.equalsIgnoreCase(""))
@@ -365,7 +375,7 @@ public class GameScreen extends GameObject {
 
 			temp = new NP(startX, startY, width, height, name, type,
 					conditions, action, anims, roamingRadius, spriteSheet,
-					animRows, animCols, collidable, collisionParameter, camera);
+					animRows, animCols, collidable, collisionParameter, camera,active);
 
 			g.i().mapObjects.add(temp);
 

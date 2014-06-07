@@ -73,7 +73,7 @@ public class MoverPhysics extends Mover {
 					// check if object is not to the left of the player
 					// or if the object is more than 1 tile away from the player
 					if (rect.x > (gameThing.getX() + gameThing.getWidth())
-							|| gameThing.getX() - (rect.x + rect.width) > tileWidth)
+							|| gameThing.getX() - (rect.x + rect.width) > 2 * tileWidth)
 						continue;
 
 					// iterate through y values of object
@@ -116,7 +116,7 @@ public class MoverPhysics extends Mover {
 					// check if object is not to the right of the player
 					// or if the object is more than 1 tile away from the player
 					if (rect.x < gameThing.getX()
-							|| rect.x - (gameThing.getX() + gameThing.getWidth()) > tileWidth)
+							|| rect.x - (gameThing.getX() + gameThing.getWidth()) > 2 * tileWidth)
 						continue;
 
 					// iterate through y values of object
@@ -162,7 +162,7 @@ public class MoverPhysics extends Mover {
 					// check if object is not to the bottom of the player
 					// or if the object is more than 1 tile away from the player
 					if (rect.y > gameThing.getY()
-							|| gameThing.getY() - (rect.y + rect.height) > tileHeight)
+							|| gameThing.getY() - (rect.y + rect.height) > 2 * tileHeight)
 						continue;
 
 					// iterate through x values of object
@@ -208,7 +208,7 @@ public class MoverPhysics extends Mover {
 					// or if the object is more than 1 tile away from the player
 					if (rect.y < gameThing.getY()
 							|| rect.y
-									- (gameThing.getY() + gameThing.getHeight()) > tileHeight)
+									- (gameThing.getY() + gameThing.getHeight()) > 2 * tileHeight)
 						continue;
 
 					// iterate through y values of object

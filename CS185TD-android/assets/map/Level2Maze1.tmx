@@ -29,7 +29,7 @@
  <objectgroup name="objects" width="36" height="28">
   <object name="enter1" type="destination" x="32" y="32" width="32" height="32">
    <properties>
-    <property name="actions" value="changeBall,Base"/>
+    <property name="actions" value="changeMyAnim,Tennis"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -129,6 +129,20 @@
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="doorOpen.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierTennis2" type="npo" x="31" y="97" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierTennis2-transmorgify,playSound,transmorgify,changeMyAnim,Tennis"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="3,3,26,26"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="notes" value="if hero touches collision rect, he becomes a Tennis ball"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="TransmorgifierTop.png"/>
    </properties>
   </object>
  </objectgroup>

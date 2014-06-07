@@ -45,7 +45,7 @@ public class NP extends GameThing {
 	public NP(int startX, int startY, int width, int height, String name,
 			String type, String conditions, String action, String anims,
 			int roamingRadius, String spriteSheet, int animRows, int animCols,
-			boolean collidable, String collisionParameter,OrthographicCamera camera) {
+			boolean collidable, String collisionParameter,OrthographicCamera camera, String active) {
 		originalPosition = new Vector2(startX, startY);
 		this.camera = camera;
 		setX(startX);
@@ -64,7 +64,7 @@ public class NP extends GameThing {
 		npSprite = new Sprite();
 		animationSet = new AnimationSet();
 		inCollision = false;
-		active = true;
+		setActive(active);
 
 		if (type.equalsIgnoreCase("npcEnemy"))
 			npMover = new MoverAI();

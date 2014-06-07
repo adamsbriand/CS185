@@ -291,7 +291,7 @@ public class Trigger {
 		String[] Values = value.split("-");
 		NP obj = getObjNamed(Values[0]);
 		if (obj!=null) 
-			obj.setActive(value);
+			obj.setActive(Values[1]);
 	}
 
 	private NP getObjNamed(String name) {

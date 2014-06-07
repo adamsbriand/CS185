@@ -168,7 +168,6 @@
     <property name="spriteSheet" value="LightSwitch.png"/>
    </properties>
   </object>
-  <object name="enter2" type="destination" x="3918" y="444"/>
   <object name="water1" type="npo" x="351" y="448" width="95" height="34">
    <properties>
     <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
@@ -180,6 +179,19 @@
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="Water.png"/>
+   </properties>
+  </object>
+  <object name="airpuff" type="npo" x="3904" y="355" width="33" height="91">
+   <properties>
+    <property name="actions" value="changeBallY,550"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="stay,52,52,stay,blow,0,51,blow"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
  </objectgroup>
