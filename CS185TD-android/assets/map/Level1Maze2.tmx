@@ -855,9 +855,9 @@
     <property name="spriteSheet" value="ExitMarker.png"/>
    </properties>
   </object>
-  <object name="bottomlessPit1" x="260" y="7" width="81" height="659">
+  <object name="bottomlessPit7" x="544" y="192" width="34" height="63">
    <properties>
-    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -868,9 +868,9 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="bottomlessPit2" x="305" y="677" width="455" height="87">
+  <object name="bottomlessPit2" x="291" y="675" width="473" height="89">
    <properties>
-    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -881,9 +881,9 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="bottomlessPit3" x="583" y="169" width="139" height="503">
+  <object name="bottomlessPit3" x="579" y="163" width="153" height="508">
    <properties>
-    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -894,9 +894,87 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="bottomlessPit4" x="866" y="13" width="121" height="859">
+  <object name="bottomlessPit4" x="865" y="3" width="157" height="859">
    <properties>
-    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false"/>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit1" x="258" y="-55" width="91" height="727">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit6" x="481" y="768" width="159" height="32">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit5" x="734" y="290" width="32" height="92">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit8" x="226" y="290" width="29" height="349">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit9" x="193" y="354" width="35" height="94">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit10" x="191" y="512" width="34" height="62">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
     <property name="animations" value=""/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>

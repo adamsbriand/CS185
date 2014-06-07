@@ -111,6 +111,8 @@ public class Trigger {
 			case "reduceHealth":
 				reduceHealth(value);
 				break;
+			case "changeActive":
+				changeActive(value);
 			default:
 		}
 	}
@@ -282,6 +284,14 @@ public class Trigger {
 //				g.i().mapObjects.get(i).setAnimation(Values[1]);
 //			}
 //		}
+	}
+	
+	private void changeActive(String value)
+	{
+		String[] Values = value.split("-");
+		NP obj = getObjNamed(Values[0]);
+		if (obj!=null) 
+			obj.setActive(value);
 	}
 
 	private NP getObjNamed(String name) {

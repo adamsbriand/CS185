@@ -205,7 +205,7 @@ public class GameScreen extends GameObject {
 			foregroudCamera.update();
 		} else {
 			camera = new OrthographicCamera();
-			camera.setToOrtho(false, 320, 320 * h / w);
+			camera.setToOrtho(false, 400, 400 * h / w);
 			camera.update();
 		}
 	}

@@ -118,7 +118,7 @@
   <object name="enter1" type="destination" x="48" y="112"/>
   <object name="glassBlock1" type="npo" x="1056" y="384" width="96" height="96">
    <properties>
-    <property name="actions" value="changeOthersAnim,glassBlock1-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock1-false"/>
+    <property name="actions" value="changeOthersAnim,glassBlock1-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock1-false,changeActive,glassBlock1-false"/>
     <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
     <property name="collidable" value="true"/>
     <property name="collisionParams" value="32,32,32,32"/>
@@ -144,7 +144,7 @@
   </object>
   <object name="glassBlock2" type="npo" x="1055" y="419" width="96" height="96">
    <properties>
-    <property name="actions" value="changeOthersAnim,glassBlock2-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock2-false"/>
+    <property name="actions" value="changeOthersAnim,glassBlock2-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock2-false,changeActive,glassBlock2-false"/>
     <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
     <property name="collidable" value="true"/>
     <property name="collisionParams" value="32,32,32,32"/>
@@ -157,7 +157,7 @@
   </object>
   <object name="door1Opener" type="npo" x="1500" y="197" width="40" height="60">
    <properties>
-    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,door1Opener-on"/>
+    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,door1Opener-on,changeActive,door1Opener-false,changeActive,door1-false"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>

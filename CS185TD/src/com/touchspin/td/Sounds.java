@@ -172,13 +172,19 @@ public class Sounds {
 	
 	public void wind(Boolean on){
 		if (on){
+			if(windBlowing == null)
+			{
 			windBlowing=Gdx.audio.newMusic(Gdx.files.internal(wind));
 			windBlowing.setLooping(true);
 			windBlowing.setVolume(g.i().sfxLevel);
 			windBlowing.play();
+			}
 		} else {
+			if(windBlowing != null)
+			{
 			windBlowing.stop();
 			windBlowing=null;
+			}
 		}
 	}
 	

@@ -177,6 +177,12 @@ public class Hero extends GameThing {
 			ballHeight = 22.16f;
 			flammable = true;
 			break;
+		case "Tennis":
+			g.i().playerFriction = 0.008f;
+			ballWidth = 22.16f;
+			ballHeight = 22.16f;
+			flammable = true;
+			break;
 		}
 		if (!g.i().fire) {
 			g.i().sound.fire(false);
@@ -264,7 +270,7 @@ public class Hero extends GameThing {
 		ballTypeMap.put("PingPong", tmp[2][0]);
 		ballTypeMap.put("Poolball", tmp[8][0]);
 		ballTypeMap.put("Soccerball", tmp[7][0]);
-		ballTypeMap.put("Tennisball", tmp[9][0]);
+		ballTypeMap.put("Tennis", tmp[9][0]);
 		ballTypeMap.put("Blackball", tmp[11][0]);
 	}
 

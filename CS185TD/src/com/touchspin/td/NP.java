@@ -122,12 +122,10 @@ public class NP extends GameThing {
 
 	@Override
 	public void draw(Batch batch, float alpha) {
-		if(active){
 		if(!spriteSheet.equalsIgnoreCase(""))
 		{
 			batch.setProjectionMatrix(camera.combined);
 			npSprite.draw(batch);
-		}
 		}
 	}
 
@@ -142,7 +140,7 @@ public class NP extends GameThing {
 	}
 	@Override
 	public void act(float delta) {
-		if(active){
+
 		// npMover.move(this);
 		npSprite.setX(getX());
 		npSprite.setY(getY());
@@ -156,7 +154,14 @@ public class NP extends GameThing {
 				setAnimation(animationSet.next().name);
 			}
 		}
-		}
+	}
+	
+	public void setActive(String value)
+	{
+		if(value.equalsIgnoreCase("true"))
+			active = true;
+		else
+			active = false;
 	}
 
 	// ---------------------Private helper method
