@@ -108,6 +108,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		click = true;
 		if (g.i().controls == 'A' && screenX < 100 && screenY < 100){
 			pausePressed=true;
+		}else
+		{
+			jump = true;
 		}
 		return true;
 	}
