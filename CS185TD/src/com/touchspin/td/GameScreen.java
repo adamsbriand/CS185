@@ -32,6 +32,7 @@ public class GameScreen extends GameObject {
 		else
 			mode = 'M';
 		tiledMapWrapper = new TiledMapWrapper(mapPath);
+		g.i().leAnonymizer.resetAll();
 		setUpCamera();
 		stage = new Stage();
 		g.i().hud = new HUD(camera, tiledMapWrapper);
@@ -165,7 +166,7 @@ public class GameScreen extends GameObject {
 		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
 				+ backGroundCamera.viewportWidth / 2;
-		backGroundCamera.position.y = tiledMapWrapper.backgroundfactor
+		backGroundCamera.position.y = -tiledMapWrapper.backgroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
 				+ backGroundCamera.viewportHeight / 2;
 	}
@@ -174,7 +175,7 @@ public class GameScreen extends GameObject {
 		foregroudCamera.position.x = tiledMapWrapper.foregroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
 				+ foregroudCamera.viewportWidth / 2;
-		foregroudCamera.position.y = tiledMapWrapper.foregroundfactor
+		foregroudCamera.position.y = -tiledMapWrapper.foregroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
 				+ foregroudCamera.viewportHeight / 2;
 	}
@@ -187,6 +188,8 @@ public class GameScreen extends GameObject {
 		float h = Gdx.graphics.getHeight();
 
 		if (mode == 'R') {
+			if(tiledMapWrapper.getPixelWidth()>tiledMapWrapper.getPixelHeight())
+			{
 			camera = new OrthographicCamera();
 			camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
 					tiledMapWrapper.getPixelHeight());
@@ -203,6 +206,23 @@ public class GameScreen extends GameObject {
 					w * tiledMapWrapper.getPixelHeight() / h,
 					tiledMapWrapper.getPixelHeight());
 			foregroudCamera.update();
+			}else
+			{
+				camera = new OrthographicCamera();
+				camera.setToOrtho(false,tiledMapWrapper.getPixelWidth(),
+						h * tiledMapWrapper.getPixelWidth() / w);
+				camera.update();
+
+				backGroundCamera = new OrthographicCamera();
+				backGroundCamera.setToOrtho(false,tiledMapWrapper.getPixelWidth(),
+						h * tiledMapWrapper.getPixelWidth() / w);
+				backGroundCamera.update();
+
+				foregroudCamera = new OrthographicCamera();
+				foregroudCamera.setToOrtho(false,tiledMapWrapper.getPixelWidth(),
+						h * tiledMapWrapper.getPixelWidth() / w);
+				foregroudCamera.update();
+			}
 		} else {
 			camera = new OrthographicCamera();
 			camera.setToOrtho(false, 400, 400 * h / w);
@@ -214,20 +234,23 @@ public class GameScreen extends GameObject {
 
 		if (mode == 'R') {
 			tiledMapWrapper.setPlayerLayerView(camera.combined,
-					camera.position.x - camera.viewportWidth - 1, -1,
-					camera.viewportWidth * 2 + 2, camera.viewportHeight + 2);
+					camera.position.x - camera.viewportWidth - 5,
+					camera.position.y - camera.viewportHeight - 5,
+					camera.viewportWidth * 2 + 10,
+					camera.viewportHeight * 2 + 10);
 			// render the background base one the position of background camera
 			setBackGroundCameraView();
 			tiledMapWrapper.setBackGroundView(backGroundCamera.combined,
-					backGroundCamera.position.x
-							- backGroundCamera.viewportWidth - 1, -1,
-					backGroundCamera.viewportWidth * 2 + 2,
-					backGroundCamera.viewportHeight + 2);
+					backGroundCamera.position.x - backGroundCamera.viewportWidth - 5,
+					backGroundCamera.position.y - backGroundCamera.viewportHeight - 5,
+					backGroundCamera.viewportWidth * 2 + 10,
+					backGroundCamera.viewportHeight * 2 + 10);
 			setForegroundCameraView();
 			tiledMapWrapper.setForegroundView(foregroudCamera.combined,
-					foregroudCamera.position.x - foregroudCamera.viewportWidth
-							- 1, -1, foregroudCamera.viewportWidth * 2 + 2,
-					foregroudCamera.viewportHeight + 2);
+					foregroudCamera.position.x - foregroudCamera.viewportWidth - 5,
+					foregroudCamera.position.y - foregroudCamera.viewportHeight - 5,
+					foregroudCamera.viewportWidth * 2 + 10,
+					foregroudCamera.viewportHeight * 2 + 10);
 		} else {
 			tiledMapWrapper.setPlayerLayerView(camera.combined,
 					camera.position.x - camera.viewportWidth - 5,
@@ -368,7 +391,16 @@ public class GameScreen extends GameObject {
 			{
 				animRows = 6;
 				animCols = 9;
+			}else if(spriteSheet.equalsIgnoreCase("JustWizard.png"))
+			{
+				animRows = 6;
+				animCols = 8;
+			}else if(spriteSheet.equalsIgnoreCase("Dragon.png"))
+			{
+				animRows = 10;
+				animCols = 5;
 			}
+
 
 			if (!spriteSheet.equalsIgnoreCase(""))
 				spriteSheet = "img/spritesheet/" + spriteSheet;

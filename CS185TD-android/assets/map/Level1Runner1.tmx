@@ -185,7 +185,7 @@
    <properties>
     <property name="actions" value="changeBallY,550"/>
     <property name="active" value="false"/>
-    <property name="animations" value="stay,52,52,stay,blow,0,51,blow"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionRect" value=""/>
     <property name="collisionShape" value=""/>

@@ -224,24 +224,34 @@ public class Hero extends GameThing {
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 
-		if (g.i().gameMode == 'M') {
-			camera.position.x = getX() + getWidth() / 2;
-			camera.position.y = getY() + getHeight() / 2;
-			if (camera.position.x - camera.viewportWidth / 2 < 0)
-				camera.position.x = camera.viewportWidth / 2;
-			if (camera.position.y + camera.viewportHeight > tiledMapWrapper
-					.getPixelHeight())
-				camera.position.y = tiledMapWrapper.getPixelHeight()
-						- camera.viewportHeight / 2;
-		} else {
-			camera.position.x = getX() + getWidth() / 2;
-			if (camera.position.x - camera.viewportWidth / 2 < 0)
-				camera.position.x = camera.viewportWidth / 2;
-			if (camera.position.x + camera.viewportWidth / 2 > tiledMapWrapper
-					.getPixelWidth())
-				camera.position.x = tiledMapWrapper.getPixelWidth()
-						- camera.viewportWidth / 2;
-		}
+		
+		camera.position.x = getX() + getWidth() / 2;
+		camera.position.y = getY() + getHeight() / 2;
+		if (camera.position.x - camera.viewportWidth / 2 < 0)
+			camera.position.x = camera.viewportWidth / 2;
+		if (camera.position.y + camera.viewportHeight > tiledMapWrapper
+				.getPixelHeight())
+			camera.position.y = tiledMapWrapper.getPixelHeight()
+					- camera.viewportHeight / 2;
+		
+//		if (g.i().gameMode == 'M') {
+//			camera.position.x = getX() + getWidth() / 2;
+//			camera.position.y = getY() + getHeight() / 2;
+//			if (camera.position.x - camera.viewportWidth / 2 < 0)
+//				camera.position.x = camera.viewportWidth / 2;
+//			if (camera.position.y + camera.viewportHeight > tiledMapWrapper
+//					.getPixelHeight())
+//				camera.position.y = tiledMapWrapper.getPixelHeight()
+//						- camera.viewportHeight / 2;
+//		} else {
+//			camera.position.x = getX() + getWidth() / 2;
+//			if (camera.position.x - camera.viewportWidth / 2 < 0)
+//				camera.position.x = camera.viewportWidth / 2;
+//			if (camera.position.x + camera.viewportWidth / 2 > tiledMapWrapper
+//					.getPixelWidth())
+//				camera.position.x = tiledMapWrapper.getPixelWidth()
+//						- camera.viewportWidth / 2;
+//		}
 	}
 
 	// --------------Private helper

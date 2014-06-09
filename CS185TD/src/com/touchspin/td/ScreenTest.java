@@ -66,8 +66,13 @@ public class ScreenTest implements Screen {
         //Slider slider = new Slider(0, 100, 1, false, );
  
         // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-        final TextButton textButton=new TextButton("New Runner1",textButtonStyle);
-        textButton.setPosition(200, 200);
+        final int dX     = 200; // 300
+        final int dY     = 100; // 120
+        final int xOff = 50; // 200
+        final int yOff = 100; // 200
+        
+        final TextButton textButton=new TextButton("L1 R1",textButtonStyle);
+        textButton.setPosition(xOff+0*dX, yOff+0*dY);
         stage.addActor(textButton);
         
         textButton.addListener(new ChangeListener() {
@@ -76,8 +81,8 @@ public class ScreenTest implements Screen {
             }
         });
         
-        final TextButton textButton2=new TextButton("New Maze1",textButtonStyle);
-        textButton2.setPosition(500, 200);
+        final TextButton textButton2=new TextButton("L1 M1",textButtonStyle);
+        textButton2.setPosition(xOff+1*dX, yOff+0*dY);
         stage.addActor(textButton2);
         
         textButton2.addListener(new ChangeListener() {
@@ -86,8 +91,8 @@ public class ScreenTest implements Screen {
         	}
         });
         
-        final TextButton textButton3=new TextButton("Level 2 Maze 1",textButtonStyle);
-        textButton3.setPosition(200, 320);
+        final TextButton textButton3=new TextButton("L2 M1",textButtonStyle);
+        textButton3.setPosition(xOff+2*dX, yOff+0*dY);
         stage.addActor(textButton3);
         
         textButton3.addListener(new ChangeListener() {
@@ -96,8 +101,8 @@ public class ScreenTest implements Screen {
         	}
         });
         
-        final TextButton textButton4=new TextButton("New Maze2",textButtonStyle);
-        textButton4.setPosition(500, 320);
+        final TextButton textButton4=new TextButton("L1 M2",textButtonStyle);
+        textButton4.setPosition(xOff+0*dX, yOff+1*dY);
         stage.addActor(textButton4);
         
         textButton4.addListener(new ChangeListener() {
@@ -105,6 +110,17 @@ public class ScreenTest implements Screen {
         		g.i().t.action("NewLevel,Level1Maze2,changeMyAnim,Bowling");
         	}
         });
+        
+        final TextButton textButton5=new TextButton("L2 R1",textButtonStyle);
+        textButton5.setPosition(xOff+1*dX, yOff+1*dY);
+        stage.addActor(textButton5);
+        
+        textButton5.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("NewLevel,Level2Runner1,changeMyAnim,Tennis");
+        	}
+        });
+        
     }
  
     public void render (float delta) {
