@@ -81,8 +81,9 @@ public abstract class GameMenu extends GameObject {
     protected void setLogo(FileHandle logoImg){
     	if (logoImg == null) return;
     	logo = new Sprite(new Texture(logoImg));
+    	//logo.setSize(logo.getWidth() * Gdx.graphics.getDensity() * 2, logo.getHeight() * Gdx.graphics.getDensity() * 2);
     	float x = (float)((Gdx.graphics.getWidth() - logo.getWidth()) / 2) ;
-    	float y = (float)(Gdx.graphics.getHeight() - logo.getHeight() * 1.25);
+    	float y = (float)(Gdx.graphics.getHeight() / 4 * 3 - logo.getHeight() / 2);
     	logo.setPosition(x, y);
     	
     }
