@@ -60,7 +60,7 @@ public class GameDialog extends GameObject
 		g.i().sound.BGMusic(root.getAttribute("music"));
 		
 		font = new BitmapFont();
-		font.scale(0.4f);
+		font.scale(Gdx.graphics.getDensity());
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
 		currentText = "";
@@ -151,7 +151,7 @@ public class GameDialog extends GameObject
 		{
 			case'L':		
 				textX = 50;
-				textY = 50;
+				textY = 50 + (int)(font.getCapHeight() * 2);
 				break;
 			case 'C':
 				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
@@ -159,11 +159,11 @@ public class GameDialog extends GameObject
 				break;
 			case'R':
 				textX = w - 50 - ((getSnippetTextLenght() * font.getSpaceWidth()));
-				textY = h - 50;	
+				textY = h - 50 - (int)(font.getCapHeight() * 2);	
 				break;
 			case 'B':
 				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
-				textY = 50;
+				textY = 50 + (int)(font.getCapHeight() * 2);
 				break;
 		}		
 	}
