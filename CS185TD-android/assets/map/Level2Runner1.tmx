@@ -58,7 +58,7 @@
  <objectgroup name="objects" width="36" height="72">
   <object name="switchFan" type="npo" x="1096" y="1942" width="16" height="30">
    <properties>
-    <property name="actions" value="changeOthersAnim,switchFan-transmorgify,changeOthersAnim,vent1-on,changeOthersAnim,vent2-on,changeOthersAnim,vent3-on,changeOthersAnim,vent4-on,playSound,sndSwitch,changeMyAnim,Basket,playSoundLoop,sndFanOn"/>
+    <property name="actions" value="changeOthersAnim,switchFan-transmorgify,changeOthersAnim,vent1-on,changeOthersAnim,vent2-on,changeOthersAnim,vent3-on,changeOthersAnim,vent4-on,playSound,sndLightSwitch,playSoundLoop,sndFanOn"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
