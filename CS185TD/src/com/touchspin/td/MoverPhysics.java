@@ -1,6 +1,5 @@
 package com.touchspin.td;
 
-
 import java.util.HashSet;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -21,12 +20,13 @@ public class MoverPhysics extends Mover {
 	RectangleMapObject temp;
 	Rectangle rect;
 	HashSet<NP> triggeredNP = new HashSet<NP>();
-	
-	
+	protected NP water;
+	boolean isInWater;
 
 	public MoverPhysics() {
 		speedXPerSecond = 0;
 		speedYPerSecond = 0;
+		water = getObjNamed("water");
 	}
 
 	@Override
@@ -36,15 +36,26 @@ public class MoverPhysics extends Mover {
 
 	protected void physicsMove() {
 
+		isInWater();
+		
 		fractionFactor = g.i().playerFriction;
-		speedXPerSecond *= (1 - fractionFactor);
-		speedYPerSecond *= (1 - fractionFactor);
-
+		if (isInWater) {
+			speedXPerSecond *= (1 - fractionFactor * 2);
+			speedYPerSecond *= (1 - fractionFactor * 2);
+		} else {
+			speedXPerSecond *= (1 - fractionFactor);
+			speedYPerSecond *= (1 - fractionFactor);
+		}
+		
 		speedXPerSecond += accelerationX;
 		speedYPerSecond += accelerationY;
 
-		if (g.i().gameMode == 'R')
-			speedYPerSecond += gravityPerSecond;
+		if (g.i().gameMode == 'R') {
+			if (isInWater) {
+				speedYPerSecond += g.i().playerdyInWater;
+			} else
+				speedYPerSecond += gravityPerSecond;
+		}
 		radius = gameThing.getWidth() / 2;
 		tileWidth = tileHeight = 32;
 	}
@@ -55,6 +66,35 @@ public class MoverPhysics extends Mover {
 	 * 
 	 * @return
 	 */
+	private void isInWater() {
+		if (water != null) {
+			if (gameThing.getY() + gameThing.getHeight() / 2 > water.getY()
+					&& gameThing.getY() + gameThing.getHeight() / 2 < water
+							.getY() + water.getHeight()) {
+
+				if (gameThing.getX() + gameThing.getWidth() / 2 > water.getX()
+						&& gameThing.getX() + gameThing.getWidth() / 2 < water
+								.getX() + water.getWidth()) {
+					isInWater = true;
+					return;
+
+				}
+			}
+		}
+		if(isInWater)
+		{
+			previousY = water.getY() + water.getHeight();
+		}
+		isInWater = false;
+	}
+
+	private NP getObjNamed(String name) {
+		for (int iO = 0; iO < g.i().mapObjects.size(); iO++)
+			if (name.equalsIgnoreCase(g.i().mapObjects.get(iO).getName()))
+				return g.i().mapObjects.get(iO);
+		return null;
+	}
+
 	protected boolean isXFree() {
 		if (speedXPerSecond < 0) // going to the left
 		{
@@ -86,9 +126,9 @@ public class MoverPhysics extends Mover {
 									previousX = rect.x + rect.width;
 									return false;
 								}
-							}else{
-							previousX = rect.x + rect.width;
-							return false;
+							} else {
+								previousX = rect.x + rect.width;
+								return false;
 							}
 						}
 					}
@@ -116,23 +156,25 @@ public class MoverPhysics extends Mover {
 					// check if object is not to the right of the player
 					// or if the object is more than 1 tile away from the player
 					if (rect.x < gameThing.getX()
-							|| rect.x - (gameThing.getX() + gameThing.getWidth()) > 2 * tileWidth)
+							|| rect.x
+									- (gameThing.getX() + gameThing.getWidth()) > 2 * tileWidth)
 						continue;
 
 					// iterate through y values of object
 					for (int countY = (int) rect.y; countY < (rect.y + rect.height); countY++) {
 						// player collides with object
 						if (circleCenter.dst(rect.x, countY) < radius) {
-							
+
 							if (g.i().npMap.get(object) != null) {
 								triggeredNP.add(g.i().npMap.get(object));
 								if (g.i().npMap.get(object).collidable) {
 									previousX = rect.x - gameThing.getWidth();
 									return false;
 								}
-							}else{
-							previousX = rect.x - gameThing.getWidth();
-							return false;}
+							} else {
+								previousX = rect.x - gameThing.getWidth();
+								return false;
+							}
 						}
 					}
 
@@ -175,10 +217,9 @@ public class MoverPhysics extends Mover {
 									previousY = rect.y + rect.height;
 									return false;
 								}
-							}
-							else{
-							previousY = rect.y + rect.height;
-							return false;
+							} else {
+								previousY = rect.y + rect.height;
+								return false;
 							}
 						}
 
@@ -215,17 +256,16 @@ public class MoverPhysics extends Mover {
 					for (int countX = (int) rect.x; countX < (rect.x + rect.width); countX++) {
 						// player collides with object
 						if (circleCenter.dst(countX, rect.y) < radius) {
-							
+
 							if (g.i().npMap.get(object) != null) {
 								triggeredNP.add(g.i().npMap.get(object));
 								if (g.i().npMap.get(object).collidable) {
 									previousY = rect.y - gameThing.getHeight();
 									return false;
 								}
-							}else
-							{
-							previousY = rect.y - gameThing.getHeight();
-							return false;
+							} else {
+								previousY = rect.y - gameThing.getHeight();
+								return false;
 							}
 						}
 					}

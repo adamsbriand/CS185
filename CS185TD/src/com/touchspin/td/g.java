@@ -57,6 +57,7 @@ public class g {
 	// Maze const Variables
 	public float cameraWidth;
 	public float cameraHeight;
+	public float playerdyInWater;
 	
 	// Background variables
 	public float accelX;	// Support for accelerometer X axis. This is for the Vertical axes.

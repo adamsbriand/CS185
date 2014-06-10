@@ -150,15 +150,18 @@ public class Hero extends GameThing {
 	}
 
 	public void changeBall(String type) {
+		int inWaterdyFactor = 10;
 		switch (type) {
 		case "PingPong":
-			g.i().playerFriction = 0.005f;
+			g.i().playerFriction = 0.008f;
+			g.i().playerdyInWater = 0.725620f;
 			flammable = true;
 			ballWidth = 5.8f;
 			ballHeight = 5.8f;
 			break;
 		case "Bowling":
 			g.i().playerFriction = 0.03f;
+			g.i().playerdyInWater = -0.250121f;
 			g.i().fire = false;
 			ballWidth = 30f;
 			ballHeight = 30f;
@@ -166,19 +169,22 @@ public class Hero extends GameThing {
 			break;
 		case "Basket":
 			g.i().playerFriction = 0.01f;
-			ballWidth = 35.2f;
-			ballHeight = 35.2f;
+			g.i().playerdyInWater = 0.72421f;
+			ballWidth = 30f;
+			ballHeight = 30f;
 			flammable = false;
 			g.i().fire = false;
 			break;
 		case "Base":
 			g.i().playerFriction = 0.008f;
+			g.i().playerdyInWater = 0.639421f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
 			flammable = true;
 			break;
 		case "Tennis":
 			g.i().playerFriction = 0.008f;
+			g.i().playerdyInWater = 0.550429f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
 			flammable = true;
@@ -190,6 +196,7 @@ public class Hero extends GameThing {
 		heroSprite.setRegion(ballTypeMap.get(type));
 		g.i().currentBallType = type;
 		g.i().sound.setBounce();
+		g.i().playerdyInWater *= inWaterdyFactor;
 
 		setSpriteBounds();
 	}
