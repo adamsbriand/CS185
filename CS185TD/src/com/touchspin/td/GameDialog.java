@@ -43,7 +43,8 @@ public class GameDialog extends GameObject
 	private final long finalPauseForSkip;
 	
 	public GameDialog(MainGame game, String scriptPath)
-	{				
+	{			
+		Element languageRoot = null;
 		g.i().leAnonymizer.resetAll();
 		//parse XML file
 		xml = new XmlReader();		
@@ -51,9 +52,11 @@ public class GameDialog extends GameObject
 		try
 		{	root = xml.parse(script);	}
 		catch(IOException e)
-		{}		
-		items = root.getChildrenByName("Snippet");	
-			//root.getAttribute("music").toString()
+		{}			
+		
+		languageRoot = root.getChildByName("dialog_" + g.i().language);		
+		items = languageRoot.getChildrenByName("Snippet");
+			
 		g.i().sound.BGMusic(root.getAttribute("music"));
 		
 		font = new BitmapFont();

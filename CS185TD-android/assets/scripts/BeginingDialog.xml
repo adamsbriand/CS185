@@ -35,5 +35,8 @@
 	<dialog_sp>
 	    
 	</dialog_sp>
+	<dialog_vi>
+	    
+	</dialog_vi>
 	<End>NewLevel,Instructions,changeMusic,song1</End>
 </DialogScript>
