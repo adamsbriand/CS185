@@ -97,12 +97,12 @@
   </object>
   <object name="enter1" x="512" y="1829" width="28" height="26"/>
   <object name="Water" x="665" y="1858" width="513" height="466"/>
-  <object name="dragon" type="npcEnemy" x="649" y="276" width="128" height="64">
+  <object name="dragon" type="npcEnemy" x="589" y="197" width="256" height="128">
    <properties>
     <property name="actions" value="reduceHealth,10"/>
     <property name="animations" value="fly,0,47,fly"/>
     <property name="collidable" value="true"/>
-    <property name="collisionParams" value="32,24,64,48"/>
+    <property name="collisionParams" value="32,32,128,64"/>
     <property name="spriteSheet" value="Dragon.png"/>
    </properties>
   </object>
