@@ -375,6 +375,8 @@ public class Trigger {
 			case "Level1Dialog1":
 				g.i().gameMode = 'D';
 				game.setScreen(new GameDialog(game, L1D1));
+				g.i().leAnonymizer.click = false;
+				g.i().leAnonymizer.resetAll();
 				break;
 			case "Level2Maze1":
 				g.i().gameMode = 'M';
