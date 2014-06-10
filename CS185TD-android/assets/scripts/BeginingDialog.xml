@@ -30,5 +30,5 @@
 	    background = "DialogImages/HeroAndWizard.png"
 	    position = "R"
 	    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
-	 <End>NewLevel,Level1Run1,changeMusic,song1</End>
+	 <End>NewLevel,Instructions,changeMusic,song1</End>
 </DialogScriptEn>

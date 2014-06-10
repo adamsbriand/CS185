@@ -44,6 +44,7 @@ public class GameDialog extends GameObject
 	
 	public GameDialog(MainGame game, String scriptPath)
 	{				
+		g.i().leAnonymizer.resetAll();
 		//parse XML file
 		xml = new XmlReader();		
 		script = Gdx.files.internal(scriptPath);	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DialogScriptEn music = "song1"> 
+    <Snippet 
+	    name = "1/3"	
+	    background = "DialogImages/androidMoveRunner.png"
+	    position = "B"
+	    text = "C_:pause:30"/>
+     <Snippet 
+	    name = "2/3"	
+	    background = "DialogImages/androidJumpRunner.png"
+	    position = "B"
+	    text = "C_:pause:30"/>
+      <Snippet 
+	    name = "3/3"	
+	    background = "DialogImages/androidMaze.png"
+	    position = "B"
+	    text = "C_:pause:30:C_:end:null"/>
+    <End>NewLevel,Level1Run1,changeMusic,song1</End>
+</DialogScriptEn>
