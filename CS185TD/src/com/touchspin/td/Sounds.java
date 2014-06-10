@@ -101,6 +101,7 @@ public class Sounds {
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song4));
 				bgMusic.setLooping(true);
 				bgMusic.setOnCompletionListener(null);	
+				break;
 			case "mute":
 				break;
 			default:
