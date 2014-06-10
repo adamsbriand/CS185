@@ -18,8 +18,8 @@ public class MoverAI extends MoverPhysics {
 	private boolean active = false;
 
 	public MoverAI(NP np) {
-		movingAcceleration = 20;
-		movingDeceleration = 100;
+		movingAcceleration = 10;
+		movingDeceleration = 25;
 		path = new Vector2(0, 0);
 		this.np = np;
 		String[] tempCP = np.collisionParameter.split(",");

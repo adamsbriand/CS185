@@ -217,7 +217,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer name="collisions" width="36" height="72">
+ <layer name="collisions" width="36" height="72" opacity="0.34">
   <data encoding="base64" compression="zlib">
    eJztmMEOAiEMRJer/3/1X83GJamVAi6FjmReQjTEtOMgbd3jIIQQQshJutYOJLWenWsnD1ZC3z6hH78R7VfOHV0LdG6d39qfQa6bes/6rFfOVYsQL/K99Y5XqwU9MWo8xPvSjKRnpxo9d0vGnokV39I2U9dIXOs87tavkpaRWninF+iZ3JOe79Hyz7M/JPFq/RfZndHejNS3Uc4r2gcJPfkGwROE+xLNv8z9sr+XZq+W7qjfW23OiyL7pfeQQNHTO9uv0hGVW96zCB0o9QlBA3mD9swLTY8X1NOGeuqgnRmyHgSQtJyg6kHRhNY3PLS8APFAKMg=
   </data>
