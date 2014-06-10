@@ -26,6 +26,7 @@ public class Sounds {
 	private static final String bounce3TennisBall = "snd/sndTennisBallBounce3.wav";
 	private static final String splash = "snd/sndSplash.wav";
 	private static final String Teleport = "snd/Teleport.wav";
+	private float loopsSoundFactor = 0.3f;
 	
 	// Sound effects
 	private static final String arrowfile1 = "snd/sndArrow1.wav";
@@ -176,7 +177,7 @@ public class Sounds {
 			{
 			windBlowing=Gdx.audio.newMusic(Gdx.files.internal(wind));
 			windBlowing.setLooping(true);
-			windBlowing.setVolume(g.i().sfxLevel);
+			windBlowing.setVolume(g.i().sfxLevel * loopsSoundFactor);
 			windBlowing.play();
 			}
 		} else {
@@ -194,7 +195,7 @@ public class Sounds {
 			{
 			fire=Gdx.audio.newMusic(Gdx.files.internal(fireburn));
 			fire.setLooping(true);
-			fire.setVolume(g.i().sfxLevel);
+			fire.setVolume(g.i().sfxLevel * loopsSoundFactor);
 			fire.play();
 			}
 		} else {

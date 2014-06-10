@@ -102,7 +102,7 @@
     <property name="actions" value="reduceHealth,10"/>
     <property name="animations" value="fly,0,47,fly"/>
     <property name="collidable" value="true"/>
-    <property name="collisionParams" value="32,32,128,64"/>
+    <property name="collisionParams" value="32,32,192,64"/>
     <property name="spriteSheet" value="Dragon.png"/>
    </properties>
   </object>
