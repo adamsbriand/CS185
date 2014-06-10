@@ -168,12 +168,12 @@
     <property name="spriteSheet" value="LightSwitch.png"/>
    </properties>
   </object>
-  <object name="water1" type="npo" x="351" y="448" width="95" height="34">
+  <object name="water1" type="npo" x="352" y="430" width="95" height="51">
    <properties>
-    <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
-    <property name="animations" value="flow,0,47,flow"/>
+    <property name="actions" value="igniteBall,false,playSound,sndSplash,changeOthersAnim,water1-flow"/>
+    <property name="animations" value="stay,0,0,stay,flow,1,24,stay"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,96,15"/>
+    <property name="collisionParams" value="-2,0,100,32"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>

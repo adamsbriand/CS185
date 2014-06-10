@@ -376,8 +376,8 @@ public class GameScreen extends GameObject {
 				animCols = 3;
 			} else if(spriteSheet.equalsIgnoreCase("Water.png"))
 			{
-				animRows = 12;
-				animCols = 4;
+				animRows = 5;
+				animCols = 5;
 			}else if(spriteSheet.equalsIgnoreCase("ExitMarker.png"))
 			{
 				animRows = 1;
@@ -414,7 +414,8 @@ public class GameScreen extends GameObject {
 			if (spriteSheet
 					.equalsIgnoreCase("img/spritesheet/TransmorgifierTop.png")
 					|| spriteSheet
-							.equalsIgnoreCase("img/spritesheet/transmorgifier.png"))
+							.equalsIgnoreCase("img/spritesheet/transmorgifier.png")||spriteSheet
+							.equalsIgnoreCase("img/spritesheet/Water.png"))
 				fgg.addActor(g.i().mapObjects.get(count));
 			else if (spriteSheet
 					.equalsIgnoreCase("img/spritesheet/CornerLightOnOff.png"))
