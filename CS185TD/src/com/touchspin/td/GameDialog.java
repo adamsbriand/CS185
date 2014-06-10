@@ -40,6 +40,7 @@ public class GameDialog extends GameObject
 	private float textX = 0;
 	private int textY = 0;	
 	private boolean finishedWithSnippet = false;
+	private final long finalPauseForSkip;
 	
 	public GameDialog(MainGame game, String scriptPath)
 	{				
@@ -60,6 +61,7 @@ public class GameDialog extends GameObject
 		h = Gdx.graphics.getHeight();
 		currentText = "";
 		secondsPerChar = 150;
+		finalPauseForSkip = 1000;
 		nextPrintTime = 0;
 		backGroundPath = null;
 		snippetCount = 0;
@@ -100,6 +102,26 @@ public class GameDialog extends GameObject
 		batch.end();
 	}	
 	
+	private void displayAllText()
+	{
+		currentText = speakerName + ":\n";
+		for(int count = 0; count <textArray.length; count++)
+		{
+			if(textArray[count].equals("C_"))
+			{
+				if(textArray[count + 1].equals("end"))
+				{
+					g.i().t.action(root.get("End"));
+				}
+				count += 2;
+			}
+			else
+				currentText += textArray[count];			
+		}
+		finishedWithSnippet = true;			
+		nextPrintTime += secondsPerChar + finalPauseForSkip;
+	}
+	
 	@Override
 	public void update() 
 	{		
@@ -110,7 +132,14 @@ public class GameDialog extends GameObject
 				nextSnippet();
 				finishedWithSnippet = false;
 			}
-			nextChar();
+			
+			if(g.i().leAnonymizer.click)
+			{
+				g.i().leAnonymizer.click = false;
+				displayAllText();
+			}
+			else
+				nextChar();
 		}
 		
 		//used to display text
@@ -145,6 +174,7 @@ public class GameDialog extends GameObject
 		position = items.get(snippetCount).getAttribute("position").charAt(0);		
 		backGroundPath = items.get(snippetCount).getAttribute("background");		
 		currentText = speakerName + ":\n";
+		charCount = 0;
 		dialogCount = 0;
 		snippetCount++;
 	}
