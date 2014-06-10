@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScriptEn music = "scaryIntro">    
-	<Snippet 
-	    name = "Ollie"	
-	    background = "black"
-	    position = "L"
-	    text = "...:C_:pause:2:Why?...why am I not stronger?:C_:pause:2:Braver?...:C_:pause:4"/>
-	<Snippet
-	    name = "Ollie"	
-	    background = "DialogImages/OlliesFamily.png"
-	    position = "L"
-	    text = "They deserve better...Chase, Dorithy...you both deserve better.:C_:pause:4"/>
-	<Snippet
-	    name = "Ollie"	
-	    background = "black"
-	    position = "L"
-	    text = "I know what I must do...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
-	<Snippet
-	    name = "Ollie"	
-	    background = "DialogImages/HeroAndWizard.png"
-	    position = "L"
-	    text = "Please make me braver! stronger!:C_:pause:6"/>	
-	<Snippet
-	    name = "Wizard"	
-	    background = "DialogImages/HeroAndWizard.png"
-	    position = "R"
-	    text = "...Ollie..:C_:pause:2:I already know you are brave.:C_:pause:4"/>	
-	 <Snippet
-	    name = "Wizard"	
-	    background = "DialogImages/HeroAndWizard.png"
-	    position = "R"
-	    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
-	 <End>NewLevel,Instructions,changeMusic,song1</End>
-</DialogScriptEn>
+<DialogScript music = "scaryIntro"> 
+    <dialog_en   >
+		<Snippet 
+	    	name = "Ollie"	
+	    	background = "black"
+	    	position = "L"
+	    	text = "...:C_:pause:2: Why?...why am I not stronger? :C_:pause:2:Braver?...:C_:pause:4"/>
+		<Snippet
+		    name = "Ollie"	
+		    background = "DialogImages/OlliesFamily.png"
+		    position = "L"
+		    text = "They deserve better... Chase, Dorithy... you both deserve better.:C_:pause:4"/>
+		<Snippet
+		    name = "Ollie"	
+		    background = "black"
+		    position = "L"
+		    text = "I know what I must do...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		<Snippet
+		    name = "Ollie"	
+		    background = "DialogImages/HeroAndWizard.png"
+		    position = "L"
+		    text = "Please make me braver! stronger!:C_:pause:6"/>	
+		<Snippet
+		    name = "Wizard"	
+		    background = "DialogImages/HeroAndWizard.png"
+		    position = "R"
+		    text = "...Ollie... :C_:pause:2:I already know you are brave.:C_:pause:4"/>	
+		 <Snippet
+		    name = "Wizard"	
+		    background = "DialogImages/HeroAndWizard.png"
+		    position = "R"
+		    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
+	</dialog_en>
+	<dialog_sp>
+	    
+	</dialog_sp>
+	<End>NewLevel,Instructions,changeMusic,song1</End>
+</DialogScript>
