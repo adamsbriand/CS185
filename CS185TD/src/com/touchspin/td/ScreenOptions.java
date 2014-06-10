@@ -79,17 +79,6 @@ public class ScreenOptions extends GameMenu {
         			g.i().leAnonymizer.pausePressed = false;
         			g.i().leAnonymizer.resetAll();
         			game.setScreen(previousScreen);
-        			
-        			//g.i().t.action(previousScreen);
-        			
-        			
-        			//String commands = "";
-        			//for (int i = 1; i < levelReturn; i++){
-        			//	commands = commands + levelReturn + ",";
-        			//}
-        			//commands = commands;
-        			//g.i().leAnonymizer.pausePressed = false;
-        			//g.i().t.action("NewLevel," + commands + "playSound,buttonClick");
         		}
         	}};
         ChangeListener soundsListen = new ChangeListener() {

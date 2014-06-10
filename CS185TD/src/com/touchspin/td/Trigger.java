@@ -383,6 +383,7 @@ public class Trigger {
 				g.i().gameMode = 'M';
 				game.setScreen(new GameScreen(game, L2M1));
 				break;
+			case "Level2Run1":
 			case "Level2Runner1":
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L2R1));
