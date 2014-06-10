@@ -29,7 +29,6 @@ public class MoverPhysics extends Mover {
 		water = getObjNamed("water");
 	}
 
-	@Override
 	public void move(GameThing gameThing) {
 		this.gameThing = gameThing;
 	}

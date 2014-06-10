@@ -166,7 +166,7 @@ public class GameScreen extends GameObject {
 		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
 				+ backGroundCamera.viewportWidth / 2;
-		backGroundCamera.position.y = -tiledMapWrapper.backgroundfactor
+		backGroundCamera.position.y = tiledMapWrapper.backgroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
 				+ backGroundCamera.viewportHeight / 2;
 	}
@@ -175,7 +175,7 @@ public class GameScreen extends GameObject {
 		foregroudCamera.position.x = tiledMapWrapper.foregroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
 				+ foregroudCamera.viewportWidth / 2;
-		foregroudCamera.position.y = -tiledMapWrapper.foregroundfactor
+		foregroudCamera.position.y = tiledMapWrapper.foregroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
 				+ foregroudCamera.viewportHeight / 2;
 	}
@@ -440,8 +440,11 @@ public class GameScreen extends GameObject {
 				tempMapObject = new RectangleMapObject(temp.getX(),
 						temp.getY(), temp.getWidth(), temp.getHeight());
 
-			tiledMapWrapper.collisionObjects.add(tempMapObject);
-			g.i().npMap.put(tempMapObject, temp);
+			if(!temp.name.equalsIgnoreCase("dragon"))
+			{
+				tiledMapWrapper.collisionObjects.add(tempMapObject);
+				g.i().npMap.put(tempMapObject, temp);
+			}
 
 			startX = 0;
 			startY = 0;

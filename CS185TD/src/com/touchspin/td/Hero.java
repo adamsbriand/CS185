@@ -137,10 +137,11 @@ public class Hero extends GameThing {
 				getHurt();
 				countTime = 0;
 			}
-			if (g.i().playerHealth < 0) {
-				g.i().playerHealth = 0;
-				g.i().t.action("menu,gameOver");
-			}
+		}
+		
+		if (g.i().playerHealth < 0) {
+			g.i().playerHealth = 0;
+			g.i().t.action("menu,gameOver");
 		}
 
 	}

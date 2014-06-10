@@ -45,7 +45,8 @@ public class NP extends GameThing {
 	public NP(int startX, int startY, int width, int height, String name,
 			String type, String conditions, String action, String anims,
 			int roamingRadius, String spriteSheet, int animRows, int animCols,
-			boolean collidable, String collisionParameter,OrthographicCamera camera, String active) {
+			boolean collidable, String collisionParameter,
+			OrthographicCamera camera, String active) {
 		originalPosition = new Vector2(startX, startY);
 		this.camera = camera;
 		setX(startX);
@@ -67,32 +68,28 @@ public class NP extends GameThing {
 		setActive(active);
 
 		if (type.equalsIgnoreCase("npcEnemy"))
-			npMover = new MoverAI();
-		else if (type.equalsIgnoreCase("npo"))
-			npMover = new MoverPhysics();
+			npMover = new MoverAI(this);
+		else
+			npMover = new MoverNull();
 		if (!spriteSheet.equalsIgnoreCase("")) {
 			this.spriteSheetTexture = new Texture(spriteSheet);
 			this.animRows = animRows;
 			this.animCols = animCols;
 			loadAnimation();
 
-			if(!spriteSheet.equalsIgnoreCase("img/spritesheet/Campfire.png"))
-			{
+			if (!spriteSheet.equalsIgnoreCase("img/spritesheet/Campfire.png")) {
 				stateTime = 0;
-			}
-			else
-			{	Random randomno = new Random();
-				float timePerFrame = 0.025f; 
+			} else {
+				Random randomno = new Random();
+				float timePerFrame = 0.025f;
 				stateTime = randomno.nextInt(12) * timePerFrame;
 
 			}
 			currentFrame = currentAnimation.getKeyFrame(stateTime, false);
 			npSprite.setRegion(currentFrame);
 
-			npSprite.setBounds(getX(), getY(), getWidth(), getHeight() );
-		}
-		else
-		{
+			npSprite.setBounds(getX(), getY(), getWidth(), getHeight());
+		} else {
 			this.animRows = 0;
 			this.animCols = 0;
 		}
@@ -104,44 +101,42 @@ public class NP extends GameThing {
 	}
 
 	public void setAnimation(String animationName) {
-		if(animationSet.getCurrentAnimationDescription().name.equalsIgnoreCase("Broken"))
-			{
-				active = false;
-				return;
-			}
+		if (animationSet.getCurrentAnimationDescription().name
+				.equalsIgnoreCase("Broken")) {
+			active = false;
+			return;
+		}
 		stateTime = 0;
-		currentAnimation = animationMap
-				.get(animationName);
+		currentAnimation = animationMap.get(animationName);
 		animationSet.iCurrAnim = animationSet.getIndexOf(animationName);
-		
+
 	}
-	
-	public String getAnimation(){
+
+	public String getAnimation() {
 		return animationSet.getCurrentAnimationDescription().name;
 	}
 
 	@Override
 	public void draw(Batch batch, float alpha) {
-		if(!spriteSheet.equalsIgnoreCase(""))
-		{
+		if (!spriteSheet.equalsIgnoreCase("")) {
 			batch.setProjectionMatrix(camera.combined);
 			npSprite.draw(batch);
 		}
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
-	
-	public boolean nameMatch(String name)
-	{
+
+	public boolean nameMatch(String name) {
 		return this.name.equalsIgnoreCase(name);
 	}
+
 	@Override
 	public void act(float delta) {
 
-		// npMover.move(this);
+		if (name.equalsIgnoreCase("Dragon"))
+			npMover.move(this);
 		npSprite.setX(getX());
 		npSprite.setY(getY());
 
@@ -155,10 +150,9 @@ public class NP extends GameThing {
 			}
 		}
 	}
-	
-	public void setActive(String value)
-	{
-		if(value.equalsIgnoreCase("true"))
+
+	public void setActive(String value) {
+		if (value.equalsIgnoreCase("true"))
 			active = true;
 		else
 			active = false;
@@ -169,8 +163,8 @@ public class NP extends GameThing {
 	private void loadAnimation() {
 
 		TextureRegion[][] tmp = TextureRegion.split(spriteSheetTexture,
-				spriteSheetTexture.getWidth() / animCols, spriteSheetTexture.getHeight()
-						/ animRows);
+				spriteSheetTexture.getWidth() / animCols,
+				spriteSheetTexture.getHeight() / animRows);
 		TextureRegion[] Frames = new TextureRegion[animRows * animCols];
 		int index = 0;
 		for (int i = 0; i < animRows; i++) {
@@ -186,7 +180,7 @@ public class NP extends GameThing {
 
 	private void loadAnimationSet() {
 		String temp[] = anims.split(",");
-		for (int i = 0; i < temp.length; i+=4) {
+		for (int i = 0; i < temp.length; i += 4) {
 			animationSet.add(new AnimationDescription(temp[i], Integer
 					.parseInt(temp[i + 1]), Integer.parseInt(temp[i + 2]),
 					temp[i + 3]));
@@ -205,7 +199,7 @@ public class NP extends GameThing {
 			}
 			temp = new Animation(0.025f, tempRegion);
 			animationMap.put(animationSet.get(i).name, temp);
-			if(i == 0)
+			if (i == 0)
 				currentAnimation = new Animation(0.025f, tempRegion);
 		}
 	}
