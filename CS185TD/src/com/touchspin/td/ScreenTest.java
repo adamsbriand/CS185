@@ -72,7 +72,7 @@ public class ScreenTest implements Screen {
         final int yOff = 100; // 200
         
         final TextButton textButton=new TextButton("L1 R1",textButtonStyle);
-        textButton.setPosition(xOff+0*dX, yOff+0*dY);
+        textButton.setPosition(xOff+0*dX, yOff+1*dY);
         stage.addActor(textButton);
         
         textButton.addListener(new ChangeListener() {
@@ -82,7 +82,7 @@ public class ScreenTest implements Screen {
         });
         
         final TextButton textButton2=new TextButton("L1 M1",textButtonStyle);
-        textButton2.setPosition(xOff+1*dX, yOff+0*dY);
+        textButton2.setPosition(xOff+1*dX, yOff+1*dY);
         stage.addActor(textButton2);
         
         textButton2.addListener(new ChangeListener() {
@@ -91,18 +91,8 @@ public class ScreenTest implements Screen {
         	}
         });
         
-        final TextButton textButton3=new TextButton("L2 M1",textButtonStyle);
-        textButton3.setPosition(xOff+2*dX, yOff+0*dY);
-        stage.addActor(textButton3);
-        
-        textButton3.addListener(new ChangeListener() {
-        	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("NewLevel,Level2Maze1");
-        	}
-        });
-        
         final TextButton textButton4=new TextButton("L1 M2",textButtonStyle);
-        textButton4.setPosition(xOff+0*dX, yOff+1*dY);
+        textButton4.setPosition(xOff+2*dX, yOff+1*dY);
         stage.addActor(textButton4);
         
         textButton4.addListener(new ChangeListener() {
@@ -111,8 +101,18 @@ public class ScreenTest implements Screen {
         	}
         });
         
+        final TextButton textButton3=new TextButton("L2 M1",textButtonStyle);
+        textButton3.setPosition(xOff+0*dX, yOff+0*dY);
+        stage.addActor(textButton3);
+        
+        textButton3.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("NewLevel,Level2Maze1");
+        	}
+        });
+        
         final TextButton textButton5=new TextButton("L2 R1",textButtonStyle);
-        textButton5.setPosition(xOff+1*dX, yOff+1*dY);
+        textButton5.setPosition(xOff+1*dX, yOff+0*dY);
         stage.addActor(textButton5);
         
         textButton5.addListener(new ChangeListener() {
