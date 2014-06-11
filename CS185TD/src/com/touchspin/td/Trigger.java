@@ -17,6 +17,7 @@ public class Trigger {
 	private final static String L1D1 = "scripts/BeginingDialog.xml";
 	private final static String androidInstructions = "scripts/AndroidInstructions.xml";
 	private final static String PCInstructions = "scripts/PCInstructions.xml";	
+	private final static String EndDialog = "scripts/EndingDialog.xml";
 	private final static String L2R1 = "map/Level2Runner1.tmx";
 	
 	MainGame game;
@@ -390,6 +391,10 @@ public class Trigger {
 			case "Level2Runner1":
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L2R1));
+				break;
+			case "dialogOutro":
+				g.i().gameMode = 'D';
+				game.setScreen(new GameDialog(game, EndDialog));
 				break;
 			case "Instructions" :
 				g.i().gameMode = 'D';
