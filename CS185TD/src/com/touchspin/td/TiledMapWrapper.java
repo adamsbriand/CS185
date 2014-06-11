@@ -48,7 +48,7 @@ public class TiledMapWrapper {
 		name = path.substring(start, stop);
 		int i = 0;
 		for (MapLayer layer : tiledMap.getLayers()) {
-			if (layer.getName().contains("fg"))
+			if (layer.getName().contains("fg") && layer.getName().contains("parallax"))
 				foregroundLayer.add(i);
 			else if (layer.getName().contains("bg"))
 				backgroundLayer.add(i);

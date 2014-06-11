@@ -6,7 +6,7 @@
  <tileset firstgid="6" name="BloxTopDuplo" tilewidth="32" tileheight="32">
   <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
  </tileset>
- <layer name="bg3" width="36" height="28" visible="0">
+ <layer name="bg3" width="36" height="28">
   <data encoding="base64" compression="zlib">
    eJyNlUsSAiEQQzkEcP+j6kKr8PkSZmGNYtOfJJ2ZY4z9/qzPc5bn/MTN4/x7jznWEbPlN3Oe9xbytf+tlvVvfS7ksJxLctjZHL+4WH5iyLlYf+Ge9WO5z1m35NjjHyvGMNbyG98JD85i2JtWiIfxR74Nd+OZfZK7jXPyYricsxieNqvNlnpse5X0ajvHXky35Iy5WCtxwXrGn/XXMGevphXmSL0x3jSf9oE7ZHPxu/GX9pNc0NOYj3tjPRBfi3uCpfWWdpo8WlzaLeOAWqfXGOc3rswniTXjbzpLvse7aTeSn968hb1YvaR70+st3jBPNZPPmU7My8xXyJe9e7jT9NjElflew8Owe+IjrMu75kmt9+TLyXstLr0XDA/jkHOzf+LftMLZkgeYxpJW06f1mfbP9t1wY33bXXtftBrml8Qt+ZlhmmpbTdOFzZP2pu1D65/8pPqm7Yahadx2LflRikvauOks6bN5pu2Kccq65LLlSjtodxlvvBofpqWJc/M64pT0aP2b9p76sfFku998gXPbTN/nCyooUrM=
   </data>
