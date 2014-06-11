@@ -143,6 +143,11 @@ public class GameDialog extends GameObject
 				g.i().leAnonymizer.click = false;
 				displayAllText();
 			}
+			if(g.i().leAnonymizer.pausePressed)
+			{
+				g.i().leAnonymizer.pausePressed = false;
+				performAction("end", "null");
+			}
 			else
 				nextChar();
 		}

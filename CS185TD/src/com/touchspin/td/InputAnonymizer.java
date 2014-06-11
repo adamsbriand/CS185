@@ -3,6 +3,7 @@ package com.touchspin.td;
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Input.Peripheral;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.input.GestureDetector;
@@ -80,6 +81,8 @@ public class InputAnonymizer extends Actor implements GestureListener,
 //			attack = true;
 		if (keycode == Input.Keys.SPACE)
 			jump = true;
+		if(keycode == Keys.BACK)//android back button
+			pausePressed = true;
 //		if (keycode == Input.Keys.LEFT)
 //			tiltSpeed.x = -2;
 //		if (keycode == Input.Keys.RIGHT)
@@ -210,15 +213,16 @@ public class InputAnonymizer extends Actor implements GestureListener,
 	{
 		switch (g.i().controls) {
 		case 'A':
-			// only listen to touch screen events
+			// only listen to touch screen events when using android
 			Gdx.input.setInputProcessor(new GestureDetector(this));
+			Gdx.input.setCatchBackKey(true);//needed to listen for android back button
 			break;
 		case 'D':
-			// only listen to keyboard events
-			Gdx.input.setInputProcessor((InputProcessor)this);
+			// only listen to keyboard events			
 			break;
 		default:
 			break;
 		}
+		Gdx.input.setInputProcessor((InputProcessor)this);
 	}
 }
