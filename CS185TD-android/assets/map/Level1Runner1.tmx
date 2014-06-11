@@ -183,7 +183,7 @@
   </object>
   <object name="airpuff" type="npo" x="3904" y="355" width="33" height="91">
    <properties>
-    <property name="actions" value="changeBallY,550"/>
+    <property name="actions" value="changeBallY,660"/>
     <property name="active" value="false"/>
     <property name="animations" value="off,52,52,off,on,0,51,on"/>
     <property name="collidable" value="false"/>
