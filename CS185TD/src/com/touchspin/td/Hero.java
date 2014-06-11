@@ -138,7 +138,7 @@ public class Hero extends GameThing {
 				countTime = 0;
 			}
 		}
-		
+
 		if (g.i().playerHealth < 0) {
 			g.i().playerHealth = 0;
 			g.i().t.action("menu,gameOver");
@@ -151,26 +151,23 @@ public class Hero extends GameThing {
 	}
 
 	public void changeBall(String type) {
-		int inWaterdyFactor = 10;
+
 		switch (type) {
 		case "PingPong":
 			g.i().playerFriction = 0.008f;
-			g.i().playerdyInWater = 0.725620f;
 			flammable = true;
 			ballWidth = 5.8f;
 			ballHeight = 5.8f;
 			break;
 		case "Bowling":
 			g.i().playerFriction = 0.03f;
-			g.i().playerdyInWater = -0.250121f;
 			g.i().fire = false;
 			ballWidth = 30f;
 			ballHeight = 30f;
 			flammable = false;
 			break;
 		case "Basket":
-			g.i().playerFriction = 0.01f;
-			g.i().playerdyInWater = 0.72421f;
+			g.i().playerFriction = 0.011f;
 			ballWidth = 30f;
 			ballHeight = 30f;
 			flammable = false;
@@ -178,14 +175,12 @@ public class Hero extends GameThing {
 			break;
 		case "Base":
 			g.i().playerFriction = 0.008f;
-			g.i().playerdyInWater = 0.639421f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
 			flammable = true;
 			break;
 		case "Tennis":
 			g.i().playerFriction = 0.008f;
-			g.i().playerdyInWater = 0.550429f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
 			flammable = true;
@@ -197,9 +192,8 @@ public class Hero extends GameThing {
 		heroSprite.setRegion(ballTypeMap.get(type));
 		g.i().currentBallType = type;
 		g.i().sound.setBounce();
-		g.i().playerdyInWater *= inWaterdyFactor;
-
 		setSpriteBounds();
+		calcualteDyInWater();
 	}
 
 	public void igniteBall(boolean fireOn) {
@@ -232,7 +226,6 @@ public class Hero extends GameThing {
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 
-		
 		camera.position.x = getX() + getWidth() / 2;
 		camera.position.y = getY() + getHeight() / 2;
 		if (camera.position.x - camera.viewportWidth / 2 < 0)
@@ -241,25 +234,6 @@ public class Hero extends GameThing {
 				.getPixelHeight())
 			camera.position.y = tiledMapWrapper.getPixelHeight()
 					- camera.viewportHeight / 2;
-		
-//		if (g.i().gameMode == 'M') {
-//			camera.position.x = getX() + getWidth() / 2;
-//			camera.position.y = getY() + getHeight() / 2;
-//			if (camera.position.x - camera.viewportWidth / 2 < 0)
-//				camera.position.x = camera.viewportWidth / 2;
-//			if (camera.position.y + camera.viewportHeight > tiledMapWrapper
-//					.getPixelHeight())
-//				camera.position.y = tiledMapWrapper.getPixelHeight()
-//						- camera.viewportHeight / 2;
-//		} else {
-//			camera.position.x = getX() + getWidth() / 2;
-//			if (camera.position.x - camera.viewportWidth / 2 < 0)
-//				camera.position.x = camera.viewportWidth / 2;
-//			if (camera.position.x + camera.viewportWidth / 2 > tiledMapWrapper
-//					.getPixelWidth())
-//				camera.position.x = tiledMapWrapper.getPixelWidth()
-//						- camera.viewportWidth / 2;
-//		}
 	}
 
 	// --------------Private helper
@@ -407,5 +381,39 @@ public class Hero extends GameThing {
 			smokeEffect.setOrigin(heroSprite.getWidth() / 2,
 					heroSprite.getHeight() / 2);
 		}
+	}
+
+	private void calcualteDyInWater() {
+		float mass = 0;
+		float radius = 0;
+		float floatforce = 0;
+		int inWaterdyFactor = 1;
+		switch (g.i().currentBallType) {
+		case "PingPong":
+			mass = 0.0027f;
+			radius = 0.02f;
+			break;
+		case "Bowling":
+			mass = 7.3f;
+			radius = 0.09f;
+			break;
+		case "Basket":
+			//mass = 0.62f;
+			mass = 2.62f;
+			radius = 0.121f;
+			break;
+		case "Base":
+			mass = 0.145f;
+			radius = 0.0382f;
+			break;
+		case "Tennis":
+			mass = 0.06f;
+			radius = 0.0335f;
+			break;
+		}	
+		floatforce = (float) (1000*9.8f * 4/3*Math.PI*Math.pow(radius, 3));
+		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;
+		float dy = force/mass;
+		g.i().playerdyInWater = dy;
 	}
 }
