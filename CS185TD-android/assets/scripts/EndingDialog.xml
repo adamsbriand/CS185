@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = "scaryIntro">
+<DialogScript music = "outro">
     
     <dialog_en>
         <Snippet 
@@ -11,7 +11,7 @@
         	name = "Wizard"	
 	    	background = "DialogImages/GameEnd.png"
 	    	position = "R"
-	    	text = "As promised, I return your family to you.:C_:pause:10:C_:end:null"/>
+	    	text = "As promised, I return your family to you.:C_:pause:20:C_:end:null"/>
     </dialog_en>
     
 	<dialog_sp>	    

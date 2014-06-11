@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DialogScript music = ""> 
+    <dialog_en   >
+		<Snippet 
+	    	name = "Wizard"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "Well done Ollie on making it this far!:C_:pause:4"/>
+		<Snippet 
+	    	name = "Wizard"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "You're journy is however about to get much harder.:C_:pause:4:C_:end:null"/>
+	</dialog_en>
+	<dialog_sp>
+	    
+	</dialog_sp>
+	<dialog_vi>
+	    
+	</dialog_vi>
+	<End>changeMap,Level2Maze1,changeLocation,enter1</End>	
+</DialogScript>

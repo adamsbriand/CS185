@@ -57,7 +57,8 @@ public class GameDialog extends GameObject
 		languageRoot = root.getChildByName("dialog_" + g.i().language);		
 		items = languageRoot.getChildrenByName("Snippet");
 			
-		g.i().sound.BGMusic(root.getAttribute("music"));
+		if(!root.getAttribute("music").equals(""))
+			g.i().sound.BGMusic(root.getAttribute("music"));
 		
 		font = new BitmapFont();
 		font.scale(Gdx.graphics.getDensity());
@@ -254,7 +255,9 @@ public class GameDialog extends GameObject
 			break;
 		
 		case "instaPrint":		
-			currentText += textArray[dialogCount++];	
+			currentText += textArray[dialogCount++];
+		case "dispImage" :
+			break;
 		default :				
 		}
 	}
