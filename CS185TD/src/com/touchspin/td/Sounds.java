@@ -93,7 +93,7 @@ public class Sounds {
 				bgMusic.setOnCompletionListener(null);
 				break;
 			case "outro":
-				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3));
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
 				bgMusic.setLooping(true);
 				bgMusic.setOnCompletionListener(null);		
 				break;

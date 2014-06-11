@@ -10,7 +10,6 @@ import com.badlogic.gdx.Screen;
 
 public class Trigger {
 	private final static String L1R1 = "map/Level1Runner1.tmx";
-	private final static String L1R2 = "";
 	private final static String L1M1 = "map/Level1Maze1.tmx";
 	private final static String L2M1 = "map/Level2Maze1.tmx";
 	private final static String L1M2 = "map/Level1Maze2.tmx";
