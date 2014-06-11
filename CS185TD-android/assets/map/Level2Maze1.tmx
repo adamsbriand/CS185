@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="36" height="28" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="BloxTopMonochrome" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
+  <image source="../img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
  </tileset>
  <tileset firstgid="6" name="BloxTopDuplo" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
+  <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
  </tileset>
  <layer name="bg3" width="36" height="28" visible="0">
   <data encoding="base64" compression="zlib">

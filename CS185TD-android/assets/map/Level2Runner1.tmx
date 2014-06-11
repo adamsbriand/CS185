@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="36" height="72" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="BloxRainbow" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxRainbow.png" width="320" height="320"/>
+  <image source="../img/tileSet/BloxRainbow.png" width="320" height="320"/>
  </tileset>
  <tileset firstgid="101" name="BloxTopDuplo" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
+  <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
  </tileset>
  <tileset firstgid="157" name="BloxTopMonochrome" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
+  <image source="../img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
  </tileset>
  <tileset firstgid="162" name="BloxSide32_6x16" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxSide32_6x16.png" width="512" height="192"/>
+  <image source="../img/tileSet/BloxSide32_6x16.png" width="512" height="192"/>
  </tileset>
  <tileset firstgid="258" name="DecorationsSide32_4x10" tilewidth="32" tileheight="32">
-  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/DecorationsSide32_4x10.png" width="320" height="128"/>
+  <image source="../img/tileSet/DecorationsSide32_4x10.png" width="320" height="128"/>
  </tileset>
  <layer name="background" width="36" height="72">
   <data encoding="base64" compression="zlib">
