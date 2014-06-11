@@ -346,6 +346,9 @@ public class Trigger {
 				game.setScreen(new ScreenOptions(game, screen));
 			}
 			break;
+		case "credits":
+			game.setScreen(new ScreenCredits(game));
+			break;
 		}
 	}
 

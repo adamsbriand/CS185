@@ -24,11 +24,8 @@ public class ScreenGameOver extends GameMenu{
 	}
 
 	void buttons() {
-		final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
 		final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
-    	final float yRow1 = Gdx.graphics.getWidth() / 3;
     	final float yRow1_2 = Gdx.graphics.getWidth() / 2;
-    	final float yRow2 = Gdx.graphics.getWidth() / 3 * 2;
     	float height = 0;
     	float width = 0;
     	
@@ -48,7 +45,6 @@ public class ScreenGameOver extends GameMenu{
         continueButton.setPosition(yRow1_2 - width, xRow2 - height);
 	}
 
-	@Override
 	void logo() {
 		super.setLogo(Gdx.files.internal("img/menu/LogoGameOver.png"));
 	}
