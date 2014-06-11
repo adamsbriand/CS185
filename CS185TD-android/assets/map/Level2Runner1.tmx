@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="36" height="72" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="BloxRainbow" tilewidth="32" tileheight="32">
-  <image source="../img/tileSet/BloxRainbow.png" width="320" height="320"/>
+  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxRainbow.png" width="320" height="320"/>
  </tileset>
  <tileset firstgid="101" name="BloxTopDuplo" tilewidth="32" tileheight="32">
-  <image source="../img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
+  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxTopDuplo.png" width="224" height="256"/>
  </tileset>
  <tileset firstgid="157" name="BloxTopMonochrome" tilewidth="32" tileheight="32">
-  <image source="../img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
+  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxTopMonochrome.png" width="160" height="32"/>
  </tileset>
  <tileset firstgid="162" name="BloxSide32_6x16" tilewidth="32" tileheight="32">
-  <image source="../img/tileSet/BloxSide32_6x16.png" width="512" height="192"/>
+  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/BloxSide32_6x16.png" width="512" height="192"/>
  </tileset>
  <tileset firstgid="258" name="DecorationsSide32_4x10" tilewidth="32" tileheight="32">
-  <image source="../img/tileSet/DecorationsSide32_4x10.png" width="320" height="128"/>
+  <image source="../../../../CS185/CS185TD-android/assets/img/tileSet/DecorationsSide32_4x10.png" width="320" height="128"/>
  </tileset>
  <layer name="background" width="36" height="72">
   <data encoding="base64" compression="zlib">
@@ -85,7 +85,7 @@
   </object>
   <object name="exit1" type="npo" x="2" y="414" width="32" height="32">
    <properties>
-    <property name="actions" value="changelevel,dialogOutro,stopAllSounds,true,changeMusic,outro"/>
+    <property name="actions" value="menu,gameOver,stopAllSounds,true,changeMusic,outro"/>
     <property name="animations" value="x,0,0,x"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -119,7 +119,7 @@
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a basket ball"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="Transmorgifier.png"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
   <object name="TransmorgifierBowling1" type="npo" x="32" y="1696" width="160" height="160">
@@ -133,7 +133,7 @@
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a bowling ball"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="Transmorgifier.png"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
   <object name="TransmorgifierPingPong1" type="npo" x="44" y="1311" width="160" height="160">
@@ -147,7 +147,7 @@
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a PingPong ball"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="Transmorgifier.png"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
   <object name="vent4" type="npo" x="288" y="1440" width="32" height="64">
@@ -213,7 +213,7 @@
     <property name="mover" value="null"/>
     <property name="notes" value="if hero touches collision rect, he becomes a Base ball"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="Transmorgifier.png"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
  </objectgroup>
