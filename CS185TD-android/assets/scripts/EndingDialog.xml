@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DialogScript music = "scaryIntro">
+    
+    <dialog_en>
+        <Snippet 
+        	name = "Wizard"	
+	    	background = "DialogImages/GameEnd.png"
+	    	position = "R"
+	    	text = "C_:pause:10: Well Ollie, now you see just how brave you are?:C_:pause:4"/>
+        <Snippet 
+        	name = "Wizard"	
+	    	background = "DialogImages/GameEnd.png"
+	    	position = "R"
+	    	text = "As promised, I return your family to you.:C_:pause:10:C_:end:null"/>
+    </dialog_en>
+    
+	<dialog_sp>	    
+	</dialog_sp>
+	
+	<dialog_vi>	    
+	</dialog_vi>
+	
+	<End>menu,credits</End>
+</DialogScript>
