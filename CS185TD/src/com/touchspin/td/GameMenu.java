@@ -2,6 +2,7 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -63,15 +64,13 @@ public abstract class GameMenu extends GameObject {
         np = new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceChecked.png")), 20, 20, 20, 20);
         NinePatchDrawable npCheck = new NinePatchDrawable(np);
  
-        bfont = new BitmapFont();
+        bfont = new BitmapFont(Gdx.files.internal("font/ollieFont.fnt"));
         if (Gdx.app.getType().toString() == "Desktop"){
-        	float dpi = Gdx.graphics.getDensity();
-        	int stop = 0;
         	bfont.scale(1);
         } else {
         	bfont.scale(3);
         }
-        bfont.scale(Gdx.graphics.getDensity() / 4);
+        bfont.setColor(Color.WHITE);
         new TextButtonStyle();
         textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, bfont);
         textButtonStyle.pressedOffsetX = 3;
