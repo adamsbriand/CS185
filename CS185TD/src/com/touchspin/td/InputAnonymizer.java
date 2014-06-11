@@ -148,7 +148,7 @@ public class InputAnonymizer extends Actor implements GestureListener,
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		click = true;
-		attack = true;
+		jump = true;
 		return true;
 	}
 
