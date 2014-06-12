@@ -973,17 +973,17 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="bottomlessPit10" x="191" y="512" width="34" height="62">
+  <object name="heart1" x="671" y="961" width="32" height="32">
    <properties>
-    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
-    <property name="animations" value=""/>
+    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heart1-gone,changeActive,heart1-false"/>
+    <property name="animations" value="pumping,0,16,pumping,gone,17,17,gone"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value=""/>
+    <property name="spriteSheet" value="HeartYummy.png"/>
    </properties>
   </object>
   <object name="water1" type="npo" x="2" y="417" width="91" height="477">
@@ -1050,6 +1050,19 @@
     <property name="notes" value="if hero touches collision rect, he becomes a Tennis ball"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="TransmorgifierTop.png"/>
+   </properties>
+  </object>
+  <object name="bottomlessPit10" x="191" y="510" width="34" height="62">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
    </properties>
   </object>
  </objectgroup>

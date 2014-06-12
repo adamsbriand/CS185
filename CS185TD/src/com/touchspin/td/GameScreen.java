@@ -411,6 +411,10 @@ public class GameScreen extends GameObject {
 				animRows = 10;
 				animCols = 5;
 			}
+			else if (spriteSheet.equalsIgnoreCase("HeartYummy.png")) {
+				animRows = 5;
+				animCols = 5;
+			}
 
 			if (!spriteSheet.equalsIgnoreCase(""))
 				spriteSheet = "img/spritesheet/" + spriteSheet;
