@@ -436,8 +436,7 @@ public class GameScreen extends GameObject {
 				bgg.addActor(g.i().mapObjects.get(count));
 			count++;
 
-			MapObject tempMapObject = null;
-			if (object instanceof RectangleMapObject) {
+				MapObject tempMapObject ;
 				if (!temp.collisionParameter.equalsIgnoreCase("")) {
 					String[] tempCP = temp.collisionParameter.split(",");
 					if (tempCP.length == 4) {
@@ -451,7 +450,7 @@ public class GameScreen extends GameObject {
 						tempMapObject = new RectangleMapObject(temp.getX(),
 								temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-			}else
+				else
 				tempMapObject = new RectangleMapObject(temp.getX(),
 						temp.getY(), temp.getWidth(), temp.getHeight());
 

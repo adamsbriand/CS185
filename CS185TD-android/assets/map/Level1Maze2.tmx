@@ -82,7 +82,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -96,7 +96,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -110,7 +110,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -124,7 +124,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -138,7 +138,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -152,7 +152,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -166,7 +166,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -180,7 +180,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -194,7 +194,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -222,7 +222,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -236,7 +236,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -250,7 +250,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -264,7 +264,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -278,7 +278,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -292,7 +292,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -306,7 +306,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -320,7 +320,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -334,7 +334,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -348,7 +348,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -362,7 +362,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -376,7 +376,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -390,7 +390,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -404,7 +404,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -418,7 +418,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -432,7 +432,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -446,7 +446,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -460,7 +460,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -474,7 +474,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -488,7 +488,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -502,7 +502,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -516,7 +516,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -530,7 +530,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -544,7 +544,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -558,7 +558,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -572,7 +572,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -586,7 +586,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -600,7 +600,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -614,7 +614,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -628,7 +628,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -642,7 +642,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -656,7 +656,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -670,7 +670,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -684,7 +684,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -698,7 +698,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -712,7 +712,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -726,7 +726,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -740,7 +740,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -754,7 +754,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -768,7 +768,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -782,7 +782,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -796,7 +796,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,11,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="circle"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -831,7 +831,7 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="water5" type="npo" x="0" y="224" width="61" height="189">
+  <object name="water4" type="npo" x="0" y="224" width="61" height="189">
    <properties>
     <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
     <property name="animations" value=""/>
@@ -986,7 +986,7 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="water5" type="npo" x="2" y="417" width="91" height="477">
+  <object name="water1" type="npo" x="2" y="417" width="91" height="477">
    <properties>
     <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
     <property name="animations" value=""/>
