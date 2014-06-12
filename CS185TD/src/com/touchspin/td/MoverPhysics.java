@@ -67,18 +67,14 @@ public class MoverPhysics extends Mover {
 	 */
 	private void isInWater() {
 		if (water != null) {
-			if (gameThing.getY() + gameThing.getHeight() / 2 > water.getY()
-					&& gameThing.getY() + gameThing.getHeight() / 2 < water
-							.getY() + water.getHeight()) {
-
-				if (gameThing.getX() + gameThing.getWidth() / 2 > water.getX()
-						&& gameThing.getX() + gameThing.getWidth() / 2 < water
-								.getX() + water.getWidth()) {
-					isInWater = true;
-					return;
-
-				}
-			}
+			float gty = gameThing.getY() + gameThing.getHeight()/2;
+			float gtx = gameThing.getX() + gameThing.getWidth ()/2;
+			float wL = water.getX();
+			float wR = wL + water.getWidth();
+			float wT = water.getY();
+			float wB = wT + water.getHeight();
+			isInWater =  (gtx>wL && gtx<wR && gty>wT && gty<wB);
+			if (isInWater) return;
 		}
 		if(isInWater)
 		{
