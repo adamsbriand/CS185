@@ -140,7 +140,7 @@ public abstract class GameMenu extends GameObject {
 			Exit = "Exit";
 			break;
 		case "zh":
-			CurrentLanguage = "官話";
+			CurrentLanguage = "当前语言";
 			Continue = "继续";
 			Gyro = "陀螺仪";
 			Keyboard = "键盘";
