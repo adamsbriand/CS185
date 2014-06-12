@@ -474,6 +474,7 @@ public class GameScreen extends GameObject {
 			animRows = 0;
 			animCols = 0;
 			collidable = false;
+			active = "true";
 		}
 
 	}
