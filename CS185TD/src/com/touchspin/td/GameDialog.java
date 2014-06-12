@@ -60,7 +60,7 @@ public class GameDialog extends GameObject
 		if(!root.getAttribute("music").equals(""))
 			g.i().sound.BGMusic(root.getAttribute("music"));
 		
-		font = new BitmapFont();
+		font = new BitmapFont(Gdx.files.internal("Font/ollieFont.fnt"));
 		font.scale(Gdx.graphics.getDensity());
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();

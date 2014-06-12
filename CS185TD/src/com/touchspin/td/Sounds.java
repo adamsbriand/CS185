@@ -54,6 +54,7 @@ public class Sounds {
 	private static final String song3b = "snd/song3B.wav";
 	private static final String song3c = "snd/song3C.wav";
 	private static final String song4 = "snd/song4.wav";
+	private static final String iSeamToBeABall = "snd/songIseemToBeABall.mp3";
 	
 	private Sound arrow1=null;
 	private Sound arrow2=null;
@@ -87,16 +88,13 @@ public class Sounds {
 						bgMusic.setOnCompletionListener(null);
 					}});
 				break;
+			case "song3":
 			case "outro2":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3));
 				bgMusic.setLooping(true);
 				bgMusic.setOnCompletionListener(null);
-				break;
-			case "outro":
-				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
-				bgMusic.setLooping(true);
-				bgMusic.setOnCompletionListener(null);		
-				break;
+				break;		
+			case "song4":
 			case "menu":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song4));
 				bgMusic.setLooping(true);
@@ -104,6 +102,20 @@ public class Sounds {
 				break;
 			case "mute":
 				break;
+			case "iamaball":
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(iSeamToBeABall));
+				bgMusic.setLooping(false);
+				bgMusic.setOnCompletionListener(
+						new Music.OnCompletionListener(){
+					public void onCompletion(Music music) {
+						BGMusic("mainmenu");
+					}});
+			case "outro":
+				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
+				//bgMusic.setLooping(true);
+				//bgMusic.setOnCompletionListener(null);		
+				//break;
+			case "mainmenu":
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
 				bgMusic.setLooping(true);

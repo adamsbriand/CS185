@@ -124,25 +124,10 @@ public class Trigger {
 	private void igniteBall(String value) {
 		g.i().fire = (value.equalsIgnoreCase("true"));
 		if (!g.i().fire) g.i().sound.fire( false );
-//		if (g.i().fire)
-//		if (value.equalsIgnoreCase("true")){
-//			g.i().fire = true;
-//		} else {
-//			g.i().fire = false;
-//			if(!g.i().fire)
-//			{
-//				g.i().sound.fire(false);
-//			}
-//		}
 	}
 	
 	private boolean ballFlammable(String value){
 		return g.i().hero.flammable;
-//		if (value.equalsIgnoreCase("true")){
-//			return g.i().hero.flammable;
-//		} else {
-//			return g.i().hero.flammable;
-//		}
 	}
 
 	private void changeBallY(String value) {
@@ -184,20 +169,10 @@ public class Trigger {
 	
 	private void toggleState(String value)
 	{
-		String currentAnim;
 		NP obj = getObjNamed(value);
 		if (obj!=null) 
 			obj.setAnimation( (obj.getAnimation().equalsIgnoreCase("on")) ? "off" : "on");
-		
-//		for (int i=0; i < g.i().mapObjects.size(); i++){
-//			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
-//				currentAnim = g.i().mapObjects.get(i).getAnimation();
-//				if(currentAnim.equalsIgnoreCase("off"))
-//					g.i().mapObjects.get(i).setAnimation("on");
-//				else
-//					g.i().mapObjects.get(i).setAnimation("off");
-//			}
-//		}
+	
 		
 	}
 	
@@ -265,16 +240,9 @@ public class Trigger {
 		String[] Values = value.split("-");
 		String objectName = Values[0];
 		collidable = (Values[1]=="true");
-//		if (Values[1]=="true") collidable = true;
-//		else                   collidable = false;
 		NP obj = getObjNamed(objectName);
 		if (obj!=null) 
 			obj.setCollidable(collidable);
-//		for (int i=0; i < g.i().mapObjects.size(); i++){
-//			if (objectName.equals(g.i().mapObjects.get(i).getName())){
-//				g.i().mapObjects.get(i).setCollidable(collidable);
-//			}
-//		}
 	}
 
 	private void changeOthersAnim(String value) {
@@ -282,11 +250,6 @@ public class Trigger {
 		NP obj = getObjNamed(Values[0]);
 		if (obj!=null) 
 			obj.setAnimation(Values[1]);
-//		for (int i=0; i < g.i().mapObjects.size(); i++){
-//			if (Values[0].equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
-//				g.i().mapObjects.get(i).setAnimation(Values[1]);
-//			}
-//		}
 	}
 	
 	private void changeActive(String value)
@@ -362,18 +325,21 @@ public class Trigger {
 			case "Level1Run1":
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L1R1));
+				changeMusic("");
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();
 				break;
 			case "Level1Maze1":
 				g.i().gameMode = 'M';
 				game.setScreen(new GameScreen(game, L1M1));
+				changeMusic("outro2");
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();
 				break;
 			case "Level1Maze2":
 				g.i().gameMode = 'M';
 				game.setScreen(new GameScreen(game, L1M2));
+				changeMusic("outro2");
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();
 				break;
@@ -386,15 +352,18 @@ public class Trigger {
 			case "Level2Maze1":
 				g.i().gameMode = 'M';
 				game.setScreen(new GameScreen(game, L2M1));
+				changeMusic("song4");
 				break;
 			case "Level2Run1":
 			case "Level2Runner1":
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L2R1));
+				changeMusic("song3");
 				break;
 			case "dialogOutro":
 				g.i().gameMode = 'D';
 				game.setScreen(new GameDialog(game, EndDialog));
+				changeMusic("song4");
 				break;
 			case "midDialog" :
 				g.i().gameMode = 'D';
