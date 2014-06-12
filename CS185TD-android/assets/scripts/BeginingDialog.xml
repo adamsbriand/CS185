@@ -37,12 +37,12 @@
 	    	name = "Ollie"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: ¿Por qué?...¿por qué no estoy más fuerte? :C_:pause:2:¿valiente?...:C_:pause:4"/>
+	    	text = "...:C_:pause:2: ¿Por qué?...¿por qué no soy más fuerte? :C_:pause:2:¿mas valiente?...:C_:pause:4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "Ellos merecen mejor ... Chase, Dorithy ... que tanto mereces algo mejor.:C_:pause:4"/>
+		    text = "Ellos merecen  algo mejor ... Chase, Dorithy ...ustedes merecen algo mejor.:C_:pause:4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "black"
@@ -52,17 +52,17 @@
 		    name = "Ollie"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "Por favor hacerme más valiente! más fuerte!:C_:pause:6"/>	
+		    text = "Por favor hazme más valiente! más fuerte!:C_:pause:6"/>	
 		<Snippet
 		    name = "Mago"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "R"
-		    text = "...Ollie... :C_:pause:2:Ya sé que usted es valiente.:C_:pause:4"/>	
+		    text = "...Ollie... :C_:pause:2:Yo sé que tu eres valiente.:C_:pause:4"/>	
 		 <Snippet
 		    name = "Mago"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "R"
-		    text = "Y al fin de su Journy usted también lo sabrás.:C_:pause:10:C_:end:null"/>
+		    text = "Y al final de tu aventura tu también lo sabrás.:C_:pause:10:C_:end:null"/>
 	</dialog_es>
 	<dialog_vi>
 	    <Snippet 

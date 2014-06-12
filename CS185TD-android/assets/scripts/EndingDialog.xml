@@ -19,12 +19,12 @@
         	name = "Mago"	
 	    	background = "DialogImages/GameEnd.png"
 	    	position = "R"
-	    	text = "C_:pause:10: Bueno Ollie! Ahora usted ve apenas lo valiente que eres?:C_:pause:4"/>
+	    	text = "C_:pause:10: Bueno Ollie! Ahora ves lo valiente que eres?:C_:pause:4"/>
         <Snippet 
         	name = "Mago"	
 	    	background = "DialogImages/GameEnd.png"
 	    	position = "R"
-	    	text = "Como le prometí, ahora regrese a su familia para usted.:C_:pause:20:C_:end:null"/>   
+	    	text = "Como te prometí, ahora te regresare a tu familia.:C_:pause:20:C_:end:null"/>   
 	</dialog_es>
 	
 	<dialog_vi>	    

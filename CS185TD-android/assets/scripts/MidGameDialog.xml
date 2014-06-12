@@ -17,12 +17,12 @@
 	    	name = "Mago"	
 	    	background = "DialogImages/MidGame.png"
 	    	position = "R"
-	    	text = "Bien hecho Ollie de hacerlo este lejano!:C_:pause:4"/>
+	    	text = "Bien hecho Ollie al llegar hasta aqui!:C_:pause:4"/>
 		<Snippet 
 	    	name = "Mago"	
 	    	background = "DialogImages/MidGame.png"
 	    	position = "R"
-	    	text = "Tu viaje está a punto de conseguir mucho más difícil.:C_:pause:4:C_:end:null"/>
+	    	text = "Tu viaje está a punto de volverse mucho más difícil.:C_:pause:4:C_:end:null"/>
 	</dialog_es>
 	<dialog_vi>
 	    <Snippet 
