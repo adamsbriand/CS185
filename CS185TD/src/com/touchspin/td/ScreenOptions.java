@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  
 public class ScreenOptions extends GameMenu {
+	
+	
 	String levelReturn;
 	Screen previousScreen;
 	char menuLevel;
@@ -30,14 +32,17 @@ public class ScreenOptions extends GameMenu {
 		levelReturn = "level";
 		previousScreen = savedScreen;
 	}
+	
+	
     
     public void buttons(){
+    	language();
     	stage.clear();
-    	final TextButton button1 = new TextButton("Mute Music", textButtonStyle);
+    	final TextButton button1 = new TextButton(MuteMusic, textButtonStyle);
     	final TextButton button2 = new TextButton("", textButtonStyle);
     	final TextButton button3 = new TextButton("", textButtonStyle);
     	final TextButton button4 = new TextButton("", textButtonStyle);
-    	final TextButton button5 = new TextButton("Keyboard & Mouse", textButtonStyle);
+    	final TextButton button5 = new TextButton(KeyboardMouse, textButtonStyle);
     	ChangeListener muteMusicListen = new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("playSound,buttonClick");
@@ -105,39 +110,43 @@ public class ScreenOptions extends GameMenu {
         		switch (g.i().controls) {
 		    		case 'A':
 		    			if (Gdx.input.isPeripheralAvailable(Peripheral.HardwareKeyboard)){
-		    				button5.setText("Mouse & Keyboard");
 			    			g.i().controls = 'D';
 		    			}
 		    			break;
-		    		case 'K':
+		    		case 'D':
 		    			if (Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)){
-			    			button5.setText("Gyro");
 			    			g.i().controls = 'A';
 		    			} else {
-		    				button5.setText("Mouse & Keyboard");
 			    			g.i().controls = 'D';
 		    			}
 		    			break;
 		    		case 'M':
-		    			button5.setText("Keyboard");
 		    			g.i().controls = 'K';
 		    			break;
-		    		case 'D':
-		    			button5.setText("Mouse");
+		    		case 'K':
 		    			g.i().controls = 'M';
 		    			break;
         		}
+        		buttons();
         		button5.setChecked(false);
         	}};
     	ChangeListener changeLanguage = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor){
-        		g.i().t.action("playSound,buttonClick");
-        		switch (g.i().language) {
-		    		case "en":
-		    			button5.setText("English");
-		    			g.i().language = "en";
-		    			break;
-		    	}
+        		if (button5.isChecked()){
+        			g.i().t.action("playSound,buttonClick");
+	        		switch (g.i().language) {
+		        		case "zh":
+			    			g.i().language = "en";
+			    			break;
+			    		case "en":
+			    			g.i().language = "es";
+			    			break;
+			    		case "es":
+			    			g.i().language = "zh";
+			    			break;
+			    	}
+        		}
+        		buttons();
         		button5.setChecked(false);
         	}};
     	final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
@@ -155,29 +164,25 @@ public class ScreenOptions extends GameMenu {
     	switch (menuLevel){
 	    	case 'S':
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoSounds.png"));
-	    		button1.setText("Mute Music");
+	    		button1.setText(MuteMusic);
 	            button1.setChecked(! g.i().music);
 	            button1.addListener(muteMusicListen);
-	            button2.setText("Mute SFX");
+	            button2.setText(MuteSFX);
 	            button2.setChecked(! g.i().sfx);
 	            button2.setVisible(true);
 	            button2.addListener(muteSFXListen);
 	            button3.setVisible(false);
-	            button4.setText("Back");
+	            button4.setText(Back);
 	            button4.addListener(optionsBack);
 	            button5.setVisible(false);
 	    		break;
 	    	case 'L':
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoLanguage.png"));
-	    		switch (g.i().language) {
-		    		case "en":
-		    			button5.setText("English");
-		    			break;
-	    		}
+	    		button5.setText(CurrentLanguage);
 	    		button1.setVisible(false);
 	    		button2.setVisible(false);
 	    		button3.setVisible(false);
-	    		button4.setText("Back");
+	    		button4.setText(Back);
 	            button4.addListener(optionsBack);
 	            button5.setVisible(true);
 	    		button5.addListener(changeLanguage);
@@ -186,22 +191,22 @@ public class ScreenOptions extends GameMenu {
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoControls.png"));
 	    		switch (g.i().controls) {
 		    		case 'A':
-		    			button5.setText("Gyro");
+		    			button5.setText(Gyro);
 		    			break;
 		    		case 'K':
-		    			button5.setText("Keyboard");
+		    			button5.setText(KeyboardMouse);
 		    			break;
 		    		case 'M':
-		    			button5.setText("Mouse");
+		    			button5.setText(Mouse);
 		    			break;
 		    		case 'D':
-		    			button5.setText("Mouse & Keyboard");
+		    			button5.setText(Keyboard);
 		    			break;
 	    		}
 	    		button1.setVisible(false);
 	    		button2.setVisible(false);
 	    		button3.setVisible(false);
-	    		button4.setText("Back");
+	    		button4.setText(Back);
 	            button4.addListener(optionsBack);
 	    		button5.addListener(controlChange);
 	    		button5.setVisible(true);
@@ -209,19 +214,19 @@ public class ScreenOptions extends GameMenu {
 	    	default:
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoOptions.png"));
 	    		menuLevel = 'O';
-	    		button1.setText("Sounds");
+	    		button1.setText(Sounds);
 	    		button1.setChecked(false);
 	    		button1.setVisible(true);
 	    		button1.addListener(soundsListen);
-	    		button2.setText("Controls");
+	    		button2.setText(Controls);
 	    		button2.setChecked(false);
 	    		button2.setVisible(true);
 	    		button2.addListener(conrolsListen);
-	    		button3.setText("Language");
+	    		button3.setText(Language);
 	    		button3.setChecked(false);
 	    		button3.setVisible(true);
 	    		button3.addListener(languageListen);
-	    		button4.setText("Back");
+	    		button4.setText(Back);
 	    		button4.setChecked(false);
 	    		button4.addListener(mainMenuListen);
 	    		button5.setVisible(false);

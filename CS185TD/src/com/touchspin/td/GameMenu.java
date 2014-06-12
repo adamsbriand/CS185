@@ -25,6 +25,24 @@ public abstract class GameMenu extends GameObject {
     Sprite logo;
     TextButtonStyle textButtonStyle;
     
+    String KeyboardMouse;
+	String Continue;
+	String Gyro;
+	String Keyboard;
+	String Mouse;
+	String MuteMusic;
+	String MuteSFX;
+	String Back;
+	String Sounds;
+	String Controls;
+	String Language;
+	String NewGame;
+	String Options;
+	String HighScore;
+	String Credits;
+	String Exit;
+	String CurrentLanguage;
+    
     public GameMenu (MainGame MainGame){
     	setBG();
         setTemplet();
@@ -99,6 +117,68 @@ public abstract class GameMenu extends GameObject {
         stage.draw();
         Table.drawDebug(stage);
     }
+    
+    public void language(){
+		switch (g.i().language){
+		case "en":
+			CurrentLanguage = "English";
+			Continue = "Continue";
+			Gyro = "Gyro";
+			Keyboard = "Keyboard";
+			Mouse = "Mouse";
+			KeyboardMouse = "Keyboard & Mouse";
+			MuteMusic = "Mute Music";
+			MuteSFX = "Mute SFX";
+			Back = "Back";
+			Sounds = "Sounds";
+			Controls = "Controls";
+			Language = "Language";
+			NewGame = "New Game";
+			Options = "Options";
+			HighScore = "High Score";
+			Credits = "Credits";
+			Exit = "Exit";
+			break;
+		case "zh":
+			CurrentLanguage = "Chinese";
+			Continue = "Continue";
+			Gyro = "Gyro";
+			Keyboard = "Keyboard";
+			Mouse = "Mouse";
+			KeyboardMouse = "Keyboard & Mouse";
+			MuteMusic = "Mute Music";
+			MuteSFX = "Mute SFX";
+			Back = "Back";
+			Sounds = "Sounds";
+			Controls = "Controls";
+			Language = "Language";
+			NewGame = "New Game";
+			Options = "Options";
+			HighScore = "High Score";
+			Credits = "Credits";
+			Exit = "Exit";
+			break;
+		case "es":
+			CurrentLanguage = "Español";
+			Continue = "Continúe";
+			Gyro = "Gyro";
+			Keyboard = "Teclado";
+			Mouse = "Ratón";
+			KeyboardMouse = "Teclado & Ratón";
+			MuteMusic = "Silencio Música";
+			MuteSFX = "Silencio SFX";
+			Back = "Retorno";
+			Sounds = "Sonidos";
+			Controls = "Configuración";
+			Language = "Idioma";
+			NewGame = "Nuevo juego";
+			Options = "Opciones";
+			HighScore = "Récord";
+			Credits = "Crédito";
+			Exit = "Salida";
+			break;
+		}
+	}
  
     @Override
     public void resize (int width, int height) {

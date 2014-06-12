@@ -10,13 +10,25 @@
 	    	name = "Wizard"	
 	    	background = "DialogImages/MidGame.png"
 	    	position = "R"
-	    	text = "You're journy is however about to get much harder.:C_:pause:4:C_:end:null"/>
+	    	text = "You're journey is however about to get much harder.:C_:pause:4:C_:end:null"/>
 	</dialog_en>
-	<dialog_sp>
-	    
-	</dialog_sp>
+	<dialog_es>
+	    <Snippet 
+	    	name = "Mago"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "Bien hecho Ollie de hacerlo este lejano!:C_:pause:4"/>
+		<Snippet 
+	    	name = "Mago"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "Tu viaje está a punto de conseguir mucho más difícil.:C_:pause:4:C_:end:null"/>
+	</dialog_es>
 	<dialog_vi>
 	    
 	</dialog_vi>
+	<dialog_zh>
+	    
+	</dialog_zh>
 	<End>changeMap,Level2Maze1,changeLocation,enter1</End>	
 </DialogScript>

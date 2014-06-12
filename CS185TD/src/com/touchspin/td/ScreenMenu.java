@@ -14,6 +14,7 @@ public class ScreenMenu extends GameMenu {
     }
     
     public void buttons(){
+    	language();
     	final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
     	final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
     	final float yRow1 = Gdx.graphics.getWidth() / 3;
@@ -21,7 +22,7 @@ public class ScreenMenu extends GameMenu {
     	float height = 0;
     	float width = 0;
     	
-    	final TextButton newGame = new TextButton("New Game", textButtonStyle);
+    	final TextButton newGame = new TextButton(NewGame, textButtonStyle);
         newGame.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("NewLevel,Level1Dialog1,playSound,buttonClick");
@@ -29,7 +30,7 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(newGame);
         
-        final TextButton options = new TextButton("Options", textButtonStyle);
+        final TextButton options = new TextButton(Options, textButtonStyle);
         options.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("menu,options,playSound,buttonClick");
@@ -37,7 +38,7 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(options);
         
-        final TextButton highScore = new TextButton("High Score", textButtonStyle);
+        final TextButton highScore = new TextButton(HighScore, textButtonStyle);
         //highScore.setDisabled(true);
         highScore.setColor(Color.GRAY);
         highScore.addListener(new ChangeListener() {
@@ -47,7 +48,7 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(highScore);
         
-        final TextButton exit = new TextButton("Exit", textButtonStyle);
+        final TextButton exit = new TextButton(Exit, textButtonStyle);
         exit.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("playSound,buttonClick");
