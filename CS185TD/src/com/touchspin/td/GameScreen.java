@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.maps.objects.CircleMapObject;
+import com.badlogic.gdx.maps.objects.EllipseMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -29,7 +31,7 @@ public class GameScreen extends GameObject {
 	public GameScreen(MainGame game, String mapPath) {
 
 		this.game = game;
-		if(g.i().gameMode == 'R')
+		if (g.i().gameMode == 'R')
 			mode = 'R';
 		else
 			mode = 'M';
@@ -45,13 +47,13 @@ public class GameScreen extends GameObject {
 		stage.addActor(fgg);
 		stage.addActor(toppest);
 		stage.addActor(g.i().hud);
-		setCamera(g.i().hero.getX(),g.i().hero.getY());
+		setCamera(g.i().hero.getX(), g.i().hero.getY());
 		adjustInitialCamera();
 	}
 
 	@Override
 	public void render(float delta) {
-		if (g.i().leAnonymizer.pausePressed){
+		if (g.i().leAnonymizer.pausePressed) {
 			pause();
 		} else {
 			update();
@@ -70,7 +72,7 @@ public class GameScreen extends GameObject {
 			foregroudCamera.update();
 		}
 
-		setCamera(g.i().hero.getX(),g.i().hero.getY());
+		setCamera(g.i().hero.getX(), g.i().hero.getY());
 		setView();
 		if (soundLoaded) {
 			g.i().sound.sndSwitch.play(g.i().sfxLevel);
@@ -117,7 +119,7 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void hide() {
-		if (!g.i().leAnonymizer.pausePressed){
+		if (!g.i().leAnonymizer.pausePressed) {
 			dispose();
 		}
 	}
@@ -125,9 +127,9 @@ public class GameScreen extends GameObject {
 	@Override
 	public void pause() {
 		g.i().t.pause(this);
-		//g.i().t.action("menu,options-return");
-				//+ "-" + tiledMapWrapper.name + 
-				//"-changeLocationXY-" + g.i().hero.getX() + "_" + g.i().hero.getY());
+		// g.i().t.action("menu,options-return");
+		// + "-" + tiledMapWrapper.name +
+		// "-changeLocationXY-" + g.i().hero.getX() + "_" + g.i().hero.getY());
 	}
 
 	@Override
@@ -157,7 +159,7 @@ public class GameScreen extends GameObject {
 						.getPixelHeight())
 			camera.translate(0, y);
 	}
-	
+
 	private void setCamera(float x, float y) {
 		if (g.i().hero.getX() >= camera.viewportWidth / 2
 				&& g.i().hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
@@ -173,7 +175,8 @@ public class GameScreen extends GameObject {
 		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
 				+ backGroundCamera.viewportWidth / 2;
-		backGroundCamera.position.y =  initialBGCameraDifferenceY + tiledMapWrapper.backgroundfactor
+		backGroundCamera.position.y = initialBGCameraDifferenceY
+				+ tiledMapWrapper.backgroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
 				+ backGroundCamera.viewportHeight / 2;
 	}
@@ -195,39 +198,35 @@ public class GameScreen extends GameObject {
 		float h = Gdx.graphics.getHeight();
 
 		if (mode == 'R') {
-			if(tiledMapWrapper.getPixelWidth()>tiledMapWrapper.getPixelHeight())
-			{
-			camera = new OrthographicCamera();
-			camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight() / h,
-					tiledMapWrapper.getPixelHeight());
-			camera.update();
-
-			backGroundCamera = new OrthographicCamera();
-			backGroundCamera.setToOrtho(false,
-					w * tiledMapWrapper.getPixelHeight() / h,
-					tiledMapWrapper.getPixelHeight());
-			backGroundCamera.update();
-
-			foregroudCamera = new OrthographicCamera();
-			foregroudCamera.setToOrtho(false,
-					w * tiledMapWrapper.getPixelHeight() / h,
-					tiledMapWrapper.getPixelHeight());
-			foregroudCamera.update();
-			}else
-			{
+			if (tiledMapWrapper.getPixelWidth() > tiledMapWrapper
+					.getPixelHeight()) {
 				camera = new OrthographicCamera();
-				camera.setToOrtho(false,640,
-						h * 640 / w);
+				camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight()
+						/ h, tiledMapWrapper.getPixelHeight());
 				camera.update();
 
 				backGroundCamera = new OrthographicCamera();
-				backGroundCamera.setToOrtho(false,640,
-						h * 640 / w);
+				backGroundCamera.setToOrtho(false,
+						w * tiledMapWrapper.getPixelHeight() / h,
+						tiledMapWrapper.getPixelHeight());
 				backGroundCamera.update();
 
 				foregroudCamera = new OrthographicCamera();
-				foregroudCamera.setToOrtho(false,640,
-						h * 640 / w);
+				foregroudCamera.setToOrtho(false,
+						w * tiledMapWrapper.getPixelHeight() / h,
+						tiledMapWrapper.getPixelHeight());
+				foregroudCamera.update();
+			} else {
+				camera = new OrthographicCamera();
+				camera.setToOrtho(false, 640, h * 640 / w);
+				camera.update();
+
+				backGroundCamera = new OrthographicCamera();
+				backGroundCamera.setToOrtho(false, 640, h * 640 / w);
+				backGroundCamera.update();
+
+				foregroudCamera = new OrthographicCamera();
+				foregroudCamera.setToOrtho(false, 640, h * 640 / w);
 				foregroudCamera.update();
 			}
 		} else {
@@ -248,14 +247,17 @@ public class GameScreen extends GameObject {
 			// render the background base one the position of background camera
 			setBackGroundCameraView();
 			tiledMapWrapper.setBackGroundView(backGroundCamera.combined,
-					backGroundCamera.position.x - backGroundCamera.viewportWidth - 5,
-					backGroundCamera.position.y - backGroundCamera.viewportHeight - 5,
+					backGroundCamera.position.x
+							- backGroundCamera.viewportWidth - 5,
+					backGroundCamera.position.y
+							- backGroundCamera.viewportHeight - 5,
 					backGroundCamera.viewportWidth * 2 + 10,
 					backGroundCamera.viewportHeight * 2 + 10);
 			setForegroundCameraView();
 			tiledMapWrapper.setForegroundView(foregroudCamera.combined,
-					foregroudCamera.position.x - foregroudCamera.viewportWidth - 5,
-					foregroudCamera.position.y - foregroudCamera.viewportHeight - 5,
+					foregroudCamera.position.x - foregroudCamera.viewportWidth
+							- 5, foregroudCamera.position.y
+							- foregroudCamera.viewportHeight - 5,
 					foregroudCamera.viewportWidth * 2 + 10,
 					foregroudCamera.viewportHeight * 2 + 10);
 		} else {
@@ -267,11 +269,11 @@ public class GameScreen extends GameObject {
 		}
 	}
 
-	private void adjustInitialCamera()
-	{
-		initialBGCameraDifferenceY = 
-				(1 - tiledMapWrapper.backgroundfactor) * (camera.position.y - camera.viewportHeight / 2);
+	private void adjustInitialCamera() {
+		initialBGCameraDifferenceY = (1 - tiledMapWrapper.backgroundfactor)
+				* (camera.position.y - camera.viewportHeight / 2);
 	}
+
 	private void loadNPs() {
 		NP temp;
 		Stack<NP> tempLightOnOff = new Stack<NP>();
@@ -314,7 +316,12 @@ public class GameScreen extends GameObject {
 			if (object instanceof RectangleMapObject) {
 				width = (int) ((RectangleMapObject) object).getRectangle().width;
 				height = (int) ((RectangleMapObject) object).getRectangle().height;
-			} else {
+			} else if (object instanceof EllipseMapObject) {
+				width = (int)((EllipseMapObject) object).getEllipse().width;
+				height = (int)((EllipseMapObject) object).getEllipse().height;
+			}
+			else
+			{
 				width = 32;
 				height = 32;
 			}
@@ -353,10 +360,9 @@ public class GameScreen extends GameObject {
 				collisionParameter = (String) tempProperties
 						.get("collisionParams");
 			}
-			
+
 			if (tempProperties.get("active") != null) {
-				active = (String) tempProperties
-						.get("active");
+				active = (String) tempProperties.get("active");
 			}
 
 			if (spriteSheet.equalsIgnoreCase("transmorgifier.png")) {
@@ -386,47 +392,41 @@ public class GameScreen extends GameObject {
 			} else if (spriteSheet.equalsIgnoreCase("Campfire.png")) {
 				animRows = 4;
 				animCols = 3;
-			} else if(spriteSheet.equalsIgnoreCase("Water.png"))
-			{
+			} else if (spriteSheet.equalsIgnoreCase("Water.png")) {
 				animRows = 5;
 				animCols = 5;
-			}else if(spriteSheet.equalsIgnoreCase("ExitMarker.png"))
-			{
+			} else if (spriteSheet.equalsIgnoreCase("ExitMarker.png")) {
 				animRows = 1;
 				animCols = 1;
-			}
-			else if(spriteSheet.equalsIgnoreCase("Teleporter.png"))
-			{
+			} else if (spriteSheet.equalsIgnoreCase("Teleporter.png")) {
 				animRows = 6;
 				animCols = 4;
-			}else if(spriteSheet.equalsIgnoreCase("AirPuff.png"))
-			{
+			} else if (spriteSheet.equalsIgnoreCase("AirPuff.png")) {
 				animRows = 6;
 				animCols = 9;
-			}else if(spriteSheet.equalsIgnoreCase("JustWizard.png"))
-			{
+			} else if (spriteSheet.equalsIgnoreCase("JustWizard.png")) {
 				animRows = 6;
 				animCols = 8;
-			}else if(spriteSheet.equalsIgnoreCase("Dragon.png"))
-			{
+			} else if (spriteSheet.equalsIgnoreCase("Dragon.png")) {
 				animRows = 10;
 				animCols = 5;
 			}
-
 
 			if (!spriteSheet.equalsIgnoreCase(""))
 				spriteSheet = "img/spritesheet/" + spriteSheet;
 
 			temp = new NP(startX, startY, width, height, name, type,
 					conditions, action, anims, roamingRadius, spriteSheet,
-					animRows, animCols, collidable, collisionParameter, camera,active);
+					animRows, animCols, collidable, collisionParameter, camera,
+					active);
 
 			g.i().mapObjects.add(temp);
 
 			if (spriteSheet
 					.equalsIgnoreCase("img/spritesheet/TransmorgifierTop.png")
 					|| spriteSheet
-							.equalsIgnoreCase("img/spritesheet/transmorgifier.png")||spriteSheet
+							.equalsIgnoreCase("img/spritesheet/transmorgifier.png")
+					|| spriteSheet
 							.equalsIgnoreCase("img/spritesheet/Water.png"))
 				fgg.addActor(g.i().mapObjects.get(count));
 			else if (spriteSheet
@@ -436,25 +436,26 @@ public class GameScreen extends GameObject {
 				bgg.addActor(g.i().mapObjects.get(count));
 			count++;
 
-			MapObject tempMapObject;
-			if (!temp.collisionParameter.equalsIgnoreCase("")) {
-				String[] tempCP = temp.collisionParameter.split(",");
-				if (tempCP.length == 4) {
-					tempMapObject = new RectangleMapObject(temp.getX()
-							+ Float.parseFloat(tempCP[0]), temp.getY()
-							+ Float.parseFloat(tempCP[1]),
-							Float.parseFloat(tempCP[2]),
-							Float.parseFloat(tempCP[3]));
-					tiledMapWrapper.collisionObjects.add(tempMapObject);
-				} else
-					tempMapObject = new RectangleMapObject(temp.getX(),
-							temp.getY(), temp.getWidth(), temp.getHeight());
-			} else
+			MapObject tempMapObject = null;
+			if (object instanceof RectangleMapObject) {
+				if (!temp.collisionParameter.equalsIgnoreCase("")) {
+					String[] tempCP = temp.collisionParameter.split(",");
+					if (tempCP.length == 4) {
+						tempMapObject = new RectangleMapObject(temp.getX()
+								+ Float.parseFloat(tempCP[0]), temp.getY()
+								+ Float.parseFloat(tempCP[1]),
+								Float.parseFloat(tempCP[2]),
+								Float.parseFloat(tempCP[3]));
+						tiledMapWrapper.collisionObjects.add(tempMapObject);
+					} else
+						tempMapObject = new RectangleMapObject(temp.getX(),
+								temp.getY(), temp.getWidth(), temp.getHeight());
+				}
+			}else
 				tempMapObject = new RectangleMapObject(temp.getX(),
 						temp.getY(), temp.getWidth(), temp.getHeight());
 
-			if(!temp.name.equalsIgnoreCase("dragon"))
-			{
+			if (!temp.name.equalsIgnoreCase("dragon")) {
 				tiledMapWrapper.collisionObjects.add(tempMapObject);
 				g.i().npMap.put(tempMapObject, temp);
 			}
@@ -478,5 +479,3 @@ public class GameScreen extends GameObject {
 
 	}
 }
-
-

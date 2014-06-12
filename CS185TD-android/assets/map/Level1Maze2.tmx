@@ -805,7 +805,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object name="water2" type="npo" x="8" y="905" width="254" height="134">
+  <object name="water2" type="npo" x="0" y="898" width="254" height="134">
    <properties>
     <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
     <property name="animations" value=""/>
@@ -986,20 +986,6 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="fire0" type="npo" x="96" y="224" width="32" height="32">
-   <properties>
-    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
-    <property name="animations" value="burn,0,11,burn"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,32,32"/>
-    <property name="collisionShape" value="circle"/>
-    <property name="conditions" value="ballFlammable, true"/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="Campfire.png"/>
-   </properties>
-   <ellipse/>
-  </object>
   <object name="water5" type="npo" x="2" y="417" width="91" height="477">
    <properties>
     <property name="actions" value="igniteBall,false,playSound,sndSplash"/>
@@ -1013,7 +999,33 @@
     <property name="spriteSheet" value=""/>
    </properties>
   </object>
-  <object name="bottomlessPit9" x="1" y="2" width="93" height="218">
+  <object name="bottomlessPit11" x="66" y="95" width="28" height="128">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit11" x="34" y="33" width="30" height="93">
+   <properties>
+    <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
+    <property name="animations" value=""/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="bottomlessPit11" x="3" y="-8" width="29" height="102">
    <properties>
     <property name="actions" value="playSound,sndSlideWhistleDown,changeLocation,enter1,igniteBall,false,reduceHealth,20"/>
     <property name="animations" value=""/>
