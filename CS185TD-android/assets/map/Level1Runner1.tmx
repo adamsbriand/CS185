@@ -9,22 +9,22 @@
  <tileset firstgid="59" name="BloxSideSquare_Frame32x32_Sheet224x288_RC7x9" tilewidth="32" tileheight="32">
   <image source="../img/tileSet/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
  </tileset>
- <layer name="bg" width="128" height="16" visible="0">
+ <layer name="bg" width="128" height="16">
   <data encoding="base64" compression="zlib">
    eJzt1TEKwCAMBdBcrFfQK/QKvf/SpQGHDg5SLb7hLQHhw4+kRkTtUB5XI2c97/m37P5s5A7Mzsa3/R+h/934/3tz/ykvZmcCAAAAGCkWyAAwyg0Rq3nL
   </data>
  </layer>
- <layer name="parallax bg 1" width="128" height="16" visible="0" opacity="0.24">
+ <layer name="parallax bg 1" width="128" height="16" opacity="0.24">
   <data encoding="base64" compression="zlib">
    eJzt0dEKABAQRUF/7fflVVIkNubUvN92U5IkSZL2lTv0dr2fj9wu4qbazL1Wt8/+6qTVou87ufFV0W/ZdnsPAAAAfyvTcRVM
   </data>
  </layer>
- <layer name="parallax bg 2" width="128" height="16" visible="0" opacity="0.48">
+ <layer name="parallax bg 2" width="128" height="16" opacity="0.48">
   <data encoding="base64" compression="zlib">
    eJztkVEKxCAMBT3eHsULFK+/XwuSahqtMS07A0MplublmRIAAAAAAAD8O6US7NSdzXQX3XkxGJkpam5v9t2+ntT1IZRZ5Hmt9+xWDi9aGeSuWhdFPC3u6FjDmnPE3fNmOvLK4e0oH8XfP7Wzo/P+Bq09jDjbQe8+V+64ck/EaPPFWb745u5s679zOmdqqe3ktUdkd70OLN/t8AkZrDk97gLf54o7/wKQqyvl
   </data>
  </layer>
- <layer name="parallax bg 3" width="128" height="16" visible="0" opacity="0.76">
+ <layer name="parallax bg 3" width="128" height="16" opacity="0.76">
   <data encoding="base64" compression="zlib">
    eJztkksOwCAIBb2ch+H+F+imC0tQUWxq7EzCRsPj8UkJAAAAAAAAAADgG/Id8E9O3P9p/bxJTmfdwI69RP2I0tB6umfPDCQ9dz+avyO1fr6m58eaffkmRWg93bNnBrnQm8mvaZaerH+NGG+ztPyvuIuIRiu3NXupRG9nvd5bulYNy2/Pu+eW9F3PEvUR0X/DX20/MzcwohmtEa3rZYUvz+5WaV0XjE49
   </data>
@@ -34,17 +34,17 @@
    eJztmG0OgyAMhrmCuxX7NTkB9z/FRqLJm6aULycIfZIG0UILb8VEYxRFUe5h653AD9s7gYW5Qn8LVjte6cMV+p9z1NbBCPq31vBTadV/Y+Yo3UsL7Qo2Eq36v4Q5ctc82p6sRIv+Yayk/8mota/w2pScZdz5XxJLmY9UTaxUB6uss4YZ62C29bRQ8m14Ojmar7Qfd4PvnXSNLX2e0+filvIm7ez8o+45fTl84bw5/qmY7rAYqH9OvFgOUr+FUetT+o/iGf/9sICL+FDfHe6d/s6kNfVgDq65XHB/MV6g978pS/LrnQu1j2CoIdd3gj8dg344zgvxsU6kOFR/jPcFVBlY4Q==
   </data>
  </layer>
- <layer name="decorations" width="128" height="16" visible="0">
+ <layer name="decorations" width="128" height="16">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20ON6AAAAAAAAAAgHcDIAAAAQ==
   </data>
  </layer>
- <layer name="parallax fg 1" width="128" height="16" visible="0" opacity="0.24">
+ <layer name="parallax fg 1" width="128" height="16" opacity="0.24">
   <data encoding="base64" compression="zlib">
    eJzt1EEKwCAMRFFv7fW7KoRSSijqDMl/4MaFZow6BgAAwFozjOdcNTFX1YxZMzkqccynqiHb/9XnpDp3p3vuVMvpmr7W35Xd4Z9Tvbe/TvZe3QfFns6936lz9qh7/lvX3AAAAMCbC4UuPzk=
   </data>
  </layer>
- <layer name="parallax fg 2" width="128" height="16" visible="0">
+ <layer name="parallax fg 2" width="128" height="16">
   <data encoding="base64" compression="zlib">
    eJzt0kEKwCAMRFFv1m3PkPsfpFsJEmyp+Afng/vHxNacc865b8VuwAFRN47uuXUR943Bc/9H3Vb9/gpu8r7Zdu3lvErl75L3zTaar0rh79L37V1EX5WCPd+e5swukm0munu0L81Kdc127wZMRDfSfVUKdrqR7qtSsNONdF+Vgp1upPuqFOwrjQ+srR67
   </data>

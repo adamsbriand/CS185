@@ -3,6 +3,7 @@ package com.touchspin.td;
 import java.util.Stack;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
@@ -89,6 +90,8 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void draw() {
+		Gdx.graphics.getGL20().glClearColor( 0, 0, 0, 0 );
+		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );	
 		if (mode == 'R') {
 			tiledMapWrapper.renderbackground();
 			tiledMapWrapper.renderBackground();
