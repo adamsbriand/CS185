@@ -232,6 +232,9 @@ public class Trigger {
 			case "sndAirPuff":
 				g.i().sound.sndSwitch("airPuff");
 				break;
+			case "sndYummy":
+				g.i().sound.sndSwitch("yummy");
+				break;
 			}
 		}
 	}

@@ -29,14 +29,15 @@ public class Sounds {
 	private float loopsSoundFactor = 0.3f;
 	
 	// Sound effects
-	private static final String arrowfile1 = "snd/sndArrow1.wav";
-	private static final String arrowfile2 = "snd/sndArrow2.wav";
-	private static final String brickCrash = "snd/sndBrickCrash.wav";
+	private static final String arrowfile1  = "snd/sndArrow1.wav";
+	private static final String arrowfile2  = "snd/sndArrow2.wav";
+	private static final String brickCrash  = "snd/sndBrickCrash.wav";
 	private static final String glassBreak1 = "snd/sndGlassBreak1.wav";
 	private static final String glassBreak2 = "snd/sndGlassBreak2.wav";
 	private static final String lightSwitch = "snd/sndLightSwitch.wav";
 	private static final String doorCreak   = "snd/sndDoorCreak.wav";
 	private static final String airPuff     = "snd/sndAirPuff.wav";
+	private static final String yummy       = "snd/sndYummy.wav";
 	private static final String switchFile = "snd/sndSwitch.wav";
 	private static final String Transmorgification = "snd/sndBallTransmorgification.wav";
 	private static final String tubeDown = "snd/sndDownTube.wav";
@@ -275,6 +276,9 @@ public class Sounds {
 				break;
 			case "airPuff":
 				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(airPuff));
+				break;
+			case "yummy":
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(yummy));
 				break;
 		}
 		sndSwitch.play(g.i().sfxLevel);
