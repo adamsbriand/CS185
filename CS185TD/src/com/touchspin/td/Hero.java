@@ -165,13 +165,13 @@ public class Hero extends GameThing {
 			ballWidth = 30f;
 			ballHeight = 30f;
 			flammable = false;
+			g.i().fire = false;
 			break;
 		case "Basket":
 			g.i().playerFriction = 0.011f;
 			ballWidth = 30f;
 			ballHeight = 30f;
-			flammable = false;
-			g.i().fire = false;
+			flammable = true;
 			break;
 		case "Base":
 			g.i().playerFriction = 0.008f;
