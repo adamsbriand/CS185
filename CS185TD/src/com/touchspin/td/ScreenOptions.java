@@ -38,11 +38,34 @@ public class ScreenOptions extends GameMenu {
     public void buttons(){
     	language();
     	stage.clear();
-    	final TextButton button1 = new TextButton(MuteMusic, textButtonStyle);
+    	String longest = Sounds;
+    	if (longest.length() < Controls.length()){
+    		longest = Controls;
+    	}
+    	if (longest.length() < Language.length()){
+    		longest = Language;
+    	}
+    	if (longest.length() < Back.length()){
+    		longest = Back;
+    	}
+    	if (longest.length() < MuteMusic.length()){
+    		longest = MuteMusic;
+    	}
+    	if (longest.length() < MuteSFX.length()){
+    		longest = MuteSFX;
+    	}
+    	final TextButton button1 = new TextButton(longest, textButtonStyle);
     	final TextButton button2 = new TextButton("", textButtonStyle);
     	final TextButton button3 = new TextButton("", textButtonStyle);
     	final TextButton button4 = new TextButton("", textButtonStyle);
-    	final TextButton button5 = new TextButton(KeyboardMouse, textButtonStyle);
+    	longest = Keyboard + " \u2193";
+    	if (longest.length() < Gyro.length()){
+    		longest = Gyro + " \u2193";
+    	}
+    	if (longest.length() < CurrentLanguage.length() + 2){
+    		longest = CurrentLanguage + " \u2193";
+    	}
+    	final TextButton button5 = new TextButton(longest, textButtonStyle);
     	ChangeListener muteMusicListen = new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("playSound,buttonClick");
@@ -184,7 +207,7 @@ public class ScreenOptions extends GameMenu {
 	    		break;
 	    	case 'L':
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoLanguage.png"));
-	    		button5.setText(CurrentLanguage);
+	    		button5.setText(CurrentLanguage + " \u2193");
 	    		button1.setVisible(false);
 	    		button2.setVisible(false);
 	    		button3.setVisible(false);
@@ -197,16 +220,16 @@ public class ScreenOptions extends GameMenu {
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoControls.png"));
 	    		switch (g.i().controls) {
 		    		case 'A':
-		    			button5.setText(Gyro);
+		    			button5.setText(Gyro + " \u2193");
 		    			break;
 		    		case 'K':
-		    			button5.setText(KeyboardMouse);
+		    			button5.setText(KeyboardMouse + " \u2193");
 		    			break;
 		    		case 'M':
-		    			button5.setText(Mouse);
+		    			button5.setText(Mouse + " \u2193");
 		    			break;
 		    		case 'D':
-		    			button5.setText(Keyboard);
+		    			button5.setText(Keyboard + " \u2193");
 		    			break;
 	    		}
 	    		button1.setVisible(false);
