@@ -97,8 +97,12 @@ public class Sounds {
 			case "song4":
 			case "menu":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song4));
-				bgMusic.setLooping(true);
-				bgMusic.setOnCompletionListener(null);	
+				bgMusic.setLooping(false);
+				bgMusic.setOnCompletionListener(
+						new Music.OnCompletionListener(){
+					public void onCompletion(Music music) {
+						BGMusic("mainmenu");	
+					}});
 				break;
 			case "mute":
 				break;

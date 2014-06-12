@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 public class ScreenCredits extends GameMenu {
-	final String Creditsimage = "img/menu/Title.png";
+	final String Creditsimage = "img/menu/TeamOllie1200.png";
 			
 	public ScreenCredits(MainGame mainGame){
 		super(mainGame);

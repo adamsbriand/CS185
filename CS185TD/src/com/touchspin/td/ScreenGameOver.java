@@ -1,6 +1,9 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -22,14 +25,19 @@ public class ScreenGameOver extends GameMenu{
 		g.i().fire = false;
 		g.i().playerHealth = 100;
 	}
+	
+	void setBG(){
+		camera = new OrthographicCamera();
+	    bg = new Sprite(new Texture(Gdx.files.internal("img/menu/TeamOllie1200.png")));
+	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
+	    bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	}
 
 	void buttons() {
-		final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
-    	final float yRow1_2 = Gdx.graphics.getWidth() / 2;
+		final float xRow2 = Gdx.graphics.getHeight() / 15 * 13;
+    	final float yRow1_2 = Gdx.graphics.getWidth() / 9 * 7;
     	float height = 0;
     	float width = 0;
-    	
-    	//final Label message = new Label("You have won the game.", null);
     	
     	final TextButton continueButton = new TextButton("Continue", textButtonStyle);
     	continueButton.addListener(new ChangeListener() {
@@ -47,6 +55,7 @@ public class ScreenGameOver extends GameMenu{
 
 	void logo() {
 		super.setLogo(Gdx.files.internal("img/menu/LogoGameOver.png"));
+		logo.setPosition(logo.getX(), logo.getY() - logo.getHeight() / 2);
 	}
 	
 	public void update() {
