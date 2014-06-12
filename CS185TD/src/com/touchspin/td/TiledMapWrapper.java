@@ -27,6 +27,7 @@ public class TiledMapWrapper {
 	int[] forgroundLayers;
 	int[] palyerLayers;
 	int[] backgroundLayers;
+	int[] background;
 
 	int[] m1 = { 0, 1, 2 };
 	int[] m2 = { 0};
@@ -42,6 +43,7 @@ public class TiledMapWrapper {
 		ArrayList<Integer> foregroundLayer = new ArrayList<Integer>();
 		ArrayList<Integer> playerLayer = new ArrayList<Integer>();
 		ArrayList<Integer> backgroundLayer = new ArrayList<Integer>();
+		ArrayList<Integer> backgrounds = new ArrayList<Integer>();
 		tiledMap = new TmxMapLoader().load(path);
 		int start = path.indexOf('/') + 1;
 		int stop = path.indexOf('.');
@@ -52,6 +54,8 @@ public class TiledMapWrapper {
 				foregroundLayer.add(i);
 			else if (layer.getName().contains("bg"))
 				backgroundLayer.add(i);
+			else if(layer.getName().contains("background"))
+				backgrounds.add(i);
 			else
 				playerLayer.add(i);
 			i++;
@@ -59,6 +63,7 @@ public class TiledMapWrapper {
 		forgroundLayers = convertIntegers(foregroundLayer);
 		palyerLayers = convertIntegers(playerLayer);
 		backgroundLayers = convertIntegers(backgroundLayer);
+		background = convertIntegers(backgrounds);
 
 		if (g.i().gameMode == 'R')// only the runner needs a background
 		{
@@ -114,6 +119,10 @@ public class TiledMapWrapper {
 	 */
 	public void renderMap() {
 		playerTiledMapRenderer.render();
+	}
+	
+	public void renderbackground() {
+		playerTiledMapRenderer.render(background);
 	}
 	
 	public void renderBackground() {

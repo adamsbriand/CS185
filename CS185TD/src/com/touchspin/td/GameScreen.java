@@ -23,6 +23,7 @@ public class GameScreen extends GameObject {
 	private Group fgg = new Group();
 	private Group toppest = new Group();
 	private char mode;
+	private float initialBGCameraDifferenceY = 0;
 
 	public GameScreen(MainGame game, String mapPath) {
 
@@ -43,6 +44,8 @@ public class GameScreen extends GameObject {
 		stage.addActor(fgg);
 		stage.addActor(toppest);
 		stage.addActor(g.i().hud);
+		setCamera(g.i().hero.getX(),g.i().hero.getY());
+		adjustInitialCamera();
 	}
 
 	@Override
@@ -87,6 +90,7 @@ public class GameScreen extends GameObject {
 	@Override
 	public void draw() {
 		if (mode == 'R') {
+			tiledMapWrapper.renderbackground();
 			tiledMapWrapper.renderBackground();
 			tiledMapWrapper.renderPlayerlayer();
 			stage.draw();
@@ -166,7 +170,7 @@ public class GameScreen extends GameObject {
 		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
 				+ backGroundCamera.viewportWidth / 2;
-		backGroundCamera.position.y = tiledMapWrapper.backgroundfactor
+		backGroundCamera.position.y =  initialBGCameraDifferenceY + tiledMapWrapper.backgroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
 				+ backGroundCamera.viewportHeight / 2;
 	}
@@ -214,12 +218,12 @@ public class GameScreen extends GameObject {
 				camera.update();
 
 				backGroundCamera = new OrthographicCamera();
-				backGroundCamera.setToOrtho(false,tiledMapWrapper.getPixelWidth(),
+				backGroundCamera.setToOrtho(false,640,
 						h * 640 / w);
 				backGroundCamera.update();
 
 				foregroudCamera = new OrthographicCamera();
-				foregroudCamera.setToOrtho(false,tiledMapWrapper.getPixelWidth(),
+				foregroudCamera.setToOrtho(false,640,
 						h * 640 / w);
 				foregroudCamera.update();
 			}
@@ -260,6 +264,11 @@ public class GameScreen extends GameObject {
 		}
 	}
 
+	private void adjustInitialCamera()
+	{
+		initialBGCameraDifferenceY = 
+				(1 - tiledMapWrapper.backgroundfactor) * (camera.position.y - camera.viewportHeight / 2);
+	}
 	private void loadNPs() {
 		NP temp;
 		Stack<NP> tempLightOnOff = new Stack<NP>();
@@ -466,3 +475,5 @@ public class GameScreen extends GameObject {
 
 	}
 }
+
+
