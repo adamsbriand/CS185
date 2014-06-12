@@ -119,7 +119,7 @@ public class MoverPhysics extends Mover {
 							continue;
 	
 						// iterate through y values of object
-						for (int countY = (int) rect.y; countY < (rect.y + rect.height); countY++) {
+						for (int countY = (int) rect.y + 1; countY < (rect.y + rect.height); countY++) {
 							// player collides with object
 							if (circleCenter.dst(rect.x + rect.width, countY) < radius) {
 								if (g.i().npMap.get(object) != null) {
@@ -167,7 +167,7 @@ public class MoverPhysics extends Mover {
 							continue;
 	
 						// iterate through y values of object
-						for (int countY = (int) rect.y; countY < (rect.y + rect.height); countY++) {
+						for (int countY = (int) rect.y + 1; countY < (rect.y + rect.height); countY++) {
 							// player collides with object
 							if (circleCenter.dst(rect.x, countY) < radius) {
 	
@@ -218,7 +218,7 @@ public class MoverPhysics extends Mover {
 							continue;
 	
 						// iterate through x values of object
-						for (int countX = (int) rect.x; countX < (rect.x + rect.width); countX++) {
+						for (int countX = (int) rect.x + 1; countX < (rect.x + rect.width); countX++) {
 							// player collides with object
 							if (circleCenter.dst(countX, rect.y + rect.height) < radius) {
 								if (g.i().npMap.get(object) != null) {
@@ -267,7 +267,7 @@ public class MoverPhysics extends Mover {
 							continue;
 	
 						// iterate through y values of object
-						for (int countX = (int) rect.x; countX < (rect.x + rect.width); countX++) {
+						for (int countX = (int) rect.x + 1; countX < (rect.x + rect.width); countX++) {
 							// player collides with object
 							if (circleCenter.dst(countX, rect.y) < radius) {
 	
