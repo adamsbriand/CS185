@@ -295,6 +295,9 @@ public class Trigger {
 	private void reduceHealth(String value)
 	{
 		g.i().playerHealth -= Integer.parseInt(value);
+		if (g.i().playerHealth > g.i().maxHealth){
+			g.i().playerHealth = g.i().maxHealth;
+		}
 		g.i().hero.getHurt();
 	}
 

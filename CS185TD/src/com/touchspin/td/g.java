@@ -33,6 +33,7 @@ public class g {
 	public int playerHealth;  // Health of the player. 100=full health. 
 	public Hero hero;
 	public HUD hud;
+	public int maxHealth;
 	
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated
@@ -109,6 +110,10 @@ public class g {
 		level = 0;
 		levelTimer = 0;
 		fire = false;
+		maxHealth = 100;
+		currentBallType = "Base";
+		fire = false;
+		playerHealth = maxHealth;
 		
 		//Maze
 		cameraWidth = 400;

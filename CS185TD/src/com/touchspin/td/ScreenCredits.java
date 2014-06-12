@@ -18,9 +18,7 @@ public class ScreenCredits extends GameMenu {
 		g.i().sound.BGMusic("menu");
 		
 		//reset
-				g.i().currentBallType = "Base";
-				g.i().fire = false;
-				g.i().playerHealth = 100;
+		g.i().setZero();
 	}
 
 	@Override
