@@ -63,7 +63,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object name="transmorgifierPingPong1" type="npo" x="130" y="112" width="96" height="96">
+  <object name="transmorgifierPingPong1" type="npo" x="96" y="128" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
@@ -1036,6 +1036,20 @@
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value=""/>
+   </properties>
+  </object>
+  <object name="transmorgifierTennis1" type="npo" x="160" y="128" width="96" height="96">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierTennis1-transmorgify,playSound,transmorgify,changeMyAnim,Tennis"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="24,24,48,48"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="notes" value="if hero touches collision rect, he becomes a Tennis ball"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="TransmorgifierTop.png"/>
    </properties>
   </object>
  </objectgroup>
