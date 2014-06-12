@@ -4,69 +4,69 @@
 	    <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
-		    position = "B"
-		    text = "C_:pause:30:C_:end:null"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4:C_:end:null"/>
       </dialog_en>
       <dialog_es>
           <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
-		    position = "B"
-		    text = "C_:pause:30:C_:end:null"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4:C_:end:null"/>
       </dialog_es>
       <dialog_vi>
-          <Snippet 
+         <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
-		    position = "B"
-		    text = "C_:pause:30:C_:end:null"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4:C_:end:null"/>
       </dialog_vi>
       <dialog_zh>
-          <Snippet 
+         <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
-		    position = "B"
-		    text = "C_:pause:30"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
-		    position = "B"
-		    text = "C_:pause:30:C_:end:null"/>
+		    position = "L"
+		    text = "                                            :C_:pause:4:C_:end:null"/>
       </dialog_zh>
     <End>NewLevel,Level1Run1,changeMusic,song1</End>
 </DialogScript>
