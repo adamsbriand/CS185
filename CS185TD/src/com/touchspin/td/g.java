@@ -1,6 +1,7 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.maps.MapObject;
 
 import java.util.ArrayList;
@@ -46,7 +47,9 @@ public class g {
 							 * fr=French
 							 * zh=Chinese
 							 * ja=Japanese
+							 * vi=Vietnamese
 							 */
+	public FileHandle font;
 	public char controls;	/* Control set being used. 
 							 * A=Android
 							 * K=Keyboard
@@ -131,22 +134,30 @@ public class g {
 		}
 		// System
 		language = Locale.getDefault().getLanguage(); //Get language from device
-		if (language=="en");		// Set language to English for testing.
-		else if (language=="")
-			language="en";
-		else language="en";
+		languageSet();
 		
 	//	timeStartGame = System.currentTimeMillis();
 		mapObjects = new ArrayList<NP>();
 		npMap = new HashMap<MapObject,NP>();
 	}
-   
-	public void StartNewLevel(){
-		// reset parameters for a new level
-		level += 1;
-		levelTimer = 0;
-	}
 	
+	public void languageSet(){
+		if (language=="en"){
+			font = Gdx.files.internal("Font/ollieFont.fnt");
+		} else if (language=="es") {
+			font = Gdx.files.internal("Font/ollieFont.fnt");
+		} else if (language=="zh") {
+			font = Gdx.files.internal("Font/ollieFont.fnt");
+		} else if (language=="vi") {
+			font = Gdx.files.internal("Font/viFont.fnt");
+		} else if (language=="ja") {
+			font = Gdx.files.internal("Font/japFont.fnt");
+		} else {
+			language="en";
+			font = Gdx.files.internal("Font/ollieFont.fnt");
+		}
+	}
+   
 	public void timer(){
 		// increment the level timer. This needs to be called for each draw. 
 		levelTimer += Gdx.graphics.getDeltaTime();

@@ -82,7 +82,7 @@ public abstract class GameMenu extends GameObject {
         np = new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceChecked.png")), 20, 20, 20, 20);
         NinePatchDrawable npCheck = new NinePatchDrawable(np);
  
-        bfont = new BitmapFont(Gdx.files.internal("font/ollieFont.fnt"));
+        bfont = new BitmapFont(g.i().font);
         if (Gdx.app.getType().toString() == "Desktop"){
         	bfont.scale(1);
         } else {
@@ -119,6 +119,8 @@ public abstract class GameMenu extends GameObject {
     }
     
     public void language(){
+    	g.i().languageSet();
+    	setTemplet();
 		switch (g.i().language){
 		case "en":
 			CurrentLanguage = "English";
@@ -176,6 +178,44 @@ public abstract class GameMenu extends GameObject {
 			HighScore = "Récord";
 			Credits = "Crédito";
 			Exit = "Salida";
+			break;
+		case "vi":
+			CurrentLanguage = "tiếng Việt";
+			Continue = "tiếp tục";
+			Gyro = "con quay hồi chuyển";
+			Keyboard = "bàn phím";
+			Mouse = "chuột";
+			KeyboardMouse = "chuột và bàn phím";
+			MuteMusic = "tắt nhạc nền";
+			MuteSFX = "tắt nhạc ngoại cãnh";
+			Back = "quay lại";
+			Sounds = "âm thanh";
+			Controls = "danh mục điều khiển";
+			Language = "ngôn ngữ";
+			NewGame = "thiết lập lại trò chơi";
+			Options = "danh mục điều chỉnh";
+			HighScore = "danh mục điểm";
+			Credits = "công trạng";
+			Exit = "thoát ra";
+			break;
+		case "ja":
+			CurrentLanguage = "日本語";
+			Continue = "コンティニュー";
+			Gyro = "ジャイロ";
+			Keyboard = "キーボード";
+			Mouse = "マウス";
+			KeyboardMouse = "マウス&キーボード";
+			MuteMusic = "ミュートMusic";
+			MuteSFX = "ミュートSFX";
+			Back = "リターン";
+			Sounds = "サウンド";
+			Controls = "コントロール";
+			Language = "言語";
+			NewGame = "ニューゲーム";
+			Options = "オプション";
+			HighScore = "ハイスコア";
+			Credits = "クレジット";
+			Exit = "エグジット";
 			break;
 		}
 	}

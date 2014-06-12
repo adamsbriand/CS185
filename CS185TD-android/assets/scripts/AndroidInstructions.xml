@@ -68,5 +68,22 @@
 		    position = "L"
 		    text = "                                            :C_:pause:4:C_:end:null"/>
       </dialog_zh>
-    <End>NewLevel,Level1Run1,changeMusic,song1</End>
+      <dialog_ja>
+         <Snippet 
+		    name = "1/3"	
+		    background = "DialogImages/androidMoveRunner.png"
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
+	     <Snippet 
+		    name = "2/3"	
+		    background = "DialogImages/androidJumpRunner.png"
+		    position = "L"
+		    text = "                                            :C_:pause:4"/>
+	      <Snippet 
+		    name = "3/3"	
+		    background = "DialogImages/androidMaze.png"
+		    position = "L"
+		    text = "                                            :C_:pause:4:C_:end:null"/>
+      </dialog_ja>
+    <End>NewLevel,Level1Run1</End>
 </DialogScript>

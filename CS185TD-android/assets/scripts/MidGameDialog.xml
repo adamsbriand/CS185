@@ -25,7 +25,16 @@
 	    	text = "Tu viaje está a punto de conseguir mucho más difícil.:C_:pause:4:C_:end:null"/>
 	</dialog_es>
 	<dialog_vi>
-	    
+	    <Snippet 
+	    	name = "phù thủy"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "làm tốt lắm Ollie!:C_:pause:4"/>
+		<Snippet 
+	    	name = "phù thủy"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "nhưng cuộc hành trình của ngươi sẽ bắt đầu rất khó.:C_:pause:4:C_:end:null"/>
 	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
@@ -39,5 +48,17 @@
 	    	position = "R"
 	    	text = "但你的旅程正在变得更加艰难。:C_:pause:4:C_:end:null"/>
 	</dialog_zh>
+	<dialog_ja   >
+		<Snippet 
+	    	name = "ウィザード"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "オーリー良くもここまでこれたな。:C_:pause:4"/>
+		<Snippet 
+	    	name = "ウィザード"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "だが、君の旅はもっと困難になる。:C_:pause:4:C_:end:null"/>
+	</dialog_ja>
 	<End>changeMap,Level2Maze1,changeLocation,enter1</End>	
 </DialogScript>

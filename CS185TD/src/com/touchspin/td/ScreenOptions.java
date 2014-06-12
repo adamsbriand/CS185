@@ -136,13 +136,19 @@ public class ScreenOptions extends GameMenu {
         			g.i().t.action("playSound,buttonClick");
 	        		switch (g.i().language) {
 		        		case "zh":
-			    			g.i().language = "en";
+			    			g.i().language = "ja";
 			    			break;
 			    		case "en":
 			    			g.i().language = "es";
 			    			break;
 			    		case "es":
 			    			g.i().language = "zh";
+			    			break;
+			    		case "ja":
+			    			g.i().language = "vi";
+			    			break;
+			    		case "vi":
+			    			g.i().language = "en";
 			    			break;
 			    	}
         		}
