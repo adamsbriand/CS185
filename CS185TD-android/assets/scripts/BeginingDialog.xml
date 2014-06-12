@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DialogScript music = "scaryIntro"> 
-    <dialog_en   >
+    <dialog_en  multiline = "false">
 		<Snippet 
 	    	name = "Ollie"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: Why?...why am I not stronger? :C_:pause:2:Braver?...:C_:pause:4"/>
+	    	text = "...:C_:pause:2:Why?...why am I not stronger? :C_:pause:2:Braver?...:C_:pause:4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/OlliesFamily.png"
@@ -24,15 +24,15 @@
 		<Snippet
 		    name = "Wizard"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "...Ollie... :C_:pause:2:I already know you are brave.:C_:pause:4"/>	
 		 <Snippet
 		    name = "Wizard"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
 	</dialog_en>
-	<dialog_es>
+	<dialog_es multiline = "false">
 	    <Snippet 
 	    	name = "Ollie"	
 	    	background = "black"
@@ -42,7 +42,7 @@
 		    name = "Ollie"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "Ellos merecen mejor ... Chase, Dorithy ... que tanto mereces algo mejor.:C_:pause:4"/>
+		    text = "Ellos merecen  algo mejor ... Chase, Dorithy ...ustedes merecen algo mejor.:C_:pause:4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "black"
@@ -52,19 +52,19 @@
 		    name = "Ollie"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "Por favor hacerme más valiente! más fuerte!:C_:pause:6"/>	
+		    text = "Por favor hazme más valiente! más fuerte!:C_:pause:6"/>	
 		<Snippet
 		    name = "Mago"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "...Ollie... :C_:pause:2:Ya sé que usted es valiente.:C_:pause:4"/>	
+		    position = "T"
+		    text = "...Ollie... :C_:pause:2:Yo sé que tu eres valiente.:C_:pause:4"/>	
 		 <Snippet
 		    name = "Mago"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "Y al fin de su Journy usted también lo sabrás.:C_:pause:10:C_:end:null"/>
+		    position = "T"
+		    text = "Y al final de tu aventura tu también lo sabrás.:C_:pause:10:C_:end:null"/>
 	</dialog_es>
-	<dialog_vi>
+	<dialog_vi multiline = "true">
 	    <Snippet 
 	    	name = "Ollie"	
 	    	background = "black"
@@ -88,15 +88,15 @@
 		<Snippet
 		    name = "phù thủy"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "...Ollie... :C_:pause:2:ta đã biết ngươi là một người can đảm:C_:pause:4"/>	
 		 <Snippet
 		    name = "phù thủy"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "và sau cuộc hành trình này ngươi sẽ biết:C_:pause:10:C_:end:null"/>	
 	</dialog_vi>
-	<dialog_zh>
+	<dialog_zh multiline = "true">
 	    <Snippet 
 	    	name = "奥利"	
 	    	background = "black"
@@ -120,15 +120,15 @@
 		<Snippet
 		    name = "巫师"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "...奥利... :C_:pause:2:我知道你已经非常勇敢了。:C_:pause:4"/>	
 		 <Snippet
 		    name = "巫师"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "当你结束这段旅程，你也会明白的。:C_:pause:10:C_:end:null"/>		
 	</dialog_zh>
-	<dialog_ja   >
+	<dialog_ja  multiline = "true">
 		<Snippet 
 	    	name = "オーリー"	
 	    	background = "black"
@@ -152,12 +152,12 @@
 		<Snippet
 		    name = "ウィザード"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "...オーリー... :C_:pause:2:私はすでにあなたが勇敢なのは分かっている。:C_:pause:4"/>	
 		 <Snippet
 		    name = "ウィザード"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
+		    position = "T"
 		    text = "旅の終わりには君も分かるさ。:C_:pause:10:C_:end:null"/>		
 	</dialog_ja>
 	
