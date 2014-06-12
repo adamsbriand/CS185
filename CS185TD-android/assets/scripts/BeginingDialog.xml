@@ -69,35 +69,35 @@
 	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
-	    	name = "Ollie"	
+	    	name = "奥利"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: Why?...why am I not stronger? :C_:pause:2:Braver?...:C_:pause:4"/>
+	    	text = "...:C_:pause:2: 为什么？为什么我不能变得更强？ :C_:pause:2: 更勇敢？:C_:pause:4"/>
 		<Snippet
-		    name = "Ollie"	
+		    name = "奥利"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "They deserve better... Chase, Dorithy... you both deserve better.:C_:pause:4"/>
+		    text = "你们应该得到比这更好的生活...蔡斯，桃乐丝...你们都应该得到比这更好的生活。:C_:pause:4"/>
 		<Snippet
-		    name = "Ollie"	
+		    name = "奥利"	
 		    background = "black"
 		    position = "L"
-		    text = "I know what I must do...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		    text = "我知道我需要做什么... :C_:pause:1:C_:instaPrint:0:巫女！:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
 		<Snippet
-		    name = "Ollie"	
+		    name = "奥利"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "Please make me braver! stronger!:C_:pause:6"/>	
+		    text = "请让我变得更加勇敢！强大吧！:C_:pause:6"/>	
 		<Snippet
-		    name = "Wizard"	
+		    name = "巫女"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "R"
-		    text = "...Ollie... :C_:pause:2:I already know you are brave.:C_:pause:4"/>	
+		    text = "...奥利... :C_:pause:2:我知道你已经非常勇敢了。:C_:pause:4"/>	
 		 <Snippet
-		    name = "Wizard"	
+		    name = "巫女"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "R"
-		    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
+		    text = "当你结束这段旅程，你也会明白的。:C_:pause:10:C_:end:null"/>		
 	</dialog_zh>
 	
 	<End>NewLevel,Instructions,changeMusic,song1</End>
