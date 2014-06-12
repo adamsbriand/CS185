@@ -28,7 +28,16 @@
 	    
 	</dialog_vi>
 	<dialog_zh>
-	    
+	    <Snippet 
+	    	name = "巫师"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "做得好,奥利!竟然能来到这里。:C_:pause:4"/>
+		<Snippet 
+	    	name = "巫师"	
+	    	background = "DialogImages/MidGame.png"
+	    	position = "R"
+	    	text = "但你的旅程正在变得更加艰难。:C_:pause:4:C_:end:null"/>
 	</dialog_zh>
 	<End>changeMap,Level2Maze1,changeLocation,enter1</End>	
 </DialogScript>

@@ -89,12 +89,12 @@
 		    position = "L"
 		    text = "请让我变得更加勇敢！强大吧！:C_:pause:6"/>	
 		<Snippet
-		    name = "巫女"	
+		    name = "巫师"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "R"
 		    text = "...奥利... :C_:pause:2:我知道你已经非常勇敢了。:C_:pause:4"/>	
 		 <Snippet
-		    name = "巫女"	
+		    name = "巫师"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "R"
 		    text = "当你结束这段旅程，你也会明白的。:C_:pause:10:C_:end:null"/>		
