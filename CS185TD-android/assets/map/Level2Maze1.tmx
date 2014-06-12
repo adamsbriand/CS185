@@ -23,7 +23,7 @@
  </layer>
  <layer name="collisions" width="36" height="28" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzNk0EOgEAIA9n/f9qrIZQOrAdNjK6Upq1wIuL87I7X010KR/sdd9ZzUs3pn/Q5PsLfealw05xOer/xq+qur8JRPdmHy4POV8Wn9Ezn5av+m/2i80Zzfmuqvm32gc5PVc966D6ps/tOcFN/FDedy65P6ae4fE1ynOgk+zCdO5Jr1k/r6rrJhz6389PxbfV0792Z8m580P4N/wZP/8uEP/sLgaPzSPsqHuc589K66yMZ0z2+zaOrd7s28a2+T/Mm+VTanbeurs655vaa+s+cZP66fLb+Fd7VKxzZtc3eUD4yP87XVzjV+7f7AXkYAhU=
+   eJzNk1EOgDAIQ9n9L+2vIVBemR8uWXQDalvhRMT52Y7Xc1pdHq2fsDOfk2ITf6duwiP4SkuV5/p00vuN3i4+1VV5lE/WMflB+6vC6/i4/fJV/c180X6jPr85VXebeaD9U8UzHzpP3Xm6J3muPprn9qWq6/jTvLwcHx2eZB7cviO+Zv403q0bf+hz2z8Kb8tHvaszxd3ooPUb/E0+/S8OftYXTR7tR1pX4UyaMy6NT3XEYzrHt36ouJo1R3d37/pN/CG68ndUnOAp/tX3lLaMSfpP+TPpc+aFxKs8MmubuaF4pH8mXV/ldbV/2w914AIU
   </data>
  </layer>
  <objectgroup name="objects" width="36" height="28">
@@ -83,7 +83,7 @@
   <object name="dest1" type="destination" x="480" y="416" width="32" height="32"/>
   <object name="doorOpener2" type="npo" x="675" y="557" width="26" height="48">
    <properties>
-    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door2-open,changeOthersCollidable,door2-false,changeOthersAnim,doorOpener2-on,changeActive,doorOpener2-false"/>
+    <property name="actions" value="playSound,sndDoorCreak,playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door2-open,changeOthersCollidable,door2-false,changeOthersAnim,doorOpener2-on,changeActive,doorOpener2-false"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -96,7 +96,7 @@
   </object>
   <object name="doorOpener1" type="npo" x="226" y="748" width="26" height="48">
    <properties>
-    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,doorOpener1-on,changeActive,doorOpener1-false"/>
+    <property name="actions" value="playSound,sndDoorCreak,playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,doorOpener1-on,changeActive,doorOpener1-false"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -145,6 +145,20 @@
     <property name="spriteSheet" value="TransmorgifierTop.png"/>
    </properties>
   </object>
+  <object name="teleporter3" type="npo" x="768" y="768" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,dest3"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="dest3" type="destination" x="288" y="288" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="objectsForeground" width="36" height="28">
   <object name="transmorgifierPingPong" type="npo" x="800" y="448" width="32" height="32">

@@ -229,6 +229,9 @@ public class Trigger {
 			case "sndDoorCreak":
 				g.i().sound.sndSwitch("doorCreak");
 				break;
+			case "sndAirPuff":
+				g.i().sound.sndSwitch("airPuff");
+				break;
 			}
 		}
 	}

@@ -152,7 +152,7 @@
   </object>
   <object name="vent4" type="npo" x="288" y="1440" width="32" height="64">
    <properties>
-    <property name="actions" value="changeBallY,600"/>
+    <property name="actions" value="changeBallY,600,playSound,sndAirPuff"/>
     <property name="animations" value="off,53,53,off,on,0,52,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -165,7 +165,7 @@
   </object>
   <object name="vent3" type="npo" x="182" y="955" width="64" height="96">
    <properties>
-    <property name="actions" value="changeBallY,600"/>
+    <property name="actions" value="changeBallY,600,playSound,sndAirPuff"/>
     <property name="animations" value="off,53,53,off,on,0,52,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -178,7 +178,7 @@
   </object>
   <object name="vent2" type="npo" x="115" y="908" width="64" height="96">
    <properties>
-    <property name="actions" value="changeBallY,600"/>
+    <property name="actions" value="changeBallY,600,playSound,sndAirPuff"/>
     <property name="animations" value="off,53,53,off,on,0,52,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -191,7 +191,7 @@
   </object>
   <object name="vent1" type="npo" x="46" y="861" width="64" height="96">
    <properties>
-    <property name="actions" value="changeBallY,600"/>
+    <property name="actions" value="changeBallY,600,playSound,sndAirPuff"/>
     <property name="animations" value="off,53,53,off,on,0,52,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>

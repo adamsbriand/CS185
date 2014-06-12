@@ -9,49 +9,49 @@
  <tileset firstgid="59" name="BloxSideSquare_Frame32x32_Sheet224x288_RC7x9" tilewidth="32" tileheight="32">
   <image source="../img/tileSet/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
  </tileset>
- <layer name="bg" width="128" height="16">
+ <layer name="bg" width="128" height="16" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt1TEKwCAMBdBcrFfQK/QKvf/SpQGHDg5SLb7hLQHhw4+kRkTtUB5XI2c97/m37P5s5A7Mzsa3/R+h/934/3tz/ykvZmcCAAAAGCkWyAAwyg0Rq3nL
   </data>
  </layer>
- <layer name="parallax bg 1" width="128" height="16" opacity="0.24">
+ <layer name="parallax bg 1" width="128" height="16" visible="0" opacity="0.24">
   <data encoding="base64" compression="zlib">
    eJzt0dEKABAQRUF/7fflVVIkNubUvN92U5IkSZL2lTv0dr2fj9wu4qbazL1Wt8/+6qTVou87ufFV0W/ZdnsPAAAAfyvTcRVM
   </data>
  </layer>
- <layer name="parallax bg 2" width="128" height="16" opacity="0.48">
+ <layer name="parallax bg 2" width="128" height="16" visible="0" opacity="0.48">
   <data encoding="base64" compression="zlib">
    eJztkVEKxCAMBT3eHsULFK+/XwuSahqtMS07A0MplublmRIAAAAAAAD8O6US7NSdzXQX3XkxGJkpam5v9t2+ntT1IZRZ5Hmt9+xWDi9aGeSuWhdFPC3u6FjDmnPE3fNmOvLK4e0oH8XfP7Wzo/P+Bq09jDjbQe8+V+64ck/EaPPFWb745u5s679zOmdqqe3ktUdkd70OLN/t8AkZrDk97gLf54o7/wKQqyvl
   </data>
  </layer>
- <layer name="parallax bg 3" width="128" height="16" opacity="0.76">
+ <layer name="parallax bg 3" width="128" height="16" visible="0" opacity="0.76">
   <data encoding="base64" compression="zlib">
    eJztkksOwCAIBb2ch+H+F+imC0tQUWxq7EzCRsPj8UkJAAAAAAAAAADgG/Id8E9O3P9p/bxJTmfdwI69RP2I0tB6umfPDCQ9dz+avyO1fr6m58eaffkmRWg93bNnBrnQm8mvaZaerH+NGG+ztPyvuIuIRiu3NXupRG9nvd5bulYNy2/Pu+eW9F3PEvUR0X/DX20/MzcwohmtEa3rZYUvz+5WaV0XjE49
   </data>
  </layer>
  <layer name="blocks" width="128" height="16">
   <data encoding="base64" compression="zlib">
-   eJztmGEOgyAMhbmCuxX7NTkB9z/FRqLJS1MqWCcI/ZIG0UILr2Kic4ZhGPewtE7gh2+dwMRcob8HOzveaMMV+u9znK2DHvTX1vBT0eq/MHPU7qWHdgbrCa3+L2GO0jX3ticzodE/jZX03+m19g39Wcad/yWxjHE5qomZ6mCWdZ5hxDoYbT0aar4NT6dE85n2427wvZOusaXPS/pc3FrepB2df9Q9py9HrJy3xP8oZtgsB+pfEi+Xg9TX0Gt9Sv9RIuO/bpYIGR/qu8K93T+4Y00jWIBrLhfcX4yXaP1vypP8WudC7SMYasj1g+BPx6AfjotCfKwTKQ7VH+N9ASzEWXM=
+   eJztmG0OgyAMhrmCuxX7NTkB9z/FRqLJm6aULycIfZIG0UILb8VEYxRFUe5h653AD9s7gYW5Qn8LVjte6cMV+p9z1NbBCPq31vBTadV/Y+Yo3UsL7Qo2Eq36v4Q5ctc82p6sRIv+Yayk/8mota/w2pScZdz5XxJLmY9UTaxUB6uss4YZ62C29bRQ8m14Ojmar7Qfd4PvnXSNLX2e0+filvIm7ez8o+45fTl84bw5/qmY7rAYqH9OvFgOUr+FUetT+o/iGf/9sICL+FDfHe6d/s6kNfVgDq65XHB/MV6g978pS/LrnQu1j2CoIdd3gj8dg344zgvxsU6kOFR/jPcFVBlY4Q==
   </data>
  </layer>
- <layer name="decorations" width="128" height="16">
+ <layer name="decorations" width="128" height="16" visible="0">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20ON6AAAAAAAAAAgHcDIAAAAQ==
   </data>
  </layer>
- <layer name="parallax fg 1" width="128" height="16" opacity="0.24">
+ <layer name="parallax fg 1" width="128" height="16" visible="0" opacity="0.24">
   <data encoding="base64" compression="zlib">
    eJzt1EEKwCAMRFFv7fW7KoRSSijqDMl/4MaFZow6BgAAwFozjOdcNTFX1YxZMzkqccynqiHb/9XnpDp3p3vuVMvpmr7W35Xd4Z9Tvbe/TvZe3QfFns6936lz9qh7/lvX3AAAAMCbC4UuPzk=
   </data>
  </layer>
- <layer name="parallax fg 2" width="128" height="16">
+ <layer name="parallax fg 2" width="128" height="16" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt0kEKwCAMRFFv1m3PkPsfpFsJEmyp+Afng/vHxNacc865b8VuwAFRN47uuXUR943Bc/9H3Vb9/gpu8r7Zdu3lvErl75L3zTaar0rh79L37V1EX5WCPd+e5swukm0munu0L81Kdc127wZMRDfSfVUKdrqR7qtSsNONdF+Vgp1upPuqFOwrjQ+srR67
   </data>
  </layer>
  <layer name="collisions" width="128" height="16" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztmNsKACEIRPvrfn+fFiKki5pazoFol4h0ZuihUgAAwIbqXUCJUUNWNLSvzfCqAfDQ8v+fOTmI4L80w7ci7ZfSbFdLKj8vj0ic8L9fm50RTZNMSLTf8Tdi9oHtnYYc5GDmcaYcZOmTw4s5eK0fCZm0WOkzkx7WtNqOvtu5X1/5p87l1MrdeyMnck/5a4X0TA3/+72aGkTNZ+R3lB1G+nq/TVF3J4advh/a3Iki
+   eJztmNsKACEIRPvrfn+fFiKki5pazoFol4h0ZuihUgAAwIbqXUCJUUNWNLSvzfCqAfDQ8v+fOTmI4L80w7ci7ZfSbFdLKj8vj0ic8L9fm50RTZNMSLTf8Tdi9gHtzak7DTnIwczjTDnI0ieHF3PwWj8SMmmx0mcmPaxptR19t3O/vvJPncuplbv3Rk7knvLXCumZGv73ezU1iJrPyO8oO4z09X6bou5ODDt9P28uiDQ=
   </data>
  </layer>
  <objectgroup name="objects" width="128" height="16">
@@ -157,7 +157,7 @@
   </object>
   <object name="door1Opener" type="npo" x="1500" y="197" width="40" height="60">
    <properties>
-    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorOpen,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,door1Opener-on,changeActive,door1Opener-false,changeActive,door1-false"/>
+    <property name="actions" value="playSound,sndLightSwitch,playSound,sndDoorCreak,changeOthersAnim,door1-open,changeOthersCollidable,door1-false,changeOthersAnim,door1Opener-on,changeActive,door1Opener-false,changeActive,door1-false"/>
     <property name="animations" value="off,0,0,off,on,1,1,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -183,7 +183,7 @@
   </object>
   <object name="airpuff" type="npo" x="3904" y="355" width="33" height="91">
    <properties>
-    <property name="actions" value="changeBallY,660"/>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
     <property name="active" value="false"/>
     <property name="animations" value="off,52,52,off,on,0,51,on"/>
     <property name="collidable" value="false"/>
@@ -192,6 +192,32 @@
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="glassBlock3" type="npo" x="992" y="224" width="96" height="96">
+   <properties>
+    <property name="actions" value="changeOthersAnim,glassBlock3-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock3-false,changeActive,glassBlock3-false"/>
+    <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
+    <property name="collidable" value="true"/>
+    <property name="collisionParams" value="32,32,32,32"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="animationName,idle,ballType,bowling,velGTE,3"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="GlassBreak.png"/>
+   </properties>
+  </object>
+  <object name="glassBlock4" type="npo" x="960" y="224" width="96" height="96">
+   <properties>
+    <property name="actions" value="changeOthersAnim,glassBlock4-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock4-false,changeActive,glassBlock4-false"/>
+    <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
+    <property name="collidable" value="true"/>
+    <property name="collisionParams" value="32,32,32,32"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="animationName,idle,ballType,bowling,velGTE,3"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="GlassBreak.png"/>
    </properties>
   </object>
  </objectgroup>
