@@ -16,6 +16,11 @@ public class ScreenCredits extends GameMenu {
 	public ScreenCredits(MainGame mainGame){
 		super(mainGame);
 		g.i().sound.BGMusic("menu");
+		
+		//reset
+				g.i().currentBallType = "Base";
+				g.i().fire = false;
+				g.i().playerHealth = 100;
 	}
 
 	@Override
