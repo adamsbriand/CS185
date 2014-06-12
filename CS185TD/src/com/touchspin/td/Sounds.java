@@ -35,6 +35,7 @@ public class Sounds {
 	private static final String glassBreak1 = "snd/sndGlassBreak1.wav";
 	private static final String glassBreak2 = "snd/sndGlassBreak2.wav";
 	private static final String lightSwitch = "snd/sndLightSwitch.wav";
+	private static final String doorCreak   = "snd/sndDoorCreak.wav";
 	private static final String switchFile = "snd/sndSwitch.wav";
 	private static final String Transmorgification = "snd/sndBallTransmorgification.wav";
 	private static final String tubeDown = "snd/sndDownTube.wav";
@@ -54,12 +55,13 @@ public class Sounds {
 	private static final String song3b = "snd/song3B.wav";
 	private static final String song3c = "snd/song3C.wav";
 	private static final String song4 = "snd/song4.wav";
-	private static final String iSeamToBeABall = "snd/songIseemToBeABall.mp3";
+	private static final String iSeemToBeABall = "snd/songIseemToBeABall.mp3";
 	
 	private Sound arrow1=null;
 	private Sound arrow2=null;
 	private Sound whistle=null;
 	public Sound sndSwitch=null;
+	public Sound sndDoor=null;
 	private Music fire=null;
 	private Music campFire=null;
 	private Music windBlowing=null;
@@ -107,7 +109,7 @@ public class Sounds {
 			case "mute":
 				break;
 			case "iamaball":
-				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(iSeamToBeABall));
+				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(iSeemToBeABall));
 				bgMusic.setLooping(false);
 				bgMusic.setOnCompletionListener(
 						new Music.OnCompletionListener(){
@@ -267,6 +269,8 @@ public class Sounds {
 				break;
 			case "transmorgify":
 				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(Transmorgification));
+			case "doorCreak":
+				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(doorCreak));
 		}
 		sndSwitch.play(g.i().sfxLevel);
 	}
@@ -310,6 +314,7 @@ public class Sounds {
 			if (arrow2!=null) arrow2.stop();
 			if (whistle!=null) whistle.stop();
 			if (sndSwitch!=null) sndSwitch.stop();
+			if (sndDoor!=null) sndDoor.stop();
 			if (fire!=null) fire.stop();
 			if (campFire!=null) campFire.stop();
 			if (windBlowing!=null) windBlowing.stop();
