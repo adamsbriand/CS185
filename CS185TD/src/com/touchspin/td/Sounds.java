@@ -90,16 +90,12 @@ public class Sounds {
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song3));
 				bgMusic.setLooping(true);
 				bgMusic.setOnCompletionListener(null);
-				break;		
-			case "song4":
+				break;
 			case "menu":
+			case "song4":
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song4));
-				bgMusic.setLooping(false);
-				bgMusic.setOnCompletionListener(
-						new Music.OnCompletionListener(){
-					public void onCompletion(Music music) {
-						BGMusic("mainmenu");	
-					}});
+				bgMusic.setLooping(true);
+				bgMusic.setOnCompletionListener(null);
 				break;
 			case "mute":
 				break;
@@ -118,6 +114,7 @@ public class Sounds {
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
 				bgMusic.setLooping(true);
 				bgMusic.setOnCompletionListener(null);
+				break;
 		}
 		if (g.i().music && bgMusic != null){
 			bgMusic.setVolume(g.i().musicLevel);
