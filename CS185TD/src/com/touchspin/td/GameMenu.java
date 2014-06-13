@@ -17,6 +17,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
  
 public abstract class GameMenu extends GameObject {
+	
+	// Constants
+	private static final FileHandle ButtonUp = Gdx.files.internal("img/menu/Btn9SliceUp.png");
+	private static final FileHandle ButtonDown = Gdx.files.internal("img/menu/Btn9SliceUp.png");
+	private static final FileHandle ButtonClick = Gdx.files.internal("img/menu/Btn9SliceUp.png");
+	private static final FileHandle bgImage = Gdx.files.internal("img/menu/ScreenBG.png");
+	
+	// Variables
     Skin skin;
     Stage stage;
     SpriteBatch batch;
@@ -42,31 +50,33 @@ public abstract class GameMenu extends GameObject {
     
     void setBG(){
 	    camera = new OrthographicCamera();
-	    bg = new Sprite(new Texture(Gdx.files.internal("img/menu/ScreenBG.png")));
+	    bg = new Sprite(new Texture(bgImage));
 	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
 	    bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
     
     protected void setTemplet(){
     	
-    	BitmapFont bfont;
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
         
-        NinePatchDrawable npUP = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceUp.png")), 20, 20, 20, 20));
-        NinePatchDrawable npDown = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceDown.png")), 20, 20, 20, 20));
-        NinePatchDrawable npCheck = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal("img/menu/Btn9SliceChecked.png")), 20, 20, 20, 20));
+        NinePatchDrawable npUP = new NinePatchDrawable(
+        		new NinePatch(new Texture(ButtonUp), 20, 20, 20, 20));
+        NinePatchDrawable npDown = new NinePatchDrawable(
+        		new NinePatch(new Texture(ButtonDown), 20, 20, 20, 20));
+        NinePatchDrawable npCheck = new NinePatchDrawable(
+        		new NinePatch(new Texture(ButtonClick), 20, 20, 20, 20));
  
-        bfont = new BitmapFont(g.i().font);
+        BitmapFont font = new BitmapFont(g.i().font);
         if (Gdx.app.getType().toString() == "Desktop"){
-        	bfont.scale(1);
+        	font.scale(1);
         } else {
-        	bfont.scale(3);
+        	font.scale(3);
         }
-        bfont.setColor(Color.WHITE);
+        font.setColor(Color.WHITE);
         new TextButtonStyle();
-        textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, bfont);
+        textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, font);
         textButtonStyle.pressedOffsetX = 3;
         textButtonStyle.pressedOffsetY = -3;
     }
@@ -78,7 +88,6 @@ public abstract class GameMenu extends GameObject {
     	float x = (float)((Gdx.graphics.getWidth() - logo.getWidth()) / 2) ;
     	float y = (float)(Gdx.graphics.getHeight() / 4 * 3 - logo.getHeight() / 2);
     	logo.setPosition(x, y);
-    	
     }
  
     public void render (float delta) {
