@@ -46,10 +46,6 @@ public class Trigger {
 			action(Action);
 		}
 	}
-	
-	public void action(Screen pausedScreen){
-		game.setScreen(new ScreenOptions(game, pausedScreen));
-	}
 
 	//=========================================================================
     // private Actions
