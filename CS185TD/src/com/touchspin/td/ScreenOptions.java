@@ -58,12 +58,12 @@ public class ScreenOptions extends GameMenu {
     	final TextButton button2 = new TextButton("", textButtonStyle);
     	final TextButton button3 = new TextButton("", textButtonStyle);
     	final TextButton button4 = new TextButton("", textButtonStyle);
-    	longest = Keyboard + " \u2193";
+    	longest = Keyboard + " \u25BC";
     	if (longest.length() < Gyro.length()){
-    		longest = Gyro + " \u2193";
+    		longest = Gyro + " \u25BC";
     	}
     	if (longest.length() < CurrentLanguage.length() + 2){
-    		longest = CurrentLanguage + " \u2193";
+    		longest = CurrentLanguage + " \u25BC";
     	}
     	final TextButton button5 = new TextButton(longest, textButtonStyle);
     	ChangeListener muteMusicListen = new ChangeListener() {
@@ -207,7 +207,7 @@ public class ScreenOptions extends GameMenu {
 	    		break;
 	    	case 'L':
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoLanguage.png"));
-	    		button5.setText(CurrentLanguage + " \u2193");
+	    		button5.setText("\u25BC " + CurrentLanguage);
 	    		button1.setVisible(false);
 	    		button2.setVisible(false);
 	    		button3.setVisible(false);
@@ -220,16 +220,16 @@ public class ScreenOptions extends GameMenu {
 	    		super.setLogo(Gdx.files.internal("img/menu/LogoControls.png"));
 	    		switch (g.i().controls) {
 		    		case 'A':
-		    			button5.setText(Gyro + " \u2193");
+		    			button5.setText("\u25BC " + Gyro);
 		    			break;
 		    		case 'K':
-		    			button5.setText(KeyboardMouse + " \u2193");
+		    			button5.setText("\u25BC " + KeyboardMouse);
 		    			break;
 		    		case 'M':
-		    			button5.setText(Mouse + " \u2193");
+		    			button5.setText("\u25BC " + Mouse);
 		    			break;
 		    		case 'D':
-		    			button5.setText(Keyboard + " \u2193");
+		    			button5.setText("\u25BC " + Keyboard);
 		    			break;
 	    		}
 	    		button1.setVisible(false);
