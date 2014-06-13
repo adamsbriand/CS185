@@ -273,7 +273,6 @@ public class Sounds {
 				sndSwitch=Gdx.audio.newSound(Gdx.files.internal(yummy));
 				break;
 		}
-		sndSwitch.play(g.i().sfxLevel);
 	}
 	
 	public void playSwitch(){
