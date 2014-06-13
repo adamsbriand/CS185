@@ -113,10 +113,6 @@ public class Sounds {
 					}});
 				break;
 			case "outro":
-				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(iSeemToBeABall));
-				//bgMusic.setLooping(true);
-				//bgMusic.setOnCompletionListener(null);		
-				//break;
 			case "mainmenu":
 			default:
 				bgMusic = Gdx.audio.newMusic(Gdx.files.internal(song1));
@@ -141,7 +137,7 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2SoccerBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3SoccerBall));
 				break;
-			case "tennisball":
+			case "tennis":
 				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1TennisBall));
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2TennisBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3TennisBall));
@@ -151,12 +147,12 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2BowlingBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3BowlingBall));
 				break;
-			case "basketball":
+			case "basket":
 				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1BasketBall));
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2BasketBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3BasketBall));
 				break;
-			case "baseball":
+			case "base":
 				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1TennisBall));
 				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2TennisBall));
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3TennisBall));
