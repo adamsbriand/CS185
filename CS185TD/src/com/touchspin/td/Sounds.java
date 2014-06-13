@@ -29,8 +29,6 @@ public class Sounds {
 	private float loopsSoundFactor = 0.3f;
 	
 	// Sound effects
-	private static final String arrowfile1  = "snd/sndArrow1.wav";
-	private static final String arrowfile2  = "snd/sndArrow2.wav";
 	private static final String brickCrash  = "snd/sndBrickCrash.wav";
 	private static final String glassBreak1 = "snd/sndGlassBreak1.wav";
 	private static final String glassBreak2 = "snd/sndGlassBreak2.wav";
@@ -46,21 +44,15 @@ public class Sounds {
 
 	// Music files
 	private static final String scaryIntro = "snd/songScaryIntro.wav";
-	private static final String outro = "snd/songISeemToBeABall.mp3";
 	private static final String scary = "snd/songScaryLoopable.wav";
 	private static final String song1 = "snd/song1Loopable.wav";
 	private static final String wind = "snd/sndWindBlowing.wav";
 	private static final String fireburn = "snd/sndFire.wav";
 	private static final String campfire = "snd/sndCampFire.wav";
 	private static final String song3 = "snd/song3.wav";
-	private static final String song3a = "snd/song3A.wav";
-	private static final String song3b = "snd/song3B.wav";
-	private static final String song3c = "snd/song3C.wav";
 	private static final String song4 = "snd/song4.wav";
 	private static final String iSeemToBeABall = "snd/songIseemToBeABall.mp3";
 	
-	private Sound arrow1=null;
-	private Sound arrow2=null;
 	private Sound whistle=null;
 	public Sound sndSwitch=null;
 	private Music fire=null;
@@ -118,7 +110,7 @@ public class Sounds {
 						BGMusic("mainmenu");
 					}});
 			case "outro":
-				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(outro));
+				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(iSeemToBeABall));
 				//bgMusic.setLooping(true);
 				//bgMusic.setOnCompletionListener(null);		
 				//break;
@@ -303,24 +295,9 @@ public class Sounds {
 		whistle.play(g.i().sfxLevel);
 	}
 	
-	public void arrow(){
-		Random random = new Random();
-		int rand = random.nextInt(2) + 1;
-		if (arrow1!=null){
-			arrow1=Gdx.audio.newSound(Gdx.files.internal(arrowfile1));
-			arrow2=Gdx.audio.newSound(Gdx.files.internal(arrowfile2));
-		}
-		if (rand==1){
-			arrow1.play(g.i().sfxLevel);
-		}else{
-			arrow2.play(g.i().sfxLevel);
-		}
-	}
 	
 	public void sfxMute(boolean tempMute){
 		if (!g.i().sfx || tempMute){
-			if (arrow1!=null) arrow1.stop();
-			if (arrow2!=null) arrow2.stop();
 			if (whistle!=null) whistle.stop();
 			if (sndSwitch!=null) sndSwitch.stop();
 			if (fire!=null) fire.stop();
