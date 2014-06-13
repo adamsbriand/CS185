@@ -222,7 +222,7 @@ public abstract class GameMenu extends GameObject {
  
     @Override
     public void resize (int width, int height) {
-        //stage.setViewport(width, height, false);
+
     }
  
     @Override
