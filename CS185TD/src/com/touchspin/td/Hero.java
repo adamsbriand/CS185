@@ -223,8 +223,6 @@ public class Hero extends GameThing {
 	public void setPosition(float x, float y) {
 		setX(x);
 		setY(y);
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
 
 		camera.position.x = getX() + getWidth() / 2;
 		camera.position.y = getY() + getHeight() / 2;
