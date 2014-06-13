@@ -182,6 +182,18 @@ public class Sounds {
 		}
 	}
 	
+	public void wind(){
+		if (windBlowing==null){
+			windBlowing=Gdx.audio.newMusic(Gdx.files.internal(wind));
+			windBlowing.setLooping(true);
+			windBlowing.setVolume(g.i().sfxLevel * loopsSoundFactor);
+			windBlowing.play();
+		} else {
+			windBlowing.stop();
+			windBlowing=null;
+		}
+	}
+	
 	public void wind(Boolean on){
 		if (on){
 			if(windBlowing == null)
@@ -197,6 +209,18 @@ public class Sounds {
 			windBlowing.stop();
 			windBlowing=null;
 			}
+		}
+	}
+	
+	public void fire(){
+		if (fire==null){
+			fire=Gdx.audio.newMusic(Gdx.files.internal(fireburn));
+			fire.setLooping(true);
+			fire.setVolume(g.i().sfxLevel * loopsSoundFactor);
+			fire.play();
+		} else {
+			fire.stop();
+			fire=null;
 		}
 	}
 	
@@ -216,6 +240,19 @@ public class Sounds {
 				fire=null;
 			}
 		}
+	}
+	
+	public void campfire(){
+		if (campFire==null){
+			campFire=Gdx.audio.newMusic(Gdx.files.internal(campfire));
+			campFire.setLooping(true);
+			campFire.setVolume(g.i().sfxLevel);
+			campFire.play();
+		} else {
+			campFire.stop();
+			campFire=null;
+		}
+			
 	}
 	
 	public void campfire(Boolean on){
