@@ -1,89 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = "song1"> 
+<DialogScript music = ""> 
     <dialog_en>           
 	    <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4:C_:end:null"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
       </dialog_en>
       <dialog_es>
-          <Snippet 
+         <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4:C_:end:null"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
       </dialog_es>
       <dialog_vi>
-         <Snippet 
+       <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4:C_:end:null"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
       </dialog_vi>
       <dialog_zh>
-         <Snippet 
+       <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4:C_:end:null"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
       </dialog_zh>
       <dialog_ja>
-         <Snippet 
+        <Snippet 
 		    name = "1/3"	
 		    background = "DialogImages/PCMoveRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
 		    background = "DialogImages/PCJumpRunner.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
 		    background = "DialogImages/PCMaze.png"
 		    position = "L"
-		    text = "                                            :C_:pause:4:C_:end:null"/>
+		    text = "C_:masterSkip:true"
+		    finalPause = "40"/>
       </dialog_ja>
     <End>NewLevel,Level1Run1</End>
 </DialogScript>

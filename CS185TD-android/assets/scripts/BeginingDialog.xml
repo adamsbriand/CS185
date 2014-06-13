@@ -190,5 +190,5 @@
 		    text = "旅の終わりには君も分かるさ。"
 		    finalPause = "10"/>		
 	</dialog_ja>	
-	<End>NewLevel,Instructions,changeMusic,song1</End>
+	<End>NewLevel,Instructions</End>
 </DialogScript>

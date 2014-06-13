@@ -51,6 +51,7 @@ public class GameDialog extends GameObject
 	private boolean skipable;
 	private int textPadding;
 	private boolean canBreakText;
+	private boolean masterSkip;
 	
 	/**
 	 * Constructor
@@ -99,6 +100,7 @@ public class GameDialog extends GameObject
 		skipable = true;
 		canBreakText = true;
 		textPadding = 50;
+		masterSkip = false;
 		
 		nextSnippet();			
 	}// end of constructor
@@ -189,6 +191,20 @@ public class GameDialog extends GameObject
 	@Override
 	public void update() 
 	{		
+		if(masterSkip)
+		{
+			if(g.i().leAnonymizer.pausePressed)
+			{
+				g.i().leAnonymizer.pausePressed = false;
+				performAction("end", "null", false);
+			}
+			if(g.i().leAnonymizer.click)
+			{
+				g.i().leAnonymizer.click = false;				
+				nextSnippet();
+			}
+		}
+		
 		if(System.currentTimeMillis() >= nextPrintTime)
 		{
 			nextPrintTime = System.currentTimeMillis();
@@ -215,8 +231,7 @@ public class GameDialog extends GameObject
 				else				
 					nextChar();				
 			}			
-		}//end of outer if statement	
-			
+		}//end of outer if statement			
 	}//end of update method
 	
 	/**
@@ -355,6 +370,12 @@ public class GameDialog extends GameObject
 		case "instaPrint":	
 			if(!skipPauses)
 				currentText += textArray[dialogCount++];		
+		case "masterSkip":
+			if(value.equals("true"))
+				masterSkip = true;
+			else
+				masterSkip = false;
+			break;
 		default :				
 		}
 	}
