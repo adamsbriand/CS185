@@ -1,7 +1,5 @@
 package com.touchspin.td;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,11 +10,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class HUD extends GameThing {
 	public OrthographicCamera camera;
-
-
-	private Map<String,TextureRegion> HealthMap = new HashMap<String, TextureRegion>();
-	
-	private float scaleFactor;
 	private Sprite heroHealth;
 	private Sprite cover;
 	private int healthWidth;
@@ -36,8 +29,6 @@ public class HUD extends GameThing {
 		setWidth(heroHealth.getWidth() * camera.zoom);
 		setX(10);
 		setY(100);
-		
-		scaleFactor = 1f;
 	}
 
 	@Override
@@ -45,10 +36,6 @@ public class HUD extends GameThing {
 		batch.setProjectionMatrix(camera.combined);
 		heroHealth.draw(batch);
 		cover.draw(batch);
-	}
-
-	private void drawEffect(Batch batch) {
-		// batch.draw(currentFrame,getX(),getY(),32f,currentFrame.getRegionHeight()*32/currentFrame.getRegionWidth());
 	}
 
 	@Override
