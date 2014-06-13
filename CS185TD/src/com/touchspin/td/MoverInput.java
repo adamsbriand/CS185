@@ -8,7 +8,6 @@ public class MoverInput extends MoverPhysics {
 	private HashSet<NP> prev = new HashSet<NP>();
 	private boolean jumpable = true;
 	private int frameCount = 30;
-	private boolean previousInWater= false;
 
 	public MoverInput() {
 		super();
@@ -24,7 +23,6 @@ public class MoverInput extends MoverPhysics {
 		// Try to move
 
 		inputMove();
-		previousInWater = isInWater;
 		physicsMove();
 		// If movement is failed, set the position of the
 		// actor to previous position
