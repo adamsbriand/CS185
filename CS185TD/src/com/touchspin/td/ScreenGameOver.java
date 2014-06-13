@@ -25,8 +25,15 @@ public class ScreenGameOver extends GameMenu{
 	void setBG(){
 		camera = new OrthographicCamera();
 	    bg = new Sprite(new Texture(Gdx.files.internal("img/menu/TeamOllie1200.png")));
+	    float ratio = Gdx.graphics.getHeight() / bg.getHeight();
+	    bg.setSize(bg.getWidth() * ratio, bg.getHeight() * ratio);
+		if (bg.getWidth() > Gdx.graphics.getWidth()){
+			ratio = Gdx.graphics.getWidth() / bg.getHeight();
+			bg.setSize(bg.getWidth() * ratio, bg.getHeight() * ratio);
+		}
 	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
-	    bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	    bg.setPosition((Gdx.graphics.getWidth() - bg.getWidth()) / 2, (Gdx.graphics.getHeight() - bg.getHeight()) / 2);
+	    //bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 	}
 
 	void buttons() {

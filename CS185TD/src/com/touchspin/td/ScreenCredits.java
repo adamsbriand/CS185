@@ -36,7 +36,7 @@ public class ScreenCredits extends GameMenu {
 				btn.setHeight(btn.getHeight() * ratio);
 			}
 			btn.setOrigin(btn.getWidth() / 2, btn.getHeight() / 2);
-			btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2, 0);
+			btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2, (Gdx.graphics.getHeight() - btn.getHeight()) / 2);
 			btn.setVisible(false);
 			btn.setVisible(true);
 			btn.addListener(new ChangeListener() {
