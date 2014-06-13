@@ -111,6 +111,7 @@ public class Sounds {
 					public void onCompletion(Music music) {
 						BGMusic("mainmenu");
 					}});
+				break;
 			case "outro":
 				//bgMusic = Gdx.audio.newMusic(Gdx.files.internal(iSeemToBeABall));
 				//bgMusic.setLooping(true);

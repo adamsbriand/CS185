@@ -64,5 +64,5 @@
 	    	position = "R"
 	    	text = "約束どおり、君の家族を返すよ。:C_:pause:20:C_:end:null"/>
     </dialog_ja>
-	<End>menu,credits</End>
+	<End>menu,credits,changeMusic,iamaball</End>
 </DialogScript>

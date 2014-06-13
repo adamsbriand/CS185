@@ -121,6 +121,15 @@ public class ScreenTest implements Screen {
         	}
         });
         
+        final TextButton textButton6=new TextButton("credits",textButtonStyle);
+        textButton6.setPosition(xOff+2*dX, yOff+0*dY);
+        stage.addActor(textButton6);
+        
+        textButton6.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("menu,credits,changeMusic,iamaball");
+        	}
+        });
     }
  
     public void render (float delta) {
