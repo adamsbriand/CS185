@@ -3,7 +3,6 @@ package com.touchspin.td;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.maps.MapObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -23,17 +22,14 @@ import java.util.Map;
 public class g {
 	
 	// Player variables
-	public int level; 		// Progress counter
-	public float levelTimer; // Time stamp at start of level. Time is measured in seconds.
-	public String playerGraphic; // Type of ball for graphics and physics
-	public int playerWeight; // The weight of the player for physics
 	public float playerFriction; // The friction of the player for physics
 	public boolean fire;	// Hero is on fire
-	public String currentBallType;
+	public String currentBallType;	// They current ball type
 	public int playerHealth;  // Health of the player. 100=full health. 
-	public Hero hero;
-	public HUD hud;
-	public int maxHealth;
+	public Hero hero;		// The hero class for access game wide
+	public HUD hud;			// The HUD class
+	public int maxHealth;	// Max health of the hero
+	public float playerdyInWater;	// Player in water
 	
 	// Sound variables
 	public boolean sfx;		// Sound effects are activated
@@ -57,37 +53,19 @@ public class g {
 							 * M=Mouse
 							 * D=Desktop (Mouse + Keyboard)
 							 */ 
-	//public long timeStartGame; //Time stamp at start of game
-	// Maze const Variables
-	public float cameraWidth;
-	public float cameraHeight;
-	public float playerdyInWater;
 	
 	// Background variables
-	public float accelX;	// Support for accelerometer X axis. This is for the Vertical axes.
-	public float accelY;	// Support for accelerometer Y axis. This is for the Horizontal axes.
-	public float accelZ;	// Support for accelerometer Z axis. 
-	InputAnonymizer leAnonymizer;
-	Sounds sound;
-	public char gameMode;	// M=Maze
-							// R=Runner
-	
-	// Sound
-	public Sounds snd = new Sounds();
+	public InputAnonymizer leAnonymizer;
+	public Sounds sound;
+	public Trigger t;
+	public char gameMode;	/* Current game mode.
+							 * M=Maze
+							 * R=Runner
+							 * D=Dialog
+							 */
 	
 	public ArrayList<NP> mapObjects; 
 	public Map<MapObject,NP> npMap; 
-	
-	Trigger t;
-	
-	// Controls
-	public String Click;
-	public String Velocity;
-	public String Pause;
-	public String Attack;
-	public String Crouch;
-	public String Jump;
-	public String Dash;
 	
 	private static g singleton = new g( ); // Only this class can create this class.
 	
@@ -95,8 +73,8 @@ public class g {
 		// Sound
 		sfx = true;
 		music = true;
-		sfxLevel = 1;
-		musicLevel = 1;
+		sfxLevel = .5f;
+		musicLevel = .5f;
 
 		setZero();
 	}
@@ -107,41 +85,28 @@ public class g {
 	
 	public void setZero(){
 		// Player
-		level = 0;
-		levelTimer = 0;
 		fire = false;
 		maxHealth = 100;
 		currentBallType = "Base";
 		fire = false;
 		playerHealth = maxHealth;
-		
-		//Maze
-		cameraWidth = 400;
-		cameraHeight = 400;
-		
-		// Background
-		accelX = 0;
-		accelY = 0;
-		accelZ = 0;
 	}
 	
 	public void SetDefaults(MainGame game){
 		// Set defaults after the game loads
 		switch (Gdx.app.getType()) { // Other platforms: WebGl iOS Applet
 			case Android:
-				g.i().SetControls('A');
+				controls = 'A';
 				break;
 			case Desktop:
-				g.i().SetControls('D');
+				controls = 'D';
 			default:
-				g.i().SetControls('D');
+				controls = 'D';
 				break;
 		}
 		// System
 		language = Locale.getDefault().getLanguage(); //Get language from device
 		languageSet();
-		
-	//	timeStartGame = System.currentTimeMillis();
 		mapObjects = new ArrayList<NP>();
 		npMap = new HashMap<MapObject,NP>();
 	}
@@ -162,58 +127,5 @@ public class g {
 			font = Gdx.files.internal("Font/ollieFont.fnt");
 		}
 	}
-   
-	public void timer(){
-		// increment the level timer. This needs to be called for each draw. 
-		levelTimer += Gdx.graphics.getDeltaTime();
-	}
 	
-	public int GetLevelTimeMin(){ 
-		return (int) ((levelTimer % 3600) / 60);
-	}
-	
-	public int GetLevelTimeSec(){
-		return (int) (levelTimer % 60);
-	}
-	
-	public void SetControls(char value){
-		controls = value;
-		ChangeInputs();
-	}
-	
-	private void ChangeInputs(){
-		switch (controls){
-		case 'A':
-			Click = "tap";
-			Velocity = "tilt";
-			Pause = "tap pause";
-			Attack = "tap";
-			Crouch = "swipe down";
-			Jump = "swipe up";
-			Dash = "swipe left or right";
-			break;
-		case 'D':
-			Click = "any key";
-			Velocity = "mouse";
-			Pause = "Escape";
-			Attack = "X";
-			Crouch = "Z";
-			Jump = "Space";
-			Dash = "Left Mouse Click";
-			break;
-		case 'K':
-			break;
-		case 'M':
-			break;
-		default:
-			Click = "";
-			Velocity = "";
-			Pause = "";
-			Attack = "";
-			Crouch = "";
-			Jump = "";
-			Dash = "";
-			break;
-		}
-	}
 }
