@@ -427,8 +427,11 @@ public class Trigger {
 	}
 
 	private boolean velGTE(String value) {
-		// 3
+		if(Math.pow(Math.pow(g.i().hero.heroMover.speedXPerSecond,2)+
+				Math.pow(g.i().hero.heroMover.speedYPerSecond,2),0.5) >Float.parseFloat(value))
 		return true;
+		else
+			return false;
 	}
 
 	private boolean animationName(String value) {
