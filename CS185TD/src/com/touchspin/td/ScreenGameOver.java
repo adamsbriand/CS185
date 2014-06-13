@@ -34,7 +34,7 @@ public class ScreenGameOver extends GameMenu{
     	final float yRow1_2 = Gdx.graphics.getWidth() / 9 * 7;
     	float height = 0;
     	float width = 0;
-    	
+    	language();
     	final TextButton continueButton = new TextButton(Continue, textButtonStyle);
     	continueButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
