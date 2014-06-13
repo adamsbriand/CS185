@@ -2,7 +2,6 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
+import com.badlogic.gdx.utils.TimeUtils;
  
 public abstract class GameMenu extends GameObject {
 	
@@ -32,10 +32,13 @@ public abstract class GameMenu extends GameObject {
     Sprite bg;
     Sprite logo;
     TextButtonStyle textButtonStyle;
+    float width;
+    float height;
+    long timeresize = 0;
     
     public GameMenu (MainGame MainGame){
-    	setBG();
         setTemplet();
+        setBG();
         buttons();
         logo();
         this.game=MainGame;
@@ -74,8 +77,6 @@ public abstract class GameMenu extends GameObject {
         } else {
         	font.scale(3);
         }
-        font.setColor(Color.WHITE);
-        new TextButtonStyle();
         textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, font);
         textButtonStyle.pressedOffsetX = 3;
         textButtonStyle.pressedOffsetY = -3;
@@ -105,7 +106,6 @@ public abstract class GameMenu extends GameObject {
  
     @Override
     public void resize (int width, int height) {
-    	// TODO Auto-generated method stub
     }
  
     @Override
@@ -140,13 +140,24 @@ public abstract class GameMenu extends GameObject {
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		if (width != Gdx.graphics.getWidth() || height != Gdx.graphics.getHeight()){
+			width = Gdx.graphics.getWidth();
+			height = Gdx.graphics.getHeight();
+			timeresize = TimeUtils.millis();
+		}
+		if (timeresize!=0){
+			if (TimeUtils.millis()>(timeresize + 100)){
+				stage.clear();
+				batch = new SpriteBatch();
+				setBG();
+				buttons();
+		        logo();
+		        timeresize = 0;
+			}
+		}
 	}
 
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
-		
 	}
 }

@@ -15,10 +15,10 @@ public class ScreenMenu extends GameMenu {
     
     public void buttons(){
 
-    	final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
-    	final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
-    	final float yRow1 = Gdx.graphics.getWidth() / 3;
-    	final float yRow2 = Gdx.graphics.getWidth() / 3 * 2;
+    	float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
+    	float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
+    	float yRow1 = Gdx.graphics.getWidth() / 3;
+    	float yRow2 = Gdx.graphics.getWidth() / 3 * 2;
     	float height = 0;
     	float width = 0;
     	
@@ -64,10 +64,6 @@ public class ScreenMenu extends GameMenu {
         	if (width < stage.getActors().items[i].getWidth()){
         		width = stage.getActors().items[i].getWidth();
         	}
-        	@SuppressWarnings("unused")
-			int teststop = stage.getActors().size;
-        	@SuppressWarnings("unused")
-			int test = 0;
         }
         for (int i=0; i < stage.getActors().size; i++){
         	stage.getActors().items[i].setHeight(height);

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
@@ -18,7 +19,6 @@ public class ScreenSplash extends GameMenu{
 		super(mainGame);
 		timeStartGame = System.currentTimeMillis();
 		g.i().sound.BGMusic("menu");
-		//batch = new SpriteBatch();
 	}
 
 	@Override
@@ -26,6 +26,23 @@ public class ScreenSplash extends GameMenu{
 		final int secondsWait = 5;
 		if (TimeUtils.millis()>(timeStartGame + ( 1000 * secondsWait))){
 			g.i().t.action("menu,Main");
+		}
+		if (width != Gdx.graphics.getWidth() || height != Gdx.graphics.getHeight()){
+			width = Gdx.graphics.getWidth();
+			height = Gdx.graphics.getHeight();
+			timeresize = TimeUtils.millis();
+		}
+		if (timeresize!=0){
+			if (TimeUtils.millis()>(timeresize + 100)){
+				stage.clear();
+				batch = new SpriteBatch();
+				stage.getCamera().viewportWidth = Gdx.graphics.getWidth();
+			    stage.getCamera().viewportHeight = Gdx.graphics.getHeight();
+				setBG();
+				buttons();
+		        logo();
+		        timeresize = 0;
+			}
 		}
 	}
 
