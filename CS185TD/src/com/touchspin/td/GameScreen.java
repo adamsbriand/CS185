@@ -1,13 +1,10 @@
 package com.touchspin.td;
 
-import java.util.Stack;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.maps.objects.CircleMapObject;
 import com.badlogic.gdx.maps.objects.EllipseMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.MathUtils;
@@ -63,8 +60,6 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void update() {
-		float tempX = g.i().hero.getX();
-		float tempY = g.i().hero.getY();
 		stage.act();
 		camera.update();
 		if (mode == 'R') {
@@ -141,23 +136,6 @@ public class GameScreen extends GameObject {
 	public void dispose() {
 		stage.dispose();
 		tiledMapWrapper.dispose();
-	}
-
-	/**
-	 * Damian: Camera doesnt follow the user if the user rolls backwards
-	 * 
-	 * @param x
-	 * @param y
-	 */
-	private void cameraTranslate(float x, float y) {
-		if (g.i().hero.getX() >= camera.viewportWidth / 2
-				&& g.i().hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
-						.getPixelWidth())
-			camera.translate(x, 0);
-		if (g.i().hero.getY() >= camera.viewportHeight / 2
-				&& g.i().hero.getY() + camera.viewportHeight / 2 <= tiledMapWrapper
-						.getPixelHeight())
-			camera.translate(0, y);
 	}
 
 	private void setCamera(float x, float y) {
@@ -276,7 +254,6 @@ public class GameScreen extends GameObject {
 
 	private void loadNPs() {
 		NP temp;
-		Stack<NP> tempLightOnOff = new Stack<NP>();
 		int startX = 0;
 		int startY = 0;
 		int width = 0;
