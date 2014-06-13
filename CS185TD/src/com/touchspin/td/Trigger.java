@@ -2,13 +2,23 @@ package com.touchspin.td;
 
 import com.badlogic.gdx.Screen;
 
-/* This class handles any triggers that the user may encounter when colliding with hidden
- * tiles.  This trigger requires the input of two string values, or one comma delimited
- * string.  The first value will indicate the action to be taken.  The second value will 
- * effect how that action will take place.  
+/* ======================================================================================
+ * Trigger.java
+ * 
+ * This class handles any triggers that the user may encounter with objects. Each
+ * argument must be formatted as a comma delimited string.  The string will then be split
+ * into pairs.  The first argument will be the command to be called.  The second argument
+ * will be the value the change will make.  Some commands have multiple values to
+ * process.  These values must be dash delimited. 
+ * 
+ * If you wish to check a set of conditions to check before running the action, then
+ * send these as a separate string proceeding the action. 
+ * ======================================================================================
  */
 
 public class Trigger {
+	
+	// Constants
 	private final static String L1R1 = "map/Level1Runner1.tmx";
 	private final static String L1M1 = "map/Level1Maze1.tmx";
 	private final static String L2M1 = "map/Level2Maze1.tmx";
@@ -20,16 +30,20 @@ public class Trigger {
 	private final static String MidDialog = "scripts/MidGameDialog.xml";
 	private final static String L2R1 = "map/Level2Runner1.tmx";
 	
+	// Variables
 	MainGame game;
 
 	// constructor
 	public Trigger(MainGame game){
 		this.game = game;
 	}
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                      Public Actions
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
 	
-	//=========================================================================
-	// Public Actions
-	//=========================================================================
 	public void action(String actionString){
 		if (actionString==null || actionString.equalsIgnoreCase("")){
 			return;
@@ -41,15 +55,21 @@ public class Trigger {
 	}
 	
 	public void action(String Conditional, String Action){
+		if (Action==null || Action.equalsIgnoreCase("")){
+			return;
+		}
 		boolean go = condition(Conditional);
 		if (go){
 			action(Action);
 		}
 	}
 
-	//=========================================================================
-    // private Actions
-	//=========================================================================
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                      Private Actions
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
 	private void TriggerActions(String type, String value) {
 		switch (type){
 			case "NewLevel":
@@ -64,23 +84,14 @@ public class Trigger {
 			case "playSound":
 				playSound(value);
 				break;
-			case "changeLogic":
-				changeLogic(value);
-				break;
 			case "changeMusic":
 				changeMusic(value);
-				break;
-			case "setTarget":
-				setTarget(value);
 				break;
 			case "changeMap":
 				NewLevel(value);
 				break;
 			case "changeLocation":
 				changeLocation(value);
-				break;
-			case "changeLocationXY":
-				changeLocationXY(value);
 				break;
 			case "changeBallY":
 				changeBallY(value);
@@ -93,9 +104,6 @@ public class Trigger {
 				break;
 			case "changeOthersCollidable":
 				changeOthersCollidable(value);
-				break;
-			case "toggleLight":
-				toggleLight(value);
 				break;
 			case "igniteBall":
 				igniteBall(value);
@@ -123,7 +131,6 @@ public class Trigger {
 	}
 
 	private void changeBallY(String value) {
-		// -10
 		float change = Float.parseFloat(value);
 		g.i().hero.changeBallY(change);
 	}
@@ -141,23 +148,11 @@ public class Trigger {
 		}
 	}
 	
-	private void changeLocationXY(String value) {
-		String[] Value = value.split("_");
-		g.i().hero.setPosition(Float.parseFloat(Value[0]), Float.parseFloat(Value[1]));
-	}
-	
 	private void changeMyAnimation(String value) {
 		g.i().hero.changeBall(value);
 	}
 	
 	// Changes to environment
-	private void toggleLight(String value) {
-		switch (value){
-			case "lightSourceGlobal":
-				
-				break;
-		}
-	}
 	
 	private void toggleState(String value)
 	{
@@ -266,22 +261,6 @@ public class Trigger {
 			if (name.equalsIgnoreCase(  g.i().mapObjects.get(iO).getName()  ) )
 					return g.i().mapObjects.get(iO);
 		return null;
-	}
-	
-	private void setTarget(String value) {
-		switch (value){
-			case "hero":
-				
-				break;
-		}
-	}
-
-	private void changeLogic(String value) {
-		switch (value){
-		case "startAttack":
-
-			break;
-		}
 	}
 	
 	private void reduceHealth(String value)
@@ -408,10 +387,6 @@ public class Trigger {
 				return ballType(value);
 			case "myAnimationIs":
 				return AnimationIs(value);
-			case "onScreen":
-				return onScreen(value);
-			case "animationName":
-				return animationName(value);
 			case "velGTE":
 				return velGTE(value);
 			}
@@ -426,30 +401,12 @@ public class Trigger {
 			return false;
 	}
 
-	private boolean animationName(String value) {
-		// idle
-		return true;
-	}
-
-	private boolean onScreen(String value) {
-		//return DragonOnScreen // this does not exist
-		return true;
-	}
-
 	private boolean AnimationIs(String value) {
 		String[] split = value.split("-");
 		if (split.length > 0){						// Check to make sure proper format used. 
 			NP obj = getObjNamed(split[0]);
 			if (obj!=null)
 				return  (boolean)( split[1].equalsIgnoreCase( obj.getAnimation() ) );
-			
-//			for (int i = 0; i < g.i().mapObjects.size(); i++){
-//				if (split[0].equalsIgnoreCase(g.i().mapObjects.get(i).name)){
-//					if (split[1].equalsIgnoreCase(g.i().mapObjects.get(i).getAnimation())){
-//						return true;
-//					}
-//				}
-//			}
 		}
 		return false;
 	}
