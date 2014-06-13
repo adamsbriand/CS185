@@ -36,7 +36,6 @@ public class ScreenOptions extends GameMenu {
 	
     
     public void buttons(){
-    	language();
     	stage.clear();
     	String longest = g.i().Sounds;
     	if (longest.length() < g.i().Controls.length()){
@@ -58,12 +57,12 @@ public class ScreenOptions extends GameMenu {
     	final TextButton button2 = new TextButton("", textButtonStyle);
     	final TextButton button3 = new TextButton("", textButtonStyle);
     	final TextButton button4 = new TextButton("", textButtonStyle);
-    	longest = g.i().Keyboard + " \u25BC";
+    	longest = "\u25BC " + g.i().Keyboard;
     	if (longest.length() < g.i().Gyro.length()){
-    		longest = g.i().Gyro + " \u25BC";
+    		longest = "\u25BC " + g.i().Gyro;
     	}
     	if (longest.length() < g.i().CurrentLanguage.length() + 2){
-    		longest = g.i().CurrentLanguage + " \u25BC";
+    		longest = "\u25BC " + g.i().CurrentLanguage;
     	}
     	final TextButton button5 = new TextButton(longest, textButtonStyle);
     	ChangeListener muteMusicListen = new ChangeListener() {
@@ -176,6 +175,7 @@ public class ScreenOptions extends GameMenu {
 			    	}
         		}
         		g.i().languageSet();
+        		setTemplet();
         		buttons();
         		button5.setChecked(false);
         	}};

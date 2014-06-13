@@ -47,7 +47,7 @@ public abstract class GameMenu extends GameObject {
 	    bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
     
-    private void setTemplet(){
+    protected void setTemplet(){
     	
     	BitmapFont bfont;
         batch = new SpriteBatch();
@@ -93,14 +93,10 @@ public abstract class GameMenu extends GameObject {
         stage.draw();
         Table.drawDebug(stage);
     }
-    
-    public void language(){
-    	setTemplet();
-	}
  
     @Override
     public void resize (int width, int height) {
-
+    	// TODO Auto-generated method stub
     }
  
     @Override

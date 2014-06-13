@@ -33,7 +33,6 @@ public class ScreenGameOver extends GameMenu{
 		}
 	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
 	    bg.setPosition((Gdx.graphics.getWidth() - bg.getWidth()) / 2, (Gdx.graphics.getHeight() - bg.getHeight()) / 2);
-	    //bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 	}
 
 	void buttons() {
@@ -41,7 +40,6 @@ public class ScreenGameOver extends GameMenu{
     	final float yRow1_2 = Gdx.graphics.getWidth() / 9 * 7;
     	float height = 0;
     	float width = 0;
-    	language();
     	final TextButton continueButton = new TextButton(g.i().Continue, textButtonStyle);
     	continueButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {

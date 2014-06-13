@@ -130,7 +130,7 @@ public class g {
 	}
 	
 	public void languageSet(){
-		switch (g.i().language){
+		switch (language){
 		case "zh":
 			font = Gdx.files.internal("Font/ollieFont.fnt");
 			CurrentLanguage = "\u4e2d\u6587";

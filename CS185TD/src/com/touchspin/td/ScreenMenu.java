@@ -14,7 +14,7 @@ public class ScreenMenu extends GameMenu {
     }
     
     public void buttons(){
-    	language();
+
     	final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
     	final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
     	final float yRow1 = Gdx.graphics.getWidth() / 3;
