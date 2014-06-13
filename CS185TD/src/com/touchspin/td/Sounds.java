@@ -8,50 +8,52 @@ import com.badlogic.gdx.audio.Sound;
 
 public class Sounds {
 	
-	// Bounce files
-	private static final String bounce1BasketBall = "snd/sndBasketBallBounce1.wav";
-	private static final String bounce2BasketBall = "snd/sndBasketBallBounce2.wav";
-	private static final String bounce3BasketBall = "snd/sndBasketBallBounce3.wav";
-	private static final String bounce1BowlingBall = "snd/sndBowlingBallBounce1.wav";
-	private static final String bounce2BowlingBall = "snd/sndBowlingBallBounce2.wav";
-	private static final String bounce3BowlingBall = "snd/sndBowlingBallBounce3.wav";
-	private static final String bounce1PingPong = "snd/sndPingPongBounce1.wav";
-	private static final String bounce2PingPong = "snd/sndPingPongBounce2.wav";
-	private static final String bounce3PingPong = "snd/sndPingPongBounce3.wav";
-	private static final String bounce1SoccerBall = "snd/sndSoccerBallBounce1.wav";
-	private static final String bounce2SoccerBall = "snd/sndSoccerBallBounce2.wav";
-	private static final String bounce3SoccerBall = "snd/sndSoccerBallBounce3.wav";
-	private static final String bounce1TennisBall = "snd/sndTennisBallBounce1.wav";
-	private static final String bounce2TennisBall = "snd/sndTennisBallBounce2.wav";
-	private static final String bounce3TennisBall = "snd/sndTennisBallBounce3.wav";
-	private static final String splash = "snd/sndSplash.wav";
-	private static final String Teleport = "snd/Teleport.wav";
+	// Volume control
 	private float loopsSoundFactor = 0.3f;
 	
+	// Bounce files
+	private static final String bounce1BasketBall = "snd/bounce/sndBasketBallBounce1.mp3";
+	private static final String bounce2BasketBall = "snd/bounce/sndBasketBallBounce2.mp3";
+	private static final String bounce3BasketBall = "snd/bounce/sndBasketBallBounce3.mp3";
+	private static final String bounce1BowlingBall = "snd/bounce/sndBowlingBallBounce1.mp3";
+	private static final String bounce2BowlingBall = "snd/bounce/sndBowlingBallBounce2.mp3";
+	private static final String bounce3BowlingBall = "snd/bounce/sndBowlingBallBounce3.mp3";
+	private static final String bounce1PingPong = "snd/bounce/sndPingPongBounce1.mp3";
+	private static final String bounce2PingPong = "snd/bounce/sndPingPongBounce2.mp3";
+	private static final String bounce3PingPong = "snd/bounce/sndPingPongBounce3.mp3";
+	private static final String bounce1SoccerBall = "snd/bounce/sndSoccerBallBounce1.mp3";
+	private static final String bounce2SoccerBall = "snd/bounce/sndSoccerBallBounce2.mp3";
+	private static final String bounce3SoccerBall = "snd/bounce/sndSoccerBallBounce3.mp3";
+	private static final String bounce1TennisBall = "snd/bounce/sndTennisBallBounce1.mp3";
+	private static final String bounce2TennisBall = "snd/bounce/sndTennisBallBounce2.mp3";
+	private static final String bounce3TennisBall = "snd/bounce/sndTennisBallBounce3.mp3";
+	
 	// Sound effects
-	private static final String brickCrash  = "snd/sndBrickCrash.wav";
-	private static final String glassBreak1 = "snd/sndGlassBreak1.wav";
-	private static final String glassBreak2 = "snd/sndGlassBreak2.wav";
-	private static final String lightSwitch = "snd/sndLightSwitch.wav";
-	private static final String doorCreak   = "snd/sndDoorCreak.wav";
-	private static final String airPuff     = "snd/sndAirPuff.wav";
-	private static final String yummy       = "snd/sndYummy.wav";
-	private static final String switchFile = "snd/sndSwitch.wav";
-	private static final String Transmorgification = "snd/sndBallTransmorgification.wav";
-	private static final String tubeDown = "snd/sndDownTube.wav";
-	private static final String whistleDown = "snd/sndSlideWhistleDown.wav";
-	private static final String whistleUp = "snd/sndSlideWhistleUp.wav";
+	private static final String brickCrash  = "snd/sfx/sndBrickCrash.mp3";
+	private static final String glassBreak1 = "snd/sfx/sndGlassBreak1.mp3";
+	private static final String glassBreak2 = "snd/sfx/sndGlassBreak2.mp3";
+	private static final String lightSwitch = "snd/sfx/sndLightSwitch.mp3";
+	private static final String doorCreak   = "snd/sfx/sndDoorCreak.mp3";
+	private static final String airPuff     = "snd/sfx/sndAirPuff.mp3";
+	private static final String yummy       = "snd/sfx/sndYummy.mp3";
+	private static final String switchFile = "snd/sfx/sndSwitch.mp3";
+	private static final String Transmorgification = "snd/sfx/sndBallTransmorgification.mp3";
+	private static final String tubeDown = "snd/sfx/sndDownTube.mp3";
+	private static final String whistleDown = "snd/sfx/sndSlideWhistleDown.mp3";
+	private static final String whistleUp = "snd/sfx/sndSlideWhistleUp.mp3";
+	private static final String splash = "snd/sfx/sndSplash.mp3";
+	private static final String Teleport = "snd/sfx/Teleport.mp3";
 
 	// Music files
-	private static final String scaryIntro = "snd/songScaryIntro.wav";
-	private static final String scary = "snd/songScaryLoopable.wav";
-	private static final String song1 = "snd/song1Loopable.wav";
-	private static final String wind = "snd/sndWindBlowing.wav";
-	private static final String fireburn = "snd/sndFire.wav";
-	private static final String campfire = "snd/sndCampFire.wav";
-	private static final String song3 = "snd/song3.wav";
-	private static final String song4 = "snd/song4.wav";
-	private static final String iSeemToBeABall = "snd/songIseemToBeABall.mp3";
+	private static final String scaryIntro = "snd/bgmusic/songScaryIntro.mp3";
+	private static final String scary = "snd/bgmusic/songScaryLoopable.mp3";
+	private static final String song1 = "snd/bgmusic/song1Loopable.mp3";
+	private static final String wind = "snd/longsfx/sndWindBlowing.mp3";
+	private static final String fireburn = "snd/longsfx/sndFire.mp3";
+	private static final String campfire = "snd/longsfx/sndCampFire.mp3";
+	private static final String song3 = "snd/bgmusic/song3.mp3";
+	private static final String song4 = "snd/bgmusic/song4.mp3";
+	private static final String iSeemToBeABall = "snd/bgmusic/songIseemToBeABall.mp3";
 	
 	private Sound whistle=null;
 	public Sound sndSwitch=null;
