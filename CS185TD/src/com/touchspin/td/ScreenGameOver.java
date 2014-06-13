@@ -42,7 +42,7 @@ public class ScreenGameOver extends GameMenu{
     	float height = 0;
     	float width = 0;
     	language();
-    	final TextButton continueButton = new TextButton(Continue, textButtonStyle);
+    	final TextButton continueButton = new TextButton(g.i().Continue, textButtonStyle);
     	continueButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("menu,Main");
