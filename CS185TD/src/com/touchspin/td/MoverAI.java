@@ -42,7 +42,10 @@ public class MoverAI extends MoverPhysics {
 			path.y = g.i().hero.getY() + g.i().hero.getHeight() / 2 - np.getY()
 					- np.getHeight() / 2;
 			if (path.len() < 320)
+			{
 				active = true;
+				g.i().sound.BGMusic("dragon");
+			}
 		} else {
 			// Save the previous position
 			previousX = this.np.getX();

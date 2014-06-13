@@ -975,7 +975,7 @@
   </object>
   <object name="heart1" x="671" y="961" width="32" height="32">
    <properties>
-    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heart1-gone,changeActive,heart1-false"/>
+    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heart1-gone,changeActive,heart1-false,playSound,sndYummy"/>
     <property name="animations" value="pumping,0,16,pumping,gone,17,17,gone"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
