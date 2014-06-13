@@ -5,10 +5,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class ScreenGameOver extends GameMenu{
@@ -37,7 +35,7 @@ public class ScreenGameOver extends GameMenu{
     	float height = 0;
     	float width = 0;
     	
-    	final TextButton continueButton = new TextButton("Continue", textButtonStyle);
+    	final TextButton continueButton = new TextButton(Continue, textButtonStyle);
     	continueButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("menu,Main");
