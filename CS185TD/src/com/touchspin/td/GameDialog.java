@@ -11,6 +11,11 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 
+/**
+ * Class used to display all in game dialog and control instructions
+ * @author KingD777
+ *
+ */
 public class GameDialog extends GameObject
 {
 	//used to parse XML file
@@ -29,6 +34,7 @@ public class GameDialog extends GameObject
 	private char position;
 	private String backGroundPath;	
 	private String lastPath;
+		
 	private short dialogCount; //text strip to read from in the current dialog snippet
 	private short snippetCount;//dialog snippet being used
 	private short charCount;// used to create substrings for display text one at a time.
@@ -39,13 +45,23 @@ public class GameDialog extends GameObject
 	private Texture background;	
 	private float textX = 0;
 	private int textY = 0;	
-	private boolean finishedWithSnippet = false;
-	private final long finalPauseForSkip;
+	private boolean finishedWithSnippet;
+	private int skipTextPauseTime;
+	private long finalPauseForSkip;
+	private boolean skipable;
+	private int textPadding;
+	private boolean canBreakText;
 	
+	/**
+	 * Constructor
+	 * @param game
+	 * @param scriptPath
+	 */
 	public GameDialog(MainGame game, String scriptPath)
 	{			
 		Element languageRoot = null;
 		g.i().leAnonymizer.resetAll();
+		
 		//parse XML file
 		xml = new XmlReader();		
 		script = Gdx.files.internal(scriptPath);	
@@ -54,34 +70,44 @@ public class GameDialog extends GameObject
 		catch(IOException e)
 		{}			
 		
-		languageRoot = root.getChildByName("dialog_" + g.i().language);		
+		// get dialog based on current language settings
+		languageRoot = root.getChildByName("dialog_" + g.i().language);	
+		
+		//get list of dialog snippet
 		items = languageRoot.getChildrenByName("Snippet");
 			
+		//check if this dialog has its own music to play
 		if(!root.getAttribute("music").equals(""))
 			g.i().sound.BGMusic(root.getAttribute("music"));
 		
+		//initialize variables
 		font = new BitmapFont(g.i().font);
 		font.scale(Gdx.graphics.getDensity());
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
 		currentText = "";
 		secondsPerChar = 150;
-		finalPauseForSkip = 1000;
+		finalPauseForSkip = 0;
 		nextPrintTime = 0;
 		backGroundPath = null;
 		snippetCount = 0;
 		charCount = 0;
 		batch = new SpriteBatch();
-		nextSnippet();	
-				
 		lastPath = null;
-	}
+		finishedWithSnippet = false;
+		skipTextPauseTime = 2000;
+		skipable = true;
+		canBreakText = true;
+		textPadding = 50;
+		
+		nextSnippet();			
+	}// end of constructor
 	
 	@Override
 	public void render(float delta) 
-	{		
+	{			
 		update();	
-		draw();		
+		draw();			
 	}
 	
 	@Override
@@ -100,96 +126,154 @@ public class GameDialog extends GameObject
 				background = new Texture(Gdx.files.internal(backGroundPath));
 			}
 			batch.draw(background, w/2 - (background.getWidth()/2), h/2 - (background.getHeight()/2));
-		}		
+		}			
 		
-		font.drawMultiLine(batch, currentText, textX, textY);		
+		font.drawMultiLine(batch, currentText, textX, textY);				
 		
 		batch.end();
 	}	
 	
+	/**
+	 * Display all the text in this snippet at once.
+	 */
 	private void displayAllText()
 	{
-		currentText = speakerName + ":\n";
+		currentText = speakerName + '\n';
 		for(int count = 0; count <textArray.length; count++)
 		{
-			if(textArray[count].equals("C_"))
+			if(textArray[count].equals("C_"))	
 			{
-				if(textArray[count + 1].equals("end"))
-				{
-					g.i().t.action(root.get("End"));
-				}
-				count += 2;
+				performAction(textArray[count + 1],textArray[count + 2],true);
+				count += 2;		
 			}
-			else
-				currentText += textArray[count];			
-		}
-		finishedWithSnippet = true;			
-		nextPrintTime += secondsPerChar + finalPauseForSkip;
+			else				
+				for(int innerCount = 0; innerCount < textArray[count].length(); innerCount++)
+				{
+					currentText += textArray[count].charAt(innerCount);
+					if(font.getBounds(currentText).width + textPadding > w && textArray[count].charAt(innerCount) != ' '&& 
+						canBreakText)					
+						breakText();
+				}
+		}		
+		nextPrintTime += finalPauseForSkip + skipTextPauseTime;
+		finishedWithSnippet = true;				
 	}
+	
+	/**
+	 * inserts a new line right before the last character in a text.
+	 */
+	private void breakText()
+	{
+		
+		if(g.i().language == "en" || g.i().language == "es" || g.i().language == "fr")
+		{
+			int count = 0;
+			String lastWord = "";			
+			
+			for(count = currentText.length() - 1; currentText.charAt(count) != ' '; count--)			
+				lastWord += currentText.charAt(count);	
+						
+			currentText = currentText.substring(0, count) + '\n';			
+			
+			for(int counter = lastWord.length() - 1; counter >= 0; counter--)			
+				currentText += lastWord.charAt(counter);			
+		}//end of if English statement		
+		else
+		{
+			currentText += '\n';
+		}
+		canBreakText = false;
+		
+	}// end of breakText()
 	
 	@Override
 	public void update() 
 	{		
 		if(System.currentTimeMillis() >= nextPrintTime)
 		{
-			if(finishedWithSnippet)
-			{
-				nextSnippet();
-				finishedWithSnippet = false;
-			}
-			
-			if(g.i().leAnonymizer.click)
-			{
-				g.i().leAnonymizer.click = false;
-				displayAllText();
-			}
+			nextPrintTime = System.currentTimeMillis();
+				
 			if(g.i().leAnonymizer.pausePressed)
 			{
 				g.i().leAnonymizer.pausePressed = false;
-				performAction("end", "null");
+				performAction("end", "null", false);
 			}
-			else
-				nextChar();
+			
+			if(finishedWithSnippet)
+			{				
+				nextSnippet();
+				finishedWithSnippet = false;				
+			}	
+			else 
+			{
+				if(g.i().leAnonymizer.click && skipable)
+				{
+					g.i().leAnonymizer.click = false;
+					skipable = false;
+					displayAllText();
+				}
+				else				
+					nextChar();				
+			}			
+		}//end of outer if statement	
+			
+	}//end of update method
+	
+	/**
+	 * Get the next snippet in this dialog sequence.
+	 */
+	private void nextSnippet()
+	{		
+		canBreakText = true;
+		try
+		{
+			speakerName = items.get(snippetCount).getAttribute("name") + ':';
+			textArray = items.get(snippetCount).getAttribute("text").split(":");	
+			position = items.get(snippetCount).getAttribute("position").charAt(0);		
+			backGroundPath = items.get(snippetCount).getAttribute("background");		
+			currentText = speakerName + '\n';
+			finalPauseForSkip = Integer.parseInt(items.get(snippetCount).getAttribute("finalPause")) * 100;
 		}
+		catch(IndexOutOfBoundsException e)
+		{
+			performAction("end", "null",false);	
+		}
+		charCount = 0;
+		dialogCount = 0;
+		snippetCount++;
 		
-		//used to display text
+		//set text position
 		switch(position)
 		{
 			case'L':		
-				textX = 50;
-				textY = 50 + (int)(font.getCapHeight() * 2);
+				textX = textPadding;
+				textY = 70 + (int)(font.getCapHeight() * 2);
 				break;
+			case 'T':
+				textX = textPadding;
+				textY = h - (int)(font.getCapHeight() * 2);
+				break;
+			
 			case 'C':
 				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
 				textY = h/2;
 				break;
 			case'R':
-				textX = w - 50 - ((getSnippetTextLenght() * font.getSpaceWidth()));
-				textY = h - 50 - (int)(font.getCapHeight() * 2);	
+				textX = w - textPadding - ((getSnippetTextLength() * font.getSpaceWidth()));
+				textY = h - 60 - (int)(font.getCapHeight() * 2);	
 				break;
 			case 'B':
 				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
-				textY = 50 + (int)(font.getCapHeight() * 2);
+				textY = 60 + (int)(font.getCapHeight() * 2);
 				break;
-		}		
-	}
+		}	
+	}// end of next snippet method
 	
 	/**
-	 * Get the next snippet.
+	 * get total characters to display in current snippet
+	 * @return
 	 */
-	private void nextSnippet()
-	{	
-		speakerName = items.get(snippetCount).getAttribute("name");
-		textArray = items.get(snippetCount).getAttribute("text").split(":");	
-		position = items.get(snippetCount).getAttribute("position").charAt(0);		
-		backGroundPath = items.get(snippetCount).getAttribute("background");		
-		currentText = speakerName + ":\n";
-		charCount = 0;
-		dialogCount = 0;
-		snippetCount++;
-	}
-	
-	private int getSnippetTextLenght()
+	private int getSnippetTextLength()
 	{
 		int length = 0;
 		
@@ -210,45 +294,54 @@ public class GameDialog extends GameObject
 	 */
 	private void nextChar()
 	{
-		nextPrintTime = System.currentTimeMillis();
-		
-			try
+		skipable = true;
+		g.i().leAnonymizer.click = false;
+		try
+		{
+			if(textArray[dialogCount].equals("C_"))// check if current text is for a command
 			{
-				if(textArray[dialogCount].equals("C_"))// check if current text is for a command
-				{
-					dialogCount += 3;
-					performAction(textArray[dialogCount - 2], textArray[dialogCount - 1]);
-				}
-				else
-				{
-					currentText += textArray[dialogCount].charAt(charCount++);
-					if(textArray[dialogCount].charAt(charCount - 1) == ' ')
-						currentText += textArray[dialogCount].charAt(charCount++);
-				}
-			}			
-			catch(Exception e)
-			{
-				charCount = 0;
-				if(dialogCount > textArray.length)
-				{
-					dialogCount = 0;
-					finishedWithSnippet = true;
-					currentText = "";					
-				}
-				else
-					dialogCount++;				
+				dialogCount += 3;
+				performAction(textArray[dialogCount - 2], textArray[dialogCount - 1], false);
 			}
-		
-		nextPrintTime += secondsPerChar;
-		
+			else
+			{
+				currentText += textArray[dialogCount].charAt(charCount++);
+				if(textArray[dialogCount].charAt(charCount - 1) == ' ')
+					currentText += textArray[dialogCount].charAt(charCount++);			
+				if(font.getBounds(currentText).width + textPadding> w && 
+						textArray[dialogCount].charAt(charCount) != ' ' && canBreakText)					
+					breakText();
+			}
+		}			
+		catch(Exception e)
+		{
+			charCount = 0;
+			if(dialogCount > textArray.length)
+			{
+				nextPrintTime += finalPauseForSkip;
+				finishedWithSnippet = true;					
+			}
+			else
+				dialogCount++;				
+		}		
+		nextPrintTime += secondsPerChar;		
 	}
-	
-	private void performAction(String command, String value)
+		
+	/**
+	 * perform action commands that are embedded within the snippet text
+	 * @param command
+	 * @param value
+	 * @param skipPauses
+	 */
+	private void performAction(String command, String value, boolean skipPauses)
 	{
 		switch(command)
 		{
 		case "pause":		
-			nextPrintTime += Integer.parseInt(value) * 100;
+			if(!skipPauses)
+			{				
+				nextPrintTime += Integer.parseInt(value) * 100;
+			}
 			break;
 		
 		case "changeBackground":		
@@ -259,10 +352,9 @@ public class GameDialog extends GameObject
 			g.i().t.action(root.get("End"));
 			break;
 		
-		case "instaPrint":		
-			currentText += textArray[dialogCount++];
-		case "dispImage" :
-			break;
+		case "instaPrint":	
+			if(!skipPauses)
+				currentText += textArray[dialogCount++];		
 		default :				
 		}
 	}

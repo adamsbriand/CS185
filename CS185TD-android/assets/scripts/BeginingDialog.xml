@@ -1,165 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DialogScript music = "scaryIntro"> 
-    <dialog_en   >
+    <dialog_en>
 		<Snippet 
 	    	name = "Ollie"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: Why?...why am I not stronger? :C_:pause:2:Braver?...:C_:pause:4"/>
+	    	text = "...:C_:pause:2:Why?...why am I not stronger? :C_:pause:2:Braver?..."
+			finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "They deserve better... Chase, Dorithy... you both deserve better.:C_:pause:4"/>
+		    text = "They deserve better...Chase, Dorithy...you both deserve better."
+		    finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "black"
 		    position = "L"
-		    text = "I know what I must do...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		    text = "I know what I must do...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"
+		    finalPause = "4"/>	    
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "Please make me braver! stronger!:C_:pause:6"/>	
+		    text = "Please make me braver! stronger!"
+		    finalPause = "6"/>	
 		<Snippet
 		    name = "Wizard"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "...Ollie... :C_:pause:2:I already know you are brave.:C_:pause:4"/>	
+		    position = "T"
+		    text = "...Ollie...:C_:pause:2:I already know you are brave."
+		    finalPause = "4"/>	
 		 <Snippet
 		    name = "Wizard"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "And by your journy's end you too will know.:C_:pause:10:C_:end:null"/>		
+		    position = "T"
+		    text = "And by your journey's end you too will know."
+		    finalPause = "10"/>		
 	</dialog_en>
 	<dialog_es>
 	    <Snippet 
 	    	name = "Ollie"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: ¿Por qué?...¿por qué no soy más fuerte? :C_:pause:2:¿mas valiente?...:C_:pause:4"/>
+	    	text = "...:C_:pause:2: ¿Por qué?...¿por qué no soy más fuerte? :C_:pause:2:¿mas valiente?..."
+	    	finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "Ellos merecen  algo mejor ... Chase, Dorithy ...ustedes merecen algo mejor.:C_:pause:4"/>
+		    text = "Ellos merecen  algo mejor ... Chase, Dorithy ...ustedes merecen algo mejor."
+		    finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "black"
 		    position = "L"
-		    text = "Sé lo que tengo que hacer ...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		    text = "Sé lo que tengo que hacer ...:C_:pause:1:C_:instaPrint:0:Wizard!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"
+		    finalPause = "4"/>	    
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "Por favor hazme más valiente! más fuerte!:C_:pause:6"/>	
+		    text = "Por favor hazme más valiente! más fuerte!"
+		    finalPause = "6"/>	
 		<Snippet
 		    name = "Mago"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "...Ollie... :C_:pause:2:Yo sé que tu eres valiente.:C_:pause:4"/>	
+		    position = "T"
+		    text = "...Ollie... :C_:pause:2:Yo sé que tu eres valiente."
+		    finalPause = "4"/>	
 		 <Snippet
 		    name = "Mago"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "Y al final de tu aventura tu también lo sabrás.:C_:pause:10:C_:end:null"/>
+		    position = "T"
+		    text = "Y al final de tu aventura tu también lo sabrás."
+		    finalPause = "10"/>
 	</dialog_es>
 	<dialog_vi>
 	    <Snippet 
 	    	name = "Ollie"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: Tại sao?...tại sao tôi không thể mạnh hơn? :C_:pause:2:Can đảm hơn?...:C_:pause:4"/>
+	    	text = "...:C_:pause:2: Tại sao?...tại sao tôi không thể mạnh hơn? :C_:pause:2:Can đảm hơn?..."
+	    	finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "họ đáng được tốt hơn…Chase, Dorithy…hai người đáng được tốt hơn:C_:pause:4"/>
+		    text = "họ đáng được tốt hơn…Chase, Dorithy…hai người đáng được tốt hơn"
+		    finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
 		    background = "black"
 		    position = "L"
-		    text = "tôi đã biết tôi phải làm gì rồi...:C_:pause:1:C_:instaPrint:0:phù thủy!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		    text = "tôi đã biết tôi phải làm gì rồi...:C_:pause:1:C_:instaPrint:0:phù thủy!:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"
+		    finalPause = "4"/>	    
 		<Snippet
 		    name = "Ollie"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "làm ơn hãy làm tôi chở nên can đảm hơn! mạnh hơn!:C_:pause:6"/>	
+		    text = "làm ơn hãy làm tôi chở nên can đảm hơn! mạnh hơn!"
+		    finalPause = "6"/>	
 		<Snippet
 		    name = "phù thủy"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "...Ollie... :C_:pause:2:ta đã biết ngươi là một người can đảm:C_:pause:4"/>	
+		    position = "T"
+		    text = "...Ollie... :C_:pause:2:ta đã biết ngươi là một người can đảm"
+		    finalPause = "4"/>	
 		 <Snippet
 		    name = "phù thủy"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "và sau cuộc hành trình này ngươi sẽ biết:C_:pause:10:C_:end:null"/>	
+		    position = "T"
+		    text = "và sau cuộc hành trình này ngươi sẽ biết"
+		    finalPause = "10"/>	
 	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
 	    	name = "奥利"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: 为什么？为什么我不能变得更强？ :C_:pause:2: 更勇敢？:C_:pause:4"/>
+	    	text = "...:C_:pause:2: 为什么？为什么我不能变得更强？ :C_:pause:2: 更勇敢？"
+	    	finalPause = "4"/>
 		<Snippet
 		    name = "奥利"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "你们应该得到比这更好的生活...蔡斯，桃乐丝...你们都应该得到比这更好的生活。:C_:pause:4"/>
+		    text = "你们应该得到比这更好的生活...蔡斯，桃乐丝...你们都应该得到比这更好的生活。"
+		    finalPause = "4"/>
 		<Snippet
 		    name = "奥利"	 
 		    background = "black"
 		    position = "L"
-		    text = "我知道我需要做什么... :C_:pause:1:C_:instaPrint:0:巫女！:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		    text = "我知道我需要做什么... :C_:pause:1:C_:instaPrint:0:巫女！:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"
+		    finalPause = "4"/>	    
 		<Snippet
 		    name = "奥利"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "请让我变得更加勇敢！强大吧！:C_:pause:6"/>	
+		    text = "请让我变得更加勇敢！强大吧！"
+		    finalPause = "6"/>	
 		<Snippet
 		    name = "巫师"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "...奥利... :C_:pause:2:我知道你已经非常勇敢了。:C_:pause:4"/>	
+		    position = "T"
+		    text = "...奥利... :C_:pause:2:我知道你已经非常勇敢了。"
+		    finalPause = "4"/>	
 		 <Snippet
 		    name = "巫师"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "当你结束这段旅程，你也会明白的。:C_:pause:10:C_:end:null"/>		
+		    position = "T"
+		    text = "当你结束这段旅程，你也会明白的。"
+		    finalPause = "10"/>		
 	</dialog_zh>
-	<dialog_ja   >
+	<dialog_ja>
 		<Snippet 
 	    	name = "オーリー"	
 	    	background = "black"
 	    	position = "L"
-	    	text = "...:C_:pause:2: なぜ？...なぜ俺は強くないのか？  :C_:pause:2:もっと勇敢な？...:C_:pause:4"/>
+	    	text = "...:C_:pause:2: なぜ？...なぜ俺は強くないのか？  :C_:pause:2:もっと勇敢な？..."
+	    	finalPause = "4"/>
 		<Snippet
 		    name = "オーリー"	
 		    background = "DialogImages/OlliesFamily.png"
 		    position = "L"
-		    text = "彼らは、...チェイス、ドロシー... 彼らのベストを尽くした...:C_:pause:4"/>
+		    text = "彼らは、...チェイス、ドロシー... 彼らのベストを尽くした..."
+		    finalPause = "4"/>
 		<Snippet
 		    name = "オーリー"	
 		    background = "black"
 		    position = "L"
-		    text = "俺は何をすべきかをわかってる... :C_:pause:1:C_:instaPrint:0:ウィザードよ！:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"/>	    
+		    text = "俺は何をすべきかをわかってる... :C_:pause:1:C_:instaPrint:0:ウィザードよ！:C_:pause:2:C_:changeBackground:DialogImages/HeroAndWizard.png"
+		    finalPause = "4"/>	    
 		<Snippet
 		    name = "オーリー"	
 		    background = "DialogImages/HeroAndWizard.png"
 		    position = "L"
-		    text = "俺に勇気を！力を！:C_:pause:6"/>	
+		    text = "俺に勇気を！力を！"
+		    finalPause = "6"/>	
 		<Snippet
 		    name = "ウィザード"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "...オーリー... :C_:pause:2:私はすでにあなたが勇敢なのは分かっている。:C_:pause:4"/>	
+		    position = "T"
+		    text = "...オーリー... :C_:pause:2:私はすでにあなたが勇敢なのは分かっている。"
+		    finalPause = "4"/>	
 		 <Snippet
 		    name = "ウィザード"	
 		    background = "DialogImages/HeroAndWizard.png"
-		    position = "R"
-		    text = "旅の終わりには君も分かるさ。:C_:pause:10:C_:end:null"/>		
-	</dialog_ja>
-	
+		    position = "T"
+		    text = "旅の終わりには君も分かるさ。"
+		    finalPause = "10"/>		
+	</dialog_ja>	
 	<End>NewLevel,Instructions,changeMusic,song1</End>
 </DialogScript>
