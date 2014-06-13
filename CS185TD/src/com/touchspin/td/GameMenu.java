@@ -20,8 +20,8 @@ public abstract class GameMenu extends GameObject {
 	
 	// Constants
 	private static final FileHandle ButtonUp = Gdx.files.internal("img/menu/Btn9SliceUp.png");
-	private static final FileHandle ButtonDown = Gdx.files.internal("img/menu/Btn9SliceUp.png");
-	private static final FileHandle ButtonClick = Gdx.files.internal("img/menu/Btn9SliceUp.png");
+	private static final FileHandle ButtonDown = Gdx.files.internal("img/menu/Btn9SliceDown.png");
+	private static final FileHandle ButtonClick = Gdx.files.internal("img/menu/Btn9SliceChecked.png");
 	private static final FileHandle bgImage = Gdx.files.internal("img/menu/ScreenBG.png");
 	
 	// Variables
