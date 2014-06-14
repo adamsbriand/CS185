@@ -385,6 +385,8 @@ public class Trigger {
 				return ballFlammable(value);
 			case "ballType":
 				return ballType(value);
+			case "animationName":
+				return true;
 			case "myAnimationIs":
 				return AnimationIs(value);
 			case "velGTE":

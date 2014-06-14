@@ -62,8 +62,9 @@ public class ScreenGameOver extends GameMenu{
 
 	void logo() {
 		super.setLogo(Gdx.files.internal(logoImage));
-		logo.setPosition(logo.getX(), 
-				logo.getY() - logo.getHeight() / 2);
+		logo.setSize(logo.getWidth() * .75f, logo.getHeight() *.75f);
+		logo.setPosition((Gdx.graphics.getWidth() - logo.getWidth()) / 2, 
+				logo.getY() - logo.getHeight() / 5);
 	}
 	
 	public void update() {
