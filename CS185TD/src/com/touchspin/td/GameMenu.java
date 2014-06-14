@@ -89,11 +89,12 @@ public abstract class GameMenu extends GameObject {
         		new NinePatch(new Texture(ButtonClick), 20, 20, 20, 20));
  
         BitmapFont font = new BitmapFont(g.i().font);
-        if (Gdx.app.getType().toString() == "Desktop"){
-        	font.scale(1);
-        } else {
-        	font.scale(3);
-        }
+        //if (Gdx.app.getType().toString() == "Desktop"){
+        //	font.scale(1);
+        //} else {
+        //	font.scale(3);
+        //}
+        font.scale(Gdx.graphics.getDensity());
         textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, font);
         textButtonStyle.pressedOffsetX = 3;
         textButtonStyle.pressedOffsetY = -3;

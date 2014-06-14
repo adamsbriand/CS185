@@ -170,6 +170,7 @@ public class ScreenOptions extends GameMenu {
         		buttons();
         		button5.setChecked(false);
         	}};
+        	
     	final float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
     	final float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
     	final float yRow1 = Gdx.graphics.getWidth() / 3;
@@ -261,22 +262,26 @@ public class ScreenOptions extends GameMenu {
 	        	if (width < stage.getActors().items[i].getWidth()){
 	        		width = stage.getActors().items[i].getWidth();
 	        	}
-	        	@SuppressWarnings("unused")
-				int teststop = stage.getActors().size;
-	        	@SuppressWarnings("unused")
-				int test = 0;
 	        }
     	}
-        for (int i=0; i < 4; i++){
-        	stage.getActors().items[i].setHeight(height);
-        	stage.getActors().items[i].setWidth(width);
+    	
+    	for
+    	(int i=0; i < stage.getActors().size; i++){
+        	stage.getActors().items[i].setHeight(Gdx.graphics.getHeight() / 7);
+        	stage.getActors().items[i].setWidth(Gdx.graphics.getWidth() / 4.5f);
         }
+    	
+    	stage.getActors().items[4].setWidth(Gdx.graphics.getWidth() / 3.75f);
+    	
+    	height = stage.getActors().items[0].getHeight() / 2;
+        width = stage.getActors().items[0].getWidth() / 2;
         
-        button1.setPosition(yRow1 - (width / 2), xRow1 - (height / 2));
-        button2.setPosition(yRow2 - (width / 2), xRow1 - (height / 2));
-        button3.setPosition(yRow1 - (width / 2), xRow2 - (height / 2));
-        button4.setPosition(yRow2 - (width / 2), xRow2 - (height / 2));
-        button5.setPosition((Gdx.graphics.getWidth() / 2) - 
+        stage.getActors().items[0].setPosition(yRow1 - width, xRow1 - height);
+        stage.getActors().items[1].setPosition(yRow2 - width, xRow1 - height);
+        stage.getActors().items[2].setPosition(yRow1 - width, xRow2 - height);
+        stage.getActors().items[3].setPosition(yRow2 - width, xRow2 - height);
+        
+        stage.getActors().items[4].setPosition((Gdx.graphics.getWidth() / 2) - 
         		((button5.getWidth() / 2)), xRow1 - (button5.getHeight() / 2));
     }
 

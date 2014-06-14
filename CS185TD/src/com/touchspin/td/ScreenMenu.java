@@ -14,14 +14,13 @@ public class ScreenMenu extends GameMenu {
     }
     
     public void buttons(){
-
     	float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
     	float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
     	float yRow1 = Gdx.graphics.getWidth() / 3;
     	float yRow2 = Gdx.graphics.getWidth() / 3 * 2;
     	float height = 0;
     	float width = 0;
-    	
+
     	final TextButton newGame = new TextButton(g.i().NewGame, textButtonStyle);
         newGame.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
@@ -57,25 +56,18 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(exit);
         
-        for (int i=0; i < stage.getActors().size; i++){
-        	if (height < stage.getActors().items[i].getHeight()){
-        		height = stage.getActors().items[i].getHeight();
-        	}
-        	if (width < stage.getActors().items[i].getWidth()){
-        		width = stage.getActors().items[i].getWidth();
-        	}
+    	for (int i=0; i < 4; i++){
+        	stage.getActors().items[i].setHeight(Gdx.graphics.getHeight() / 7);
+        	stage.getActors().items[i].setWidth(Gdx.graphics.getWidth() / 4.5f);
         }
-        for (int i=0; i < stage.getActors().size; i++){
-        	stage.getActors().items[i].setHeight(height);
-        	stage.getActors().items[i].setWidth(width);
-        }
-        height = height / 2;
-        width = width / 2;
         
-        newGame.setPosition(yRow1 - width, xRow1 - height);
-        options.setPosition(yRow2 - width, xRow1 - height);
-        highScore.setPosition(yRow1 - width, xRow2 - height);
-        exit.setPosition(yRow2 - width, xRow2 - height);
+        height = stage.getActors().items[0].getHeight() / 2;
+        width = stage.getActors().items[0].getWidth() / 2;
+        
+        stage.getActors().items[0].setPosition(yRow1 - width, xRow1 - height);
+        stage.getActors().items[1].setPosition(yRow2 - width, xRow1 - height);
+        stage.getActors().items[2].setPosition(yRow1 - width, xRow2 - height);
+        stage.getActors().items[3].setPosition(yRow2 - width, xRow2 - height);
     }
 
     public void logo(){

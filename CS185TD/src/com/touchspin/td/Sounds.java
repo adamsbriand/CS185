@@ -72,6 +72,7 @@ public class Sounds {
 	private final FileHandle splash = Gdx.files.internal("snd/sfx/Splash.mp3");
 	private final FileHandle Teleport = Gdx.files.internal("snd/sfx/Teleport.mp3");
 	private final FileHandle DragonGrowl = Gdx.files.internal("snd/sfx/DragonGrowl.mp3");
+	private final FileHandle wooHoo = Gdx.files.internal("snd/sfx/WooHoo.mp3");
 	
 	// Long sounds
 	private final FileHandle wind = Gdx.files.internal("snd/longsfx/Wind.mp3");
@@ -415,6 +416,9 @@ public class Sounds {
 				break;
 			case "yummy":
 				sndSwitch=Gdx.audio.newSound(yummy);
+				break;
+			case "woohoo":
+				sndSwitch=Gdx.audio.newSound(wooHoo);
 				break;
 		}
 	}

@@ -17,16 +17,17 @@ package com.touchspin.td;
 public class Trigger {
 	
 	// Constants
-	private final static String L1R1 = "map/Level1Runner1.tmx";
-	private final static String L1M1 = "map/Level1Maze1.tmx";
-	private final static String L2M1 = "map/Level2Maze1.tmx";
-	private final static String L1M2 = "map/Level1Maze2.tmx";
-	private final static String L1D1 = "scripts/BeginingDialog.xml";
-	private final static String androidInstructions = "scripts/AndroidInstructions.xml";
-	private final static String PCInstructions = "scripts/PCInstructions.xml";	
-	private final static String EndDialog = "scripts/EndingDialog.xml";
-	private final static String MidDialog = "scripts/MidGameDialog.xml";
-	private final static String L2R1 = "map/Level2Runner1.tmx";
+	private final String L1R1 = "map/Level1Runner1.tmx";
+	private final String L1M1 = "map/Level1Maze1.tmx";
+	private final String L2M1 = "map/Level2Maze1.tmx";
+	private final String L1M2 = "map/Level1Maze2.tmx";
+	private final String L1D1 = "scripts/BeginingDialog.xml";
+	private final String androidInstructions = "scripts/AndroidInstructions.xml";
+	private final String PCInstructions = "scripts/PCInstructions.xml";	
+	private final String EndDialog = "scripts/EndingDialog.xml";
+	private final String MidDialog = "scripts/MidGameDialog.xml";
+	private final String L2R1 = "map/Level2Runner1.tmx";
+	private final String L2Volcano = "map/volcano.tmx";
 	
 	// Variables
 	MainGame game;
@@ -347,6 +348,9 @@ public class Trigger {
 			case "dragonGrowl":
 				g.i().sound.npNoise();
 				break;
+			case "sndWooHoo":
+				g.i().sound.sndSwitch("woohoo");
+				break;
 			}
 		}
 	}
@@ -489,6 +493,7 @@ public class Trigger {
 			case "Main":
 				game.setScreen(new ScreenMenu());
 				break;
+				
 			case "Level1Runner1":
 			case "Level1Run1":
 				g.i().gameMode = 'R';
@@ -517,6 +522,7 @@ public class Trigger {
 				g.i().leAnonymizer.click = false;
 				g.i().leAnonymizer.resetAll();
 				break;
+				
 			case "Level2Maze1":
 				g.i().gameMode = 'M';
 				game.setScreen(new GameScreen(game, L2M1));
@@ -527,6 +533,10 @@ public class Trigger {
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L2R1));
 				changeMusic("song3");
+				break;
+			case "volcano":
+				g.i().gameMode = 'R';
+				game.setScreen(new GameScreen(game, L2Volcano));
 				break;
 			case "dialogOutro":
 				g.i().gameMode = 'D';
