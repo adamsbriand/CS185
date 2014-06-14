@@ -442,19 +442,19 @@ public class Trigger {
 	private void menu(String value) {
 		switch (value){
 		case "Main":
-			game.setScreen(new ScreenMenu(game));
+			game.setScreen(new ScreenMenu());
 			break;
 		case "Test":
-			game.setScreen(new ScreenTest(game));
+			game.setScreen(new ScreenTest());
 			break;
 		case "gameOver":
-			game.setScreen(new ScreenGameOver(game));
+			game.setScreen(new ScreenGameOver());
 			break;
 		case "options":
-				game.setScreen(new ScreenOptions(game));
+				game.setScreen(new ScreenOptions());
 			break;
 		case "credits":
-			game.setScreen(new ScreenCredits(game));
+			game.setScreen(new ScreenCredits());
 			break;
 		}
 	}
@@ -469,7 +469,7 @@ public class Trigger {
 	private void NewLevel(String Value){
 		switch (Value){
 			case "Main":
-				game.setScreen(new ScreenMenu(game));
+				game.setScreen(new ScreenMenu());
 				break;
 			case "Level1Runner1":
 			case "Level1Run1":

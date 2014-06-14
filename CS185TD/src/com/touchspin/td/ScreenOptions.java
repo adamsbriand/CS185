@@ -15,25 +15,17 @@ public class ScreenOptions extends GameMenu {
 	char menuLevel;
 	MainGame saved;
 
-	public ScreenOptions (MainGame MainGame){
-		super(MainGame);
-		levelReturn = "Main";
+	public ScreenOptions (){
+		super();
+		levelReturn = "main";
 		g.i().sound.sfxMute(true);
     }
 	
-	public ScreenOptions (MainGame MainGame, MainGame SavedGame){
-		super(MainGame);
-		levelReturn = "level";
-		saved = SavedGame;
-	}
-	
-	public ScreenOptions (MainGame MainGame, Screen savedScreen){
-		super(MainGame);
-		levelReturn = "level";
+	public ScreenOptions (Screen savedScreen){
+		super();
+		levelReturn = "game";
 		previousScreen = savedScreen;
 	}
-	
-	
     
     public void buttons(){
     	stage.clear();
@@ -73,7 +65,6 @@ public class ScreenOptions extends GameMenu {
             		button1.setChecked(false);
             	} else {
             		button1.setChecked(true);
-            		
             	}
             	g.i().sound.BGMusic("mute");
             }};
@@ -98,14 +89,14 @@ public class ScreenOptions extends GameMenu {
         	}};
         ChangeListener mainMenuListen = new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		if (levelReturn == "Main") {
+        		if (levelReturn == "main") {
         			g.i().t.action("NewLevel,Main,playSound,buttonClick");
         		} else {
         			
         			g.i().t.action("playSound,buttonClick");
         			g.i().leAnonymizer.pausePressed = false;
         			g.i().leAnonymizer.resetAll();
-        			game.setScreen(previousScreen);
+        			g.i().t.game.setScreen(previousScreen);
         		}
         	}};
         ChangeListener soundsListen = new ChangeListener() {

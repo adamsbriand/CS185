@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  
 public class ScreenMenu extends GameMenu {
 
-	public ScreenMenu (MainGame MainGame){
-    	super(MainGame);
+	public ScreenMenu (){
+    	super();
     }
     
     public void buttons(){

@@ -15,8 +15,8 @@ import com.badlogic.gdx.utils.TimeUtils;
 public class ScreenSplash extends GameMenu{
 	long timeStartGame;
 
-	public ScreenSplash( MainGame mainGame){
-		super(mainGame);
+	public ScreenSplash(){
+		super();
 		timeStartGame = System.currentTimeMillis();
 		g.i().sound.BGMusic("menu");
 	}

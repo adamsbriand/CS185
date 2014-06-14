@@ -15,14 +15,25 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.utils.TimeUtils;
+
+/* ======================================================================================
+ * GameMenu.java
+ * 
+ * Holds methods common to all the game menus.
+ * ======================================================================================
+ */
  
 public abstract class GameMenu extends GameObject {
 	
 	// Constants
-	private static final FileHandle ButtonUp = Gdx.files.internal("img/menu/Btn9SliceUp.png");
-	private static final FileHandle ButtonDown = Gdx.files.internal("img/menu/Btn9SliceDown.png");
-	private static final FileHandle ButtonClick = Gdx.files.internal("img/menu/Btn9SliceChecked.png");
-	private static final FileHandle bgImage = Gdx.files.internal("img/menu/ScreenBG.png");
+	private static final FileHandle ButtonUp = 
+			Gdx.files.internal("img/menu/Btn9SliceUp.png");
+	private static final FileHandle ButtonDown = 
+			Gdx.files.internal("img/menu/Btn9SliceDown.png");
+	private static final FileHandle ButtonClick = 
+			Gdx.files.internal("img/menu/Btn9SliceChecked.png");
+	private static final FileHandle bgImage = 
+			Gdx.files.internal("img/menu/ScreenBG.png");
 	
 	// Variables
     Skin skin;
@@ -36,20 +47,26 @@ public abstract class GameMenu extends GameObject {
     float height;
     long timeresize = 0;
     
-    public GameMenu (MainGame MainGame){
-        setTemplet();
+    /* ----------------------------------------------------------------------------------
+	 * Constructor.
+	 * Sets defaults
+	 * 
+	 * Calls:
+	 * 		setTemplet
+	 * 		setBG
+	 * 		buttons
+	 * 		logo
+	 * ----------------------------------------------------------------------------------
+	 */
+    public GameMenu (){
+    	setTemplet();
         setBG();
         buttons();
         logo();
-        this.game=MainGame;
     }
     
     abstract void buttons();
     abstract void logo();
-    
-    public GameMenu (){
-        setBG();
-    }
     
     void setBG(){
 	    camera = new OrthographicCamera();
@@ -103,40 +120,6 @@ public abstract class GameMenu extends GameObject {
         stage.draw();
         Table.drawDebug(stage);
     }
- 
-    @Override
-    public void resize (int width, int height) {
-    }
- 
-    @Override
-    public void dispose () {
-        stage.dispose();
-        skin.dispose();
-    }
- 
-    @Override
-    public void show() {
-        // TODO Auto-generated method stub
- 
-    }
- 
-    @Override
-    public void hide() {
-        // TODO Auto-generated method stub
- 
-    }
- 
-    @Override
-    public void pause() {
-        // TODO Auto-generated method stub
- 
-    }
- 
-    @Override
-    public void resume() {
-        // TODO Auto-generated method stub
- 
-    }
 
 	@Override
 	public void update() {
@@ -156,8 +139,40 @@ public abstract class GameMenu extends GameObject {
 			}
 		}
 	}
+ 
+    @Override
+    public void resize (int width, int height) {
+    	// TODO Auto-generated method stub
+    }
+ 
+    @Override
+    public void dispose () {
+        stage.dispose();
+        skin.dispose();
+    }
+ 
+    @Override
+    public void show() {
+        // TODO Auto-generated method stub
+    }
+ 
+    @Override
+    public void hide() {
+        // TODO Auto-generated method stub
+    }
+ 
+    @Override
+    public void pause() {
+        // TODO Auto-generated method stub
+    }
+ 
+    @Override
+    public void resume() {
+        // TODO Auto-generated method stub
+    }
 
 	@Override
 	public void draw() {
+		// TODO Auto-generated method stub
 	}
 }

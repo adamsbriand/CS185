@@ -121,7 +121,7 @@ public class GameScreen extends GameObject {
 
 	@Override
 	public void pause() {
-		game.setScreen(new ScreenOptions(game, this));
+		game.setScreen(new ScreenOptions(this));
 	}
 
 	@Override

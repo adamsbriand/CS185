@@ -13,8 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 public class ScreenCredits extends GameMenu {
 	final String Creditsimage = "img/menu/TeamOllie1200.png";
 			
-	public ScreenCredits(MainGame mainGame){
-		super(mainGame);
+	public ScreenCredits(){
+		super();
 		g.i().sound.BGMusic("menu");
 		
 		//reset

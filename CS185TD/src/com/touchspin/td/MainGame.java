@@ -22,7 +22,7 @@ public class MainGame extends Game {
 		
 		stage = new Stage();
 		stage.addActor(g.i().leAnonymizer);
-		setScreen(new ScreenSplash(this));
+		setScreen(new ScreenSplash());
 
 	}
 

@@ -9,6 +9,8 @@ import java.util.Locale;
 import java.util.Map;
 
 /* ======================================================================================
+ * g.java
+ * 
  * This class holds all game-wide variables.  The name of this class is as short as 
  * possible for easy access.  To access variables in this class, use "g.i()." followed by
  * the name of the variable you want to use.  

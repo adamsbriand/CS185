@@ -18,8 +18,8 @@ public class ScreenGameOver extends GameMenu{
 	// Variables
 	long timepoint;
 	
-	public ScreenGameOver(MainGame MainGame){
-		super(MainGame);
+	public ScreenGameOver(){
+		super();
 		timepoint = System.currentTimeMillis();
 		g.i().sound.sfxMute(true);
 		g.i().sound.BGMusic("menu");
