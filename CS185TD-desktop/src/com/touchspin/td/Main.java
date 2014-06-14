@@ -22,7 +22,7 @@ public class Main {
 		cfg.addIcon("img/icons/OllieIcon48.png", Files.FileType.Internal);
 		cfg.addIcon("img/icons/OllieIcon32.png", Files.FileType.Internal);
 		cfg.addIcon("img/icons/OllieIcon16.png", Files.FileType.Internal);
-		cfg.resizable = false;
+		//cfg.resizable = false;
 		new LwjglApplication(new MainGame(), cfg);
 		Keyboard.enableRepeatEvents(true);
 	}
