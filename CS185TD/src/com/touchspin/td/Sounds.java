@@ -12,6 +12,9 @@ public class Sounds {
 	private float loopsSoundFactor = 0.3f;
 	
 	// Bounce files
+	private static final String bounce1Baseball = "snd/bounce/sndBaseBallBounce1.mp3";
+	private static final String bounce2Baseball = "snd/bounce/sndBaseBallBounce2.mp3";
+	private static final String bounce3Baseball = "snd/bounce/sndBaseBallBounce3.mp3";
 	private static final String bounce1BasketBall = "snd/bounce/sndBasketBallBounce1.mp3";
 	private static final String bounce2BasketBall = "snd/bounce/sndBasketBallBounce2.mp3";
 	private static final String bounce3BasketBall = "snd/bounce/sndBasketBallBounce3.mp3";
@@ -150,9 +153,9 @@ public class Sounds {
 				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3BasketBall));
 				break;
 			case "base":
-				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1TennisBall));
-				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2TennisBall));
-				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3TennisBall));
+				bounce1 = Gdx.audio.newSound(Gdx.files.internal(bounce1Baseball));
+				bounce2 = Gdx.audio.newSound(Gdx.files.internal(bounce2Baseball));
+				bounce3 = Gdx.audio.newSound(Gdx.files.internal(bounce3Baseball));
 				break;
 			default:
 				bounce1 = null;
