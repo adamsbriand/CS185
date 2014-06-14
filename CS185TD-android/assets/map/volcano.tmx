@@ -1,0 +1,1323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="144" height="72" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="fez" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/BloxSide32_6x16.png" width="512" height="192"/>
+ </tileset>
+ <tileset firstgid="97" name="Color Tiles" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/BloxSideSquare_Frame32x32_Sheet224x288_RC7x9.png" width="224" height="288"/>
+ </tileset>
+ <tileset firstgid="160" name="Dark Gray" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/ShadesOfDarkGray.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="165" name="HillGreen" tilewidth="32" tileheight="32">
+  <image source="../img/tileSet/HillGreen.png" width="160" height="32"/>
+ </tileset>
+ <layer name="bg sky" width="144" height="72">
+  <data encoding="base64" compression="zlib">
+   eJzt08l1xCAUBECl6GW8ZDehegKQ32CMoIE61FlN99ftOI4bAADT+Xj4DMjBnL4evgNyAABAD+8F5MqT0kHJTqU7ttw8NVeKlPe02Knl1um5UozuhUzuB6DM24nRmZJz8Xyn1lbKlSLlDT12qtksNVeKlA5677SDWe+nJv/orlc26/2UvGF0t7uxA9R5PTE6U3Ku3Z3tUmLXXLur3eXq3VJzcf1G/90sNVeKXm/ptUPr7VJz9dhh9l0BAAAAAKCFlxOjM5Hn7E5+Mzrrqmbp/y+3ctUbUruZbY/UXC2y97jRhJ5r/4fee/S+D67bdpVvAQAAAAAAAAAAAAAAAKzu/sTofGS6FxqdEwAg2Q8r6g46
+  </data>
+ </layer>
+ <layer name="Copy of bg" width="144" height="72" visible="0" opacity="0.45">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="parallax bg 3" width="144" height="72" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEKwCAMAEH//xG/2buI2EpNlBnYe4wpBQAAAAAAAAAAAAAAAAAAAAAAAO5VowfgWLUJZrR344YYGd2LO+rbua+s//NlrpUyWJ19986y7v6mt8yI/r9M3bTDv0S/6/RO3eWbmXui55ckKWMAAAAAAAAAAAAAAAAAAACQwQNKdzHK
+  </data>
+ </layer>
+ <layer name="parallax bg 2" width="144" height="72" opacity="0.45">
+  <data encoding="base64" compression="zlib">
+   eJzt1DEOgCAMQFHufxKO6eLkJFio1veSP2qKJbYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPUzmNGbOxTlj9+yBzfy7iq+fsaZ3Y4+u6On54veW+aZd9jxj6jQqLfMt+qORc6dvVvN7+6O7DklaVUAAAAAAAAAAAAAAAAAQD0Hr121yA==
+  </data>
+ </layer>
+ <layer name="parallax bg 1" width="144" height="72" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEOgCAMRUHufxNv6daNYoi2FGaSt/9KWwMAAAAAAAAAAAAAAAAAAAAAAAAAAAD+dnRib737eBt7+OpeKt1Ttb2ziLqVGd+m2t6r7DfJvpeMt6m0NWL76Hdmb4l8l4qbs/avWOV/OSp7t+btTvYuSZJWDwAAAAAAAAAAAAAAgGcnJMSnbA==
+  </data>
+ </layer>
+ <layer name="bg parallax tree 2" width="144" height="72" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJztmA1TEzEQhvcvKAiCIgd+oCAWRURE4P4Y7UH/uH29zSTtWBgc7pKW55nZycddp5vkzWZzZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZdBM7Da3E1A0jVvt7eHMs+uZPoBUDyOLGgpakY39eWPoB6ZJ9bCRtC+9DGfWOLHwzo2hJ2h10FjUz8nEjmxaG4pHI6+P/Dd98a3H/4KH8c5L6eOztRoKOrmxqC09v7J4vom+Yo/0c+t+pTn8rsWzNe2Dfgj6SNfkt8U8SGtz7f0h/vxM3l3p3sW/vo1n2oEmqYc8bVZPOWncnuV1o1Okn3Rfq75nMVcO+vmS1De87FI/o6Se6niYlI21eg59K8l7JRC0HO4hKY31mwM8NkEvGsOqt1XfnNiatXf4ocUYpXVK8+ehdfs9SPoJWlhJ+l4k/jc2rZddK08/I4t7QW3NpXx8bnFulwFpSGP5ZO0433v/G7fTib2e2LlN76suz4tUCzf+XycW53xnYusWY9GO/6YUDaXfPUJb/krnOtM0l8ugH+3lbYt3dp1PR24D7ztI3tc8aK2+d+zXOCmv3RdpRWug/dtY/C5+bNNnb25Gc+ofLOYF0s+hleHvY1BPbMvrumtdeP3cS+nluGefQsyXBf2o/tWf73l5afFsyEl6JjXWakfx5q23X1q8m2ifHlpZOf//cuqmPHngprrG+Mrae/5qJt80vzpX963V98fk2ZqX0lGaM+Ui3E/lc2Ptmb/vdcVM+Rm+Z4Uccpm+wWr8yjEqa8etddt2y0nI2aVl7Vn5E9ZK56w0df7vn/ZGiD2KMfKtsdbnM3+ue4D26Lq3u76D5ELrU1k8vwbzX+2VEA9/TeyHtWshH3XWHnh/KSjPkYaka/mmOKT4veX9+s4m7VSWP2Z2ge5c0o3W5zCzLwH5oTxHvl15XetwdtePMlJbqx/dZaWZHe9X7DxI6svIpVuJ45OOpB/Fm83MvtxFba3WxVrSf+Wlzt2qR3/6Zuv+V7KguFhbXJuSUfyWv8ojFSflc5jXUuf3sags7pWSuHBbBP2IcOYKzefA4re2ZUZjLSX3mUXrcXHvW+UgX7+4PRVC/lwi2r9VbiceSLjXPhXC3bhEalu8tZB+6txO9Ii0U+V2Yg6LeHeprMz7bFdojercTsxhEXMJ5QNPST8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLxh9AUYFe
+  </data>
+ </layer>
+ <layer name="bg parallax tree 1" width="144" height="72" opacity="0.55">
+  <data encoding="base64" compression="zlib">
+   eJztml9X1EgQxe+T7/5hV1EEZAFZBUQQdNkVvs/MJ+Fh+MrrPel7uhIdVEimOzn3d05OMkk4U1V9q7q6B8AYY4wxxhhjjDHGGGOMMcYYY4wxxhhjjDFmdcw6n2/TMf/Bs7Ein0z/UCM3yDE+wff6uUnnsYwB7aTNc2Q/ZLt8mhewa4ownvNwnKCtKaTrOAZA1liN0Dba+wZZP/LJ+umHWTgYS+XrTrpWrHlepOvTdE00RjUhm2kjfaF+btHW/2Nkv8Sz1Zo5CZR/22jrR7GMPYPe/QtZPzPUlcO0K2p+Fu7foq2ZWFvJqvSjGi8bxopqyg3atWYP2S/V/UV4V+c439XSE6lGShuzzn2deXCO1ji+Sec4tkMRY3qS7smmMSENxFylTztL7nfnutj7lNYP7fyIdp/TnbNUg+bhfeVJHLuhx/FHcdRYnA783X2hWO6gXU94Zk7sh88XyPWH78v3+E4NqObsh+tdtLX0JB1aI3T1E+e8PohrjzjnqzdT/KTvU9STk3ch/bCXob2cs5QPfMa4a07bRe6DmLPbyDHursdKwjlIOv8DjV3PkXt+9dHXaDSmPi5qpu9cUGyeoK2l2IMphtLQovO3tRL7BJ2lH/n4FLlO8dnfyLkUfS2N4k+daC3AQ/pZQ875/5D1w785Q+On6kKfxD5Z379Au8Yobx+Fz9uop67fheqQ+sd1NLYzf2k/dfMJeTzW09+8SO/X4mPseXimJmjvp/BMeXGM3Hdor3Soffa4Bxvr4yLcn4d7ymnlQO01SHlB3zg3xfXKPDzn/T/RzGX0jfqp0bduHeVxgfa6UfNEXFcOteZ6jO/XKbx3nq5ZF8/SEe2XbTXGWMQ95ziXXSLbfo4cX9b8t2jHo2ZoH+soa6Z8U1+k3OCez9uBvl+9TdRC7AsUQ9rAGriZbNlJz8egn6gB6Z5n1hr6F7WkXuKf1Zp5b1RvaPc75HyPvw2zNu0N8N3KsdgX8/Mu8lpF8+bH8N6/yOuUWnqD34VzEzWifllxUC/xrpxpvw3tZQ2l7fSB/hyle5/R1NQhiL81MxdP0zVju4b2/g9to762vh0HyFoao35if8dcYE1VTRpDP9dFvnBeYO5rvub1xYDfG9ddOrS/s5fskbb30zV1Le2cYfy8/3Z8ReP7Zbo3ptoT2UCjF44rfRh6Do77guotqZW19Ix9GGP6AU0d1LrwM/KcNnZYa5kz9PMlmtr/qqhF94djo7l4Vf1b9/8XqNtXyNo6QN675Zm5OqX/cWO8qZ+DdD12rlBe//z++NsFc1NrWvYKzNn1Ytb1C31hD8R8nYJ+WIMOShuBRkNx3/k8fS6t7b6hflR73he2pQ++oA4/aAP7gbgvVIttfUJ/rtJ5rH1zhLW0ljFSL8m5ijH+WtacQWCsuT7gvHz5k3fHAGtpTXnA33HZG7z42YsjhX5RP69RR9/wULi/Ulsfx9ozhdxcxjWauXksv1nchfRTUw06xDRycxmssaxBh6UN6QH2GMz3D6UNCbC219KTDQF1w73bzdKG9AB94Br+qrQhAWp5Kvs9y+A64ai0ET1AH6id49KGBA4xjdq+DOYH9cO4b5U15cFwnI5Rl344p04hN5fBWHOvi33QRmFbHgK1w17jKh21jBntqsWWIbhG0zeM3c8tNLlAP2rar6Oma7FlCOjfFhofx+yneucN1NVDU8/XpY0wxhhjjDHGGGOMMcYYY4wxxhhjjDHGGGOMMcYYY4wxv8T/YiEdAg==
+  </data>
+ </layer>
+ <layer name="land" width="144" height="72">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="land prettifier" width="144" height="72" opacity="0.46">
+  <data encoding="base64" compression="zlib">
+   eJztnFFu6jAQRb1V+gELANpFwH9Z7qv1fNpLBC0BqjjNOZLlJE0gkm9nxjM2pYiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIhIL7xM/QIyO15bf4zjytsE7yLzotqbqplDa6u4hi1SR3KNqpeqm6qXtzh/G7RVUUdyzrE19FOPU0Po6BBNBPBTxD0c48cOF861QVKpekAzVUfH1h+u9MeiD5P/pD1BG8MYmr+9xD00WTbVhqTtyTn7oZzPyRLiI+OgZVP1QZw8ZFW+7M81Lj0nyyDtyyXQ1ndxDjkiWRbo4rsYhjj6J30YCy0D5tzV3tzid8bEOOrnb5Pzqlvn3diVW/yTc/q/S+b/xkC+cIwmtEN/C3RzT4yL/1ITyyNrVveiT1oOr9EY80dzM1lHnQvbj7b5aKepX2Rm5Dqda/mcsWTNfS6gn/XULyKftmwOOeZttF3rZVqoy/cSP1eb8t4aPurUjrftej3ft2syLbfkqKegauXU+qqpqpdd+dLOup3LtFDb6j1+rnZHv9Ufva8zrFrZly+bo93pC9bRP2s+9xtUn0VMhI6MffqA+lev9mfIppj76QlyST3bn2RX9F89Qew8l/Vh6ctkenJPzxwghpY+oHY/J/9FjlGmh/rFHPRT42bmYMZAfTCn+ina2U/9IvJJ/pZCz1D/on4hfcCe5Uf9F3mZn6CWdc/nE/eYO+wH9oc9Yn9qLMKcGvuQviZrENgRcoDUIy7FxLleYx2fY+zTD7n//V6obTLO5PhOrUdP67hGn5rj3tQd9+zjO96LGuoF1m7ck//JMUYbXMO+MGfC1mzj3rQ99Bzn+h+uDbVHLZ51Htg36mO7wfPO+Z8P+cOx6w/TluCTsDOM6SmOsSGbeGaog1vXZWzKeR01P3OonV3co36eD+t/xvivqrf0J9gbxjRjoPQ39Ixx1kDH5JTRRNo1vg8tXoqxrbk+n6od8ofkga7F0uz1IebetHP+34lfNu1e9PNafv7fd2znSe6XR0v5+4doK9cp5m8mEjutyvlaWJ7N57/ba489cW3P7/EPoRH+hQ==
+  </data>
+ </layer>
+ <layer name="collisions" width="144" height="72" opacity="0.57">
+  <data encoding="base64" compression="zlib">
+   eJztnFlu6zAMRb3st4/8vu616IdRg5A4iZLs+hwgqCcOoa4oNUByHAAAAAAAcHe+gi8AAAAAAAAAAPhb8DkQAAAAAAAAAAAAAAAAAAAAAAAAwDv57E4AHsNH/JXXAXp4NIKOoAJ0BAC7+Bz0IGjzb3cCAPAqrj2n9x1Rvj/6d5gxjtp3jK/X0NHzqR4/6a+ln5YN7CX7+wKV+un1G+28OgewaeljZF6Pjp2mV49+rj5gPl/irzy+XpPPVO8/LHuvfqx7kKe3LnnWKsvuOHLj5tVeVD/0oVpW1DPqP5JTRD/SPzrKs7KGES1Ec8roJxsLfllZt5n/p2X1I+Ou/O260ZxnEXn/vX2LvCefb/nw5DWar9d39WcFUW159pG9OnriWder8oquAbNfVr5Zdszl0Tq0/EXiadejGrTiarmsZkbMHfrRyMSvmkfRXun12TrfoaO36Cda18oeX+Fb2reOLf/ac1neoJ+TVTWdgewzR+PYY1/dE9+knxMtH8+eJts/RntXL7cKsnp6q348Grqej8aL+vGOY9U6OzInqrm7fn7Q5lqrZ3j9aD2iqufcibfq50Rbq47Dzr13X9NP1JfM6071RD++/hPpGcdRrx8t511rVyTnCE/WT6T/zNJPdNyi9c3opJVnJrY3P+38Tnj6T8T2ek8eezURHTdPfTPrn6WrWWvp0/TTutYa8579iC5W6qcC9POL1ns8NfKsR5YWd+onO/5P0Y+352Z6cy8vS1ORWFkdrNBPpl6rqNBPa5561wrPmt2rXU8/Ge6qH1mPu1Gln0oiPSPaZzRf1vWefjzzxIojY1p+Ivan3X+nfYQR/dyhr1q9zqsxrfddn2kde3LM2Ekf1XOjgqx+dutmBC1vS2MeH1V2npy89jN6z+lbO+/ZzNZ0tH9E/Y/aZedZNHb0Pc+olxVPi9+7V52DXDe0556mH3ke3QNVsWL/I+/N1HHLt6Wl7H6n6pXJw3rfs/rsCu6c45Pq+BS+AaCvWvA=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="144" height="72">
+  <object name="water" type="npo" x="1120" y="1600" width="1056" height="672"/>
+  <object name="water" type="npo" x="2114" y="1541" width="93" height="152"/>
+  <object name="water" type="npo" x="2115" y="2147" width="478" height="91"/>
+  <object name="heartYummy2" x="2496" y="2176" width="32" height="32"/>
+  <object name="heartYummy1" x="3904" y="2048" width="32" height="32"/>
+  <object name="lava" x="675" y="1249" width="92" height="1057">
+   <properties>
+    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
+    <property name="animations" value="burn,0,47,burn"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,1568,36"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="ballFlammable, true"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="FlameWall.png"/>
+   </properties>
+  </object>
+  <object name="lava" x="769" y="2273" width="858" height="37">
+   <properties>
+    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
+    <property name="animations" value="burn,0,47,burn"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,1568,36"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="ballFlammable, true"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="FlameWall.png"/>
+   </properties>
+  </object>
+  <object name="destinationSky" x="3872" y="1280" width="32" height="32"/>
+  <object name="destinationOrange" type="destination" x="2400" y="1984" width="32" height="32"/>
+  <object name="destinationGreen" type="destination" x="2624" y="1888" width="32" height="32"/>
+  <object name="destinationYellow" type="destination" x="2816" y="2080" width="32" height="32"/>
+  <object name="destinationPurple" type="destination" x="3328" y="1984" width="32" height="32"/>
+  <object name="destinationBlack" type="destination" x="3008" y="1888" width="32" height="32"/>
+  <object name="destinationTunnelGreen" type="destination" x="4288" y="1696" width="32" height="32"/>
+  <object name="enter1" type="destination" x="704" y="384" width="32" height="32"/>
+  <object name="entranceTrigger" type="start as bowling ball, play down whistle" x="704" y="350" width="32" height="32"/>
+  <object name="exit to dragon runner" type="destination" x="1120" y="96" width="64" height="64">
+   <properties>
+    <property name="actions" value="playSound,sndWooHoo,changeMap,Level2Runner1,changeLocation,enter1"/>
+    <property name="animations" value="show,0,0,show"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="ExitMarker.png"/>
+   </properties>
+  </object>
+  <object name="BallPingPong" x="2080" y="1344" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="1760" y="1152" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="1632" y="864" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="2304" y="832" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="2656" y="1120" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="3360" y="1376" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BalloonBlue" x="3136" y="896" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BalloonYellow" x="2752" y="1024" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BalloonRed" x="2272" y="1216" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BalloonPink" x="1824" y="992" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BalloonGreen" x="1472" y="1184" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="1408" y="800" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="1216" y="672" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="1023" y="533" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallPingPong" x="831" y="407" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallBasketBall" x="2336" y="2176" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BallBasketBall" x="1989" y="2093" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="BalloonYellow" x="4220" y="2023" width="34" height="34">
+   <ellipse/>
+  </object>
+  <object name="ballFlame30DegreesClockwise" x="766" y="1101" width="91" height="139"/>
+  <object name="ballFlame30DegreesCounterClockwise" x="581" y="1101" width="91" height="139"/>
+  <object name="ballFlame0Degrees" x="640" y="1056" width="160" height="224"/>
+  <object name="switchp1" type="toggle vents 2 &amp; 4" x="4384" y="2112" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,toggleState,ventp2,toggleState,ventp4"/>
+    <property name="animations" value="off,0,0,off,on,1,1,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchp1" type="toggle vents 1 &amp; 3" x="4416" y="2112" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,toggleState,ventp1,toggleState,ventp3"/>
+    <property name="animations" value="off,0,0,off,on,1,1,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchp1" type="toggle vents 4 &amp; 5" x="4448" y="2112" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,toggleState,ventp4,toggleState,ventp5"/>
+    <property name="animations" value="off,0,0,off,on,1,1,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="switchp1" type="toggle vents 2 &amp; 3" x="4480" y="2112" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,sndLightSwitch,toggleState,ventp2,toggleState,ventp3"/>
+    <property name="animations" value="off,0,0,off,on,1,1,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="LightSwitch.png"/>
+   </properties>
+  </object>
+  <object name="ventp1" type="initial on, shoots strong to right only" x="4032" y="1952" width="64" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value="myAnimationIs,on"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventp2" type="initial on, low power" x="4096" y="2016" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value="myAnimationIs,on"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventp3" type="initial on, low power" x="4160" y="2048" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value="myAnimationIs,on"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventp4" type="initial on, low power" x="4224" y="2080" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value="myAnimationIs,on"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventp5" type="initial on, low power" x="4288" y="2112" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value="myAnimationIs,on"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="VentToBlack" type="Always on, strong enuf to reach the ledge above" x="3074" y="2198" width="60" height="66">
+   <properties>
+    <property name="actions" value="changeBallY,880,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuphigh" type="initial on" x="3360" y="1440" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventupmedium" type="initial on" x="3136" y="992" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2752" y="1088" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventupmedium" type="initial on" x="2656" y="1184" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventleftmedium" type="initial on" x="2720" y="1280" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2304" y="896" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventrightmedium" type="initial on" x="2400" y="1088" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1824" y="1056" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuphigh" type="initial on" x="2080" y="1408" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1632" y="928" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventupmedium" type="initial on" x="1472" y="1248" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventupmedium" type="initial on" x="1763" y="1215" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2272" y="1312" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventrightmedium" type="initial on" x="2208" y="1280" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1504" y="896" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1408" y="864" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1312" y="800" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1216" y="736" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1120" y="672" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1024" y="608" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,20,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="928" y="544" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,20,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="832" y="480" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,20,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventupstrong" type="initial on" x="768" y="384" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventleftmedium" type="initial on" x="2464" y="1248" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,-440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="-90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventleftmedium" type="initial on" x="2432" y="1344" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,-440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="-90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventrightmedium" type="initial on" x="2464" y="1184" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventrightmedium" type="initial on" x="2976" y="1152" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventleftmedium" type="initial on" x="2976" y="1056" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,-440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="-90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventleftmedium" type="initial on" x="2144" y="1024" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,-440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="-90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventrightmedium" type="initial on" x="3264" y="1312" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventrightmedium" type="initial on" x="3456" y="1184" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,440,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventupstrong" type="initial on" x="3872" y="1280" width="32" height="64">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventleftStrong" type="initial on" x="3872" y="1280" width="65" height="32">
+   <properties>
+    <property name="actions" value="changeBallX,-660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="-90" />
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="teleporterBlack" x="2688" y="1856" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationBlack"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterPurple" x="2496" y="1952" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationPurple"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterYellow" x="2336" y="1984" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationYellow"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterOrange" x="2912" y="2080" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationOrange"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterSky" x="3232" y="1920" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationSky"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterGreen" x="3232" y="2048" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationGreen"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterOrange" x="2560" y="1920" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationOrange"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterYellow" x="2944" y="1888" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationYellow"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterGreen" x="2784" y="2080" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationGreen"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="teleporterTunnelGreen" x="2272" y="2048" width="32" height="32">
+   <properties>
+    <property name="actions" value="playSound,Teleport,changeLocation,destinationTunnelGreen"/>
+    <property name="animations" value="off,20,20,off,on,0,23,off"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="16,16,16"/>
+    <property name="collisionShape" value="circle"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="teleporter.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1984" y="928" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2528" y="1024" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2880" y="960" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2656" y="864" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1760" y="800" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="1920" y="704" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2112" y="768" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2496" y="768" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="2784" y="704" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="3008" y="768" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="3232" y="800" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="3456" y="768" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="3648" y="832" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="3904" y="928" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="4160" y="1024" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="288" y="736" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="416" y="640" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="384" y="896" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="224" y="1024" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="352" y="1120" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="256" y="1248" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+  <object name="ventuplow" type="initial on" x="608" y="608" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
+    <property name="active" value="false"/>
+    <property name="animations" value="off,52,52,off,on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects fg" width="144" height="72">
+  <object name="transmorgifierBase1" type="destination" x="2304" y="1920" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBase1-transmorgify,playSound,transmorgify,changeMyAnim,Base"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierTennis1" x="4416" y="2208" width="47" height="48">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierTennis1-transmorgify,playSound,transmorgify,changeMyAnim,Tennis"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierPingPong1" x="3360" y="2048" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBowling1" x="2848" y="2112" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling1-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBasket1" x="2688" y="1920" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBasket1-transmorgify,playSound,transmorgify,changeMyAnim,Basket"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierPingPong2" x="4416" y="2016" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierPingPong2-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBowling2" x="1248" y="2048" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling2-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBowling3" x="1568" y="2048" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling3-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBowling4" x="1407" y="2205" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling4-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierPingPong2" x="2112" y="2176" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierPingPong2-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+  <object name="transmorgifierBowling0" x="690" y="442" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling0-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="parallax fg 1" width="144" height="72">
+  <data encoding="base64" compression="zlib">
+   eJzt2WEKgzAMBtBecXj/u2x/BHGpiU5GK++BME3ZBvnWVtcaAAAAAAAAMJPX51iCAyrW/OzPZYiKfX561yAiP/xi1PzYi80hysq/+naU3aV97+0Zz5n7r6yPUb97+/Hs+vZ8hPmQ2Jn1K8ramVo0Nvs+5p+xZWtIb2z0OqpV6r3PlpvxZXPNlbFH2cueL1mr5nJnftZatt+p7KGYwx352daOMlJ9tu0/lXn0elq5N8rek+fr/db1nwpzBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDzvAF/lzqL
+  </data>
+ </layer>
+ <layer name="parallax fg 2" width="144" height="72">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvg2iAAAB
+  </data>
+ </layer>
+ <layer name="parallax fg 3" width="144" height="72">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvg2iAAAB
+  </data>
+ </layer>
+</map>

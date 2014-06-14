@@ -42,7 +42,7 @@
   </object>
   <object name="exit1" type="npo" x="608" y="832" width="32" height="32">
    <properties>
-    <property name="actions" value="changeMap,Level2Runner1,changeLocation,enter1"/>
+    <property name="actions" value="playSound,sndWooHoo,changeMap,volcano,changeLocation,enter1"/>
     <property name="animations" value="show,0,0,show"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>

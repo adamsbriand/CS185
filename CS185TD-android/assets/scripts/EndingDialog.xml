@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = "outro" command = "keepScreen">    
+<DialogScript music = "outro" >    
     <dialog_en>
         <Snippet 
         	name = "Wizard"	
@@ -41,7 +41,7 @@
 	    	position = "T"
 	    	text = "như đã hứa, ta sẽ trã lại gia đình cho ngươi."
 	    	finalPause = "20"/>
-	</dialog_vi	
+	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
         	name = "巫师"	

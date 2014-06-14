@@ -95,7 +95,7 @@
     <property name="spriteSheet" value="ExitMarker.png"/>
    </properties>
   </object>
-  <object name="enter1" x="512" y="1829" width="28" height="26"/>
+  <object name="enter1" x="512" y="1728" width="28" height="26"/>
   <object name="Water" x="665" y="1858" width="513" height="466"/>
   <object name="dragon" type="npcEnemy" x="589" y="197" width="256" height="128">
    <properties>
