@@ -141,6 +141,9 @@ public class Trigger {
 			case "changeBallY":
 				changeBallY(value);
 				break;
+			case "changeBallX":
+				changeBallX(value);
+				break;
 			case "playSoundLoop":
 				playSoundLoop(value);
 				break;
@@ -195,6 +198,18 @@ public class Trigger {
 	private void changeBallY(String value) {
 		float change = Float.parseFloat(value);
 		g.i().hero.changeBallY(change);
+	}
+	
+	/* ----------------------------------------------------------------------------------
+	 * Changes the speed of the ball in the X direction.
+	 * 
+	 * Input:
+	 * 		value - String representation of the float value to change the direction by.
+	 * ----------------------------------------------------------------------------------
+	 */
+	private void changeBallX(String value) {
+		float change = Float.parseFloat(value);
+		g.i().hero.changeBallX(change);
 	}
 
 	/* ----------------------------------------------------------------------------------
