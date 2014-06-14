@@ -1,7 +1,5 @@
 package com.touchspin.td;
 
-import com.badlogic.gdx.Screen;
-
 /* ======================================================================================
  * Trigger.java
  * 
@@ -37,6 +35,7 @@ public class Trigger {
 	public Trigger(MainGame game){
 		this.game = game;
 	}
+	
 	/* ==================================================================================
 	 * ==================================================================================
 	 *                                      Public Actions
@@ -44,24 +43,47 @@ public class Trigger {
 	 * ==================================================================================
 	 */
 	
+	/* ----------------------------------------------------------------------------------
+	 * Processes an action. Input is a comma delimited string.
+	 * 
+	 * Input:
+	 * 		actionString - comma delimited string of actions to be performed.
+	 * 
+	 * Calls:
+	 * 		TriggerActions
+	 * ----------------------------------------------------------------------------------
+	 */
 	public void action(String actionString){
-		if (actionString==null || actionString.equalsIgnoreCase("")){
-			return;
-		}
+		// Check to see if a command was actually sent. Return if no.
+		if (actionString==null || actionString.equals("")) return;
+		
+		// Split the command into commands and values and process them. 
 		String[] Values = actionString.split(",");
 		for (int i = 0; i < Values.length; i +=2){
 			TriggerActions(Values[i], Values[i+1]);
 		}
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Processes a condition and an action. Input is a comma delimited string for both. 
+	 * 
+	 * Input:
+	 * 		Conditional - comma delimited string of conditions to be met before an action
+	 * 			can be performed. 
+	 * 		Action - comma delimited string of actions to be performed.
+	 * 
+	 * Calls:
+	 * 		condition
+	 * 		action
+	 * ----------------------------------------------------------------------------------
+	 */
 	public void action(String Conditional, String Action){
-		if (Action==null || Action.equalsIgnoreCase("")){
-			return;
-		}
+		// Check to see if a command was actually sent. Return if no.
+		if (Action==null || Action.equals("")) return;
+		// Check to see if conditions are meet. 
 		boolean go = condition(Conditional);
-		if (go){
-			action(Action);
-		}
+		// Send actions to be processed if conditions are meet. 
+		if (go) action(Action);
 	}
 
 	/* ==================================================================================
@@ -70,9 +92,35 @@ public class Trigger {
 	 * ==================================================================================
 	 * ==================================================================================
 	 */
+	
+	/* ----------------------------------------------------------------------------------
+	 * Determines the type of command to be processed
+	 * 
+	 * Input:
+	 * 		type - action commands
+	 * 		value - how to process the command
+	 * 
+	 * Calls:
+	 * 		NewLevel
+	 * 		menu
+	 * 		changeMyAnimation
+	 * 		playSound
+	 * 		changeMusic
+	 * 		changeLocation
+	 * 		changeBallY
+	 * 		playSoundLoop
+	 * 		changeOtherAnim
+	 * 		changeOtherCollidable
+	 * 		igniteBall
+	 * 		toggleState
+	 * 		changeHealth
+	 * 		changeActive
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void TriggerActions(String type, String value) {
 		switch (type){
 			case "NewLevel":
+			case "changeMap":
 				NewLevel(value);
 				break;
 			case "menu":
@@ -86,9 +134,6 @@ public class Trigger {
 				break;
 			case "changeMusic":
 				changeMusic(value);
-				break;
-			case "changeMap":
-				NewLevel(value);
 				break;
 			case "changeLocation":
 				changeLocation(value);
@@ -112,7 +157,7 @@ public class Trigger {
 				toggleState(value);
 				break;
 			case "reduceHealth":
-				reduceHealth(value);
+				changeHealth(value);
 				break;
 			case "changeActive":
 				changeActive(value);
@@ -120,53 +165,107 @@ public class Trigger {
 		}
 	}
 
-	// Changes to the hero
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                   Changes to the hero
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
+	
+	/* ----------------------------------------------------------------------------------
+	 * Sets the ball on fire or extinguishes the fire.
+	 * Adjusts the playing of the fire sound if fire was extinguished. 
+	 * 
+	 * Input:
+	 * 		value - String representation of boolean value
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void igniteBall(String value) {
 		g.i().fire = (value.equalsIgnoreCase("true"));
 		if (!g.i().fire) g.i().sound.fire( false );
 	}
-	
-	private boolean ballFlammable(String value){
-		return g.i().hero.flammable;
-	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Changes the speed of the ball in the Y direction.
+	 * 
+	 * Input:
+	 * 		value - String representation of the float value to change the direction by.
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeBallY(String value) {
 		float change = Float.parseFloat(value);
 		g.i().hero.changeBallY(change);
 	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Change the location of the ball to the location of another object. 
+	 * 
+	 * Input:
+	 * 		value - Name of the object to move the ball to.
+	 * 
+	 * Calls: 
+	 * 		getObjNamed
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeLocation(String value) {
-		float x;
-		float y;
-		for (int i=0; i < g.i().mapObjects.size(); i++){
-			if (value.equalsIgnoreCase(g.i().mapObjects.get(i).getName())){
-				x = g.i().mapObjects.get(i).getX();
-				y = g.i().mapObjects.get(i).getY();
-				g.i().hero.setPosition(x, y);
-				i=1000;
-			}
+		// Check to see if location exists and get its information
+		NP obj = getObjNamed(value);
+		if (obj!=null) {
+			float x = obj.getX();
+			float y = obj.getY();
+			g.i().hero.setPosition(x, y);
 		}
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Changes the type of ball shown 
+	 * 
+	 * Input:
+	 * 		value - Name of new ball type
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeMyAnimation(String value) {
 		g.i().hero.changeBall(value);
 	}
 	
-	// Changes to environment
-	
-	private void toggleState(String value)
-	{
-		NP obj = getObjNamed(value);
-		if (obj!=null) 
-			obj.setAnimation( (obj.getAnimation().equalsIgnoreCase("on")) ? "off" : "on");
-	
+	/* ----------------------------------------------------------------------------------
+	 * Changes the health of the hero
+	 * 
+	 * Input:
+	 * 		value - String representation of the value to change the health by.
+	 * 			Positive numbers reduce health
+	 * 			Negative numbers increase health 
+	 * ----------------------------------------------------------------------------------
+	 */
+	private void changeHealth(String value) {
+		g.i().playerHealth -= Integer.parseInt(value);
 		
+		// Check to see if health is above the maximum. 
+		// Another section checks for minimum health. 
+		if (g.i().playerHealth > g.i().maxHealth) {
+			g.i().playerHealth = g.i().maxHealth;
+		}
+		g.i().hero.getHurt();
 	}
 	
-	// Changes to sound
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                   Changes to sound
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
+	
+	/* ----------------------------------------------------------------------------------
+	 * Adjusts looping sound effects.
+	 * 
+	 * Input:
+	 * 		value - Name of sound to be turned on and off and the state of the sound
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void playSoundLoop(String value) {
-		if (g.i().sfx){
-			switch (value){
+		// Check to see if sound effects should be played. 
+		if (g.i().sfx) {
+			switch (value) {
 				case "sndFanOn":
 					g.i().sound.wind(true);
 					break;
@@ -183,7 +282,15 @@ public class Trigger {
 		}
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Plays short sound effects
+	 * 
+	 * Input:
+	 * 		value - Name of sound to be played
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void playSound(String value) {
+		// Check to see if sound effects should be played. 
 		if (g.i().sfx){
 			switch (value){
 			case "sndGlassBreak":
@@ -226,21 +333,72 @@ public class Trigger {
 		}
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Changes the background music
+	 * 
+	 * Input:
+	 * 		value - Name of music to be played
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeMusic(String value) {
 		g.i().sound.BGMusic(value);
 	}
 
-	// Changes to others
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                 Changes to environment
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
+	
+	/* ----------------------------------------------------------------------------------
+	 * Toggles the animation state of an object
+	 * 
+	 * Input:
+	 * 		value - Name of object
+	 * 
+	 * Calls:
+	 * 		getObjNamed
+	 * ----------------------------------------------------------------------------------
+	 */
+	private void toggleState(String value) {
+		NP obj = getObjNamed(value);
+		if (obj!=null) 
+			obj.setAnimation((obj.getAnimation().equalsIgnoreCase("on")) ? "off" : "on");
+	}
+	
+	/* ----------------------------------------------------------------------------------
+	 * Changes weather an object is collidable
+	 * 
+	 * Input:
+	 * 		value - Dash delimited String. First part is the object to be changed. Second
+	 * 			part is a boolean value to set object as collidable or not. 
+	 * 
+	 * Calls:
+	 * 		getObjNamed 
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeOthersCollidable(String value) {
-		boolean collidable;
+		// Split input into separate parts. 
 		String[] Values = value.split("-");
 		String objectName = Values[0];
-		collidable = (Values[1]=="true");
+		boolean collidable = (Values[1]=="true");
 		NP obj = getObjNamed(objectName);
 		if (obj!=null) 
 			obj.setCollidable(collidable);
 	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Changes the animation type of an object
+	 * 
+	 * Input:
+	 * 		value - Dash delimited String. First part is the object to be changed. Second
+	 * 			part is the name of the animation to change to.   
+	 * 
+	 * Calls:
+	 * 		getObjNamed
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeOthersAnim(String value) {
 		String[] Values = value.split("-");
 		NP obj = getObjNamed(Values[0]);
@@ -248,6 +406,17 @@ public class Trigger {
 			obj.setAnimation(Values[1]);
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Changes weather an object is active. 
+	 * 
+	 * Input:
+	 * 		value - Dash delimited String. First part is the object to be changed. Second
+	 * 			part is a boolean value to set object as active or not.   
+	 * 
+	 * Calls:
+	 * 		getObjNamed
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void changeActive(String value)
 	{
 		String[] Values = value.split("-");
@@ -256,26 +425,22 @@ public class Trigger {
 			obj.setActive(Values[1]);
 	}
 
-	private NP getObjNamed(String name) {
-		for (int iO=0; iO < g.i().mapObjects.size(); iO++)
-			if (name.equalsIgnoreCase(  g.i().mapObjects.get(iO).getName()  ) )
-					return g.i().mapObjects.get(iO);
-		return null;
-	}
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                   Change screens
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
 	
-	private void reduceHealth(String value)
-	{
-		g.i().playerHealth -= Integer.parseInt(value);
-		if (g.i().playerHealth > g.i().maxHealth){
-			g.i().playerHealth = g.i().maxHealth;
-		}
-		g.i().hero.getHurt();
-	}
-
-	// Change screens
+	/* ----------------------------------------------------------------------------------
+	 * Sets a menu screen to be displayed. 
+	 * 
+	 * Input:
+	 * 		value - The menu screen to be displayed. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void menu(String value) {
-		String[] options = value.split("-");
-		switch (options[0]){
+		switch (value){
 		case "Main":
 			game.setScreen(new ScreenMenu(game));
 			break;
@@ -286,12 +451,7 @@ public class Trigger {
 			game.setScreen(new ScreenGameOver(game));
 			break;
 		case "options":
-			if (options.length==1){
 				game.setScreen(new ScreenOptions(game));
-			} else {
-				Screen screen = game.getScreen();
-				game.setScreen(new ScreenOptions(game, screen));
-			}
 			break;
 		case "credits":
 			game.setScreen(new ScreenCredits(game));
@@ -299,6 +459,13 @@ public class Trigger {
 		}
 	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Sets a new level to play.
+	 * 
+	 * Input:
+	 * 		value - The level to be played. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	private void NewLevel(String Value){
 		switch (Value){
 			case "Main":
@@ -362,31 +529,63 @@ public class Trigger {
 		}
 	}
 
-	//=========================================================================
-	// Conditions
-	//=========================================================================
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                    Conditions
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
+	
+	/* ----------------------------------------------------------------------------------
+	 * Check to see if a set of conditions are valid
+	 * 
+	 * Input:
+	 * 		value - A comma delimited string of conditions to be met before an action
+	 * 			can be performed.
+	 * 
+	 * Calls:
+	 * 		TriggerConditions
+	 * 
+	 * Returns:
+	 * 		boolean - Returns false if any of the conditions are false
+	 * ----------------------------------------------------------------------------------
+	 */
 	private boolean condition(String conditionString){
-		if (conditionString == null || conditionString.equalsIgnoreCase("")) {
-			return true;
-		}
+		// Check to see if a condition has been sent. Return true if no condition sent.
+		if (conditionString == null || conditionString.equals("")) return true;
+		// Split the command into conditions and values and process them.
 		String[] Values = conditionString.split(",");
 		for (int i = 0; i < Values.length; i +=2){
 			boolean status = TriggerConditions(Values[i], Values[i+1]);
-			if (!status){
-				return false;
-			}
+			if (!status) return false;
 		}
 		return true;
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Determines the type of condition to be processed
+	 * 
+	 * Input:
+	 * 		type - Type of condition to check 
+	 * 		value - Value to be checked against. 
+	 * 
+	 * Calls:
+	 * 		AnimationIs
+	 * 		velGTE
+	 * 
+	 * Returns:
+	 * 		boolean - Returns false if any of the conditions are false. Returns false if
+	 * 			the type of condition is not in the list.
+	 * ----------------------------------------------------------------------------------
+	 */
 	private boolean TriggerConditions(String type, String value){
 		switch (type){
 			case "ballFlammable":
-				return ballFlammable(value);
+				return g.i().hero.flammable;
 			case "ballType":
-				return ballType(value);
+				return value.equalsIgnoreCase(g.i().currentBallType);
 			case "animationName":
-				return true;
+				return true; // not implemented
 			case "myAnimationIs":
 				return AnimationIs(value);
 			case "velGTE":
@@ -395,29 +594,66 @@ public class Trigger {
 		return false;
 	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Check to see if the hero is moving fast enough
+	 * 
+	 * Input:
+	 * 		value - The speed the hero must be greater than to be true
+	 * 
+	 * Returns:
+	 * 		boolean - Returns if the hero is fast enough for the action
+	 * ----------------------------------------------------------------------------------
+	 */
 	private boolean velGTE(String value) {
 		if(Math.pow(Math.pow(g.i().hero.heroMover.speedXPerSecond,2)+
 				Math.pow(g.i().hero.heroMover.speedYPerSecond,2),0.5) >Float.parseFloat(value))
 		return true;
-		else
-			return false;
+		return false;
 	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Check to see if an object animation is in the correct state
+	 * 
+	 * Input:
+	 * 		value - A dash delimited string of the object to check and the type of
+	 * 			animation to be checked against.
+	 * 
+	 * Returns:
+	 * 		boolean - Returns if the animation matches
+	 * ----------------------------------------------------------------------------------
+	 */
 	private boolean AnimationIs(String value) {
 		String[] split = value.split("-");
-		if (split.length > 0){						// Check to make sure proper format used. 
+		if (split.length > 0){				// Check to make sure proper format used. 
 			NP obj = getObjNamed(split[0]);
-			if (obj!=null)
-				return  (boolean)( split[1].equalsIgnoreCase( obj.getAnimation() ) );
+			if (obj!=null) return (split[1].equalsIgnoreCase(obj.getAnimation()));
 		}
 		return false;
 	}
-
-	private boolean ballType(String value) {
-		if (value.equalsIgnoreCase(g.i().currentBallType)){
-			return true;
-		}
-		return false;
+	
+	/* ==================================================================================
+	 * ==================================================================================
+	 *                                Private helper methods
+	 * ==================================================================================
+	 * ==================================================================================
+	 */
+	
+	/* ----------------------------------------------------------------------------------
+	 * Finds an object named 
+	 * 
+	 * Input:
+	 * 		name - Name of object to be found  
+	 * 
+	 * Returns:
+	 * 		The object named.
+	 * ----------------------------------------------------------------------------------
+	 */
+	private NP getObjNamed(String name) {
+		for (int i=0; i < g.i().mapObjects.size(); i++)
+			if (name.equalsIgnoreCase(  g.i().mapObjects.get(i).getName()  ) )
+					return g.i().mapObjects.get(i);
+		return null;
 	}
+	
 
 }

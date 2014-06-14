@@ -38,7 +38,7 @@ public class g {
 	public float musicLevel;	// Music volume. 0=None, 1=Full
 	
 	// System variables
-	public String language;	/* Language used. This is a to letter code indicating language
+	public String language;	/* Language used. This is a two letter code indicating language
 							 * en=English
 							 * es=Spanish
 							 * fr=French
@@ -129,6 +129,7 @@ public class g {
 		npMap = new HashMap<MapObject,NP>();
 	}
 	
+	// unicode converter: http://www.mobilefish.com/services/unicode_escape_sequence_converter/unicode_escape_sequence_converter.php
 	public void languageSet(){
 		switch (language){
 		case "zh":
@@ -210,6 +211,27 @@ public class g {
 			HighScore = "\u30cf\u30a4\u30b9\u30b3\u30a2";
 			Credits = "\u30af\u30ec\u30b8\u30c3\u30c8";
 			Exit = "\u30a8\u30b0\u30b8\u30c3\u30c8";
+			break;
+		case "fr":
+			font = Gdx.files.internal("Font/ollieFont.fnt");
+			language = "en";
+			CurrentLanguage = "fran\u00e7aise";
+			Continue = "Continue";
+			Gyro = "Gyro";
+			Keyboard = "Keyboard";
+			Mouse = "Mouse";
+			KeyboardMouse = "Keyboard & Mouse";
+			MuteMusic = "Mute Music";
+			MuteSFX = "Mute SFX";
+			Back = "Back";
+			Sounds = "Sounds";
+			Controls = "Controls";
+			Language = "Language";
+			NewGame = "New Game";
+			Options = "Options";
+			HighScore = "High Score";
+			Credits = "Credits";
+			Exit = "Exit";
 			break;
 		case "en":
 		default:

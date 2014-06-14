@@ -16,11 +16,11 @@ public class ScreenGameOver extends GameMenu{
 	private static final String logoImage = "img/menu/LogoGameOver.png";
 	
 	// Variables
-	long timeStartGame;
+	long timepoint;
 	
 	public ScreenGameOver(MainGame MainGame){
 		super(MainGame);
-		timeStartGame = System.currentTimeMillis();
+		timepoint = System.currentTimeMillis();
 		g.i().sound.sfxMute(true);
 		g.i().sound.BGMusic("menu");
 		
@@ -69,7 +69,7 @@ public class ScreenGameOver extends GameMenu{
 	
 	public void update() {
 		int secondsWait = 30;
-		if (TimeUtils.millis()>(timeStartGame + (1000 * secondsWait))){
+		if (TimeUtils.millis()>(timepoint + (1000 * secondsWait))){
 			g.i().t.action("menu,Main");
 		}
 	}
