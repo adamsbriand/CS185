@@ -185,8 +185,15 @@ public class Trigger {
 	 * ----------------------------------------------------------------------------------
 	 */
 	private void igniteBall(String value) {
-		g.i().fire = (value.equalsIgnoreCase("true"));
+		if(g.i().currentBall == null)
+		{
+			g.i().fire = (value.equalsIgnoreCase("true"));
+		}else
+		{
+			g.i().currentBall.fireOn = (value.equalsIgnoreCase("true"));
+		}
 		if (!g.i().fire) g.i().sound.fire( false );
+
 	}
 
 	/* ----------------------------------------------------------------------------------
@@ -198,7 +205,10 @@ public class Trigger {
 	 */
 	private void changeBallY(String value) {
 		float change = Float.parseFloat(value);
+		if(g.i().currentBall == null)
 		g.i().hero.changeBallY(change);
+		else
+			g.i().currentBall.changeBallY(change);
 	}
 	
 	/* ----------------------------------------------------------------------------------
@@ -210,7 +220,10 @@ public class Trigger {
 	 */
 	private void changeBallX(String value) {
 		float change = Float.parseFloat(value);
+		if(g.i().currentBall == null)
 		g.i().hero.changeBallX(change);
+		else
+			g.i().currentBall.changeBallX(change);
 	}
 
 	/* ----------------------------------------------------------------------------------
@@ -241,7 +254,10 @@ public class Trigger {
 	 * ----------------------------------------------------------------------------------
 	 */
 	private void changeMyAnimation(String value) {
+		if(g.i().currentBall == null)
 		g.i().hero.changeBall(value);
+		else
+			g.i().currentBall.changeBall(value);
 	}
 	
 	/* ----------------------------------------------------------------------------------
@@ -254,6 +270,8 @@ public class Trigger {
 	 * ----------------------------------------------------------------------------------
 	 */
 	private void changeHealth(String value) {
+		if(g.i().currentBall == null)
+		{
 		g.i().playerHealth -= Integer.parseInt(value);
 		
 		// Check to see if health is above the maximum. 
@@ -262,6 +280,16 @@ public class Trigger {
 			g.i().playerHealth = g.i().maxHealth;
 		}
 		g.i().hero.getHurt();
+		}
+		else
+		{
+			g.i().currentBall.health -= Integer.parseInt(value);
+			// Check to see if health is above the maximum. 
+			// Another section checks for minimum health. 
+			if (g.i().currentBall.health > g.i().maxHealth) {
+				g.i().currentBall.health = g.i().maxHealth;
+			}
+		}
 	}
 	
 	/* ==================================================================================
@@ -279,6 +307,8 @@ public class Trigger {
 	 * ----------------------------------------------------------------------------------
 	 */
 	private void playSoundLoop(String value) {
+		if(g.i().currentBall == null)
+		{
 		// Check to see if sound effects should be played. 
 		if (g.i().sfx) {
 			switch (value) {
@@ -296,6 +326,7 @@ public class Trigger {
 					break;
 			}
 		}
+		}
 	}
 	
 	/* ----------------------------------------------------------------------------------
@@ -306,6 +337,8 @@ public class Trigger {
 	 * ----------------------------------------------------------------------------------
 	 */
 	private void playSound(String value) {
+		if(g.i().currentBall == null)
+		{
 		// Check to see if sound effects should be played. 
 		if (g.i().sfx){
 			switch (value){
@@ -352,6 +385,7 @@ public class Trigger {
 				g.i().sound.sndSwitch("woohoo");
 				break;
 			}
+		}
 		}
 	}
 	

@@ -21,6 +21,7 @@ public class GameScreen extends GameObject {
 	private int frameCount = 15;
 	private Group bgg = new Group();
 	private Group fgg = new Group();
+	private Group playerg = new Group();
 	private Group toppest = new Group();
 	private char mode;
 	private float initialBGCameraDifferenceY = 0;
@@ -40,6 +41,7 @@ public class GameScreen extends GameObject {
 		loadNPs();
 		g.i().hero = new Hero(camera, tiledMapWrapper);
 		stage.addActor(bgg);
+		stage.addActor(playerg);
 		stage.addActor(g.i().hero);
 		stage.addActor(fgg);
 		stage.addActor(toppest);
@@ -278,7 +280,6 @@ public class GameScreen extends GameObject {
 			name = object.getName();
 
 			tempProperties = object.getProperties();
-
 			if (tempProperties.get("x") != null) {
 				startX = MathUtils.round((float) tempProperties.get("x"));
 			}
@@ -287,6 +288,13 @@ public class GameScreen extends GameObject {
 				startY = MathUtils.round((float) tempProperties.get("y"));
 			}
 
+			if(name.startsWith("Ball"))
+			{
+				type = name.substring(4);
+				Balls tempBall = new Balls(type,startX,startY,camera,tiledMapWrapper);
+				g.i().balls.add(tempBall);
+				playerg.addActor(tempBall);
+			}
 			if (object instanceof RectangleMapObject) {
 				width = (int) ((RectangleMapObject) object).getRectangle().width;
 				height = (int) ((RectangleMapObject) object).getRectangle().height;
