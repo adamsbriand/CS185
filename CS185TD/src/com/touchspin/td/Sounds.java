@@ -71,6 +71,7 @@ public class Sounds {
 			Gdx.files.internal("snd/sfx/SlideWhistleUp.mp3");
 	private final FileHandle splash = Gdx.files.internal("snd/sfx/Splash.mp3");
 	private final FileHandle Teleport = Gdx.files.internal("snd/sfx/Teleport.mp3");
+	private final FileHandle DragonGrowl = Gdx.files.internal("snd/sfx/DragonGrowl.mp3");
 	
 	// Long sounds
 	private final FileHandle wind = Gdx.files.internal("snd/longsfx/Wind.mp3");
@@ -91,6 +92,7 @@ public class Sounds {
 	private Sound bounce1=null;
 	private Sound bounce2=null;
 	private Sound bounce3=null;
+	private Sound npnoises=null;
 	private Music fire=null;
 	private Music campFire=null;
 	private Music windBlowing=null;
@@ -103,17 +105,17 @@ public class Sounds {
 	 * 		BGMusicFile - The name of the file to play. 
 	 * ----------------------------------------------------------------------------------
 	 */
-	public void BGMusic(String BGMusicFile){
+	public void BGMusic(String BGMusicFile) {
 		if(bgMusic != null){
 			bgMusic.stop();
 		}
-		switch (BGMusicFile){
+		switch (BGMusicFile) {
 			case "scaryIntro":
 			case "dragon":
 				bgMusic = Gdx.audio.newMusic(scaryIntro);
 				bgMusic.setLooping(false);
 				bgMusic.setOnCompletionListener(
-						new Music.OnCompletionListener(){
+						new Music.OnCompletionListener() {
 					public void onCompletion(Music music) {
 						bgMusic = Gdx.audio.newMusic(scary);
 						bgMusic.setVolume(g.i().musicLevel);
@@ -140,7 +142,7 @@ public class Sounds {
 				bgMusic = Gdx.audio.newMusic(ABall);
 				bgMusic.setLooping(false);
 				bgMusic.setOnCompletionListener(
-						new Music.OnCompletionListener(){
+						new Music.OnCompletionListener() {
 					public void onCompletion(Music music) {
 						BGMusic("mainmenu");
 					}});
@@ -153,7 +155,7 @@ public class Sounds {
 				bgMusic.setOnCompletionListener(null);
 				break;
 		}
-		if (g.i().music && bgMusic != null){
+		if (g.i().music && bgMusic != null) {
 			bgMusic.setVolume(g.i().musicLevel);
 			bgMusic.play();
 		}
@@ -200,6 +202,13 @@ public class Sounds {
 				bounce2 = null;
 				bounce3 = null;
 		}
+	}
+	
+	public void npNoise() {
+		if (npnoises == null) {
+			npnoises = Gdx.audio.newSound(DragonGrowl);
+		}
+		npnoises.play(g.i().sfxLevel);
 	}
 	
 	/* ----------------------------------------------------------------------------------
@@ -367,6 +376,7 @@ public class Sounds {
 				sndSwitch=Gdx.audio.newSound(Transmorgification);
 				break;
 			case "break":
+				// Chose a random breaking sound to play
 				Random random = new Random();
 				int rand = random.nextInt(3) + 1;
 				switch (rand) {
@@ -444,13 +454,17 @@ public class Sounds {
 			if (bounce1!=null) bounce1.stop();
 			if (bounce2!=null) bounce2.stop();
 			if (bounce3!=null) bounce3.stop();
+			if (npnoises!=null) {
+				npnoises.stop();
+				npnoises=null;
+			}
 		} else {
 			if (g.i().fire){
 				fire(true);
 			}
-			for (int i = 0; i < g.i().npMap.size(); i++){
+			for (int i = 0; i < g.i().npMap.size(); i++) {
 				if (g.i().npMap.get(i).name == "fan1") {
-					if (g.i().npMap.get(i).getAnimation() == "on"){
+					if (g.i().npMap.get(i).getAnimation() == "on") {
 						wind(true);
 					}
 				}
@@ -459,6 +473,6 @@ public class Sounds {
 	}
 	
 	public void buttonClick(){
-		// TODO
+		
 	}
 }

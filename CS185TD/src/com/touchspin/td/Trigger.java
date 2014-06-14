@@ -344,6 +344,9 @@ public class Trigger {
 			case "sndYummy":
 				g.i().sound.sndSwitch("yummy");
 				break;
+			case "dragonGrowl":
+				g.i().sound.npNoise();
+				break;
 			}
 		}
 	}
