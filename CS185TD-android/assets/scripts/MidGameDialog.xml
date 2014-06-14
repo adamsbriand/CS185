@@ -1,64 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DialogScript music = ""> 
-    <dialog_en   >
+    <dialog_en>
 		<Snippet 
 	    	name = "Wizard"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "Well done Ollie on making it this far!:C_:pause:4"/>
+	    	position = "T"
+	    	text = "Well done Ollie on making it this far!"
+	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "Wizard"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "You're journey is however about to get much harder.:C_:pause:4:C_:end:null"/>
+	    	position = "T"
+	    	text = "You're journey is however about to get much harder."
+	    	finalPause = "4"/>
 	</dialog_en>
 	<dialog_es>
 	    <Snippet 
 	    	name = "Mago"	
-	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "Bien hecho Ollie al llegar hasta aqui!:C_:pause:4"/>
+	    	background = ""
+	    	position = "T"
+	    	text = "Bien hecho Ollie al llegar hasta aqui!"
+	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "Mago"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "Tu viaje está a punto de volverse mucho más difícil.:C_:pause:4:C_:end:null"/>
+	    	position = "T"
+	    	text = "Tu viaje está a punto de volverse mucho más difícil."
+	    	finalPause = "4"/>
 	</dialog_es>
 	<dialog_vi>
 	    <Snippet 
 	    	name = "phù thủy"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "làm tốt lắm Ollie!:C_:pause:4"/>
+	    	position = "T"
+	    	text = "làm tốt lắm Ollie!"
+	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "phù thủy"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "nhưng cuộc hành trình của ngươi sẽ bắt đầu rất khó.:C_:pause:4:C_:end:null"/>
+	    	position = "T"
+	    	text = "nhưng cuộc hành trình của ngươi sẽ bắt đầu rất khó."
+	    	finalPause = "4"/>
 	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
 	    	name = "巫师"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "做得好,奥利!竟然能来到这里。:C_:pause:4"/>
+	    	position = "T"
+	    	text = "做得好,奥利!竟然能来到这里。"
+	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "巫师"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "但你的旅程正在变得更加艰难。:C_:pause:4:C_:end:null"/>
+	    	position = "T"
+	    	text = "但你的旅程正在变得更加艰难。"
+	    	finalPause = "4"/>
 	</dialog_zh>
 	<dialog_ja   >
 		<Snippet 
 	    	name = "ウィザード"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "オーリー良くもここまでこれたな。:C_:pause:4"/>
+	    	position = "T"
+	    	text = "オーリー良くもここまでこれたな。"
+	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "ウィザード"	
 	    	background = "DialogImages/MidGame.png"
-	    	position = "R"
-	    	text = "だが、君の旅はもっと困難になる。:C_:pause:4:C_:end:null"/>
+	    	position = "T"
+	    	text = "だが、君の旅はもっと困難になる。"
+	    	finalPause = "4"/>
 	</dialog_ja>
 	<End>changeMap,Level2Maze1,changeLocation,enter1</End>	
 </DialogScript>

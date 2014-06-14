@@ -1,68 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = "outro">
-    
+<DialogScript music = "outro" command = "keepScreen">    
     <dialog_en>
         <Snippet 
         	name = "Wizard"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "C_:pause:10: Well Ollie, now you see just how brave you are?:C_:pause:4"/>
+	    	position = "T"
+	    	text = "C_:pause:10: Well Ollie, now you see just how brave you are?"
+	    	finalPause = "4"/>
         <Snippet 
         	name = "Wizard"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "As promised, I return your family to you.:C_:pause:20:C_:end:null"/>
-    </dialog_en>
-    
+	    	position = "T"
+	    	text = "As promised, I return your family to you."
+	    	finalPause = "20"/>
+    </dialog_en>    
 	<dialog_es>	 
 	    <Snippet 
         	name = "Mago"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "C_:pause:10: Bueno Ollie! Ahora ves lo valiente que eres?:C_:pause:4"/>
+	    	position = "T"
+	    	text = "C_:pause:10: Bueno Ollie! Ahora ves lo valiente que eres?"
+	    	finalPause = "4"/>
         <Snippet 
         	name = "Mago"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "Como te prometí, ahora te regresare a tu familia.:C_:pause:20:C_:end:null"/>   
-	</dialog_es>
-	
+	    	position = "T"
+	    	text = "Como te prometí, ahora te regresare a tu familia."
+	    	finalPause = "20"/>   
+	</dialog_es>	
 	<dialog_vi>	    
 	    <Snippet 
         	name = "phù thủy"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "C_:pause:10: Ollie, bây giơ ngươi đã nhận biết được lòng dũng cãm của ngươi chưa?:C_:pause:4"/>
+	    	position = "T"
+	    	text = "C_:pause:10: Ollie, bây giơ ngươi đã nhận biết được lòng dũng cãm của ngươi chưa?"
+	    	finalPause = "4"/>
         <Snippet 
         	name = "phù thủy"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "như đã hứa, ta sẽ trã lại gia đình cho ngươi.:C_:pause:20:C_:end:null"/>
-	</dialog_vi>
-	
+	    	position = "T"
+	    	text = "như đã hứa, ta sẽ trã lại gia đình cho ngươi."
+	    	finalPause = "20"/>
+	</dialog_vi	
 	<dialog_zh>
 	    <Snippet 
         	name = "巫师"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "C_:pause:10: 奥利，做得好。现在你明白你是多么的坚韧勇敢了吗？:C_:pause:4"/>
+	    	position = "T"
+	    	text = "C_:pause:10: 奥利，做得好。现在你明白你是多么的坚韧勇敢了吗？"
+	    	finalPause = "4"/>
         <Snippet 
         	name = "巫师"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "正如我所承诺的，我将归还你的妻子与女儿。:C_:pause:20:C_:end:null"/>
+	    	position = "T"
+	    	text = "正如我所承诺的，我将归还你的妻子与女儿。"
+	    	finalPause = "20"/>
 	</dialog_zh>
 	<dialog_ja>
         <Snippet 
         	name = "ウィザード"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "C_:pause:10:オーリー、君が勇敢なのは分かったか？:C_:pause:4"/>
+	    	position = "T"
+	    	text = "C_:pause:10:オーリー、君が勇敢なのは分かったか？"
+	    	finalPause = "4"/>
         <Snippet 
         	name = "ウィザード"	
 	    	background = "DialogImages/GameEnd.png"
-	    	position = "R"
-	    	text = "約束どおり、君の家族を返すよ。:C_:pause:20:C_:end:null"/>
+	    	position = "T"
+	    	text = "約束どおり、君の家族を返すよ。"
+	    	finalPause = "20"/>
     </dialog_ja>
 	<End>menu,credits,changeMusic,iamaball</End>
 </DialogScript>

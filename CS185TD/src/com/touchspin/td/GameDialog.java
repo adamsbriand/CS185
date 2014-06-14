@@ -52,7 +52,7 @@ public class GameDialog extends GameObject
 	private int textPadding;
 	private boolean canBreakText;
 	private boolean masterSkip;
-	
+		
 	/**
 	 * Constructor
 	 * @param game
@@ -70,7 +70,7 @@ public class GameDialog extends GameObject
 		{	root = xml.parse(script);	}
 		catch(IOException e)
 		{}			
-		
+				
 		// get dialog based on current language settings
 		languageRoot = root.getChildByName("dialog_" + g.i().language);	
 		
@@ -102,6 +102,7 @@ public class GameDialog extends GameObject
 		textPadding = 50;
 		masterSkip = false;
 		
+		
 		nextSnippet();			
 	}// end of constructor
 	
@@ -115,10 +116,11 @@ public class GameDialog extends GameObject
 	@Override
 	public void draw() 
 	{
+
 		Gdx.graphics.getGL20().glClearColor( 0, 0, 0, 0 );
 		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );	
-		batch.begin();
 		
+		batch.begin();
 		//draw background
 		if(!backGroundPath.equals("black"))			
 		{
@@ -375,7 +377,7 @@ public class GameDialog extends GameObject
 				masterSkip = true;
 			else
 				masterSkip = false;
-			break;
+			break;		
 		default :				
 		}
 	}
