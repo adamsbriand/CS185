@@ -204,6 +204,10 @@ public class Sounds {
 		}
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * Plays a sound of a NPC 
+	 * ----------------------------------------------------------------------------------
+	 */
 	public void npNoise() {
 		if (npnoises == null) {
 			npnoises = Gdx.audio.newSound(DragonGrowl);
@@ -472,6 +476,10 @@ public class Sounds {
 		}
 	}
 	
+	/* ----------------------------------------------------------------------------------
+	 * This would play a sound on button click, if we had a button click sound.   
+	 * ----------------------------------------------------------------------------------
+	 */
 	public void buttonClick(){
 		
 	}
