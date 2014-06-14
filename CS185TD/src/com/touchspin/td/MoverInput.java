@@ -55,6 +55,7 @@ public class MoverInput extends MoverPhysics {
 			jumpable = false;
 		}
 
+		//--------trigger objects----------
 		if (triggeredNP.size() != 0) {
 			for (NP object : triggeredNP) {
 				if (!prev.contains(object) && object.active) {
@@ -70,10 +71,13 @@ public class MoverInput extends MoverPhysics {
 			prev.clear();
 		}
 		
-		if(water!=null && isInWater)
+		if(waterList!=null && isInWater)
 		{
-			if(gameThing.getY()+gameThing.getHeight()/2 > water.getY() + water.getHeight() - 10)
-			jumpable = true;
+			for(NP water : waterList)
+			{
+				if(gameThing.getY()+gameThing.getHeight()/2 > water.getY() + water.getHeight() - 10)
+				jumpable = true;
+			}
 		}
 
 	}
@@ -99,4 +103,5 @@ public class MoverInput extends MoverPhysics {
 				g.i().leAnonymizer.jump = false;
 		}
 	}
+	
 }

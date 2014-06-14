@@ -37,7 +37,6 @@ public class TiledMapWrapper {
 
 	MapObjects collisionObjects;
 	MapObjects npObjects;
-	MapObjects playerStartPoint;
 
 	public TiledMapWrapper(String path) {
 		ArrayList<Integer> foregroundLayer = new ArrayList<Integer>();
@@ -76,7 +75,6 @@ public class TiledMapWrapper {
 		playerTiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 
 		collisionObjects = new MapObjects();
-		playerStartPoint = new MapObjects();
 
 		MapProperties prop = tiledMap.getProperties();
 

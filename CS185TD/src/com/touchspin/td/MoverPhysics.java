@@ -1,5 +1,6 @@
 package com.touchspin.td;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -20,13 +21,17 @@ public class MoverPhysics extends Mover {
 	RectangleMapObject temp;
 	Rectangle rect;
 	HashSet<NP> triggeredNP = new HashSet<NP>();
-	protected NP water;
+	protected Vector2 speedPerUnit = new Vector2();
+	protected ArrayList<NP> waterList;
 	boolean isInWater;
-	
+
 	public MoverPhysics() {
 		speedXPerSecond = 0;
 		speedYPerSecond = 0;
-		water = getObjNamed("water");
+		waterList = new ArrayList<NP>();
+		for (int i = 0; i < g.i().mapObjects.size(); i++)
+			if (g.i().mapObjects.get(i).getName().contains("Water"))
+				waterList.add(g.i().mapObjects.get(i));
 	}
 
 	public void move(GameThing gameThing) {
@@ -36,7 +41,7 @@ public class MoverPhysics extends Mover {
 	protected void physicsMove() {
 
 		isInWater();
-		
+
 		fractionFactor = g.i().playerFriction;
 		if (isInWater) {
 			speedXPerSecond *= (1 - fractionFactor * 2);
@@ -45,7 +50,7 @@ public class MoverPhysics extends Mover {
 			speedXPerSecond *= (1 - fractionFactor);
 			speedYPerSecond *= (1 - fractionFactor);
 		}
-		
+
 		speedXPerSecond += accelerationX;
 		speedYPerSecond += accelerationY;
 
@@ -65,55 +70,52 @@ public class MoverPhysics extends Mover {
 	 * 
 	 * @return
 	 */
-	private void isInWater() {
-		if (water != null) {
-			float gty = gameThing.getY() + gameThing.getHeight()/2;
-			float gtx = gameThing.getX() + gameThing.getWidth ()/2;
-			float wL = water.getX();
-			float wR = wL + water.getWidth();
-			float wT = water.getY();
-			float wB = wT + water.getHeight();
-			isInWater =  (gtx>wL && gtx<wR && gty>wT && gty<wB);
-			if (isInWater) return;
+	protected void isInWater() {
+		if (waterList != null) {
+			for (NP water : waterList) {
+				if (water != null) {
+					float gty = gameThing.getY() + gameThing.getHeight() / 2;
+					float gtx = gameThing.getX() + gameThing.getWidth() / 2;
+					float wL = water.getX();
+					float wR = wL + water.getWidth();
+					float wT = water.getY();
+					float wB = wT + water.getHeight();
+					isInWater = (gtx > wL && gtx < wR && gty > wT && gty < wB);
+					if (isInWater)
+						return;
+				}
+				if (isInWater) {
+					previousY = water.getY() + water.getHeight();
+				}
+				isInWater = false;
+			}
 		}
-		if(isInWater)
-		{
-			previousY = water.getY() + water.getHeight();
-		}
-		isInWater = false;
-	}
-
-	private NP getObjNamed(String name) {
-		for (int iO = 0; iO < g.i().mapObjects.size(); iO++)
-			if (name.equalsIgnoreCase(g.i().mapObjects.get(iO).getName()))
-				return g.i().mapObjects.get(iO);
-		return null;
 	}
 
 	protected boolean isXFree() {
 		if (speedXPerSecond < 0) // going to the left
 		{
-			// unit for loop			
-			for(float currentX = previousX; currentX > gameThing.getX(); currentX--)
-			{
+			// unit for loop
+			for (float currentX = previousX; currentX > gameThing.getX(); currentX--) {
 				if (currentX < 0) // collide with left edge of map
 					return false;
-	
+
 				// check object collision
-				circleCenter = new Vector2(currentX + radius,
-						gameThing.getY() + radius);
+				circleCenter = new Vector2(currentX + radius, gameThing.getY()
+						+ radius);
 				// iterate through objects
 				for (MapObject object : gameThing.tiledMapWrapper.collisionObjects) {
 					if (object instanceof RectangleMapObject) {
 						temp = (RectangleMapObject) object;
 						rect = temp.getRectangle();
-	
+
 						// check if object is not to the left of the player
-						// or if the object is more than 1 tile away from the player
+						// or if the object is more than 1 tile away from the
+						// player
 						if (rect.x > (currentX + gameThing.getWidth())
 								|| currentX - (rect.x + rect.width) > 2 * tileWidth)
 							continue;
-	
+
 						// iterate through y values of object
 						for (int countY = (int) rect.y + 1; countY < (rect.y + rect.height); countY++) {
 							// player collides with object
@@ -130,47 +132,47 @@ public class MoverPhysics extends Mover {
 								}
 							}
 						}
-	
+
 					}// end of if object is a rectanlgeMapObject
 				}// end of for object iterator
-			}// end of unit for loop			
+			}// end of unit for loop
 		}// end of going to the left check
 
 		else if (speedXPerSecond > 0) // going to the right
 		{
-			//unit for loop
-			for(float currentX = previousX; currentX < gameThing.getX(); currentX++)
-			{
+			// unit for loop
+			for (float currentX = previousX; currentX < gameThing.getX(); currentX++) {
 				// collide with right edge of the map
 				if (currentX + gameThing.getWidth() > gameThing.tiledMapWrapper
 						.getPixelWidth())
 					return false;
-	
+
 				// check object collision
-				circleCenter = new Vector2(currentX + radius,
-						gameThing.getY() + radius);
+				circleCenter = new Vector2(currentX + radius, gameThing.getY()
+						+ radius);
 				// iterate through objects
 				for (MapObject object : gameThing.tiledMapWrapper.collisionObjects) {
 					if (object instanceof RectangleMapObject) {
 						temp = (RectangleMapObject) object;
 						rect = temp.getRectangle();
-	
+
 						// check if object is not to the right of the player
-						// or if the object is more than 1 tile away from the player
+						// or if the object is more than 1 tile away from the
+						// player
 						if (rect.x < currentX
-								|| rect.x
-										- (currentX + gameThing.getWidth()) > 2 * tileWidth)
+								|| rect.x - (currentX + gameThing.getWidth()) > 2 * tileWidth)
 							continue;
-	
+
 						// iterate through y values of object
 						for (int countY = (int) rect.y + 1; countY < (rect.y + rect.height); countY++) {
 							// player collides with object
 							if (circleCenter.dst(rect.x, countY) < radius) {
-	
+
 								if (g.i().npMap.get(object) != null) {
 									triggeredNP.add(g.i().npMap.get(object));
 									if (g.i().npMap.get(object).collidable) {
-										previousX = rect.x - gameThing.getWidth();
+										previousX = rect.x
+												- gameThing.getWidth();
 										return false;
 									}
 								} else {
@@ -179,10 +181,10 @@ public class MoverPhysics extends Mover {
 								}
 							}
 						}
-	
+
 					}// end of if object is a rectanlgeMapObject
 				}// end of for object iterator
-			}//end of unit for loop
+			}// end of unit for loop
 		}// end of going to the right check
 		return true;
 	}// end of isXFree()
@@ -190,29 +192,29 @@ public class MoverPhysics extends Mover {
 	protected boolean isYFree() {
 		if (speedYPerSecond < 0) // going down
 		{
-			//unit for loop
-			for(float currentY = previousY; currentY > gameThing.getY(); currentY--)
-			{
+			// unit for loop
+			for (float currentY = previousY; currentY > gameThing.getY(); currentY--) {
 				if (currentY < 0) // collide with bottom of map
 				{
 					return false;
 				}
-	
+
 				// check object collision
-				circleCenter = new Vector2(gameThing.getX() + radius,
-						currentY + radius);
+				circleCenter = new Vector2(gameThing.getX() + radius, currentY
+						+ radius);
 				// iterate through objects
 				for (MapObject object : gameThing.tiledMapWrapper.collisionObjects) {
 					if (object instanceof RectangleMapObject) {
 						temp = (RectangleMapObject) object;
 						rect = temp.getRectangle();
-	
+
 						// check if object is not to the bottom of the player
-						// or if the object is more than 1 tile away from the player
+						// or if the object is more than 1 tile away from the
+						// player
 						if (rect.y > currentY
 								|| currentY - (rect.y + rect.height) > 2 * tileHeight)
 							continue;
-	
+
 						// iterate through x values of object
 						for (int countX = (int) rect.x + 1; countX < (rect.x + rect.width); countX++) {
 							// player collides with object
@@ -228,9 +230,9 @@ public class MoverPhysics extends Mover {
 									return false;
 								}
 							}
-	
+
 						}
-	
+
 					}// end of if object is a rectanlgeMapObject
 				}// end of for object iterator
 			}// end of unit for loop
@@ -238,39 +240,39 @@ public class MoverPhysics extends Mover {
 
 		else if (speedYPerSecond > 0) // going up
 		{
-			//unit for loop
-			for(float currentY = previousY; currentY < gameThing.getY(); currentY++)
-			{
+			// unit for loop
+			for (float currentY = previousY; currentY < gameThing.getY(); currentY++) {
 				// collide with top of the map
 				if (currentY + gameThing.getHeight() > gameThing.tiledMapWrapper
 						.getPixelHeight())
 					return false;
-	
+
 				// check object collision
-				circleCenter = new Vector2(gameThing.getX() + radius,
-						currentY + radius);
+				circleCenter = new Vector2(gameThing.getX() + radius, currentY
+						+ radius);
 				// iterate through objects
 				for (MapObject object : gameThing.tiledMapWrapper.collisionObjects) {
 					if (object instanceof RectangleMapObject) {
 						temp = (RectangleMapObject) object;
 						rect = temp.getRectangle();
-	
+
 						// check if object is not above the player
-						// or if the object is more than 1 tile away from the player
+						// or if the object is more than 1 tile away from the
+						// player
 						if (rect.y < currentY
-								|| rect.y
-										- (currentY + gameThing.getHeight()) > 2 * tileHeight)
+								|| rect.y - (currentY + gameThing.getHeight()) > 2 * tileHeight)
 							continue;
-	
+
 						// iterate through y values of object
 						for (int countX = (int) rect.x + 1; countX < (rect.x + rect.width); countX++) {
 							// player collides with object
 							if (circleCenter.dst(countX, rect.y) < radius) {
-	
+
 								if (g.i().npMap.get(object) != null) {
 									triggeredNP.add(g.i().npMap.get(object));
 									if (g.i().npMap.get(object).collidable) {
-										previousY = rect.y - gameThing.getHeight();
+										previousY = rect.y
+												- gameThing.getHeight();
 										return false;
 									}
 								} else {
@@ -279,10 +281,10 @@ public class MoverPhysics extends Mover {
 								}
 							}
 						}
-	
+
 					}// end of if object is a rectanlgeMapObject
 				}// end of for object iterator
-			}//end of unit for loop
+			}// end of unit for loop
 		}// end of going up
 		return true;
 	}// end of isYFree()

@@ -8,20 +8,15 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-/* ======================================================================================
- * g.java
- * 
- * This class holds all game-wide variables.  The name of this class is as short as 
- * possible for easy access.  To access variables in this class, use "g.i()." followed by
- * the name of the variable you want to use.  
+/* This class holds all game-wide variables.  The name of this class is as short as possible
+ * for easy access.  To access variables in this class, use "g.i()." followed by the name of
+ * the variable you want to use.  
  * 
  * Because all the variables are open for use anywhere in the game, be sure to check with
  * the other group members before writing code using / changing unknown variables.  
  * 
  * All variable types are in flux.  If you need a variable in a different type and have
- * "ownership" of that variable, you may change it.  Check with the group if you are 
- * unsure.
- * ======================================================================================
+ * "ownership" of that variable, you may change it.  Check with the group if you are unsure.
  */
 
 public class g {
@@ -32,6 +27,7 @@ public class g {
 	public String currentBallType;	// They current ball type
 	public int playerHealth;  // Health of the player. 100=full health. 
 	public Hero hero;		// The hero class for access game wide
+	public Balls currentBall;
 	public HUD hud;			// The HUD class
 	public int maxHealth;	// Max health of the hero
 	public float playerdyInWater;	// Player in water
@@ -43,7 +39,7 @@ public class g {
 	public float musicLevel;	// Music volume. 0=None, 1=Full
 	
 	// System variables
-	public String language;	/* Language used. This is a two letter code indicating language
+	public String language;	/* Language used. This is a to letter code indicating language
 							 * en=English
 							 * es=Spanish
 							 * fr=French
@@ -70,9 +66,9 @@ public class g {
 							 */
 	
 	public ArrayList<NP> mapObjects; 
+	public ArrayList<Balls> balls; 
 	public Map<MapObject,NP> npMap; 
 	
-	// String values to hold translations
     public String KeyboardMouse;
 	public String Continue;
 	public String Gyro;
@@ -91,59 +87,31 @@ public class g {
 	public String Exit;
 	public String CurrentLanguage;
 	
-	/* ----------------------------------------------------------------------------------
-	 * Creates a new instance of this class
-	 * ----------------------------------------------------------------------------------
-	 */
 	private static g singleton = new g( ); // Only this class can create this class.
 	
-	/* ----------------------------------------------------------------------------------
-	 * Default private constructor.
-	 * Sets defaults
-	 * 
-	 * Calls:
-	 * 		setZero
-	 * ----------------------------------------------------------------------------------
-	 */
 	private g(){
 		// Sound levels
 		sfx = true;
 		music = true;
 		sfxLevel = .5f;
 		musicLevel = .5f;
-		
-		// Zero out any variables
+
 		setZero();
 	}
 	
-	/* ----------------------------------------------------------------------------------
-	 * Public access to this class
-	 * 
-	 * Return:
-	 * 		g - returns this class
-	 * ----------------------------------------------------------------------------------
-	 */
-	public static g i( ) {return singleton;}
+	public static g i( ) {
+		return singleton;
+	}
 	
-	/* ----------------------------------------------------------------------------------
-	 * Sets values to default state
-	 * ----------------------------------------------------------------------------------
-	 */
 	public void setZero(){
-		maxHealth = 100;
+		// Player
 		fire = false;
+		maxHealth = 100;
 		currentBallType = "Base";
 		fire = false;
 		playerHealth = maxHealth;
 	}
 	
-	/* ----------------------------------------------------------------------------------
-	 * Sets default game environment
-	 * 
-	 * Calls:
-	 * 		languageSet
-	 * ----------------------------------------------------------------------------------
-	 */
 	public void SetDefaults(MainGame game){
 		// Set defaults after the game loads
 		switch (Gdx.app.getType()) { // Other platforms: WebGl iOS Applet
@@ -161,14 +129,9 @@ public class g {
 		languageSet();
 		mapObjects = new ArrayList<NP>();
 		npMap = new HashMap<MapObject,NP>();
+		balls = new ArrayList<Balls>();
 	}
 	
-	/* ----------------------------------------------------------------------------------
-	 * Sets the language. 
-	 * Sets all the menu text to the language
-	 * ----------------------------------------------------------------------------------
-	 */
-	// unicode converter: http://www.mobilefish.com/services/unicode_escape_sequence_converter/unicode_escape_sequence_converter.php
 	public void languageSet(){
 		switch (language){
 		case "zh":
@@ -250,27 +213,6 @@ public class g {
 			HighScore = "\u30cf\u30a4\u30b9\u30b3\u30a2";
 			Credits = "\u30af\u30ec\u30b8\u30c3\u30c8";
 			Exit = "\u30a8\u30b0\u30b8\u30c3\u30c8";
-			break;
-		case "fr":
-			font = Gdx.files.internal("Font/ollieFont.fnt");
-			language = "en";
-			CurrentLanguage = "fran\u00e7aise";
-			Continue = "Continue";
-			Gyro = "Gyro";
-			Keyboard = "Keyboard";
-			Mouse = "Mouse";
-			KeyboardMouse = "Keyboard & Mouse";
-			MuteMusic = "Mute Music";
-			MuteSFX = "Mute SFX";
-			Back = "Back";
-			Sounds = "Sounds";
-			Controls = "Controls";
-			Language = "Language";
-			NewGame = "New Game";
-			Options = "Options";
-			HighScore = "High Score";
-			Credits = "Credits";
-			Exit = "Exit";
 			break;
 		case "en":
 		default:

@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 
 public class Hero extends GameThing {
 	public OrthographicCamera camera;
@@ -30,6 +31,8 @@ public class Hero extends GameThing {
 	private float ballHeight;
 	private float ballWidth;
 	private float countTime;
+	public float mass;
+	public float radius;
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -158,12 +161,14 @@ public class Hero extends GameThing {
 			flammable = true;
 			ballWidth = 5.8f;
 			ballHeight = 5.8f;
+			radius = 2.9f;
 			break;
 		case "Bowling":
 			g.i().playerFriction = 0.03f;
 			g.i().fire = false;
 			ballWidth = 30f;
 			ballHeight = 30f;
+			radius = 15f;
 			flammable = false;
 			g.i().fire = false;
 			break;
@@ -171,18 +176,21 @@ public class Hero extends GameThing {
 			g.i().playerFriction = 0.011f;
 			ballWidth = 30f;
 			ballHeight = 30f;
+			radius = 15f;
 			flammable = true;
 			break;
 		case "Base":
 			g.i().playerFriction = 0.008f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
+			radius = 11.08f;
 			flammable = true;
 			break;
 		case "Tennis":
 			g.i().playerFriction = 0.008f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
+			radius = 11.08f;
 			flammable = true;
 			break;
 		}
@@ -387,7 +395,6 @@ public class Hero extends GameThing {
 	}
 
 	private void calcualteDyInWater() {
-		float mass = 0;
 		float radius = 0;
 		float floatforce = 0;
 		int inWaterdyFactor = 1;
@@ -418,5 +425,12 @@ public class Hero extends GameThing {
 		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;
 		float dy = force/mass;
 		g.i().playerdyInWater = dy;
+	}
+	
+	public Vector2 getCenter()
+	{
+		Vector2 center = new Vector2(getX()+radius,getY()+radius);
+		return center;
+		
 	}
 }
