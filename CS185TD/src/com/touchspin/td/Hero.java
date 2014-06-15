@@ -151,7 +151,7 @@ public class Hero extends GameThing {
 	}
 
 	public void getHurt() {
-		frameCount = 20;
+		frameCount = 60;
 	}
 
 	public void changeBall(String type) {

@@ -44,7 +44,7 @@
    eJzt1EEKwCAMRFFv7fW7KoRSSijqDMl/4MaFZow6BgAAwFozjOdcNTFX1YxZMzkqccynqiHb/9XnpDp3p3vuVMvpmr7W35Xd4Z9Tvbe/TvZe3QfFns6936lz9qh7/lvX3AAAAMCbC4UuPzk=
   </data>
  </layer>
- <layer name="parallax fg 2" width="128" height="16" opacity="0.7">
+ <layer name="parallax fg 2" width="128" height="16">
   <data encoding="base64" compression="zlib">
    eJzt0kEKwCAMRFFv1m3PkPsfpFsJEmyp+Afng/vHxNacc865b8VuwAFRN47uuXUR943Bc/9H3Vb9/gpu8r7Zdu3lvErl75L3zTaar0rh79L37V1EX5WCPd+e5swukm0munu0L81Kdc127wZMRDfSfVUKdrqR7qtSsNONdF+Vgp1upPuqFOwrjQ+srR67
   </data>

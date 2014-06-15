@@ -24,7 +24,7 @@ public class MoverPhysics extends Mover {
 	protected Vector2 speedPerUnit = new Vector2();
 	protected ArrayList<NP> waterList;
 	boolean isInWater;
-	protected float maxDyInwater = 200;
+	protected float maxDyInwater = 50;
 
 	public MoverPhysics() {
 		speedXPerSecond = 0;
