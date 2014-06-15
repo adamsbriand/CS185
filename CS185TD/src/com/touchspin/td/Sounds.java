@@ -33,6 +33,9 @@ public class Sounds {
 	private float loopsSoundFactor = 0.3f;
 	
 	// Bounce files
+	private final FileHandle balloon1 = Gdx.files.internal("snd/bounce/Balloon1.mp3");
+	private final FileHandle balloon2 = Gdx.files.internal("snd/bounce/Balloon2.mp3");
+	private final FileHandle balloon3 = Gdx.files.internal("snd/bounce/Balloon3.mp3");
 	private final FileHandle baseball1 = Gdx.files.internal("snd/bounce/BaseBall1.mp3");
 	private final FileHandle baseball2 = Gdx.files.internal("snd/bounce/BaseBall2.mp3");
 	private final FileHandle baseball3 = Gdx.files.internal("snd/bounce/BaseBall3.mp3");
@@ -204,6 +207,10 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(baseball2);
 				bounce3 = Gdx.audio.newSound(baseball3);
 				break;
+			case "Balloon":
+				bounce1 = Gdx.audio.newSound(balloon1);
+				bounce2 = Gdx.audio.newSound(balloon2);
+				bounce3 = Gdx.audio.newSound(balloon3);
 			default:
 				bounce1 = null;
 				bounce2 = null;

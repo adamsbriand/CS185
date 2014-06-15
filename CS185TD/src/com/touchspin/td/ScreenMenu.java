@@ -37,9 +37,9 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(options);
         
-        final TextButton highScore = new TextButton(g.i().HighScore, textButtonStyle);
+        final TextButton highScore = new TextButton(g.i().Credits, textButtonStyle);
         //highScore.setDisabled(true);
-        highScore.setColor(Color.GRAY);
+        //highScore.setColor(Color.GRAY);
         highScore.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("menu,Test,playSound,buttonClick");
