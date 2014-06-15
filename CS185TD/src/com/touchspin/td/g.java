@@ -10,7 +10,19 @@ import java.util.Map;
 import java.util.Random;
 
 /* ======================================================================================
- * g.java
+ * File:			g.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
  * 
  * This class holds all game-wide variables.  The name of this class is as short as 
  * possible for easy access.  To access variables in this class, use "g.i()." followed by
@@ -22,6 +34,7 @@ import java.util.Random;
  * All variable types are in flux.  If you need a variable in a different type and have
  * "ownership" of that variable, you may change it.  Check with the group if you are 
  * unsure.
+ * 
  * ======================================================================================
  */
 

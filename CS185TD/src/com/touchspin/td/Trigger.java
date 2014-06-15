@@ -1,7 +1,19 @@
 package com.touchspin.td;
 
 /* ======================================================================================
- * Trigger.java
+ * File:			Trigger.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
  * 
  * This class handles any triggers that the user may encounter with objects. Each
  * argument must be formatted as a comma delimited string.  The string will then be split
@@ -11,6 +23,7 @@ package com.touchspin.td;
  * 
  * If you wish to check a set of conditions to check before running the action, then
  * send these as a separate string proceeding the action. 
+ * 
  * ======================================================================================
  */
 
