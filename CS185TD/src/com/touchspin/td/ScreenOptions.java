@@ -65,10 +65,10 @@ public class ScreenOptions extends GameMenu {
     	if (longest.length() < g.i().MuteSFX.length()){
     		longest = g.i().MuteSFX;
     	}
-    	final TextButton button1 = new TextButton(longest, textButtonStyle);
-    	final TextButton button2 = new TextButton("", textButtonStyle);
-    	final TextButton button3 = new TextButton("", textButtonStyle);
-    	final TextButton button4 = new TextButton("", textButtonStyle);
+    	final TextButton button1 = new TextButton(longest, style);
+    	final TextButton button2 = new TextButton("", style);
+    	final TextButton button3 = new TextButton("", style);
+    	final TextButton button4 = new TextButton("", style);
     	longest = "\u25BC " + g.i().Keyboard;
     	if (longest.length() < g.i().Gyro.length()){
     		longest = "\u25BC " + g.i().Gyro;
@@ -76,7 +76,7 @@ public class ScreenOptions extends GameMenu {
     	if (longest.length() < g.i().CurrentLanguage.length() + 2){
     		longest = "\u25BC " + g.i().CurrentLanguage;
     	}
-    	final TextButton button5 = new TextButton(longest, textButtonStyle);
+    	final TextButton button5 = new TextButton(longest, style);
     	ChangeListener muteMusicListen = new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("playSound,buttonClick");

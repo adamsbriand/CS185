@@ -3,7 +3,6 @@ package com.touchspin.td;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
@@ -55,10 +54,10 @@ public abstract class GameMenu extends GameObject {
     MainGame game;
     Sprite bg;
     Sprite logo;
-    TextButtonStyle textButtonStyle;
+    TextButtonStyle style;
     float width;
     float height;
-    long timeresize = 0;
+    long timeDelay = 0;
     
     /* ----------------------------------------------------------------------------------
 	 * Constructor.
@@ -78,22 +77,34 @@ public abstract class GameMenu extends GameObject {
         logo();
     }
     
+    /* ----------------------------------------------------------------------------------
+	 * Abstract methods
+	 * ----------------------------------------------------------------------------------
+	 */
     abstract void buttons();
     abstract void logo();
     
+    /* ----------------------------------------------------------------------------------
+	 * Sets up the background for the screen. 
+	 * ----------------------------------------------------------------------------------
+	 */
     void setBG(){
-	    camera = new OrthographicCamera();
 	    bg = new Sprite(new Texture(bgImage));
 	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
 	    bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
     
+    /* ----------------------------------------------------------------------------------
+	 * Sets up the stage and the styles used for the buttons. 
+	 * ----------------------------------------------------------------------------------
+	 */
     protected void setTemplet(){
-    	
+    	// Stage setup
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
         
+        // Button textures
         NinePatchDrawable npUP = new NinePatchDrawable(
         		new NinePatch(new Texture(ButtonUp), 20, 20, 20, 20));
         NinePatchDrawable npDown = new NinePatchDrawable(
@@ -101,6 +112,7 @@ public abstract class GameMenu extends GameObject {
         NinePatchDrawable npCheck = new NinePatchDrawable(
         		new NinePatch(new Texture(ButtonClick), 20, 20, 20, 20));
  
+        // Font information
         BitmapFont font = new BitmapFont(g.i().font);
         //if (Gdx.app.getType().toString() == "Desktop"){
         //	font.scale(1);
@@ -108,61 +120,63 @@ public abstract class GameMenu extends GameObject {
         //	font.scale(3);
         //}
         font.scale(Gdx.graphics.getDensity());
-        textButtonStyle = new TextButtonStyle(npUP,  npDown, npCheck, font);
-        textButtonStyle.pressedOffsetX = 3;
-        textButtonStyle.pressedOffsetY = -3;
+        
+        // Set the style
+        style = new TextButtonStyle(npUP,  npDown, npCheck, font);
+        style.pressedOffsetX = 3;
+        style.pressedOffsetY = -3;
     }
     
+    /* ----------------------------------------------------------------------------------
+	 * Sets up a logo from for the screen.
+	 * 
+	 * Input:
+	 * 		logoImg - The file location of the logo img
+	 * ----------------------------------------------------------------------------------
+	 */
     protected void setLogo(FileHandle logoImg){
+    	// Check to see if file name has been provided
     	if (logoImg == null) return;
+    	
+    	// Set the logo image and position. 
     	logo = new Sprite(new Texture(logoImg));
     	logo.setSize(Gdx.graphics.getWidth() / 9 * 4, Gdx.graphics.getHeight() / 9 * 4);
-    	float x = (float)((Gdx.graphics.getWidth() - logo.getWidth()) / 2) ;
-    	float y = (float)(Gdx.graphics.getHeight() / 4 * 3 - logo.getHeight() / 2);
+    	float x = ((Gdx.graphics.getWidth() - logo.getWidth()) / 2f) ;
+    	float y = (Gdx.graphics.getHeight() / 4f * 3f - logo.getHeight() / 2f);
     	logo.setPosition(x, y);
     }
  
+    /* ----------------------------------------------------------------------------------
+	 * Draw the bg and the stage.
+	 * 
+	 * Input:
+	 * 		delta
+	 * ----------------------------------------------------------------------------------
+	 */
     public void render (float delta) {
     	update();
-        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         batch.begin();
         bg.draw(batch);
         if (logo != null) logo.draw(batch);
         batch.end();
         stage.draw();
-        Table.drawDebug(stage);
+        //Table.drawDebug(stage);
+    }
+    
+    @Override
+    public void dispose () {
+        stage.dispose();
+        skin.dispose();
     }
 
 	@Override
 	public void update() {
-		if (width != Gdx.graphics.getWidth() || height != Gdx.graphics.getHeight()){
-			width = Gdx.graphics.getWidth();
-			height = Gdx.graphics.getHeight();
-			timeresize = TimeUtils.millis();
-		}
-		if (timeresize!=0){
-			if (TimeUtils.millis()>(timeresize + 100)){
-				stage.clear();
-				batch = new SpriteBatch();
-				setBG();
-				buttons();
-		        logo();
-		        timeresize = 0;
-			}
-		}
+		// TODO Auto-generated method stub
 	}
  
     @Override
     public void resize (int width, int height) {
     	// TODO Auto-generated method stub
-    }
- 
-    @Override
-    public void dispose () {
-        stage.dispose();
-        skin.dispose();
     }
  
     @Override

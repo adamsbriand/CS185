@@ -40,7 +40,7 @@ public class ScreenMenu extends GameMenu {
     	float height = 0;
     	float width = 0;
 
-    	final TextButton newGame = new TextButton(g.i().NewGame, textButtonStyle);
+    	final TextButton newGame = new TextButton(g.i().NewGame, style);
         newGame.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("NewLevel,Level1Dialog1,playSound,buttonClick");
@@ -48,7 +48,7 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(newGame);
         
-        final TextButton options = new TextButton(g.i().Options, textButtonStyle);
+        final TextButton options = new TextButton(g.i().Options, style);
         options.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("menu,options,playSound,buttonClick");
@@ -56,7 +56,7 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(options);
         
-        final TextButton highScore = new TextButton(g.i().Credits, textButtonStyle);
+        final TextButton highScore = new TextButton(g.i().Credits, style);
         //highScore.setDisabled(true);
         //highScore.setColor(Color.GRAY);
         highScore.addListener(new ChangeListener() {
@@ -66,7 +66,7 @@ public class ScreenMenu extends GameMenu {
         });
         stage.addActor(highScore);
         
-        final TextButton exit = new TextButton(g.i().Exit, textButtonStyle);
+        final TextButton exit = new TextButton(g.i().Exit, style);
         exit.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
         		g.i().t.action("playSound,buttonClick");

@@ -66,7 +66,7 @@ public class ScreenGameOver extends GameMenu{
 		final float xRow2 = Gdx.graphics.getHeight() / 15 * 13;
     	final float yRow1_2 = Gdx.graphics.getWidth() / 9 * 7;
     	final TextButton continueButton = 
-    			new TextButton(g.i().Continue, textButtonStyle);
+    			new TextButton(g.i().Continue, style);
     	continueButton.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
             	g.i().t.action("menu,Main");
