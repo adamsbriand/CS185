@@ -207,7 +207,7 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(baseball2);
 				bounce3 = Gdx.audio.newSound(baseball3);
 				break;
-			case "Balloon":
+			case "balloon":
 				bounce1 = Gdx.audio.newSound(balloon1);
 				bounce2 = Gdx.audio.newSound(balloon2);
 				bounce3 = Gdx.audio.newSound(balloon3);
