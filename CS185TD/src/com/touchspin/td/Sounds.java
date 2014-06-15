@@ -55,6 +55,15 @@ public class Sounds {
 	private final FileHandle tennis2 = Gdx.files.internal("snd/bounce/TennisBall2.mp3");
 	private final FileHandle tennis3 = Gdx.files.internal("snd/bounce/TennisBall3.mp3");
 	
+	// Transmorgification sounds
+	private final FileHandle balloonTran = Gdx.files.internal("snd/trans/TransBalloon.mp3");
+	private final FileHandle baseballTran = Gdx.files.internal("snd/trans/TransBaseball.mp3");
+	private final FileHandle basketTran = Gdx.files.internal("snd/trans/TransBasket.mp3");
+	private final FileHandle bowlingTran = Gdx.files.internal("snd/trans/TransBowling.mp3");
+	private final FileHandle pingPongTran = Gdx.files.internal("snd/trans/TransPingPong.mp3");
+	private final FileHandle tennisTran = Gdx.files.internal("snd/trans/TransTennis.mp3");
+	
+	
 	// Sound effects
 	private final FileHandle brickCrash = Gdx.files.internal("snd/sfx/BrickCrash.mp3");
 	private final FileHandle glassBreak1 = Gdx.files.internal("snd/sfx/GlassBreak1.mp3");
@@ -97,6 +106,7 @@ public class Sounds {
 	private Sound bounce1=null;
 	private Sound bounce2=null;
 	private Sound bounce3=null;
+	private Sound trans=null;
 	private Sound npnoises=null;
 	private Music fire=null;
 	private Music campFire=null;
@@ -181,40 +191,48 @@ public class Sounds {
 				bounce1 = Gdx.audio.newSound(pingPong1);
 				bounce2 = Gdx.audio.newSound(pingPong2);
 				bounce3 = Gdx.audio.newSound(pingPong3);
+				trans = Gdx.audio.newSound(pingPongTran);
 				break;
 			case "soccerball":
 				bounce1 = Gdx.audio.newSound(soccer1);
 				bounce2 = Gdx.audio.newSound(soccer2);
 				bounce3 = Gdx.audio.newSound(soccer3);
+				trans = null;
 				break;
 			case "tennis":
 				bounce1 = Gdx.audio.newSound(tennis1);
 				bounce2 = Gdx.audio.newSound(tennis2);
 				bounce3 = Gdx.audio.newSound(tennis3);
+				trans = Gdx.audio.newSound(tennisTran);
 				break;
 			case "bowling":
 				bounce1 = Gdx.audio.newSound(bowling1);
 				bounce2 = Gdx.audio.newSound(bowling2);
 				bounce3 = Gdx.audio.newSound(bowling3);
+				trans = Gdx.audio.newSound(bowlingTran);
 				break;
 			case "basket":
 				bounce1 = Gdx.audio.newSound(basket1);
 				bounce2 = Gdx.audio.newSound(basket2);
 				bounce3 = Gdx.audio.newSound(basket3);
+				trans = Gdx.audio.newSound(basketTran);
 				break;
 			case "base":
 				bounce1 = Gdx.audio.newSound(baseball1);
 				bounce2 = Gdx.audio.newSound(baseball2);
 				bounce3 = Gdx.audio.newSound(baseball3);
+				trans = Gdx.audio.newSound(baseballTran);
 				break;
 			case "balloon":
 				bounce1 = Gdx.audio.newSound(balloon1);
 				bounce2 = Gdx.audio.newSound(balloon2);
 				bounce3 = Gdx.audio.newSound(balloon3);
+				trans = Gdx.audio.newSound(balloonTran);
 			default:
 				bounce1 = null;
 				bounce2 = null;
 				bounce3 = null;
+				trans = null;
 		}
 	}
 	
@@ -420,6 +438,10 @@ public class Sounds {
 				break;
 			case "transmorgify":
 				sndSwitch=Gdx.audio.newSound(Transmorgification);
+				if (trans!=null) {
+					trans.play(g.i().sfxLevel);
+					trans=null;
+				}
 				break;
 			case "doorCreak":
 				sndSwitch=Gdx.audio.newSound(doorCreak);
