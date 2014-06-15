@@ -25,21 +25,34 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
  * Project:			Ollie
  * --------------------------------------------------------------------------------------
  * 
- * 
+ * Shows the credits image.  
  * 
  * ======================================================================================
  */
 
 public class ScreenCredits extends GameMenu {
+	// Constants
 	final String Creditsimage = "img/menu/TeamOllie2.png";
-			
+	
+	/* ----------------------------------------------------------------------------------
+	 * Constructor
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
 	public ScreenCredits(){
 		super();
 		
-		//reset
+		//reset the game to default values
 		g.i().setZero();
 	}
 
+	/* ----------------------------------------------------------------------------------
+	 * Sets up all the buttons on the screen. 
+	 * The credits screen is set as one large button. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	@Override
 	void buttons() {
 			NinePatchDrawable draw = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal(Creditsimage))));
@@ -66,10 +79,13 @@ public class ScreenCredits extends GameMenu {
 			stage.addActor(btn);
 		}
 
+	/* ----------------------------------------------------------------------------------
+	 * Sets the a logo image on the screen. This method is called from the parent class
+	 * and is not set in this case. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	@Override
 	void logo() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
