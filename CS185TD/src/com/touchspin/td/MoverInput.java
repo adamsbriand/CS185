@@ -3,11 +3,13 @@ package com.touchspin.td;
 import java.util.HashSet;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
 
 public class MoverInput extends MoverPhysics {
 	private HashSet<NP> prev = new HashSet<NP>();
 	private boolean jumpable = true;
 	private int frameCount = 30;
+	Vector2 speed = new Vector2();
 
 	public MoverInput() {
 		super();
@@ -41,7 +43,7 @@ public class MoverInput extends MoverPhysics {
 		if (!isYFree()) {
 			if (speedYPerSecond < 0)
 			{
-				frameCount = 30;
+				frameCount = 10;
 				jumpable = true;
 			}
 			if (speedYPerSecond < -100 || speedYPerSecond > 100)
@@ -55,6 +57,7 @@ public class MoverInput extends MoverPhysics {
 			jumpable = false;
 		}
 
+		//ballCollision();
 		//--------trigger objects----------
 		if (triggeredNP.size() != 0) {
 			for (NP object : triggeredNP) {
@@ -101,6 +104,20 @@ public class MoverInput extends MoverPhysics {
 				}
 			} else
 				g.i().leAnonymizer.jump = false;
+		}
+	}
+	
+	private void ballCollision()
+	{
+		for (Balls theOtherBall : g.i().balls)
+		{
+				if(theOtherBall.getCenter().dst(circleCenter) <= (theOtherBall.radius+gameThing.getWidth()/2))
+				{
+					float collisionDepth = Math.abs(theOtherBall.radius+gameThing.getWidth()/2- theOtherBall.getCenter().dst(circleCenter));
+					speed.set(Gdx.graphics.getDeltaTime()*speedXPerSecond,Gdx.graphics.getDeltaTime()*speedYPerSecond).nor();
+					gameThing.setX(gameThing.getX()-speed.x*collisionDepth);
+					gameThing.setY(gameThing.getY()-speed.y*collisionDepth);
+				}
 		}
 	}
 	
