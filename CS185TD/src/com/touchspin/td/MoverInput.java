@@ -4,17 +4,41 @@ import java.util.HashSet;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-
+/* ======================================================================================
+ * File:			MoverInput.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This class handles the input movement for player.
+ * 
+ * ======================================================================================
+ */
 public class MoverInput extends MoverPhysics {
 	private HashSet<NP> prev = new HashSet<NP>();
 	private boolean jumpable = true;
 	private int frameCount = 30;
 	Vector2 speed = new Vector2();
 
+	/**
+	 * Default constructor
+	 */
 	public MoverInput() {
 		super();
 	}
-
+	/**
+	 * Set the position of player based on the movement
+	 * Also trigger objects within range
+	 */
 	@Override
 	public void move(GameThing gameThing) {
 		this.gameThing = gameThing;
@@ -57,7 +81,6 @@ public class MoverInput extends MoverPhysics {
 			jumpable = false;
 		}
 
-		//ballCollision();
 		//--------trigger objects----------
 		if (triggeredNP.size() != 0) {
 			for (NP object : triggeredNP) {
@@ -85,6 +108,9 @@ public class MoverInput extends MoverPhysics {
 
 	}
 
+	/**
+	 * Do the input move
+	 */
 	private void inputMove() {
 
 		accelerationX = g.i().leAnonymizer.tiltSpeed.x;
@@ -104,20 +130,6 @@ public class MoverInput extends MoverPhysics {
 				}
 			} else
 				g.i().leAnonymizer.jump = false;
-		}
-	}
-	
-	private void ballCollision()
-	{
-		for (Balls theOtherBall : g.i().balls)
-		{
-				if(theOtherBall.getCenter().dst(circleCenter) <= (theOtherBall.radius+gameThing.getWidth()/2))
-				{
-					float collisionDepth = Math.abs(theOtherBall.radius+gameThing.getWidth()/2- theOtherBall.getCenter().dst(circleCenter));
-					speed.set(Gdx.graphics.getDeltaTime()*speedXPerSecond,Gdx.graphics.getDeltaTime()*speedYPerSecond).nor();
-					gameThing.setX(gameThing.getX()-speed.x*collisionDepth);
-					gameThing.setY(gameThing.getY()-speed.y*collisionDepth);
-				}
 		}
 	}
 	
