@@ -225,10 +225,12 @@ public class Hero extends GameThing {
 	}
 
 	public void changeBallX(float speed) {
+		if(ventRatio!=0)
 		heroMover.speedXPerSecond = speed * ventRatio;
 	}
 
 	public void changeBallY(float speed) {
+		if(ventRatio!=0)
 		heroMover.speedYPerSecond = speed * ventRatio;
 	}
 
