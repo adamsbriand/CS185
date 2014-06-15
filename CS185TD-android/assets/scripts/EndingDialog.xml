@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = "iamaball" command = "screenShot">    
+<DialogScript music = "GameDone" command = "screenShot">    
     <dialog_en>
         <Snippet 
         	name = "Wizard"	
@@ -70,5 +70,5 @@
 	    	text = "約束どおり、君の家族を返すよ。"
 	    	finalPause = "20"/>
     </dialog_ja>
-	<End>menu,credits</End>
+	<End>menu,credits,changeMusic,iamaball</End>
 </DialogScript>
