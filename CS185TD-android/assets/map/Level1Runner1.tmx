@@ -31,7 +31,7 @@
  </layer>
  <layer name="blocks" width="128" height="16">
   <data encoding="base64" compression="zlib">
-   eJztmG0OgyAMhrmCuxX7NTkB9z/FRqLJm6aULycIfZIG0UILb8VEYxRFUe5h653AD9s7gYW5Qn8LVjte6cMV+p9z1NbBCPq31vBTadV/Y+Yo3UsL7Qo2Eq36v4Q5ctc82p6sRIv+Yayk/8mota/w2pScZdz5XxJLmY9UTaxUB6uss4YZ62C29bRQ8m14Ojmar7Qfd4PvnXSNLX2e0+filvIm7ez8o+45fTl84bw5/qmY7rAYqH9OvFgOUr+FUetT+o/iGf/9sICL+FDfHe6d/s6kNfVgDq65XHB/MV6g978pS/LrnQu1j2CoIdd3gj8dg344zgvxsU6kOFR/jPcFVBlY4Q==
+   eJztmG0OgzAIhnsF65/pqdQTeP9TbGaSEMKwX7O18CSkNQq0vFgTnTMMw7iHofYCPvjaC1BMCf09slR/ow4l9IcYqX3Qgv65PfxUcvUfmBixtfRo1GAtkau/F2KE7rm1mmgiR//DV9IfaLX3DV6bmLOMO/9jchn9cdUTmvpAyz5T6LEPettPDjHfhqcTonlIPcYCa9EIfu+kOR7p/ZBrLi/HfJrkw/mOrr8e+Mc5wOl7F1LOl/vqPp3z6TTqD+P+I/ZVD9D8JWsg9WdNWv6PcgBag+4zGQFc35XEqP1vijs7W7JFsBUZd70Jz1Mf/Bz224X8GzIpD9Uf53sD6PMkOg==
   </data>
  </layer>
  <layer name="decorations" width="128" height="16">
@@ -44,14 +44,14 @@
    eJzt1EEKwCAMRFFv7fW7KoRSSijqDMl/4MaFZow6BgAAwFozjOdcNTFX1YxZMzkqccynqiHb/9XnpDp3p3vuVMvpmr7W35Xd4Z9Tvbe/TvZe3QfFns6936lz9qh7/lvX3AAAAMCbC4UuPzk=
   </data>
  </layer>
- <layer name="parallax fg 2" width="128" height="16">
+ <layer name="parallax fg 2" width="128" height="16" opacity="0.7">
   <data encoding="base64" compression="zlib">
    eJzt0kEKwCAMRFFv1m3PkPsfpFsJEmyp+Afng/vHxNacc865b8VuwAFRN47uuXUR943Bc/9H3Vb9/gpu8r7Zdu3lvErl75L3zTaar0rh79L37V1EX5WCPd+e5swukm0munu0L81Kdc127wZMRDfSfVUKdrqR7qtSsNONdF+Vgp1upPuqFOwrjQ+srR67
   </data>
  </layer>
- <layer name="collisions" width="128" height="16" visible="0">
+ <layer name="collisions" width="128" height="16" opacity="0">
   <data encoding="base64" compression="zlib">
-   eJztmNsKACEIRPvrfn+fFiKki5pazoFol4h0ZuihUgAAwIbqXUCJUUNWNLSvzfCqAfDQ8v+fOTmI4L80w7ci7ZfSbFdLKj8vj0ic8L9fm50RTZNMSLTf8Tdi9gHtzak7DTnIwczjTDnI0ieHF3PwWj8SMmmx0mcmPaxptR19t3O/vvJPncuplbv3Rk7knvLXCumZGv73ezU1iJrPyO8oO4z09X6bou5ODDt9P28uiDQ=
+   eJztmN0KwCAIhXvrXn9XgxhW/mQ69YNoI0Z6zlmMtVYURXGHbl1A81FDVk5o34dhVUPB45T/78zJgQf/pRn+K9J+Ic2oWkL5iTw8oeH/d223hzdNMiHRnuKvx+wXsDdaZ1rlIAc7jzPlIEufHCLmIFo/EjJpgemzvoX1GLVdXY/zdx1zD+3LqXX2bMR3RqMnyN9bSPfE+E89J05qsKrPEs//UShg/bf+R2VdQ+Qx0/cBSJ+K/g==
   </data>
  </layer>
  <objectgroup name="objects" width="128" height="16">
@@ -93,16 +93,57 @@
   <object name="lava2" type="npo" x="3968" y="480" width="128" height="32">
    <properties>
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
-    <property name="animations" value="burn,0,49,burn"/>
+    <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="0,0,128,36"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value=""/>
+    <property name="spriteSheet" value="FlameWall.png"/>
    </properties>
   </object>
+  <object name="lava3" type="npo" x="3552" y="448" width="256" height="64">
+   <properties>
+    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
+    <property name="animations" value="burn,0,47,burn"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,128,36"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="ballFlammable, true"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="FlameWall.png"/>
+   </properties>
+  </object>
+  <object name="lava4" type="npo" x="3584" y="416" width="192" height="96">
+   <properties>
+    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
+    <property name="animations" value="burn,0,47,burn"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,128,36"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="ballFlammable, true"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="FlameWall.png"/>
+   </properties>
+  </object>
+  <object name="lava5" type="npo" x="3648" y="384" width="64" height="128">
+   <properties>
+    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
+    <property name="animations" value="burn,0,47,burn"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value="0,0,128,36"/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value="ballFlammable, true"/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="FlameWall.png"/>
+   </properties>
+  </object>
+  
+  
   <object name="door1" type="npo" x="3904" y="384" width="32" height="32">
    <properties>
     <property name="actions" value=""/>
@@ -115,7 +156,7 @@
     <property name="spriteSheet" value="doorOpen.png"/>
    </properties>
   </object>
-  <object name="enter1" type="destination" x="115" y="152"/>
+  <object name="enter1" type="destination" x="0" y="64" width="32" height="32"/>
   <object name="glassBlock1" type="npo" x="1056" y="384" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,glassBlock1-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock1-false,changeActive,glassBlock1-false"/>
@@ -220,5 +261,6 @@
     <property name="spriteSheet" value="GlassBreak.png"/>
    </properties>
   </object>
+
  </objectgroup>
 </map>
