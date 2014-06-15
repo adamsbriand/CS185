@@ -187,6 +187,10 @@ public class Balls extends GameThing {
 			radius = 11.08f;
 			flammable = true;
 			break;
+		case "Balloon":
+			g.i().playerFriction = 0.015f;
+			radius = 15f;
+			flammable = true;
 		}
 		ballType = type;
 		ballSprite.setRegion(ballTypeMap.get(type));
@@ -267,7 +271,7 @@ public class Balls extends GameThing {
 		ballTypeMap.put("Poolball", tmp[8][0]);
 		ballTypeMap.put("Soccerball", tmp[7][0]);
 		ballTypeMap.put("Tennis", tmp[9][0]);
-		ballTypeMap.put("Blackball", tmp[11][0]);
+		ballTypeMap.put("Balloon", tmp[11][0]);
 	}
 
 	private void loadFireAnimation() {

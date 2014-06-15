@@ -193,6 +193,12 @@ public class Hero extends GameThing {
 			radius = 11.08f;
 			flammable = true;
 			break;
+		case "Balloon":
+			g.i().playerFriction = 0.015f;
+			ballWidth = 30f;
+			ballHeight = 30f;
+			radius = 15f;
+			flammable = true;
 		}
 		if (!g.i().fire) {
 			g.i().sound.fire(false);
@@ -274,7 +280,7 @@ public class Hero extends GameThing {
 		ballTypeMap.put("Poolball", tmp[8][0]);
 		ballTypeMap.put("Soccerball", tmp[7][0]);
 		ballTypeMap.put("Tennis", tmp[9][0]);
-		ballTypeMap.put("Blackball", tmp[11][0]);
+		ballTypeMap.put("Balloon", tmp[11][0]);
 	}
 
 	private void loadFireAnimation() {
