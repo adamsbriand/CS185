@@ -3,19 +3,19 @@
     <dialog_en>           
 	    <Snippet 
 		    name = "1/3"	
-		    background = "DialogImages/PCMoveRunner.png"
+		    background = "img/dialog/DlgPCMoveRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
-		    background = "DialogImages/PCJumpRunner.png"
+		    background = "img/dialog/DlgPCJumpRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
-		    background = "DialogImages/PCMaze.png"
+		    background = "img/dialog/DlgPCMaze.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
@@ -23,19 +23,19 @@
       <dialog_es>
          <Snippet 
 		    name = "1/3"	
-		    background = "DialogImages/PCMoveRunner.png"
+		    background = "img/dialog/DlgPCMoveRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
-		    background = "DialogImages/PCJumpRunner.png"
+		    background = "img/dialog/DlgPCJumpRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
-		    background = "DialogImages/PCMaze.png"
+		    background = "img/dialog/DlgPCMaze.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
@@ -43,19 +43,19 @@
       <dialog_vi>
        <Snippet 
 		    name = "1/3"	
-		    background = "DialogImages/PCMoveRunner.png"
+		    background = "img/dialog/DlgPCMoveRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
-		    background = "DialogImages/PCJumpRunner.png"
+		    background = "img/dialog/DlgPCJumpRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
-		    background = "DialogImages/PCMaze.png"
+		    background = "img/dialog/DlgPCMaze.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
@@ -63,19 +63,19 @@
       <dialog_zh>
        <Snippet 
 		    name = "1/3"	
-		    background = "DialogImages/PCMoveRunner.png"
+		    background = "img/dialog/DlgPCMoveRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
-		    background = "DialogImages/PCJumpRunner.png"
+		    background = "img/dialog/DlgPCJumpRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
-		    background = "DialogImages/PCMaze.png"
+		    background = "img/dialog/DlgPCMaze.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
@@ -83,19 +83,19 @@
       <dialog_ja>
         <Snippet 
 		    name = "1/3"	
-		    background = "DialogImages/PCMoveRunner.png"
+		    background = "img/dialog/DlgPCMoveRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	     <Snippet 
 		    name = "2/3"	
-		    background = "DialogImages/PCJumpRunner.png"
+		    background = "img/dialog/DlgPCJumpRunner.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
 	      <Snippet 
 		    name = "3/3"	
-		    background = "DialogImages/PCMaze.png"
+		    background = "img/dialog/DlgPCMaze.png"
 		    position = "C"
 		    text = "C_:masterSkip:true"
 		    finalPause = "40"/>
