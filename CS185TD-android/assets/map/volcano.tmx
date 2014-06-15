@@ -17,7 +17,7 @@
  </tileset>
  <layer name="bg sky" width="144" height="72">
   <data encoding="base64" compression="zlib">
-   eJzt08l1xCAUBECl6GW8ZDehegKQ32CMoIE61FlN99ftOI4bAADT+Xj4DMjBnL4evgNyAABAD+8F5MqT0kHJTqU7ttw8NVeKlPe02Knl1um5UozuhUzuB6DM24nRmZJz8Xyn1lbKlSLlDT12qtksNVeKlA5677SDWe+nJv/orlc26/2UvGF0t7uxA9R5PTE6U3Ku3Z3tUmLXXLur3eXq3VJzcf1G/90sNVeKXm/ptUPr7VJz9dhh9l0BAAAAAKCFlxOjM5Hn7E5+Mzrrqmbp/y+3ctUbUruZbY/UXC2y97jRhJ5r/4fee/S+D67bdpVvAQAAAAAAAAAAAAAAAKzu/sTofGS6FxqdEwAg2Q8r6g46
+   eJzt01FWwyAUBNBsUWu17n8jdgF4pEhgCPfjfmeYebkfx3EHAGA5n09fATlY0+PpOyAHAACM8FFBrjwpHdTsVLtjz81Tc6VIeU+PnXpunZ4rxexeyOR+AOrcCmZnSs7F3zv1dqVcKVLeMGKnls1Sc6VI6WD0TjtY9X5a8s/u+spWvZ+aN8zudjd2gDbvBbMzJefaXWmXGrvm2l3rLmfvlpqL8zf672apuVKMesuoHXpvl5prxA6r7woAAAAAAD28FczORJ7SnfxmdtarWqX/V27lrDekdrPaHqm5emQfcaMJPbf+D6P3GH0fnLftVb4FAAAAAAAAAAAAAAAAAAAAcIYfN9cIrA==
   </data>
  </layer>
  <layer name="Copy of bg" width="144" height="72" visible="0" opacity="0.45">
@@ -65,7 +65,7 @@
    eJzt3QmOgjAUxvEezaNxntLG5QRztKFjX/JNBUGlyPL/JQ0oi4Z5vm6EcQ4AAADA2p27ci3KTZa2frnv23znWwIAAAAAAKAWHR+6OMaBAAAAAAAAAAAAAAAAAAAAAAAAAAAAgDWKuQDAu0IuPhfyCoa0UoCavKynfKRxZzkL+2Z1Ul/OmRIDfXUZddsxkB/wDuoWYB5nKem5dVdX99l15+L1tdYHvciuwc3x7L452DMRbZmv69Nra9e/PE6P7dqaP+Vx9szF4v9wPMTyUIxP+V52bLnkWY/L09+qxFaTtnV9hx8rrazHnrh59fPK1xZj5fsWv3PHho4BAq8o28u0oevock7THqg+SGM1XpZ9uck/2YZ+3W+zCSNxtNc4a93wPAYxVI9d71QvRCn62sZ6veyrS+ce5yltm+aKIOdZms1VkJPGbSHHfPvvqHWfxbfFO3MZf9egife+e/Nkn69j3hxz0LoSeFfZR9d6Jbj/94VZe6qV9+y1bdd7NOz98py0jZZDXXMs4YMx6OI8k2g+2PJY35a/+5LGcra2b+fqm6yh3Y5x5bxpfKFfv/W/8RH6dV2OPKUytl8XByc/Yb936f2gS49/1Gizbj32p4gSDyHHR1q2ed3n9Vb2i/Kel6Ln7TvuSI4QO3OzPDaWy6w+03mKb9C+tPWnP/VJe92O1bmWtapdF41J/bEg9woFuWdoaNvQuWq0rddijf2vvdYpjLltm923EfJ9QDEvQ57/ejYHdnTl+PTe+2wJ8bCMvcVS3/1hU8d0fM5LmpOi5Cuf13Ubuet4tj5vsDa/Nt0kvg==
   </data>
  </layer>
- <layer name="collisions" width="144" height="72" visible="0">
+ <layer name="collisions" width="144" height="72" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztnFGO6yAMRbPst5jpXp/mo5oIgX1tTEjac6SoCcHGMReTqdQ5DgAAAAAAuDuv4AEAAAAAAAAAAJ8F3wMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANTxb3cAAPC1jH4jyu9HP4cV82j9xvjcho6eT/X8tf56+unZwF6y/1+gUj+jemNdV8cAPj19zKzr2bmz9Kro5+wD1vNqPtvzc1vbp/r9w7NX9ePdgzyjfUnZqzy748jNm6q9qH6oQ7Vckc+o/0hMEf20/tFRnitzGNFCNKaMfrJjwR9X5m3l32lZ/bTjXvm/62ZjXkXk+UfvLe29tn/PhxLXbLyq7+rvCqLa8uysPCr9vfbZuLJ7wOpjNM4sO9bybB56/iLjWe0r5m0Uy9WsGHOHfiwy41eto5Vr/2iud+joW/Szq/5nfCt9z/dV/1a/LN+gnzdqvnbtBRYR/Sj2qtYVv9XcVT9vovqpqkOVtUt9FpWsnr5VP1ZM1XP0aj5Vm0it3HFEn0nl7vr5xVprvZqh+rH2mEzNmd1fVvOt+nmj6Mez99ojWrTu3VFL6EerPzPvKRX6sWLetXdFYo7wafqJ2J7bs/qJzls0vxmd9OLMjK3GZ13ficr9q1cTjuZT0UR03pT8ZvY/T1er9tKn6afX1pvzkb2SZ2us9tyqa975iKo5QD9/WLVHyZFnP/Ll6WBV/em1ZebmKfpRa26mNo/iimgisreN2hX9qLqLxJLJ11VU6KeXL2Ue1T3b2iMq9e+176g/vb31TlTpp5JIzYjWGcuX1z7Sj7JOvHHaMT0/EfuVupvRzx3qqlfrVI1Zte/cp3euxJixa33ssFV8W9eW3R3rqYIVt6cxxUeVnRJTdPxqMvq5oiZG60fU/6xddp1Fx44+84p8eeNZ44/urY5h1O+J+mmvo+9AVfwU+nqj1vJVuumtz2hMVx6ZOGae4e7sjFHJ01Py+BT+AxcjZns=
   </data>
@@ -118,7 +118,7 @@
   <object name="destinationYellow" type="destination" x="2848" y="2016" width="32" height="32"/>
   <object name="destinationPurple" type="destination" x="3328" y="1984" width="32" height="32"/>
   <object name="destinationBlack" type="destination" x="3008" y="1888" width="32" height="32"/>
-  <object name="destinationTunnelGreen" type="destination" x="4288" y="1696" width="32" height="32"/>
+  <object name="destinationTunnelGreen" type="destination" x="4480" y="1216" width="32" height="32"/>
   <object name="entranceTrigger" type="start as bowling ball, play down whistle" x="704" y="384" width="32" height="32"/>
   <object name="exit to dragon runner" type="destination" x="1120" y="96" width="64" height="64">
    <properties>
@@ -215,7 +215,7 @@
     <property name="spriteSheet" value="Fireball.png"/>
    </properties>
   </object>
-  <object name="Flame0Degrees" x="640" y="1056" width="160" height="224">
+  <object name="Flame0Degrees" x="640" y="1024" width="160" height="224">
    <properties>
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
@@ -1232,19 +1232,6 @@
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
-  <object name="lava" x="672" y="1664" width="96" height="640">
-   <properties>
-    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
-    <property name="animations" value="burn,0,47,burn"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,108,320"/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="ballFlammable, true"/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="FlameWall.png"/>
-   </properties>
-  </object>
   <object name="ventuphigh" type="initial on" x="1984" y="1248" width="32" height="32">
    <properties>
     <property name="actions" value="changeBallY,660,playSound,sndAirPuff"/>
@@ -1371,33 +1358,7 @@
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
-  <object name="lava" x="672" y="1376" width="96" height="640">
-   <properties>
-    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
-    <property name="animations" value="burn,0,47,burn"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,108,320"/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="ballFlammable, true"/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="FlameWall.png"/>
-   </properties>
-  </object>
-  <object name="lava" x="672" y="1024" width="96" height="640">
-   <properties>
-    <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
-    <property name="animations" value="burn,0,47,burn"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,108,1586"/>
-    <property name="collisionShape" value="rect"/>
-    <property name="conditions" value="ballFlammable, true"/>
-    <property name="mover" value="null"/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="FlameWall.png"/>
-   </properties>
-  </object>
-  <object name="lava" x="672" y="736" width="96" height="640">
+  <object name="lava" x="672" y="800" width="96" height="480">
    <properties>
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
@@ -1555,7 +1516,7 @@
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
-  <object name="transmorgifierPingPong2" x="4416" y="2048" width="32" height="32">
+  <object name="transmorgifierPingPong2" x="4448" y="1984" width="32" height="32">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong2-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
@@ -1671,14 +1632,14 @@
    eJzt2WEKgzAMBtBecXj/u2x/BHGpiU5GK++BME3ZBvnWVtcaAAAAAAAAMJPX51iCAyrW/OzPZYiKfX561yAiP/xi1PzYi80hysq/+naU3aV97+0Zz5n7r6yPUb97+/Hs+vZ8hPmQ2Jn1K8ramVo0Nvs+5p+xZWtIb2z0OqpV6r3PlpvxZXPNlbFH2cueL1mr5nJnftZatt+p7KGYwx352daOMlJ9tu0/lXn0elq5N8rek+fr/db1nwpzBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDzvAF/lzqL
   </data>
  </layer>
- <layer name="parallax fg 2" width="144" height="72" opacity="0.07">
+ <layer name="parallax fg 2" width="144" height="72" opacity="0.26">
   <data encoding="base64" compression="zlib">
    eJzt18kNwCAMBECqzNF/I0kF+WwSDMxI/C0he+3WgCq2++29i2BYx/3O3kUAANCNe2Jef/yte2Je/haAmdmBSdiTnukvEvoLAL5hRyNhRwOoR7aTkO1QmxlPwowHGEf1zK9e3+qqZ371+t6gR0is0CMAPchnEvIZoDY5T0LOAwAAAAAAAAAAAAAAAAAAAAAAAJC4ALy8Ecc=
   </data>
  </layer>
- <layer name="parallax fg 3" width="144" height="72">
+ <layer name="parallax fg 3" width="144" height="72" opacity="0.24">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvg2iAAAB
+   eJzt10sOgDAIBcCe0s/9L6IncIMKpTNJ9yQNPBgDAAAAAACA7rb77dlFMK3jfmd2EQAApHFP9PXH37on+vK3AHRmBybCnvRMfxGhvwDgG3Y0IuxoAPXIdiJkO9RmxhNhxgPMo3rmV69vddUzv3p9b9AjRKzQIwAZ5DMR8hmgNjlPhJwHAAAAAAAAAAAAAAAAgDVcdzQRxw==
   </data>
  </layer>
 </map>
