@@ -95,7 +95,7 @@
     <property name="spriteSheet" value="ExitMarker.png"/>
    </properties>
   </object>
-  <object name="enter1" x="380" y="1828" width="28" height="26"/>
+  <object name="enter1" x="239" y="1678" width="28" height="26"/>
   <object name="Water" x="665" y="1858" width="513" height="466"/>
   <object name="dragon" type="npcEnemy" x="589" y="197" width="256" height="128">
    <properties>
@@ -118,24 +118,6 @@
     <property name="roamingRadius" value="0"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
-  </object>
-  <object name="BallPingPong" x="641" y="1765" width="13" height="11">
-   <ellipse/>
-  </object>
-  <object name="BallPingPong" x="887" y="1729" width="13" height="11">
-   <ellipse/>
-  </object>
-  <object name="BallPingPong" x="831" y="1729" width="13" height="11">
-   <ellipse/>
-  </object>
-  <object name="BallBowling" x="233" y="1839" width="13" height="11">
-   <ellipse/>
-  </object>
-  <object name="BallBowling" x="486" y="1833" width="13" height="11">
-   <ellipse/>
-  </object>
-  <object name="BallTennis" x="223" y="1636" width="13" height="11">
-   <ellipse/>
   </object>
  </objectgroup>
  <objectgroup name="objectsForeground" width="36" height="72">

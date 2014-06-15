@@ -247,7 +247,7 @@ public class MoverBall extends MoverPhysics {
 
 		if (g.i().gameMode == 'R') {
 			if (isInWater) {
-				speedYPerSecond += ball.dyInWater;
+				speedYPerSecond += (maxDyInwater < ball.dyInWater)?maxDyInwater:ball.dyInWater;
 			} else
 				speedYPerSecond += gravityPerSecond;
 		}

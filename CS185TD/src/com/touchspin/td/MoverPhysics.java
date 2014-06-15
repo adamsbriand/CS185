@@ -24,6 +24,7 @@ public class MoverPhysics extends Mover {
 	protected Vector2 speedPerUnit = new Vector2();
 	protected ArrayList<NP> waterList;
 	boolean isInWater;
+	protected float maxDyInwater = 200;
 
 	public MoverPhysics() {
 		speedXPerSecond = 0;
@@ -56,7 +57,7 @@ public class MoverPhysics extends Mover {
 
 		if (g.i().gameMode == 'R') {
 			if (isInWater) {
-				speedYPerSecond += g.i().playerdyInWater;
+				speedYPerSecond += (maxDyInwater < g.i().playerdyInWater)?maxDyInwater:g.i().playerdyInWater;
 			} else
 				speedYPerSecond += gravityPerSecond;
 		}
