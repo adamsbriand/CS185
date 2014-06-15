@@ -158,6 +158,8 @@ public class NP extends GameThing {
 			active = false;
 	}
 
+	public boolean getActive() { return active; }  // bda
+
 	// ---------------------Private helper method
 	// -------------------------------------------
 	private void loadAnimation() {

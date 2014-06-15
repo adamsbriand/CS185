@@ -162,42 +162,12 @@ public class Balls extends GameThing {
 	public void changeBall(String type) {
 
 		switch (type) {
-		case "PingPong":
-			friction = 0.008f;
-			flammable = true;
-			ventRatio = 1;
-			radius = 2.9f;
-			break;
-		case "Bowling":
-			friction = 0.03f;
-			radius = 15f;
-			ventRatio = 0;
-			flammable = false;
-			fireOn = false;
-			break;
-		case "Basket":
-			friction = 0.011f;
-			radius = 15f;
-			ventRatio = 0.3f;
-			flammable = true;
-			break;
-		case "Base":
-			friction = 0.008f;
-			radius = 11.08f;
-			ventRatio = 0.5f;
-			flammable = true;
-			break;
-		case "Tennis":
-			friction = 0.008f;
-			radius = 11.08f;
-			ventRatio = 0.5f;
-			flammable = true;
-			break;
-		case "Balloon":
-			g.i().playerFriction = 0.015f;
-			radius = 15f;
-			ventRatio = 1f;
-			flammable = true;
+		case "PingPong": friction = 0.008f; flammable = true;  radius = 2.9f;                break;
+		case "Bowling" : friction = 0.03f;  flammable = false; radius = 15f; fireOn = false; break;
+		case "Basket"  : friction = 0.011f; flammable = true;  radius = 15f;                 break;
+		case "Base"    : friction = 0.008f; flammable = true;  radius = 11.08f;              break;
+		case "Tennis"  : friction = 0.008f; flammable = true;  radius = 11.08f;              break;
+		case "Balloon" : friction = 0.008f; flammable = true;  radius = 15f;                 break;
 		}
 		ballType = type;
 		ballSprite.setRegion(ballTypeMap.get(type));
@@ -267,18 +237,18 @@ public class Balls extends GameThing {
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
 				appearance.getWidth() / 6, appearance.getHeight() / 12);
 
-		ballTypeMap.put("Base", tmp[4][0]);
-		ballTypeMap.put("Basket", tmp[1][0]);
-		ballTypeMap.put("Beachball", tmp[5][0]);
-		ballTypeMap.put("BearingSteel", tmp[3][0]);
-		ballTypeMap.put("Bowling", tmp[0][0]);
-		ballTypeMap.put("Golfball", tmp[10][0]);
-		ballTypeMap.put("Marble", tmp[6][0]);
-		ballTypeMap.put("PingPong", tmp[2][0]);
-		ballTypeMap.put("Poolball", tmp[8][0]);
-		ballTypeMap.put("Soccerball", tmp[7][0]);
-		ballTypeMap.put("Tennis", tmp[9][0]);
-		ballTypeMap.put("Balloon", tmp[11][0]);
+		ballTypeMap.put("Bowling",      tmp[ 0][0]);
+		ballTypeMap.put("Basket",       tmp[ 1][0]);
+		ballTypeMap.put("PingPong",     tmp[ 2][0]);
+		ballTypeMap.put("BearingSteel", tmp[ 3][0]);
+		ballTypeMap.put("Base",         tmp[ 4][0]);
+		ballTypeMap.put("Beachball",    tmp[ 5][0]);
+		ballTypeMap.put("Marble",       tmp[ 6][0]);
+		ballTypeMap.put("Soccerball",   tmp[ 7][0]);
+		ballTypeMap.put("Poolball",     tmp[ 8][0]);
+		ballTypeMap.put("Tennis",       tmp[ 9][0]);
+		ballTypeMap.put("Golfball",     tmp[10][0]);
+		ballTypeMap.put("Balloon",      tmp[11][0]);
 	}
 
 	private void loadFireAnimation() {
@@ -403,27 +373,12 @@ public class Balls extends GameThing {
 		float floatforce = 0;
 		int inWaterdyFactor = 1;
 		switch (ballType) {
-		case "PingPong":
-			mass = 0.0027f;
-			radius = 0.02f;
-			break;
-		case "Bowling":
-			mass = 7.3f;
-			radius = 0.09f;
-			break;
-		case "Basket":
-			//mass = 0.62f;
-			mass = 2.62f;
-			radius = 0.121f;
-			break;
-		case "Base":
-			mass = 0.145f;
-			radius = 0.0382f;
-			break;
-		case "Tennis":
-			mass = 0.06f;
-			radius = 0.0335f;
-			break;
+		case "PingPong": mass = 0.0027f; radius = 0.0200f; break;
+		case "Bowling" : mass = 7.3000f; radius = 0.0900f; break;
+		case "Basket"  : mass = 2.6200f; radius = 0.1210f; break;
+		case "Base"    : mass = 0.1450f; radius = 0.0382f; break;
+		case "Tennis"  : mass = 0.0600f; radius = 0.0335f; break;
+		case "Balloon" : mass = 0.0020f; radius = 0.1210f; break;
 		}	
 		floatforce = (float) (1000*9.8f * 4/3*Math.PI*Math.pow(radius, 3));
 		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;

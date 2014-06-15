@@ -43,6 +43,8 @@ public class g {
 	public float sfxLevel;	// Sound effect volume. 0=None, 1=Full
 	public float musicLevel;	// Music volume. 0=None, 1=Full
 	
+	public final float gravity = 9.8f;
+	
 	public Random rnd = new Random();
 	
 	// System variables

@@ -114,6 +114,8 @@ public class Trigger {
 	 * 		changeOtherCollidable
 	 * 		igniteBall
 	 * 		toggleState
+	 * 		toggleActive // bda
+	 * 		toggleVent   // bda
 	 * 		changeHealth
 	 * 		changeActive
 	 * ----------------------------------------------------------------------------------
@@ -159,6 +161,12 @@ public class Trigger {
 				break;
 			case "toggleState":
 				toggleState(value);
+				break;
+			case "toggleActive":
+				toggleActive(value);
+				break;
+			case "toggleVent":
+				toggleVent(value);
 				break;
 			case "reduceHealth":
 				changeHealth(value);
@@ -421,6 +429,47 @@ public class Trigger {
 		NP obj = getObjNamed(value);
 		if (obj!=null) 
 			obj.setAnimation((obj.getAnimation().equalsIgnoreCase("on")) ? "off" : "on");
+	}
+	
+	/* ----------------------------------------------------------------------------------
+	 * Toggles the active state of an object
+	 * 
+	 * Input:
+	 * 		value - Name of object
+	 * 
+	 * Calls:
+	 * 		getObjNamed
+	 * 
+	 * bda
+	 * ----------------------------------------------------------------------------------
+	 */
+	private void toggleActive(String value) {
+		NP obj = getObjNamed(value);
+		if (obj!=null) 
+			obj.setActive((obj.getActive()) ? "false" : "true");
+	}
+	
+	/* ----------------------------------------------------------------------------------
+	 * Toggles the active state of an object
+	 * 
+	 * Input:
+	 * 		value - Name of object
+	 * 
+	 * Calls:
+	 * 		getObjNamed
+	 * 
+	 * don't know how to assert in this case, but
+	 *      assert NP is vent
+	 * bda
+	 * ----------------------------------------------------------------------------------
+	 */
+	private void toggleVent(String value) {
+		NP obj = getObjNamed(value);
+		if (obj!=null) {
+			String anim = (obj.getAnimation().equalsIgnoreCase("on")) ? "off" : "on";
+			obj.setAnimation(anim);
+			obj.setActive(anim.equalsIgnoreCase("off") ? "false" : "true");
+		}
 	}
 	
 	/* ----------------------------------------------------------------------------------
