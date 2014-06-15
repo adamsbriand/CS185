@@ -137,7 +137,7 @@
  <objectgroup name="objectsForeground" width="36" height="72">
   <object name="TransmorgifierBasket1" type="npo" x="928" y="2144" width="160" height="160">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBasket1-transmorgify,playSound,transmorgify,changeMyAnim,Basket"/>
+    <property name="actions" value="changeMyAnim,Basket,changeOthersAnim,transmorgifierBasket1-transmorgify,playSound,transmorgify"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -151,7 +151,7 @@
   </object>
   <object name="TransmorgifierBowling1" type="npo" x="32" y="1696" width="160" height="160">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBowling1-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifierBowling1-transmorgify,playSound,transmorgify"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -165,7 +165,7 @@
   </object>
   <object name="TransmorgifierPingPong1" type="npo" x="44" y="1311" width="160" height="160">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
+    <property name="actions" value="changeMyAnim,PingPong,changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -218,7 +218,7 @@
   </object>
   <object name="TransmorgifierBase1" type="npo" x="67" y="1054" width="160" height="160">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBase1-transmorgify,playSound,transmorgify,changeMyAnim,Base"/>
+    <property name="actions" value="changeMyAnim,Base,changeOthersAnim,transmorgifierBase1-transmorgify,playSound,transmorgify"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
