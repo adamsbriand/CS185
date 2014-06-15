@@ -123,11 +123,11 @@ public class MoverBall extends MoverPhysics {
 		f2x0 = f2x * MathUtils.cos(collisionAngle) + v2y *MathUtils.sin(collisionAngle);
 		f2y0 = f2x * MathUtils.sin(collisionAngle) + v2y *MathUtils.cos(collisionAngle);
 		
-		ball1.changeBallX(f1x0);
-		ball1.changeBallY(f1y0);
+		ball1.ballMover.speedXPerSecond = f1x0;
+		ball1.ballMover.speedYPerSecond = f1y0;
 		
-		ball2.changeBallX(f2x0);
-		ball2.changeBallY(f2y0);
+		ball2.ballMover.speedXPerSecond = f2x0;
+		ball2.ballMover.speedYPerSecond = f2y0;
 		
 		
 	}
@@ -164,11 +164,11 @@ public class MoverBall extends MoverPhysics {
 		f2x0 = f2x * MathUtils.cos(collisionAngle) + v2y *MathUtils.sin(collisionAngle);
 		f2y0 = f2x * MathUtils.sin(collisionAngle) + v2y *MathUtils.cos(collisionAngle);
 		
-		ball1.changeBallX(f1x0);
-		ball1.changeBallY(f1y0);
+		ball1.ballMover.speedXPerSecond = f1x0;
+		ball1.ballMover.speedYPerSecond = f1y0;
 		
-		ball2.changeBallX(f2x0);
-		ball2.changeBallY(f2y0);
+		ball2.heroMover.speedXPerSecond = f2x0;
+		ball2.heroMover.speedYPerSecond = f2y0;
 		
 		
 	}

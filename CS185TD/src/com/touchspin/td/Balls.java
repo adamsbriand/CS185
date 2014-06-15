@@ -25,6 +25,7 @@ public class Balls extends GameThing {
 	private TextureRegion currentFireFrame;
 	private TextureRegion currentSmokeFrame;
 	private float scaleFactor;
+	private float ventRatio = 1;
 
 	private int frameCount = 0;
 	private Sprite ballSprite;
@@ -164,32 +165,38 @@ public class Balls extends GameThing {
 		case "PingPong":
 			friction = 0.008f;
 			flammable = true;
+			ventRatio = 1;
 			radius = 2.9f;
 			break;
 		case "Bowling":
 			friction = 0.03f;
 			radius = 15f;
+			ventRatio = 0;
 			flammable = false;
 			fireOn = false;
 			break;
 		case "Basket":
 			friction = 0.011f;
 			radius = 15f;
+			ventRatio = 0.3f;
 			flammable = true;
 			break;
 		case "Base":
 			friction = 0.008f;
 			radius = 11.08f;
+			ventRatio = 0.5f;
 			flammable = true;
 			break;
 		case "Tennis":
 			friction = 0.008f;
 			radius = 11.08f;
+			ventRatio = 0.5f;
 			flammable = true;
 			break;
 		case "Balloon":
 			g.i().playerFriction = 0.015f;
 			radius = 15f;
+			ventRatio = 1f;
 			flammable = true;
 		}
 		ballType = type;
@@ -203,11 +210,11 @@ public class Balls extends GameThing {
 	}
 
 	public void changeBallX(float speed) {
-		ballMover.speedXPerSecond = speed;
+		ballMover.speedXPerSecond = speed * ventRatio;
 	}
 
 	public void changeBallY(float speed) {
-		ballMover.speedYPerSecond = speed;
+		ballMover.speedYPerSecond = speed * ventRatio;
 	}
 
 	public float getYSpeed() {

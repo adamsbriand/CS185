@@ -33,6 +33,7 @@ public class Hero extends GameThing {
 	private float countTime;
 	public float mass;
 	public float radius;
+	private float ventRatio;
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -161,6 +162,7 @@ public class Hero extends GameThing {
 			flammable = true;
 			ballWidth = 5.8f;
 			ballHeight = 5.8f;
+			ventRatio = 1f;
 			radius = 2.9f;
 			break;
 		case "Bowling":
@@ -168,6 +170,7 @@ public class Hero extends GameThing {
 			g.i().fire = false;
 			ballWidth = 30f;
 			ballHeight = 30f;
+			ventRatio = 0f;
 			radius = 15f;
 			flammable = false;
 			g.i().fire = false;
@@ -177,6 +180,7 @@ public class Hero extends GameThing {
 			ballWidth = 30f;
 			ballHeight = 30f;
 			radius = 15f;
+			ventRatio = 0.3f;
 			flammable = true;
 			break;
 		case "Base":
@@ -184,6 +188,7 @@ public class Hero extends GameThing {
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
 			radius = 11.08f;
+			ventRatio = 0.5f;
 			flammable = true;
 			break;
 		case "Tennis":
@@ -191,6 +196,7 @@ public class Hero extends GameThing {
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
 			radius = 11.08f;
+			ventRatio = 0.5f;
 			flammable = true;
 			break;
 		case "Balloon":
@@ -198,6 +204,7 @@ public class Hero extends GameThing {
 			ballWidth = 30f;
 			ballHeight = 30f;
 			radius = 15f;
+			ventRatio = 1f;
 			flammable = true;
 		}
 		if (!g.i().fire) {
@@ -218,11 +225,11 @@ public class Hero extends GameThing {
 	}
 
 	public void changeBallX(float speed) {
-		heroMover.speedXPerSecond = speed;
+		heroMover.speedXPerSecond = speed * ventRatio;
 	}
 
 	public void changeBallY(float speed) {
-		heroMover.speedYPerSecond = speed;
+		heroMover.speedYPerSecond = speed * ventRatio;
 	}
 
 	public float getYSpeed() {

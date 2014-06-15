@@ -178,20 +178,15 @@ public class GameScreen extends GameObject {
 			if (tiledMapWrapper.getPixelWidth() > tiledMapWrapper
 					.getPixelHeight()) {
 				camera = new OrthographicCamera();
-				camera.setToOrtho(false, w * tiledMapWrapper.getPixelHeight()
-						/ h, tiledMapWrapper.getPixelHeight());
+				camera.setToOrtho(false, 640, h * 640 / w);
 				camera.update();
 
 				backGroundCamera = new OrthographicCamera();
-				backGroundCamera.setToOrtho(false,
-						w * tiledMapWrapper.getPixelHeight() / h,
-						tiledMapWrapper.getPixelHeight());
+				backGroundCamera.setToOrtho(false, 640, h * 640 / w);
 				backGroundCamera.update();
 
 				foregroudCamera = new OrthographicCamera();
-				foregroudCamera.setToOrtho(false,
-						w * tiledMapWrapper.getPixelHeight() / h,
-						tiledMapWrapper.getPixelHeight());
+				foregroudCamera.setToOrtho(false, 640, h * 640 / w);
 				foregroudCamera.update();
 			} else {
 				camera = new OrthographicCamera();
