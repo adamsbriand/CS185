@@ -50,10 +50,10 @@ public class ScreenSplash extends GameMenu{
 		if (width != Gdx.graphics.getWidth() || height != Gdx.graphics.getHeight()){
 			width = Gdx.graphics.getWidth();
 			height = Gdx.graphics.getHeight();
-			timeresize = TimeUtils.millis();
+			timeDelay = TimeUtils.millis();
 		}
-		if (timeresize!=0){
-			if (TimeUtils.millis()>(timeresize + 100)){
+		if (timeDelay!=0){
+			if (TimeUtils.millis()>(timeDelay + 100)){
 				stage.clear();
 				batch = new SpriteBatch();
 				stage.getCamera().viewportWidth = Gdx.graphics.getWidth();
@@ -61,7 +61,7 @@ public class ScreenSplash extends GameMenu{
 				setBG();
 				buttons();
 		        logo();
-		        timeresize = 0;
+		        timeDelay = 0;
 			}
 		}
 	}
