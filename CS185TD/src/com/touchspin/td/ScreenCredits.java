@@ -31,7 +31,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
  */
 
 public class ScreenCredits extends GameMenu {
-	final String Creditsimage = "img/menu/TeamOllie1200.png";
+	final String Creditsimage = "img/menu/TeamOllie2.png";
 			
 	public ScreenCredits(){
 		super();
