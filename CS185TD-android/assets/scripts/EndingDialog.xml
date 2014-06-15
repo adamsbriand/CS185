@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = "outro" >    
+<DialogScript music = "iamaball" command = "screenShot">    
     <dialog_en>
         <Snippet 
         	name = "Wizard"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "C_:pause:10: Well Ollie, now you see just how brave you are?"
 	    	finalPause = "4"/>
         <Snippet 
         	name = "Wizard"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "As promised, I return your family to you."
 	    	finalPause = "20"/>
     </dialog_en>    
 	<dialog_es>	 
 	    <Snippet 
         	name = "Mago"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "C_:pause:10: Bueno Ollie! Ahora ves lo valiente que eres?"
 	    	finalPause = "4"/>
         <Snippet 
         	name = "Mago"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "Como te prometí, ahora te regresare a tu familia."
 	    	finalPause = "20"/>   
 	</dialog_es>	
 	<dialog_vi>	    
 	    <Snippet 
         	name = "phù thủy"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "C_:pause:10: Ollie, bây giơ ngươi đã nhận biết được lòng dũng cãm của ngươi chưa?"
 	    	finalPause = "4"/>
         <Snippet 
         	name = "phù thủy"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "như đã hứa, ta sẽ trã lại gia đình cho ngươi."
 	    	finalPause = "20"/>
 	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
         	name = "巫师"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "C_:pause:10: 奥利，做得好。现在你明白你是多么的坚韧勇敢了吗？"
 	    	finalPause = "4"/>
         <Snippet 
         	name = "巫师"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "正如我所承诺的，我将归还你的妻子与女儿。"
 	    	finalPause = "20"/>
 	</dialog_zh>
 	<dialog_ja>
         <Snippet 
         	name = "ウィザード"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "C_:pause:10:オーリー、君が勇敢なのは分かったか？"
 	    	finalPause = "4"/>
         <Snippet 
         	name = "ウィザード"	
-	    	background = "img/dialog/DlgGameEnd.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "約束どおり、君の家族を返すよ。"
 	    	finalPause = "20"/>
     </dialog_ja>
-	<End>menu,credits,changeMusic,iamaball</End>
+	<End>menu,credits</End>
 </DialogScript>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = ""> 
+<DialogScript music = "" command = ""> 
     <dialog_en>           
 	    <Snippet 
 		    name = "1/3"	
