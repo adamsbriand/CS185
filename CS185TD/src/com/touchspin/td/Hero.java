@@ -11,7 +11,25 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-
+/* ======================================================================================
+ * File:			Hero.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This class holds information for player.
+ * 
+ * ======================================================================================
+ */
 public class Hero extends GameThing {
 	public OrthographicCamera camera;
 	public MoverInput heroMover = new MoverInput();
@@ -39,6 +57,11 @@ public class Hero extends GameThing {
 	// private float distancePerFrameY;
 	// private int gravity = -10;
 
+	/**
+	 * The constructor
+	 * @param camera - the camera used in the game screen
+	 * @param tiledMapWrapper - the wrapper class of the tiledMap
+	 */
 	public Hero(OrthographicCamera camera, TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
@@ -90,6 +113,9 @@ public class Hero extends GameThing {
 
 	}
 
+	/**
+	 * Draw the player
+	 */
 	@Override
 	public void draw(Batch batch, float alpha) {
 		batch.setProjectionMatrix(camera.combined);
@@ -104,12 +130,19 @@ public class Hero extends GameThing {
 		}
 	}
 
+	/**
+	 * Draw effect
+	 * @param batch
+	 */
 	private void drawEffect(Batch batch) {
 		// batch.draw(currentFrame,getX(),getY(),32f,currentFrame.getRegionHeight()*32/currentFrame.getRegionWidth());
 		smokeEffect.draw(batch);
 		fireEffect.draw(batch);
 	}
 
+	/**
+	 * Update method
+	 */
 	@Override
 	public void act(float delta) {
 		heroMover.move(this);
@@ -150,10 +183,17 @@ public class Hero extends GameThing {
 
 	}
 
+	/**
+	 * tint player read for 60 frames if
+	 * the player get hurt
+	 */
 	public void getHurt() {
 		frameCount = 60;
 	}
-
+/**
+ * Change the ball type to the given type
+ * @param type - the ball type to change to
+ */
 	public void changeBall(String type) {
 
 		switch (type) {
@@ -217,6 +257,11 @@ public class Hero extends GameThing {
 		calcualteDyInWater();
 	}
 
+	/**
+	 * Ignited the ball or put out the fire
+	 * @param fireOn - ignite the player if it is true
+	 * put out the fire if it is false
+	 */
 	public void igniteBall(boolean fireOn) {
 		g.i().fire = fireOn;
 		if (!g.i().fire) {
@@ -224,20 +269,33 @@ public class Hero extends GameThing {
 		}
 	}
 
+	/**
+	 * Change the ball's speed along x axis
+	 * @param speed - the base speed
+	 */
 	public void changeBallX(float speed) {
 		if(ventRatio!=0)
 		heroMover.speedXPerSecond = speed * ventRatio;
 	}
-
+	/**
+	 * Change the ball's speed along y axis
+	 * @param speed - the base speed
+	 */
 	public void changeBallY(float speed) {
 		if(ventRatio!=0)
 		heroMover.speedYPerSecond = speed * ventRatio;
 	}
-
+	/**
+	 * Get the current speed of the ball along y axis
+	 * @return the current speed along y axis
+	 */
 	public float getYSpeed() {
 		return heroMover.speedYPerSecond;
 	}
-
+	/**
+	 * Get the current speed of the ball along x axis
+	 * @return the current speed along x axis
+	 */
 	public float getXSpeed() {
 		return heroMover.speedXPerSecond;
 	}
@@ -262,8 +320,22 @@ public class Hero extends GameThing {
 					- camera.viewportHeight / 2;
 	}
 
+	/**
+	 * return the center of the ball
+	 * @return the center of the ball
+	 */
+	public Vector2 getCenter()
+	{
+		Vector2 center = new Vector2(getX()+radius,getY()+radius);
+		return center;
+		
+	}
 	// --------------Private helper
 	// method------------------------------------------
+	/**
+	 * Set all sprites position based on actor's 
+	 * position
+	 */
 	private void setSpritesPosition() {
 		heroSprite.setX(getX());
 		heroSprite.setY(getY());
@@ -272,7 +344,9 @@ public class Hero extends GameThing {
 		smokeEffect.setX(getX());
 		smokeEffect.setY(getY());
 	}
-
+	/**
+	 * load ball texture regions based on ball type
+	 */
 	private void loadBallType() {
 		Texture appearance = new Texture("img/spritesheet/BallSquish.png");
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
@@ -291,7 +365,9 @@ public class Hero extends GameThing {
 		ballTypeMap.put("Tennis", tmp[9][0]);
 		ballTypeMap.put("Balloon", tmp[11][0]);
 	}
-
+	/**
+	 * Load in the fire animation
+	 */
 	private void loadFireAnimation() {
 		Texture fire = new Texture(
 				Gdx.files.internal("img/spritesheet/Fireball.png"));
@@ -306,7 +382,9 @@ public class Hero extends GameThing {
 		}
 		fireAnimation = new Animation(0.025f, fireFrames);
 	}
-
+	/**
+	 * Load in the smoke animation
+	 */
 	private void loadSmokeAnimation() {
 		Texture fire = new Texture(
 				Gdx.files.internal("img/spritesheet/Smoke.png"));
@@ -323,7 +401,9 @@ public class Hero extends GameThing {
 		}
 		smokeAnimation = new Animation(0.025f, smokeFrames);
 	}
-
+	/**
+	 * Set the rotation and scale of each ball properly
+	 */
 	private void setRotationAndScale() {
 
 		if (heroMover.speedXPerSecond == 0) {
@@ -383,7 +463,9 @@ public class Hero extends GameThing {
 		fireEffect.setScale(1f, scaleFactor);
 		smokeEffect.setScale(1f, scaleFactor);
 	}
-
+	/**
+	 * Set the bounds of the ball sprite
+	 */
 	private void setSpriteBounds() {
 		if (heroSprite != null) {
 			heroSprite.setBounds(0, 32, ballWidth * camera.zoom, ballHeight
@@ -408,7 +490,9 @@ public class Hero extends GameThing {
 					heroSprite.getHeight() / 2);
 		}
 	}
-
+	/**
+	 * Calculate the ball's acceleration along y axis in water
+	 */
 	private void calcualteDyInWater() {
 		float radius = 0;
 		float floatforce = 0;
@@ -427,10 +511,5 @@ public class Hero extends GameThing {
 		g.i().playerdyInWater = dy;
 	}
 	
-	public Vector2 getCenter()
-	{
-		Vector2 center = new Vector2(getX()+radius,getY()+radius);
-		return center;
-		
-	}
+
 }
