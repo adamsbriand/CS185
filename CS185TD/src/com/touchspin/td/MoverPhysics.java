@@ -1,5 +1,24 @@
 package com.touchspin.td;
 
+/* ======================================================================================
+ * File:			MoverPhyscis.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This class handles the physics movement for objects.
+ * 
+ * ======================================================================================
+ */
 import java.util.ArrayList;
 import java.util.HashSet;
 import com.badlogic.gdx.maps.MapObject;
@@ -26,6 +45,9 @@ public class MoverPhysics extends Mover {
 	boolean isInWater;
 	protected float maxDyInwater = 50;
 
+	/**
+	 * Constructor
+	 */
 	public MoverPhysics() {
 		speedXPerSecond = 0;
 		speedYPerSecond = 0;
@@ -35,10 +57,16 @@ public class MoverPhysics extends Mover {
 				waterList.add(g.i().mapObjects.get(i));
 	}
 
+	/**
+	 * Assign the object to the mover
+	 */
 	public void move(GameThing gameThing) {
 		this.gameThing = gameThing;
 	}
 
+	/**
+	 * Do physics move
+	 */
 	protected void physicsMove() {
 
 		isInWater();
@@ -66,10 +94,7 @@ public class MoverPhysics extends Mover {
 	}
 
 	/**
-	 * Checks whether the player has rolled off the map in the X direction or
-	 * not
-	 * 
-	 * @return
+	 * Check to see if the player is in water
 	 */
 	protected void isInWater() {
 		if (waterList != null) {
@@ -93,6 +118,10 @@ public class MoverPhysics extends Mover {
 		}
 	}
 
+	/**
+	 * Check if x direction is free
+	 * @return true if x direction is free, false if it is not
+	 */
 	protected boolean isXFree() {
 		if (speedXPerSecond < 0) // going to the left
 		{
@@ -189,7 +218,11 @@ public class MoverPhysics extends Mover {
 		}// end of going to the right check
 		return true;
 	}// end of isXFree()
-
+	
+	/**
+	 * Check if y direction is free
+	 * @return true if y direction is free, false if it is not
+	 */
 	protected boolean isYFree() {
 		if (speedYPerSecond < 0) // going down
 		{
