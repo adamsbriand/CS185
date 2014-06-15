@@ -87,6 +87,11 @@ public class Balls extends GameThing {
 				* camera.zoom);
 		smokeEffect.setOrigin(ballSprite.getWidth() / 2,
 				ballSprite.getHeight() / 2);
+		
+		if(ballType.equalsIgnoreCase("balloon"))
+		{
+			randomTint();
+		}
 
 		
 		}
@@ -171,6 +176,13 @@ public class Balls extends GameThing {
 		}
 		ballType = type;
 		ballSprite.setRegion(ballTypeMap.get(type));
+		if(ballType.equalsIgnoreCase("Balloon"))
+		{
+			randomTint();		
+		}else
+		{
+			ballSprite.setColor(Color.WHITE);
+		}
 		setSpriteBounds();
 		calcualteDyInWater();
 	}
@@ -384,6 +396,25 @@ public class Balls extends GameThing {
 		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;
 		float dy = force/mass;
 		dyInWater = dy;
+	}
+	
+	private void randomTint()
+	{
+		switch(g.i().rnd.nextInt(5))
+		{
+			case 0:ballSprite.setColor(Color.WHITE);
+			break;
+			case 1:ballSprite.setColor(Color.YELLOW);
+			break;
+			case 2:ballSprite.setColor(Color.GRAY);
+			break;
+			case 3:ballSprite.setColor(Color.MAGENTA);
+			break;
+			case 4:ballSprite.setColor(Color.GREEN);
+			break;
+			case 5:ballSprite.setColor(Color.ORANGE);
+			break;
+		}
 	}
 }
 
