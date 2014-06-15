@@ -1,6 +1,7 @@
 package com.touchspin.td;
 
 import java.io.IOException;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
@@ -70,7 +71,7 @@ public class GameDialog extends GameObject
 		{	root = xml.parse(script);	}
 		catch(IOException e)
 		{}			
-				
+		
 		// get dialog based on current language settings
 		languageRoot = root.getChildByName("dialog_" + g.i().language);	
 		
@@ -100,8 +101,7 @@ public class GameDialog extends GameObject
 		skipable = true;
 		canBreakText = true;
 		textPadding = 50;
-		masterSkip = false;
-		
+		masterSkip = false;		
 		
 		nextSnippet();			
 	}// end of constructor
@@ -195,6 +195,7 @@ public class GameDialog extends GameObject
 	{		
 		if(masterSkip)
 		{
+			
 			if(g.i().leAnonymizer.pausePressed)
 			{
 				g.i().leAnonymizer.pausePressed = false;
@@ -203,7 +204,10 @@ public class GameDialog extends GameObject
 			if(g.i().leAnonymizer.click)
 			{
 				g.i().leAnonymizer.click = false;				
-				nextSnippet();
+				if(skipable != false)
+					nextSnippet();
+				masterSkip = false;
+				nextPrintTime = 0;
 			}
 		}
 		
@@ -220,7 +224,7 @@ public class GameDialog extends GameObject
 			if(finishedWithSnippet)
 			{				
 				nextSnippet();
-				finishedWithSnippet = false;				
+				finishedWithSnippet = false;					
 			}	
 			else 
 			{
@@ -228,7 +232,8 @@ public class GameDialog extends GameObject
 				{
 					g.i().leAnonymizer.click = false;
 					skipable = false;
-					displayAllText();
+					masterSkip = true;
+					displayAllText();					
 				}
 				else				
 					nextChar();				
@@ -371,7 +376,8 @@ public class GameDialog extends GameObject
 		
 		case "instaPrint":	
 			if(!skipPauses)
-				currentText += textArray[dialogCount++];		
+				currentText += textArray[dialogCount++];
+			break;
 		case "masterSkip":
 			if(value.equals("true"))
 				masterSkip = true;
