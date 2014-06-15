@@ -111,7 +111,7 @@
     <property name="actions" value="igniteBall,false"/>
    </properties>
   </object>
-  <object name="dragon" type="npcEnemy" x="589" y="197" width="256" height="128">
+  <object name="dragon" type="npcEnemy" x="896" y="0" width="256" height="128">
    <properties>
     <property name="actions" value="reduceHealth,10"/>
     <property name="animations" value="fly,0,47,fly"/>
@@ -231,7 +231,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer name="collisions" width="36" height="72">
+ <layer name="collisions" width="36" height="72" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztmFsKhDAMRev+19C9iuCHSF82SXNT74EyMDjNmTRN1ZTIn8j3WB1vVVztGKvzRXSJun5RvTVhDuS0+m/tu5n5R6/dndma3TU33MPf8M5XKbaH07tv1XqX1z2lddzS/7cahERgRc1Ke02EfYXu18Oif0nmqv2uNZ9lnWjUqaZffnxG2B9WSM5mnttlkPKA4IJUGygeJEb/iPq8guhExkGpLe/3Pt77zDt+yYP4chiNXXy0oE8f+rRBWzNkHwSQXC5QfVCc0M4NDZcTM/9kTQ==
   </data>
