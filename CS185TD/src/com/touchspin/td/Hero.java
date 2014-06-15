@@ -412,27 +412,12 @@ public class Hero extends GameThing {
 		float floatforce = 0;
 		int inWaterdyFactor = 1;
 		switch (g.i().currentBallType) {
-		case "PingPong":
-			mass = 0.0027f;
-			radius = 0.02f;
-			break;
-		case "Bowling":
-			mass = 7.3f;
-			radius = 0.09f;
-			break;
-		case "Basket":
-			//mass = 0.62f;
-			mass = 2.62f;
-			radius = 0.121f;
-			break;
-		case "Base":
-			mass = 0.145f;
-			radius = 0.0382f;
-			break;
-		case "Tennis":
-			mass = 0.06f;
-			radius = 0.0335f;
-			break;
+		case "PingPong": mass = 0.0027f; radius = 0.0200f; break;
+		case "Bowling" : mass = 7.3000f; radius = 0.0900f; break;
+		case "Basket"  : mass = 2.6200f; radius = 0.1210f; break;
+		case "Base"    : mass = 0.1450f; radius = 0.0382f; break;
+		case "Tennis"  : mass = 0.0600f; radius = 0.0335f; break;
+		case "Balloon" : mass = 0.0020f; radius = 0.1210f; break;
 		}	
 		floatforce = (float) (1000*9.8f * 4/3*Math.PI*Math.pow(radius, 3));
 		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;
