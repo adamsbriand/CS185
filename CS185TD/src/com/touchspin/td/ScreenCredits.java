@@ -15,7 +15,6 @@ public class ScreenCredits extends GameMenu {
 			
 	public ScreenCredits(){
 		super();
-		g.i().sound.BGMusic("menu");
 		
 		//reset
 		g.i().setZero();

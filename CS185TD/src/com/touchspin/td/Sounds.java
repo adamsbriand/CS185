@@ -85,7 +85,8 @@ public class Sounds {
 	private final FileHandle song1 = Gdx.files.internal("snd/bg/song1.mp3");
 	private final FileHandle song3 = Gdx.files.internal("snd/bg/song3.mp3");
 	private final FileHandle song4 = Gdx.files.internal("snd/bg/song4.mp3");
-	private final FileHandle ABall = Gdx.files.internal("snd/bg/ABall.mp3");
+	private final FileHandle ABall = Gdx.files.internal("snd/bg/ABall2.mp3");
+	private final FileHandle GameDone = Gdx.files.internal("snd/bg/GameSuccess.mp3");
 	
 	// Sound variables
 	private Sound whistle=null;
@@ -147,6 +148,11 @@ public class Sounds {
 					public void onCompletion(Music music) {
 						BGMusic("mainmenu");
 					}});
+				break;
+			case "GameDone":
+				bgMusic = Gdx.audio.newMusic(GameDone);
+				bgMusic.setLooping(false);
+				bgMusic.setOnCompletionListener(null);
 				break;
 			case "outro":
 			case "mainmenu":

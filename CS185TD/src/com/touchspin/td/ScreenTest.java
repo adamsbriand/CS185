@@ -130,6 +130,16 @@ public class ScreenTest implements Screen {
         		g.i().t.action("NewLevel,volcano");
         	}
         });
+        
+        final TextButton textButton7=new TextButton("endDialog",textButtonStyle);
+        textButton7.setPosition(xOff+0*dX, yOff+2*dY);
+        stage.addActor(textButton7);
+        
+        textButton7.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("NewLevel,dialogOutro");
+        	}
+        });
     }
  
     public void render (float delta) {

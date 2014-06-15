@@ -624,7 +624,7 @@ public class Trigger {
 			case "dialogOutro":
 				g.i().gameMode = 'D';
 				game.setScreen(new GameDialog(game, EndDialog));
-				changeMusic("song4");
+				//changeMusic("song4");
 				break;
 			case "midDialog" :
 				g.i().gameMode = 'D';
