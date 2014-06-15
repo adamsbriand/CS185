@@ -142,8 +142,6 @@
     <property name="spriteSheet" value="FlameWall.png"/>
    </properties>
   </object>
-  
-  
   <object name="door1" type="npo" x="3904" y="384" width="32" height="32">
    <properties>
     <property name="actions" value=""/>
@@ -261,6 +259,5 @@
     <property name="spriteSheet" value="GlassBreak.png"/>
    </properties>
   </object>
-
  </objectgroup>
 </map>

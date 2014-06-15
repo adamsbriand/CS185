@@ -43,7 +43,7 @@ public class MoverInput extends MoverPhysics {
 		if (!isYFree()) {
 			if (speedYPerSecond < 0)
 			{
-				frameCount = 10;
+				frameCount = 30;
 				jumpable = true;
 			}
 			if (speedYPerSecond < -100 || speedYPerSecond > 100)

@@ -41,12 +41,13 @@ public class NP extends GameThing {
 	public int roamingRadius;
 	private Camera camera;
 	public boolean active;
+	float rotation;
 
 	public NP(int startX, int startY, int width, int height, String name,
 			String type, String conditions, String action, String anims,
 			int roamingRadius, String spriteSheet, int animRows, int animCols,
 			boolean collidable, String collisionParameter,
-			OrthographicCamera camera, String active) {
+			OrthographicCamera camera, String active,float rotation) {
 		originalPosition = new Vector2(startX, startY);
 		this.camera = camera;
 		setX(startX);
@@ -87,8 +88,9 @@ public class NP extends GameThing {
 			}
 			currentFrame = currentAnimation.getKeyFrame(stateTime, false);
 			npSprite.setRegion(currentFrame);
-
 			npSprite.setBounds(getX(), getY(), getWidth(), getHeight());
+			npSprite.setOrigin(npSprite.getWidth()/2,npSprite.getHeight()/2 );
+			npSprite.setRotation(rotation);
 		} else {
 			this.animRows = 0;
 			this.animCols = 0;

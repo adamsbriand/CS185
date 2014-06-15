@@ -65,18 +65,30 @@
    eJzt3QmOgjAUxvEezaNxntLG5QRztKFjX/JNBUGlyPL/JQ0oi4Z5vm6EcQ4AAADA2p27ci3KTZa2frnv23znWwIAAAAAAKAWHR+6OMaBAAAAAAAAAAAAAAAAAAAAAAAAAAAAgDWKuQDAu0IuPhfyCoa0UoCavKynfKRxZzkL+2Z1Ul/OmRIDfXUZddsxkB/wDuoWYB5nKem5dVdX99l15+L1tdYHvciuwc3x7L452DMRbZmv69Nra9e/PE6P7dqaP+Vx9szF4v9wPMTyUIxP+V52bLnkWY/L09+qxFaTtnV9hx8rrazHnrh59fPK1xZj5fsWv3PHho4BAq8o28u0oevock7THqg+SGM1XpZ9uck/2YZ+3W+zCSNxtNc4a93wPAYxVI9d71QvRCn62sZ6veyrS+ce5yltm+aKIOdZms1VkJPGbSHHfPvvqHWfxbfFO3MZf9egife+e/Nkn69j3hxz0LoSeFfZR9d6Jbj/94VZe6qV9+y1bdd7NOz98py0jZZDXXMs4YMx6OI8k2g+2PJY35a/+5LGcra2b+fqm6yh3Y5x5bxpfKFfv/W/8RH6dV2OPKUytl8XByc/Yb936f2gS49/1Gizbj32p4gSDyHHR1q2ed3n9Vb2i/Kel6Ln7TvuSI4QO3OzPDaWy6w+03mKb9C+tPWnP/VJe92O1bmWtapdF41J/bEg9woFuWdoaNvQuWq0rddijf2vvdYpjLltm923EfJ9QDEvQ57/ejYHdnTl+PTe+2wJ8bCMvcVS3/1hU8d0fM5LmpOi5Cuf13Ubuet4tj5vsDa/Nt0kvg==
   </data>
  </layer>
- <layer name="collisions" width="144" height="72" opacity="0">
+ <layer name="collisions" width="144" height="72" visible="0">
   <data encoding="base64" compression="zlib">
    eJztnFGO6yAMRbPst5jpXp/mo5oIgX1tTEjac6SoCcHGMReTqdQ5DgAAAAAAuDuv4AEAAAAAAAAAAJ8F3wMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANTxb3cAAPC1jH4jyu9HP4cV82j9xvjcho6eT/X8tf56+unZwF6y/1+gUj+jemNdV8cAPj19zKzr2bmz9Kro5+wD1vNqPtvzc1vbp/r9w7NX9ePdgzyjfUnZqzy748jNm6q9qH6oQ7Vckc+o/0hMEf20/tFRnitzGNFCNKaMfrJjwR9X5m3l32lZ/bTjXvm/62ZjXkXk+UfvLe29tn/PhxLXbLyq7+rvCqLa8uysPCr9vfbZuLJ7wOpjNM4sO9bybB56/iLjWe0r5m0Uy9WsGHOHfiwy41eto5Vr/2iud+joW/Szq/5nfCt9z/dV/1a/LN+gnzdqvnbtBRYR/Sj2qtYVv9XcVT9vovqpqkOVtUt9FpWsnr5VP1ZM1XP0aj5Vm0it3HFEn0nl7vr5xVprvZqh+rH2mEzNmd1fVvOt+nmj6Mez99ojWrTu3VFL6EerPzPvKRX6sWLetXdFYo7wafqJ2J7bs/qJzls0vxmd9OLMjK3GZ13ficr9q1cTjuZT0UR03pT8ZvY/T1er9tKn6afX1pvzkb2SZ2us9tyqa975iKo5QD9/WLVHyZFnP/Ll6WBV/em1ZebmKfpRa26mNo/iimgisreN2hX9qLqLxJLJ11VU6KeXL2Ue1T3b2iMq9e+176g/vb31TlTpp5JIzYjWGcuX1z7Sj7JOvHHaMT0/EfuVupvRzx3qqlfrVI1Zte/cp3euxJixa33ssFV8W9eW3R3rqYIVt6cxxUeVnRJTdPxqMvq5oiZG60fU/6xddp1Fx44+84p8eeNZ44/urY5h1O+J+mmvo+9AVfwU+nqj1vJVuumtz2hMVx6ZOGae4e7sjFHJ01Py+BT+AxcjZns=
   </data>
  </layer>
  <objectgroup name="objects" width="144" height="72">
-  <object name="Water3" type="npo" x="1120" y="1600" width="992" height="608"/>
-  <object name="Water1" type="npo" x="2112" y="1536" width="96" height="704"/>
-  <object name="Water2" type="npo" x="2208" y="2144" width="384" height="96"/>
+  <object name="Water3" type="npo" x="1120" y="1600" width="992" height="608">
+   <properties>
+    <property name="actions" value="igniteBall,false"/>
+   </properties>
+  </object>
+  <object name="Water1" type="npo" x="2112" y="1536" width="96" height="704">
+   <properties>
+    <property name="actions" value="igniteBall,false"/>
+   </properties>
+  </object>
+  <object name="Water2" type="npo" x="2208" y="2144" width="384" height="96">
+   <properties>
+    <property name="actions" value="igniteBall,false"/>
+   </properties>
+  </object>
   <object name="heartYummy2" x="2496" y="2176" width="32" height="32">
    <properties>
-    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heart1-gone,changeActive,heart1-false,playSound,sndYummy"/>
+    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heartYummy2-gone,changeActive,heartYummy2-false,playSound,sndYummy"/>
     <property name="animations" value="pumping,0,16,pumping,gone,17,17,gone"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -89,7 +101,7 @@
   </object>
   <object name="heartYummy1" x="3904" y="2048" width="32" height="32">
    <properties>
-    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heart1-gone,changeActive,heart1-false,playSound,sndYummy"/>
+    <property name="actions" value="reduceHealth,-50,changeOthersAnim,heartYummy1-gone,changeActive,heartYummy1-false,playSound,sndYummy"/>
     <property name="animations" value="pumping,0,16,pumping,gone,17,17,gone"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -277,6 +289,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -1223,7 +1236,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,108,1586"/>
+    <property name="collisionParams" value="0,0,108,320"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -1362,7 +1375,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,108,1586"/>
+    <property name="collisionParams" value="0,0,108,320"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -1388,7 +1401,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,108,1586"/>
+    <property name="collisionParams" value="0,0,108,320"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -1619,11 +1632,15 @@
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
-  <object name="Water4" type="npo" x="1120" y="2208" width="736" height="64"/>
+  <object name="Water4" type="npo" x="1120" y="2208" width="736" height="64">
+   <properties>
+    <property name="actions" value="igniteBall,false"/>
+   </properties>
+  </object>
   <object name="Water5" type="npo" x="1760" y="2272" width="128" height="32"/>
   <object name="transmorgifierBowling7" x="2016" y="2240" width="32" height="32">
    <properties>
-    <property name="actions" value="changeOthersAnim,transmorgifierBowling2-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
+    <property name="actions" value="changeOthersAnim,transmorgifierBowling7-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value=""/>
@@ -1658,7 +1675,7 @@
    eJzt18kNwCAMBECqzNF/I0kF+WwSDMxI/C0he+3WgCq2++29i2BYx/3O3kUAANCNe2Jef/yte2Je/haAmdmBSdiTnukvEvoLAL5hRyNhRwOoR7aTkO1QmxlPwowHGEf1zK9e3+qqZ371+t6gR0is0CMAPchnEvIZoDY5T0LOAwAAAAAAAAAAAAAAAAAAAAAAAJC4ALy8Ecc=
   </data>
  </layer>
- <layer name="parallax fg 3" width="144" height="72" visible="0">
+ <layer name="parallax fg 3" width="144" height="72">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvg2iAAAB
   </data>

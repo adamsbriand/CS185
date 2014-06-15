@@ -266,6 +266,7 @@ public class GameScreen extends GameObject {
 		boolean collidable = false;
 		int count = 0;
 		MapProperties tempProperties;
+		float rotation = 0;
 
 		g.i().mapObjects.clear();
 		g.i().npMap.clear();
@@ -281,6 +282,9 @@ public class GameScreen extends GameObject {
 
 			if (tempProperties.get("y") != null) {
 				startY = MathUtils.round((float) tempProperties.get("y"));
+			}
+			if(tempProperties.get("rotation") != null){
+				rotation = -Float.parseFloat((String) tempProperties.get("rotation"));
 			}
 
 			if(name.startsWith("Ball"))
@@ -407,7 +411,7 @@ public class GameScreen extends GameObject {
 			temp = new NP(startX, startY, width, height, name, type,
 					conditions, action, anims, roamingRadius, spriteSheet,
 					animRows, animCols, collidable, collisionParameter, camera,
-					active);
+					active,rotation);
 
 			g.i().mapObjects.add(temp);
 
@@ -464,6 +468,7 @@ public class GameScreen extends GameObject {
 			animCols = 0;
 			collidable = false;
 			active = "true";
+			rotation = 0;
 		}
 
 	}

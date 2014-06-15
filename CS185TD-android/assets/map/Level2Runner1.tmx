@@ -96,7 +96,11 @@
    </properties>
   </object>
   <object name="enter1" x="236" y="1564" width="28" height="26"/>
-  <object name="Water" x="665" y="1858" width="513" height="466"/>
+  <object name="Water" x="665" y="1858" width="513" height="466">
+   <properties>
+    <property name="actions" value="igniteBall,false"/>
+   </properties>
+  </object>
   <object name="dragon" type="npcEnemy" x="589" y="197" width="256" height="128">
    <properties>
     <property name="actions" value="reduceHealth,10"/>
@@ -217,7 +221,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer name="collisions" width="36" height="72" opacity="0.01">
+ <layer name="collisions" width="36" height="72" visible="0">
   <data encoding="base64" compression="zlib">
    eJztmEsKwCAMBe39z+Bdi9BNxQ+tn7zIDGRTqQ5pjNgQAAAAIBGfOIGYRWksf1Ybgz7k7Q35+IZ1vkprWzjlfavWu3Z41XKyes1dAeCBHTU72ms87Ct1vx4r+tfIXLX3WvOtrJMZdTrTL79TeK+/v4yczZzbZZTyoOCiVBsqHuCjf3i9r+DkG5Xasv7vY73PrNcveYAt16I4xWcW+PTBp43aN1P2UUDJJaHqo+Kkdm7McLkBpTtbtw==
   </data>
