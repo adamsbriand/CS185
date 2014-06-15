@@ -16,7 +16,7 @@ public class GameScreen extends GameObject {
 	Stage stage;
 	MainGame game;
 	private OrthographicCamera backGroundCamera;
-	private OrthographicCamera foregroudCamera;
+	private OrthographicCamera foregroundCamera;
 	private boolean soundLoaded = false;
 	private int frameCount = 15;
 	private Group bgg = new Group();
@@ -66,7 +66,7 @@ public class GameScreen extends GameObject {
 		camera.update();
 		if (mode == 'R') {
 			backGroundCamera.update();
-			foregroudCamera.update();
+			foregroundCamera.update();
 		}
 
 		setCamera(g.i().hero.getX(), g.i().hero.getY());
@@ -159,12 +159,12 @@ public class GameScreen extends GameObject {
 	}
 
 	private void setForegroundCameraView() {
-		foregroudCamera.position.x = tiledMapWrapper.foregroundfactor
+		foregroundCamera.position.x = tiledMapWrapper.foregroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
-				+ foregroudCamera.viewportWidth / 2;
-		foregroudCamera.position.y = tiledMapWrapper.foregroundfactor
+				+ foregroundCamera.viewportWidth / 2;
+		foregroundCamera.position.y = tiledMapWrapper.foregroundfactor
 				* (camera.position.y - camera.viewportHeight / 2)
-				+ foregroudCamera.viewportHeight / 2;
+				+ foregroundCamera.viewportHeight / 2;
 	}
 
 	private void setUpCamera()
@@ -185,9 +185,9 @@ public class GameScreen extends GameObject {
 				backGroundCamera.setToOrtho(false, 640, h * 640 / w);
 				backGroundCamera.update();
 
-				foregroudCamera = new OrthographicCamera();
-				foregroudCamera.setToOrtho(false, 640, h * 640 / w);
-				foregroudCamera.update();
+				foregroundCamera = new OrthographicCamera();
+				foregroundCamera.setToOrtho(false, 640, h * 640 / w);
+				foregroundCamera.update();
 			} else {
 				camera = new OrthographicCamera();
 				camera.setToOrtho(false, 640, h * 640 / w);
@@ -197,9 +197,9 @@ public class GameScreen extends GameObject {
 				backGroundCamera.setToOrtho(false, 640, h * 640 / w);
 				backGroundCamera.update();
 
-				foregroudCamera = new OrthographicCamera();
-				foregroudCamera.setToOrtho(false, 640, h * 640 / w);
-				foregroudCamera.update();
+				foregroundCamera = new OrthographicCamera();
+				foregroundCamera.setToOrtho(false, 640, h * 640 / w);
+				foregroundCamera.update();
 			}
 		} else {
 			camera = new OrthographicCamera();
@@ -226,12 +226,12 @@ public class GameScreen extends GameObject {
 					backGroundCamera.viewportWidth * 2 + 10,
 					backGroundCamera.viewportHeight * 2 + 10);
 			setForegroundCameraView();
-			tiledMapWrapper.setForegroundView(foregroudCamera.combined,
-					foregroudCamera.position.x - foregroudCamera.viewportWidth
-							- 5, foregroudCamera.position.y
-							- foregroudCamera.viewportHeight - 5,
-					foregroudCamera.viewportWidth * 2 + 10,
-					foregroudCamera.viewportHeight * 2 + 10);
+			tiledMapWrapper.setForegroundView(foregroundCamera.combined,
+					foregroundCamera.position.x - foregroundCamera.viewportWidth
+							- 5, foregroundCamera.position.y
+							- foregroundCamera.viewportHeight - 5,
+					foregroundCamera.viewportWidth * 2 + 10,
+					foregroundCamera.viewportHeight * 2 + 10);
 		} else {
 			tiledMapWrapper.setPlayerLayerView(camera.combined,
 					camera.position.x - camera.viewportWidth - 5,
