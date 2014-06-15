@@ -63,9 +63,9 @@
   </data>
  </layer>
  <objectgroup name="objects" width="144" height="72">
-  <object name="water" type="npo" x="1120" y="1600" width="1056" height="672"/>
-  <object name="water" type="npo" x="2114" y="1541" width="93" height="152"/>
-  <object name="water" type="npo" x="2115" y="2147" width="478" height="91"/>
+  <object name="Water3" type="npo" x="1120" y="1600" width="1056" height="672"/>
+  <object name="Water1" type="npo" x="2114" y="1541" width="93" height="152"/>
+  <object name="Water2" type="npo" x="2115" y="2147" width="478" height="91"/>
   <object name="heartYummy2" x="2496" y="2176" width="32" height="32"/>
   <object name="heartYummy1" x="3904" y="2048" width="32" height="32"/>
   <object name="lava" x="675" y="1249" width="92" height="1057">
@@ -86,7 +86,7 @@
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="0,0,1568,36"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value="ballFlammable, true"/>
     <property name="mover" value="null"/>
@@ -170,9 +170,9 @@
   <object name="BallBalloon" x="4220" y="2023" width="34" height="34">
    <ellipse/>
   </object>
-  <object name="ballFlame30DegreesClockwise" x="766" y="1101" width="91" height="139"/>
-  <object name="ballFlame30DegreesCounterClockwise" x="581" y="1101" width="91" height="139"/>
-  <object name="ballFlame0Degrees" x="640" y="1056" width="160" height="224"/>
+  <object name="Flame30DegreesClockwise" x="766" y="1101" width="91" height="139"/>
+  <object name="Flame30DegreesCounterClockwise" x="581" y="1101" width="91" height="139"/>
+  <object name="Flame0Degrees" x="640" y="1056" width="160" height="224"/>
   <object name="switchp1" type="toggle vents 2 &amp; 4" x="4384" y="2112" width="32" height="32">
    <properties>
     <property name="actions" value="playSound,sndLightSwitch,toggleState,ventp2,toggleState,ventp4"/>
@@ -391,7 +391,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="90" />
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -483,7 +483,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="90" />
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -614,7 +614,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="-90" />
+    <property name="rotation" value="-90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -628,7 +628,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="-90" />
+    <property name="rotation" value="-90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -642,7 +642,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="90" />
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -656,7 +656,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="90" />
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -670,7 +670,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="-90" />
+    <property name="rotation" value="-90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -684,7 +684,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="-90" />
+    <property name="rotation" value="-90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -698,7 +698,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="90" />
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -712,7 +712,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="90" />
+    <property name="rotation" value="90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -739,7 +739,7 @@
     <property name="collisionShape" value=""/>
     <property name="conditions" value=""/>
     <property name="roamingRadius" value="0"/>
-    <property name="rotation" value="-90" />
+    <property name="rotation" value="-90"/>
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
@@ -1160,13 +1160,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objects fg" width="144" height="72">
+ <objectgroup name="objectsForeground" width="144" height="72">
   <object name="transmorgifierBase1" type="destination" x="2304" y="1920" width="32" height="32">
    <properties>
     <property name="actions" value="changeOthersAnim,transmorgifierBase1-transmorgify,playSound,transmorgify,changeMyAnim,Base"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1179,7 +1179,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierTennis1-transmorgify,playSound,transmorgify,changeMyAnim,Tennis"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1192,7 +1192,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1205,7 +1205,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierBowling1-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1218,7 +1218,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierBasket1-transmorgify,playSound,transmorgify,changeMyAnim,Basket"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1231,7 +1231,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong2-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1244,7 +1244,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierBowling2-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1257,7 +1257,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierBowling3-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1270,7 +1270,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierBowling4-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1283,7 +1283,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierPingPong2-transmorgify,playSound,transmorgify,changeMyAnim,PingPong"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -1296,7 +1296,7 @@
     <property name="actions" value="changeOthersAnim,transmorgifierBowling0-transmorgify,playSound,transmorgify,changeMyAnim,Bowling"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value="16,16,48,48"/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
