@@ -42,6 +42,7 @@ public class MoverAI extends MoverPhysics {
 			{
 				active = true;
 				g.i().sound.BGMusic("dragon");
+				g.i().sound.npNoise();
 			}
 		} else {
 			// Save the previous position
