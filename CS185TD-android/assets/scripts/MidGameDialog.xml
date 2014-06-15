@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DialogScript music = ""> 
+<DialogScript music = "" command = "screenShot"> 
     <dialog_en>
 		<Snippet 
 	    	name = "Wizard"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "Well done Ollie on making it this far!"
 	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "Wizard"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "You're journey is however about to get much harder."
 	    	finalPause = "4"/>
 	</dialog_en>
 	<dialog_es>
 	    <Snippet 
 	    	name = "Mago"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "Bien hecho Ollie al llegar hasta aqui!"
 	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "Mago"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "Tu viaje está a punto de volverse mucho más difícil."
 	    	finalPause = "4"/>
 	</dialog_es>
 	<dialog_vi>
 	    <Snippet 
 	    	name = "phù thủy"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "làm tốt lắm Ollie!"
 	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "phù thủy"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "nhưng cuộc hành trình của ngươi sẽ bắt đầu rất khó."
 	    	finalPause = "4"/>
 	</dialog_vi>
 	<dialog_zh>
 	    <Snippet 
 	    	name = "巫师"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "做得好,奥利!竟然能来到这里。"
 	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "巫师"	
-	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	background = ""
+	    	position = "C"
 	    	text = "但你的旅程正在变得更加艰难。"
 	    	finalPause = "4"/>
 	</dialog_zh>
@@ -60,13 +60,13 @@
 		<Snippet 
 	    	name = "ウィザード"	
 	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	position = "C"
 	    	text = "オーリー良くもここまでこれたな。"
 	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "ウィザード"	
 	    	background = "img/dialog/DlgMidGame.png"
-	    	position = "T"
+	    	position = "C"
 	    	text = "だが、君の旅はもっと困難になる。"
 	    	finalPause = "4"/>
 	</dialog_ja>

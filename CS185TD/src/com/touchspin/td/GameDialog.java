@@ -8,7 +8,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 
@@ -53,6 +55,9 @@ public class GameDialog extends GameObject
 	private int textPadding;
 	private boolean canBreakText;
 	private boolean masterSkip;
+	
+	private boolean usingScreenShot;
+	private Image screenShot;
 		
 	/**
 	 * Constructor
@@ -63,7 +68,7 @@ public class GameDialog extends GameObject
 	{			
 		Element languageRoot = null;
 		g.i().leAnonymizer.resetAll();
-		
+				
 		//parse XML file
 		xml = new XmlReader();		
 		script = Gdx.files.internal(scriptPath);	
@@ -81,6 +86,7 @@ public class GameDialog extends GameObject
 		//check if this dialog has its own music to play
 		if(!root.getAttribute("music").equals(""))
 			g.i().sound.BGMusic(root.getAttribute("music"));
+		
 		
 		//initialize variables
 		font = new BitmapFont(g.i().font);
@@ -102,8 +108,16 @@ public class GameDialog extends GameObject
 		canBreakText = true;
 		textPadding = 50;
 		masterSkip = false;		
+		screenShot = null;
 		
-		nextSnippet();			
+		nextSnippet();		
+		if(root.getAttribute("command").equals("screenShot"))
+		{
+			screenShot = new Image(ScreenUtils.getFrameBufferTexture());
+			usingScreenShot = true;
+		}
+		else
+			usingScreenShot = false;
 	}// end of constructor
 	
 	@Override
@@ -115,22 +129,26 @@ public class GameDialog extends GameObject
 	
 	@Override
 	public void draw() 
-	{
-
+	{		
 		Gdx.graphics.getGL20().glClearColor( 0, 0, 0, 0 );
-		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );	
-		
+		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );
+				
 		batch.begin();
 		//draw background
-		if(!backGroundPath.equals("black"))			
+		if(!usingScreenShot)
 		{
-			if(!backGroundPath.equals(lastPath))
+			if(!backGroundPath.equals("black"))			
 			{
-				lastPath = backGroundPath;
-				background = new Texture(Gdx.files.internal(backGroundPath));
-			}
-			batch.draw(background, w/2 - (background.getWidth()/2), h/2 - (background.getHeight()/2));
-		}			
+				if(!backGroundPath.equals(lastPath))
+				{
+					lastPath = backGroundPath;
+					background = new Texture(Gdx.files.internal(backGroundPath));
+				}
+				batch.draw(background, w/2 - (background.getWidth()/2), h/2 - (background.getHeight()/2));
+			}	
+		}
+		else
+			screenShot.draw(batch, 5);
 		
 		font.drawMultiLine(batch, currentText, textX, textY);				
 		
@@ -277,7 +295,7 @@ public class GameDialog extends GameObject
 				break;
 			
 			case 'C':
-				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
+				textX = textPadding;
 				textY = h/2;
 				break;
 			case'R':
