@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 
 /* ======================================================================================
  * g.java
@@ -41,6 +42,8 @@ public class g {
 	public boolean music;	// Music is activated
 	public float sfxLevel;	// Sound effect volume. 0=None, 1=Full
 	public float musicLevel;	// Music volume. 0=None, 1=Full
+	
+	public Random rnd = new Random();
 	
 	// System variables
 	public String language;	/* Language used. This is a two letter code indicating language
