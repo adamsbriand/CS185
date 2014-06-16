@@ -237,7 +237,7 @@ public class g {
 			break;
 		case "vi":
 			font = Gdx.files.internal("Font/viFont.fnt");
-			fontLarge = Gdx.files.internal("Font/viFont.fnt");
+			fontLarge = Gdx.files.internal("Font/viFont18.fnt");
 			CurrentLanguage = "ti\u1ebfng Vi\u1ec7t";
 			Continue = "ti\u1ebfp t\u1ee5c";
 			Gyro = "con quay h\u1ed3i chuy\u1ec3n";
@@ -258,7 +258,7 @@ public class g {
 			break;
 		case "ja":
 			font = Gdx.files.internal("Font/japFont.fnt");
-			fontLarge = Gdx.files.internal("Font/japFont.fnt");
+			fontLarge = Gdx.files.internal("Font/japFont18.fnt");
 			CurrentLanguage = "\u65e5\u672c\u8a9e";
 			Continue = "\u30b3\u30f3\u30c6\u30a3\u30cb\u30e5\u30fc";
 			Gyro = "\u30b8\u30e3\u30a4\u30ed";
