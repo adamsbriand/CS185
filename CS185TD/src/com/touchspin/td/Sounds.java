@@ -185,7 +185,10 @@ public class Sounds {
 	 * Sets up the bounce sounds based on the ball type.
 	 * ----------------------------------------------------------------------------------
 	 */
+	@SuppressWarnings("unused")
 	public void setBounce(){
+		String balltype = g.i().currentBallType.toLowerCase();
+		int stopme = 9;
 		switch (g.i().currentBallType.toLowerCase()){
 			case "pingpong":
 				bounce1 = Gdx.audio.newSound(pingPong1);
@@ -228,6 +231,7 @@ public class Sounds {
 				bounce2 = Gdx.audio.newSound(balloon2);
 				bounce3 = Gdx.audio.newSound(balloon3);
 				trans = Gdx.audio.newSound(balloonTran);
+				break;
 			default:
 				bounce1 = null;
 				bounce2 = null;
@@ -252,6 +256,9 @@ public class Sounds {
 	 * ----------------------------------------------------------------------------------
 	 */
 	public void Bounce(){
+		
+		@SuppressWarnings("unused")
+		int stopme = 3;
 		if (bounce1!=null){
 			Random random = new Random();
 			int rand = random.nextInt(3) + 1;
