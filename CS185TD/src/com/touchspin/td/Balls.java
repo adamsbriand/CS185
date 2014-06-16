@@ -62,20 +62,20 @@ public class Balls extends GameThing {
 	private float MaxDistance = 500;
 	private Vector2 myPosition = new Vector2();
 
-    public static final String BallBalloon      = "Balloon";
-    public static final String BallPingPong     = "PingPong";
-    public static final String BallBowling      = "Bowling";
-    public static final String BallBasket       = "Basket";
-    public static final String BallBase         = "Base";
-    public static final String BallTennis       = "Tennis";
-    public static final String BallBeach        = "Beach";
-    public static final String BallMarble       = "Marble";
-    public static final String BallSoccer       = "Soccer";
-    public static final String BallPool         = "Pool";
-    public static final String BallGolf         = "Golf";
-    public static final String BallBearing      = "BearingSteel";
+	public static final String BallBalloon = "Balloon";
+	public static final String BallPingPong = "PingPong";
+	public static final String BallBowling = "Bowling";
+	public static final String BallBasket = "Basket";
+	public static final String BallBase = "Base";
+	public static final String BallTennis = "Tennis";
+	public static final String BallBeach = "Beach";
+	public static final String BallMarble = "Marble";
+	public static final String BallSoccer = "Soccer";
+	public static final String BallPool = "Pool";
+	public static final String BallGolf = "Golf";
+	public static final String BallBearing = "BearingSteel";
 
-    /**
+	/**
 	 * The constructor.
 	 * 
 	 * @param ballType
@@ -147,24 +147,26 @@ public class Balls extends GameThing {
 	 */
 	@Override
 	public void draw(Batch batch, float alpha) {
-		if(myPosition.dst(g.i().hero.getX(), g.i().hero.getY())<MaxDistance || g.i().controls != 'A'){
-		if (active) {
-			batch.setProjectionMatrix(camera.combined);
-			if (frameCount == 60) {
-				ballSprite.setColor(Color.RED);
-			} else if (frameCount == 1) {
-				ballSprite.setColor(Color.WHITE);
+		if (myPosition.dst(g.i().hero.getX(), g.i().hero.getY()) < MaxDistance
+				|| g.i().controls != 'A') {
+			if (active) {
+				batch.setProjectionMatrix(camera.combined);
+				if (frameCount == 60) {
+					ballSprite.setColor(Color.RED);
+				} else if (frameCount == 1) {
+					ballSprite.setColor(Color.WHITE);
+				}
+				ballSprite.draw(batch);
+				if (fireOn) {
+					drawEffect(batch);
+				}
 			}
-			ballSprite.draw(batch);
-			if (fireOn) {
-				drawEffect(batch);
-			}
-		}
 		}
 	}
 
 	/**
-	 *  Draw fire effect
+	 * Draw fire effect
+	 * 
 	 * @param batch
 	 */
 	private void drawEffect(Batch batch) {
@@ -178,52 +180,55 @@ public class Balls extends GameThing {
 	 */
 	@Override
 	public void act(float delta) {
-		if(myPosition.dst(g.i().hero.getX(), g.i().hero.getY())<MaxDistance || g.i().controls != 'A'){
-		if (active) {
-			g.i().currentBall = this;
-			ballMover.move(this);
+		if (myPosition.dst(g.i().hero.getX(), g.i().hero.getY()) < MaxDistance
+				|| g.i().controls != 'A') {
+			if (active) {
+				g.i().currentBall = this;
+				ballMover.move(this);
 
-			// Attack
-			if (frameCount > 1)
-				frameCount--;
-			// position
-			setSpritesPosition();
+				// Attack
+				if (frameCount > 1)
+					frameCount--;
+				// position
+				setSpritesPosition();
 
-			// Rotation
-			ballSprite.rotate(360 * (ballMover.previousX - getX())
-					/ ((float) Math.PI * ballSprite.getRegionHeight()));
-			setRotationAndScale();
+				// Rotation
+				ballSprite.rotate(360 * (ballMover.previousX - getX())
+						/ ((float) Math.PI * ballSprite.getRegionHeight()));
+				setRotationAndScale();
 
-			// animation
-			stateTime += Gdx.graphics.getDeltaTime();
+				// animation
+				stateTime += Gdx.graphics.getDeltaTime();
 
-			currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
-			fireEffect.setRegion(currentFireFrame);
+				currentFireFrame = fireAnimation.getKeyFrame(stateTime, true);
+				fireEffect.setRegion(currentFireFrame);
 
-			currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
-			smokeEffect.setRegion(currentSmokeFrame);
+				currentSmokeFrame = smokeAnimation.getKeyFrame(stateTime, true);
+				smokeEffect.setRegion(currentSmokeFrame);
 
-			if (fireOn) {
-				countTime += Gdx.graphics.getDeltaTime();
-				if (countTime > 2) {
-					health -= 5;
-					countTime = 0;
+				if (fireOn) {
+					countTime += Gdx.graphics.getDeltaTime();
+					if (countTime > 2) {
+						health -= 5;
+						countTime = 0;
+					}
 				}
-			}
 
-			if (health < 0) {
-				active = false;
-			}
+				if (health < 0) {
+					active = false;
+				}
 
-			g.i().currentBall = null;
-		}
+				g.i().currentBall = null;
+			}
 		}
 		myPosition.set(getX(), getY());
 	}
 
 	/**
 	 * Change the ball to the specific ball type
-	 * @param type - the ball type the player will be change to
+	 * 
+	 * @param type
+	 *            - the ball type the player will be change to
 	 */
 	public void changeBall(String type) {
 
@@ -272,9 +277,10 @@ public class Balls extends GameThing {
 	}
 
 	/**
-	 * ignite the ball or put out fire 
-	 * @param fireOn - ignite the ball if true
-	 * put out the fire if false
+	 * ignite the ball or put out fire
+	 * 
+	 * @param fireOn
+	 *            - ignite the ball if true put out the fire if false
 	 */
 	public void igniteBall(boolean fireOn) {
 		this.fireOn = fireOn;
@@ -282,7 +288,9 @@ public class Balls extends GameThing {
 
 	/**
 	 * Change the ball's speed along x axis
-	 * @param speed - the base speed
+	 * 
+	 * @param speed
+	 *            - the base speed
 	 */
 	public void changeBallX(float speed) {
 		ballMover.speedXPerSecond = speed * ventRatio;
@@ -290,7 +298,9 @@ public class Balls extends GameThing {
 
 	/**
 	 * Change the ball's speed along y axis
-	 * @param speed - the base speed
+	 * 
+	 * @param speed
+	 *            - the base speed
 	 */
 	public void changeBallY(float speed) {
 		ballMover.speedYPerSecond = speed * ventRatio;
@@ -298,6 +308,7 @@ public class Balls extends GameThing {
 
 	/**
 	 * Get the current speed of the ball along y axis
+	 * 
 	 * @return the current speed along y axis
 	 */
 	public float getYSpeed() {
@@ -306,6 +317,7 @@ public class Balls extends GameThing {
 
 	/**
 	 * Get the current speed of the ball along x axis
+	 * 
 	 * @return the current speed along x axis
 	 */
 	public float getXSpeed() {
@@ -314,6 +326,7 @@ public class Balls extends GameThing {
 
 	/**
 	 * return the center of the ball
+	 * 
 	 * @return the center of the ball
 	 */
 	public Vector2 getCenter() {
@@ -326,8 +339,7 @@ public class Balls extends GameThing {
 	// --------------Private helper
 	// method------------------------------------------
 	/**
-	 * Set all sprites position based on actor's 
-	 * position
+	 * Set all sprites position based on actor's position
 	 */
 	private void setSpritesPosition() {
 		ballSprite.setX(getX());
@@ -346,17 +358,17 @@ public class Balls extends GameThing {
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
 				appearance.getWidth() / 6, appearance.getHeight() / 12);
 
-		ballTypeMap.put(BallBowling,      tmp[ 0][0]);
-		ballTypeMap.put(BallBasket,       tmp[ 1][0]);
-		ballTypeMap.put(BallPingPong,     tmp[ 2][0]);
-		ballTypeMap.put(BallBase,         tmp[ 4][0]);
-		ballTypeMap.put(BallBeach,        tmp[ 5][0]);
-		ballTypeMap.put(BallMarble,       tmp[ 6][0]);
-		ballTypeMap.put(BallSoccer,       tmp[ 7][0]);
-		ballTypeMap.put(BallPool,         tmp[ 8][0]);
-		ballTypeMap.put(BallTennis,       tmp[ 9][0]);
-		ballTypeMap.put(BallGolf,         tmp[10][0]);
-		ballTypeMap.put(BallBalloon,      tmp[11][0]);
+		ballTypeMap.put(BallBowling, tmp[0][0]);
+		ballTypeMap.put(BallBasket, tmp[1][0]);
+		ballTypeMap.put(BallPingPong, tmp[2][0]);
+		ballTypeMap.put(BallBase, tmp[4][0]);
+		ballTypeMap.put(BallBeach, tmp[5][0]);
+		ballTypeMap.put(BallMarble, tmp[6][0]);
+		ballTypeMap.put(BallSoccer, tmp[7][0]);
+		ballTypeMap.put(BallPool, tmp[8][0]);
+		ballTypeMap.put(BallTennis, tmp[9][0]);
+		ballTypeMap.put(BallGolf, tmp[10][0]);
+		ballTypeMap.put(BallBalloon, tmp[11][0]);
 	}
 
 	/**
@@ -529,11 +541,12 @@ public class Balls extends GameThing {
 	}
 
 	/**
-	 *  Randomly tint the ball.
+	 * Randomly tint the ball.
 	 */
 	private void randomTint() {
 
-			ballSprite.setColor(new Color(g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),1));
+		ballSprite.setColor(new Color(g.i().rnd.nextFloat(), g.i().rnd
+				.nextFloat(), g.i().rnd.nextFloat(), 1));
 
 	}
 }

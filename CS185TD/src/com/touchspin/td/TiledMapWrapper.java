@@ -13,6 +13,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
+
 /* ======================================================================================
  * File:			TiledMapWrapper.java
  * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
@@ -48,7 +49,7 @@ public class TiledMapWrapper {
 	int[] background;
 
 	int[] m1 = { 0, 1, 2 };
-	int[] m2 = { 0};
+	int[] m2 = { 0 };
 
 	float backgroundfactor = 0.5f;
 	float foregroundfactor = 1.5f;
@@ -58,7 +59,9 @@ public class TiledMapWrapper {
 
 	/**
 	 * The constructor
-	 * @param path - the path of the map file
+	 * 
+	 * @param path
+	 *            - the path of the map file
 	 */
 	public TiledMapWrapper(String path) {
 		ArrayList<Integer> foregroundLayer = new ArrayList<Integer>();
@@ -71,11 +74,12 @@ public class TiledMapWrapper {
 		name = path.substring(start, stop);
 		int i = 0;
 		for (MapLayer layer : tiledMap.getLayers()) {
-			if (layer.getName().contains("fg") && layer.getName().contains("parallax"))
+			if (layer.getName().contains("fg")
+					&& layer.getName().contains("parallax"))
 				foregroundLayer.add(i);
 			else if (layer.getName().contains("bg"))
 				backgroundLayer.add(i);
-			else if(layer.getName().contains("background"))
+			else if (layer.getName().contains("background"))
 				backgrounds.add(i);
 			else
 				playerLayer.add(i);
@@ -127,6 +131,7 @@ public class TiledMapWrapper {
 	public int getPixelHeight() {
 		return mapPixelHeight;
 	}
+
 	/**
 	 * 
 	 * @return the current tiledmap
@@ -134,6 +139,7 @@ public class TiledMapWrapper {
 	public TiledMap getTiledMap() {
 		return tiledMap;
 	}
+
 	/**
 	 * 
 	 * @return the renderer for background
@@ -156,14 +162,14 @@ public class TiledMapWrapper {
 	public void renderMap() {
 		playerTiledMapRenderer.render();
 	}
-	
+
 	/**
 	 * render background layers
 	 */
 	public void renderbackground() {
 		playerTiledMapRenderer.render(background);
 	}
-	
+
 	/**
 	 * render foreground layers
 	 */
@@ -177,8 +183,9 @@ public class TiledMapWrapper {
 	public void renderPlayerlayer() {
 		playerTiledMapRenderer.render(palyerLayers);
 	}
-	
-	/**Render foreground layers
+
+	/**
+	 * Render foreground layers
 	 * 
 	 */
 	public void renderForeground() {
@@ -202,6 +209,7 @@ public class TiledMapWrapper {
 
 	/**
 	 * Set background view properly.
+	 * 
 	 * @param projectionMatrix
 	 * @param viewboundsX
 	 * @param viewboundsY
@@ -216,6 +224,7 @@ public class TiledMapWrapper {
 
 	/**
 	 * Set player layer view properly.
+	 * 
 	 * @param projectionMatrix
 	 * @param viewboundsX
 	 * @param viewboundsY
@@ -241,7 +250,7 @@ public class TiledMapWrapper {
 		if (tiledMap.getLayers().get("Collision") != null)
 			collisionObjects = tiledMap.getLayers().get("Collision")
 					.getObjects();
-		
+
 		if (tiledMap.getLayers().get("collisions") != null) {
 			temp = (TiledMapTileLayer) tiledMap.getLayers().get("collisions");
 			tileWidth = temp.getTileWidth();
@@ -259,15 +268,16 @@ public class TiledMapWrapper {
 		if (tiledMap.getLayers().get("objects") != null) {
 			npObjects = tiledMap.getLayers().get("objects").getObjects();
 		}
-		if(tiledMap.getLayers().get("objectsForeground") != null)
-		{
-			for(MapObject object:tiledMap.getLayers().get("objectsForeground").getObjects())
-			npObjects.add(object);
+		if (tiledMap.getLayers().get("objectsForeground") != null) {
+			for (MapObject object : tiledMap.getLayers()
+					.get("objectsForeground").getObjects())
+				npObjects.add(object);
 		}
 	}
 
 	/**
 	 * Private helper method to help convert arraylist to array
+	 * 
 	 * @param integers
 	 * @return the converted array
 	 */
@@ -284,12 +294,11 @@ public class TiledMapWrapper {
 			return ret;
 		}
 	}
-	
+
 	/**
 	 * Dispose this class
 	 */
-	public void dispose()
-	{
+	public void dispose() {
 
 		tiledMap.dispose();
 	}

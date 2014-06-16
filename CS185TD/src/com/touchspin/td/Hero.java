@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+
 /* ======================================================================================
  * File:			Hero.java
  * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
@@ -60,8 +61,11 @@ public class Hero extends GameThing {
 
 	/**
 	 * The constructor
-	 * @param camera - the camera used in the game screen
-	 * @param tiledMapWrapper - the wrapper class of the tiledMap
+	 * 
+	 * @param camera
+	 *            - the camera used in the game screen
+	 * @param tiledMapWrapper
+	 *            - the wrapper class of the tiledMap
 	 */
 	public Hero(OrthographicCamera camera, TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
@@ -133,6 +137,7 @@ public class Hero extends GameThing {
 
 	/**
 	 * Draw effect
+	 * 
 	 * @param batch
 	 */
 	private void drawEffect(Batch batch) {
@@ -185,16 +190,18 @@ public class Hero extends GameThing {
 	}
 
 	/**
-	 * tint player read for 60 frames if
-	 * the player get hurt
+	 * tint player read for 60 frames if the player get hurt
 	 */
 	public void getHurt() {
 		frameCount = 60;
 	}
-/**
- * Change the ball type to the given type
- * @param type - the ball type to change to
- */
+
+	/**
+	 * Change the ball type to the given type
+	 * 
+	 * @param type
+	 *            - the ball type to change to
+	 */
 	public void changeBall(String type) {
 
 		switch (type) {
@@ -256,8 +263,7 @@ public class Hero extends GameThing {
 		g.i().sound.setBounce();
 		baseColor = Color.WHITE;
 		heroSprite.setColor(Color.WHITE);
-		if(type.equalsIgnoreCase("Balloon"))
-		{
+		if (type.equalsIgnoreCase("Balloon")) {
 			randomTint();
 		}
 		setSpriteBounds();
@@ -266,8 +272,10 @@ public class Hero extends GameThing {
 
 	/**
 	 * Ignited the ball or put out the fire
-	 * @param fireOn - ignite the player if it is true
-	 * put out the fire if it is false
+	 * 
+	 * @param fireOn
+	 *            - ignite the player if it is true put out the fire if it is
+	 *            false
 	 */
 	public void igniteBall(boolean fireOn) {
 		g.i().fire = fireOn;
@@ -278,29 +286,38 @@ public class Hero extends GameThing {
 
 	/**
 	 * Change the ball's speed along x axis
-	 * @param speed - the base speed
+	 * 
+	 * @param speed
+	 *            - the base speed
 	 */
 	public void changeBallX(float speed) {
-		if(ventRatio!=0)
-		heroMover.speedXPerSecond = speed * ventRatio;
+		if (ventRatio != 0)
+			heroMover.speedXPerSecond = speed * ventRatio;
 	}
+
 	/**
 	 * Change the ball's speed along y axis
-	 * @param speed - the base speed
+	 * 
+	 * @param speed
+	 *            - the base speed
 	 */
 	public void changeBallY(float speed) {
-		if(ventRatio!=0)
-		heroMover.speedYPerSecond = speed * ventRatio;
+		if (ventRatio != 0)
+			heroMover.speedYPerSecond = speed * ventRatio;
 	}
+
 	/**
 	 * Get the current speed of the ball along y axis
+	 * 
 	 * @return the current speed along y axis
 	 */
 	public float getYSpeed() {
 		return heroMover.speedYPerSecond;
 	}
+
 	/**
 	 * Get the current speed of the ball along x axis
+	 * 
 	 * @return the current speed along x axis
 	 */
 	public float getXSpeed() {
@@ -316,9 +333,10 @@ public class Hero extends GameThing {
 		camera.position.y = getY() + getHeight() / 2;
 		if (camera.position.x - camera.viewportWidth / 2 < 0)
 			camera.position.x = camera.viewportWidth / 2;
-		else if(camera.position.x + camera.viewportWidth / 2 > tiledMapWrapper.getPixelWidth())
-			camera.position.x = tiledMapWrapper.getPixelWidth() 
-			- camera.viewportWidth / 2;
+		else if (camera.position.x + camera.viewportWidth / 2 > tiledMapWrapper
+				.getPixelWidth())
+			camera.position.x = tiledMapWrapper.getPixelWidth()
+					- camera.viewportWidth / 2;
 		if (camera.position.x - camera.viewportWidth / 2 < 0)
 			camera.position.x = camera.viewportWidth / 2;
 		else if (camera.position.y + camera.viewportHeight > tiledMapWrapper
@@ -329,19 +347,19 @@ public class Hero extends GameThing {
 
 	/**
 	 * return the center of the ball
+	 * 
 	 * @return the center of the ball
 	 */
-	public Vector2 getCenter()
-	{
-		Vector2 center = new Vector2(getX()+radius,getY()+radius);
+	public Vector2 getCenter() {
+		Vector2 center = new Vector2(getX() + radius, getY() + radius);
 		return center;
-		
+
 	}
+
 	// --------------Private helper
 	// method------------------------------------------
 	/**
-	 * Set all sprites position based on actor's 
-	 * position
+	 * Set all sprites position based on actor's position
 	 */
 	private void setSpritesPosition() {
 		heroSprite.setX(getX());
@@ -351,6 +369,7 @@ public class Hero extends GameThing {
 		smokeEffect.setX(getX());
 		smokeEffect.setY(getY());
 	}
+
 	/**
 	 * load ball texture regions based on ball type
 	 */
@@ -359,19 +378,20 @@ public class Hero extends GameThing {
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
 				appearance.getWidth() / 6, appearance.getHeight() / 12);
 
-		ballTypeMap.put(Balls.BallBowling,      tmp[ 0][0]);
-		ballTypeMap.put(Balls.BallBasket,       tmp[ 1][0]);
-		ballTypeMap.put(Balls.BallPingPong,     tmp[ 2][0]);
-		ballTypeMap.put(Balls.BallBase,         tmp[ 4][0]);
-		ballTypeMap.put(Balls.BallBeach,        tmp[ 5][0]);
-		ballTypeMap.put(Balls.BallMarble,       tmp[ 6][0]);
-		ballTypeMap.put(Balls.BallSoccer,       tmp[ 7][0]);
-		ballTypeMap.put(Balls.BallPool,         tmp[ 8][0]);
-		ballTypeMap.put(Balls.BallTennis,       tmp[ 9][0]);
-		ballTypeMap.put(Balls.BallGolf,         tmp[10][0]);
-		ballTypeMap.put(Balls.BallBalloon,      tmp[11][0]);
+		ballTypeMap.put(Balls.BallBowling, tmp[0][0]);
+		ballTypeMap.put(Balls.BallBasket, tmp[1][0]);
+		ballTypeMap.put(Balls.BallPingPong, tmp[2][0]);
+		ballTypeMap.put(Balls.BallBase, tmp[4][0]);
+		ballTypeMap.put(Balls.BallBeach, tmp[5][0]);
+		ballTypeMap.put(Balls.BallMarble, tmp[6][0]);
+		ballTypeMap.put(Balls.BallSoccer, tmp[7][0]);
+		ballTypeMap.put(Balls.BallPool, tmp[8][0]);
+		ballTypeMap.put(Balls.BallTennis, tmp[9][0]);
+		ballTypeMap.put(Balls.BallGolf, tmp[10][0]);
+		ballTypeMap.put(Balls.BallBalloon, tmp[11][0]);
 
 	}
+
 	/**
 	 * Load in the fire animation
 	 */
@@ -389,6 +409,7 @@ public class Hero extends GameThing {
 		}
 		fireAnimation = new Animation(0.025f, fireFrames);
 	}
+
 	/**
 	 * Load in the smoke animation
 	 */
@@ -408,6 +429,7 @@ public class Hero extends GameThing {
 		}
 		smokeAnimation = new Animation(0.025f, smokeFrames);
 	}
+
 	/**
 	 * Set the rotation and scale of each ball properly
 	 */
@@ -470,6 +492,7 @@ public class Hero extends GameThing {
 		fireEffect.setScale(1f, scaleFactor);
 		smokeEffect.setScale(1f, scaleFactor);
 	}
+
 	/**
 	 * Set the bounds of the ball sprite
 	 */
@@ -497,6 +520,7 @@ public class Hero extends GameThing {
 					heroSprite.getHeight() / 2);
 		}
 	}
+
 	/**
 	 * Calculate the ball's acceleration along y axis in water
 	 */
@@ -505,26 +529,46 @@ public class Hero extends GameThing {
 		float floatforce = 0;
 		int inWaterdyFactor = 1;
 		switch (g.i().currentBallType) {
-		case Balls.BallPingPong: mass = 0.0027f; radius = 0.0200f; break;
-		case Balls.BallBowling : mass = 7.3000f; radius = 0.0900f; break;
-		case Balls.BallBasket  : mass = 2.6200f; radius = 0.1210f; break;
-		case Balls.BallBase    : mass = 0.1450f; radius = 0.0382f; break;
-		case Balls.BallTennis  : mass = 0.0600f; radius = 0.0335f; break;
-		case Balls.BallBalloon : mass = 0.0020f; radius = 0.1210f; break;
-		}	
-		floatforce = (float) (1000*9.8f * 4/3*Math.PI*Math.pow(radius, 3));
-		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;
-		float dy = force/mass;
+		case Balls.BallPingPong:
+			mass = 0.0027f;
+			radius = 0.0200f;
+			break;
+		case Balls.BallBowling:
+			mass = 7.3000f;
+			radius = 0.0900f;
+			break;
+		case Balls.BallBasket:
+			mass = 2.6200f;
+			radius = 0.1210f;
+			break;
+		case Balls.BallBase:
+			mass = 0.1450f;
+			radius = 0.0382f;
+			break;
+		case Balls.BallTennis:
+			mass = 0.0600f;
+			radius = 0.0335f;
+			break;
+		case Balls.BallBalloon:
+			mass = 0.0020f;
+			radius = 0.1210f;
+			break;
+		}
+		floatforce = (float) (1000 * 9.8f * 4 / 3 * Math.PI * Math.pow(radius,
+				3));
+		float force = (floatforce + (-9.8f * mass)) * inWaterdyFactor;
+		float dy = force / mass;
 		g.i().playerdyInWater = dy;
 	}
-	
+
 	/**
-	 *  Randomly tint the player.
+	 * Randomly tint the player.
 	 */
 	private void randomTint() {
 
-			baseColor = new Color(g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),1);
-			heroSprite.setColor(baseColor);
+		baseColor = new Color(g.i().rnd.nextFloat(), g.i().rnd.nextFloat(),
+				g.i().rnd.nextFloat(), 1);
+		heroSprite.setColor(baseColor);
 
 	}
 

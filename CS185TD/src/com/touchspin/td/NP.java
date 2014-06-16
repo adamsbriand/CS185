@@ -73,16 +73,16 @@ public class NP extends GameThing {
  * @param conditions - the condition parameter which need to be pass to the trigger
  * when this object is triggerd.
  * @param action - the actions which will be performed if the object is triggered.
- * @param anims
- * @param roamingRadius
- * @param spriteSheet
- * @param animRows
- * @param animCols
- * @param collidable
- * @param collisionParameter
- * @param camera
- * @param active
- * @param rotation
+ * @param anims - animation description
+ * @param roamingRadius - the roamingRadius
+ * @param spriteSheet - the spriteSheet used by this object
+ * @param animRows - the rows in the spritesheet
+ * @param animCols - the cols in the spritesheet
+ * @param collidable - if this object is collidable
+ * @param collisionParameter - collision parameter
+ * @param camera - the camera used in the game screen
+ * @param active - if this object is active
+ * @param rotation - rotation of the sprite
  */
 	public NP(int startX, int startY, int width, int height, String name,
 			String type, String conditions, String action, String anims,
@@ -139,10 +139,18 @@ public class NP extends GameThing {
 
 	}
 
+	/**
+	 * Change collidability
+	 * @param collidable - true if this object is collidable 
+	 */
 	public void setCollidable(boolean collidable) {
 		this.collidable = collidable;
 	}
 
+	/**
+	 * Change the current animation to the animation with the given name
+	 * @param animationName - the name of the animation to be changed to
+	 */
 	public void setAnimation(String animationName) {
 		if (animationSet.getCurrentAnimationDescription().name
 				.equalsIgnoreCase("Broken")) {
@@ -155,10 +163,17 @@ public class NP extends GameThing {
 
 	}
 
+	/**
+	 * Get the name of current animation
+	 * @return the name of current animation
+	 */
 	public String getAnimation() {
 		return animationSet.getCurrentAnimationDescription().name;
 	}
 
+	/**
+	 * Draw the object
+	 */
 	@Override
 	public void draw(Batch batch, float alpha) {
 		if(myPosition.dst(g.i().hero.getX(), g.i().hero.getY())<MaxDistance || g.i().controls != 'A')
@@ -170,14 +185,26 @@ public class NP extends GameThing {
 		}
 	}
 
+	/**
+	 * Get the name of this object
+	 * @return the name of this object
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Return true if this object's name matches the given name
+	 * @param name - the name to compare to
+	 * @return true if the name matches, else false
+	 */
 	public boolean nameMatch(String name) {
 		return this.name.equalsIgnoreCase(name);
 	}
 
+	/**
+	 * Update the object
+	 */
 	@Override
 	public void act(float delta) {
 		if (name.equalsIgnoreCase("Dragon"))
@@ -204,6 +231,10 @@ public class NP extends GameThing {
 		myPosition.y =  getY();
 	}
 
+	/**
+	 * Change the active state
+	 * @param value the true or false
+	 */
 	public void setActive(String value) {
 
 		if (value.equalsIgnoreCase("true"))
@@ -212,10 +243,17 @@ public class NP extends GameThing {
 			active = false;
 	}
 
-	public boolean getActive() { return active; }  // bda
+	/**
+	 * 
+	 * @return current active state
+	 */
+	public boolean getActive() { return active; }
 
-	// ---------------------Private helper method
-	// -------------------------------------------
+	// ---------------------Private helper method -------------------------------------------
+	
+	/**
+	 * load animations
+	 */
 	private void loadAnimation() {
 
 		TextureRegion[][] tmp = TextureRegion.split(spriteSheetTexture,
@@ -234,6 +272,9 @@ public class NP extends GameThing {
 
 	}
 
+	/**
+	 * load animationset
+	 */
 	private void loadAnimationSet() {
 		String temp[] = anims.split(",");
 		for (int i = 0; i < temp.length; i += 4) {
@@ -244,6 +285,10 @@ public class NP extends GameThing {
 
 	}
 
+	/**
+	 * Load animation map
+	 * @param Frames
+	 */
 	private void loadAnimationMap(TextureRegion[] Frames) {
 		Animation temp;
 		TextureRegion[] tempRegion;
@@ -258,12 +303,5 @@ public class NP extends GameThing {
 			if (i == 0)
 				currentAnimation = new Animation(0.025f, tempRegion);
 		}
-	}
-
-	public void chooseDestination() {
-		destination.set(MathUtils.random(0, roamingRadius),
-				MathUtils.random(0, roamingRadius));
-		if (originalPosition.dst(destination) > roamingRadius)
-			chooseDestination();
 	}
 }
