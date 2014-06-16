@@ -56,13 +56,20 @@ public class Sounds {
 	private final FileHandle tennis3 = Gdx.files.internal("snd/bounce/TennisBall3.mp3");
 	
 	// Transmorgification sounds
-	private final FileHandle balloonTran = Gdx.files.internal("snd/trans/TransBalloon.mp3");
-	private final FileHandle baseballTran = Gdx.files.internal("snd/trans/TransBaseball.mp3");
-	private final FileHandle basketTran = Gdx.files.internal("snd/trans/TransBasket.mp3");
-	private final FileHandle bowlingTran = Gdx.files.internal("snd/trans/TransBowling.mp3");
-	private final FileHandle pingPongTran = Gdx.files.internal("snd/trans/TransPingPong.mp3");
-	private final FileHandle tennisTran = Gdx.files.internal("snd/trans/TransTennis.mp3");
-	
+	private final FileHandle balloonTran = 
+			Gdx.files.internal("snd/trans/TransBalloon.mp3");
+	private final FileHandle baseballTran = 
+			Gdx.files.internal("snd/trans/TransBaseball.mp3");
+	private final FileHandle basketTran = 
+			Gdx.files.internal("snd/trans/TransBasket.mp3");
+	private final FileHandle bowlingTran = 
+			Gdx.files.internal("snd/trans/TransBowling.mp3");
+	private final FileHandle pingPongTran = 
+			Gdx.files.internal("snd/trans/TransPingPong.mp3");
+	private final FileHandle tennisTran = 
+			Gdx.files.internal("snd/trans/TransTennis.mp3");
+	private final FileHandle Transmorgification = 
+			Gdx.files.internal("snd/sfx/BallTransmorgification.mp3");
 	
 	// Sound effects
 	private final FileHandle brickCrash = Gdx.files.internal("snd/sfx/BrickCrash.mp3");
@@ -74,8 +81,6 @@ public class Sounds {
 	private final FileHandle airPuff = Gdx.files.internal("snd/sfx/AirPuff.mp3");
 	private final FileHandle yummy = Gdx.files.internal("snd/sfx/Yummy.mp3");
 	private final FileHandle switchFile = Gdx.files.internal("snd/sfx/Switch.mp3");
-	private final FileHandle Transmorgification = 
-			Gdx.files.internal("snd/sfx/BallTransmorgification.mp3");
 	private final FileHandle tubeDown = Gdx.files.internal("snd/sfx/DownTube.mp3");
 	private final FileHandle whistleDown = 
 			Gdx.files.internal("snd/sfx/SlideWhistleDown.mp3");
@@ -113,7 +118,7 @@ public class Sounds {
 	private Music windBlowing=null;
 	private Music bgMusic=null;
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Maintains the background music. Processes requests to play new background music. 
 	 * 
 	 * Input:
@@ -181,7 +186,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Sets up the bounce sounds based on the ball type.
 	 * ----------------------------------------------------------------------------------
 	 */
@@ -237,10 +242,11 @@ public class Sounds {
 				bounce2 = null;
 				bounce3 = null;
 				trans = null;
+				break;
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Plays a sound of a NPC 
 	 * ----------------------------------------------------------------------------------
 	 */
@@ -251,14 +257,11 @@ public class Sounds {
 		npnoises.play(g.i().sfxLevel);
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Chooses a random bounce sound from the set and plays it.  
 	 * ----------------------------------------------------------------------------------
 	 */
 	public void Bounce(){
-		
-		@SuppressWarnings("unused")
-		int stopme = 3;
 		if (bounce1!=null){
 			Random random = new Random();
 			int rand = random.nextInt(3) + 1;
@@ -276,7 +279,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Toggles the wind blowing sound
 	 * ----------------------------------------------------------------------------------
 	 */
@@ -292,7 +295,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Turns the wind sound on or off 
 	 * 
 	 * Input:
@@ -319,7 +322,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Toggles the fire sound. 
 	 * ----------------------------------------------------------------------------------
 	 */
@@ -335,7 +338,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Turn the fire sound on or off. 
 	 * 
 	 * Input:
@@ -362,7 +365,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Toggles the campfire sound on or off. 
 	 * ----------------------------------------------------------------------------------
 	 */
@@ -379,7 +382,7 @@ public class Sounds {
 			
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Turn the campfire sound on or off. 
 	 * 
 	 * Input:
@@ -400,7 +403,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Plays the requested sound effect
 	 * 
 	 * Input:
@@ -465,7 +468,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Plays the requested whistle sound effect.
 	 * 
 	 * Input:
@@ -487,7 +490,7 @@ public class Sounds {
 		whistle.play(g.i().sfxLevel);
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Mutes all sound effects. 
 	 * 
 	 * Input:
@@ -508,6 +511,7 @@ public class Sounds {
 				npnoises.stop();
 				npnoises=null;
 			}
+			if (trans!=null) trans.stop();
 		} else {
 			if (g.i().fire){
 				fire(true);
@@ -522,7 +526,7 @@ public class Sounds {
 		}
 	}
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * This would play a sound on button click, if we had a button click sound.   
 	 * ----------------------------------------------------------------------------------
 	 */
