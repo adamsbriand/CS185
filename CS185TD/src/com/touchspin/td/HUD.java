@@ -7,7 +7,25 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-
+/* ======================================================================================
+ * File:			HUD.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This class display a health bar
+ * 
+ * ======================================================================================
+ */
 public class HUD extends GameThing {
 	public OrthographicCamera camera;
 	private Sprite heroHealth;
@@ -18,6 +36,12 @@ public class HUD extends GameThing {
 	private int previousHealth;
 	private Animation  healthBarAnimation;
 
+
+	/**
+	 * The constructor
+	 * @param camera - the camera used in the game
+	 * @param tiledMapWrapper - the tiledMapWrapper used in the game
+	 */
 	public HUD(OrthographicCamera camera, TiledMapWrapper tiledMapWrapper) {
 		this.tiledMapWrapper = tiledMapWrapper;
 		this.camera = camera;
@@ -31,6 +55,9 @@ public class HUD extends GameThing {
 		setY(100);
 	}
 
+	/**
+	 * Draw the health bar
+	 */
 	@Override
 	public void draw(Batch batch, float alpha) {
 		batch.setProjectionMatrix(camera.combined);
@@ -38,6 +65,9 @@ public class HUD extends GameThing {
 		cover.draw(batch);
 	}
 
+	/**
+	 * Update the health bar
+	 */
 	@Override
 	public void act(float delta) {
 
@@ -55,6 +85,9 @@ public class HUD extends GameThing {
 
 	
 	//--------------Private helper method------------------------------------------
+	/**
+	 * Set the sprite's position based on the position of the actor
+	 */
 	private void setSpritesPosition()
 	{
 		float w = Gdx.graphics.getWidth();
@@ -70,7 +103,9 @@ public class HUD extends GameThing {
 		
 	}
     
-	
+	/**
+	 * Load the health bar animation
+	 */
     private void loadHealthBar()
 	{
     	TextureRegion [][] tempFrames;
