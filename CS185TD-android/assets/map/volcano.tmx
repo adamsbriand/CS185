@@ -1428,6 +1428,19 @@
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
+  <object name="transmorgifierBalloon100" x="1908" y="1533" width="32" height="32">
+   <properties>
+    <property name="actions" value="changeMyAnim,Balloon,changeOthersAnim,transmorgifierBalloon100-transmorgify,playSound,transmorgify,playSound,balloonTrans"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionParams" value=""/>
+    <property name="collisionShape" value="rect"/>
+    <property name="conditions" value=""/>
+    <property name="mover" value="null"/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="transmorgifier.png"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="objectsForeground" width="144" height="72">
   <object name="TransmorgifierBase1" type="destination" x="2304" y="1920" width="32" height="32">

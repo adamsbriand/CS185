@@ -28,9 +28,7 @@ public class MoverBall extends MoverPhysics {
 
 	private HashSet<NP> prev = new HashSet<NP>();
 	public ArrayList<Balls> acted = new ArrayList<Balls>();
-	private int frameCount = 30;
 	private Balls ball;
-	private Vector2 lineOfCenters= new Vector2();
 	private Vector2 speed = new Vector2();
 
 	/**
@@ -127,7 +125,6 @@ public class MoverBall extends MoverPhysics {
 		Vector2 dV2 = new Vector2(ball2.getXSpeed(),ball2.getYSpeed());
 		Vector2 u = new Vector2(ball1.getXSpeed()-dV2.x,ball1.getYSpeed()-dV2.y);
 		float imn = (float) (1/Math.pow((n.x*n.x+n.y*n.y),0.5));	
-		Vector2 nn = new Vector2(n.x*imn,n.y*imn);
 		float mv = (float) Math.pow((v.x*v.x+v.y*v.y),0.5); // magnitude of v
 		float cun = (float) (mv*Math.cos(Math.atan2(n.y,n.x)-Math.atan2(u.y, u.x)));
 		float sf = cun*imn;
@@ -160,7 +157,6 @@ public class MoverBall extends MoverPhysics {
 		Vector2 dV2 = new Vector2(ball2.getXSpeed(),ball2.getYSpeed());
 		Vector2 u = new Vector2(ball1.getXSpeed()-dV2.x,ball1.getYSpeed()-dV2.y);
 		float imn = (float) (1/Math.pow((n.x*n.x+n.y*n.y),0.5));	
-		Vector2 nn = new Vector2(n.x*imn,n.y*imn);
 		float mv = (float) Math.pow((v.x*v.x+v.y*v.y),0.5); // magnitude of v
 		float cun = (float) (mv*Math.cos(Math.atan2(n.y,n.x)-Math.atan2(u.y, u.x)));
 		float sf = cun*imn;
