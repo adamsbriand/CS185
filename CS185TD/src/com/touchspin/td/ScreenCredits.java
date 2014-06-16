@@ -34,7 +34,7 @@ public class ScreenCredits extends GameMenu {
 	// Constants
 	final String Creditsimage = "img/menu/TeamOllie2.png";
 	
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Constructor
 	 * 
 	 * Calls:
@@ -48,7 +48,7 @@ public class ScreenCredits extends GameMenu {
 		g.i().setZero();
 	}
 
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Sets up all the buttons on the screen. 
 	 * The credits screen is set as one large button. 
 	 * ----------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ public class ScreenCredits extends GameMenu {
 			stage.addActor(btn);
 		}
 
-	/* ----------------------------------------------------------------------------------
+	/**----------------------------------------------------------------------------------
 	 * Sets the a logo image on the screen. This method is called from the parent class
 	 * and is not set in this case. 
 	 * ----------------------------------------------------------------------------------
