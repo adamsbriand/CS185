@@ -1132,57 +1132,9 @@
    </properties>
   </object>
   <object name="enter1" type="destination" x="704" y="512" width="32" height="32"/>
-  <object name="VentToBlack1" type="vent" x="3072" y="2336" width="32" height="64">
+  <object name="VentToBlack1" type="vent" x="3072" y="2336" width="64" height="64">
    <properties>
     <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
-    <property name="animations" value="on,0,51,on"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionRect" value=""/>
-    <property name="collisionShape" value=""/>
-    <property name="conditions" value=""/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="AirPuff.png"/>
-   </properties>
-  </object>
-  <object name="VentToBlack2" type="vent" x="3088" y="2272" width="32" height="64">
-   <properties>
-    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
-    <property name="animations" value="on,0,51,on"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionRect" value=""/>
-    <property name="collisionShape" value=""/>
-    <property name="conditions" value=""/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="AirPuff.png"/>
-   </properties>
-  </object>
-  <object name="VentToBlack3" type="vent" x="3072" y="2208" width="32" height="64">
-   <properties>
-    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
-    <property name="animations" value="on,0,51,on"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionRect" value=""/>
-    <property name="collisionShape" value=""/>
-    <property name="conditions" value=""/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="AirPuff.png"/>
-   </properties>
-  </object>
-  <object name="VentToBlack4" type="vent" x="3088" y="2144" width="32" height="64">
-   <properties>
-    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
-    <property name="animations" value="on,0,51,on"/>
-    <property name="collidable" value="false"/>
-    <property name="collisionRect" value=""/>
-    <property name="collisionShape" value=""/>
-    <property name="conditions" value=""/>
-    <property name="roamingRadius" value="0"/>
-    <property name="spriteSheet" value="AirPuff.png"/>
-   </properties>
-  </object>
-  <object name="VentToBlack5" type="vent" x="3072" y="2080" width="32" height="64">
-   <properties>
-    <property name="actions" value="changeBallY,220,playSound,sndAirPuff"/>
     <property name="animations" value="on,0,51,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionRect" value=""/>
@@ -1428,6 +1380,18 @@
     <property name="spriteSheet" value="AirPuff.png"/>
    </properties>
   </object>
+  <object name="VentToBlack1" type="vent" x="3072" y="2208" width="64" height="64">
+   <properties>
+    <property name="actions" value="changeBallY,440,playSound,sndAirPuff"/>
+    <property name="animations" value="on,0,51,on"/>
+    <property name="collidable" value="false"/>
+    <property name="collisionRect" value=""/>
+    <property name="collisionShape" value=""/>
+    <property name="conditions" value=""/>
+    <property name="roamingRadius" value="0"/>
+    <property name="spriteSheet" value="AirPuff.png"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="objectsForeground" width="144" height="78">
   <object name="TransmorgifierBase1" type="destination" x="2304" y="2080" width="32" height="32">
@@ -1518,6 +1482,7 @@
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="180"/>
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
@@ -1531,6 +1496,7 @@
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="180"/>
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
@@ -1589,6 +1555,7 @@
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="180"/>
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
@@ -1602,6 +1569,7 @@
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
     <property name="roamingRadius" value="0"/>
+    <property name="rotation" value="180"/>
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
