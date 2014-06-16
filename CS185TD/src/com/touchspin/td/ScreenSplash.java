@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
@@ -27,7 +26,7 @@ import com.badlogic.gdx.utils.TimeUtils;
  * Project:			Ollie
  * --------------------------------------------------------------------------------------
  * 
- *  
+ * Shows a splash screen. 
  * 
  * ======================================================================================
  */
@@ -35,37 +34,36 @@ import com.badlogic.gdx.utils.TimeUtils;
 public class ScreenSplash extends GameMenu{
 	long timeStartGame;
 
+	/**----------------------------------------------------------------------------------
+	 * Constructor
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
 	public ScreenSplash(){
 		super();
 		timeStartGame = System.currentTimeMillis();
 		g.i().sound.BGMusic("menu");
 	}
 
+	/**----------------------------------------------------------------------------------
+	 * Set this class to auto-change to main menu if the user waits for 5 seconds. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	@Override
 	public void update() {
 		final int secondsWait = 5;
 		if (TimeUtils.millis()>(timeStartGame + ( 1000 * secondsWait))){
-			g.i().t.action("menu,Main");
-		}
-		if (width != Gdx.graphics.getWidth() || height != Gdx.graphics.getHeight()){
-			width = Gdx.graphics.getWidth();
-			height = Gdx.graphics.getHeight();
-			timeDelay = TimeUtils.millis();
-		}
-		if (timeDelay!=0){
-			if (TimeUtils.millis()>(timeDelay + 100)){
-				stage.clear();
-				batch = new SpriteBatch();
-				stage.getCamera().viewportWidth = Gdx.graphics.getWidth();
-			    stage.getCamera().viewportHeight = Gdx.graphics.getHeight();
-				setBG();
-				buttons();
-		        logo();
-		        timeDelay = 0;
-			}
+			g.i().t.game.setScreen(new ScreenMenu());
 		}
 	}
 
+	/**----------------------------------------------------------------------------------
+	 * Sets up all the buttons on the screen. 
+	 * The splash screen is set as one large button. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	@Override
 	void buttons() {
 		NinePatchDrawable draw = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal("img/menu/Title.png"))));
@@ -78,12 +76,17 @@ public class ScreenSplash extends GameMenu{
 		btn.setVisible(true);
 		btn.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("menu,Main");
+        		g.i().t.game.setScreen(new ScreenMenu());
         	}
         });
 		stage.addActor(btn);
 	}
 
+	/**----------------------------------------------------------------------------------
+	 * Sets the a logo image on the screen. This method is called from the parent class
+	 * and is not set in this case. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	@Override
 	void logo() {
 		// TODO Auto-generated method stub
