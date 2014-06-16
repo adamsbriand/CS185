@@ -47,12 +47,12 @@
  </layer>
  <layer name="blocks" width="36" height="72">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="decorations" width="36" height="72">
   <data encoding="base64" compression="zlib">
-   eJztmduSgjAMhi0iCFyzJ9fxsOq+/xtunCazmQwsrbYUlnwz/5QebLEmTW1XK2VJbI3VWFQ4XoWKzTrwGLmxUuZJZqzmxt2OQ9vy3CiNlfI4Ja6/G5Ssk/Pr6ys+/rUEey6MlS9LmBtlmNRrXp8vjx1Defzr27OGipEt9NEwHYwto3TLyimlulZ87iDa8jYtazNEht8tx3W7ML9reSWeX0CvoDfQO+gDtAN9gvYO9aE5Qp8n0Bn0BbqArqAb6NsM1yvTgNt2zDFa0b/0nb/gvhYL7oMukF8Srj4/VWhuQ9rCs3Mi59iFmDbiOn7fO/A4EYqu2KSkgeL3UCymdrTmcGhPEBKNxc+Tel1Rpgf/P0H5OSBjROr35vcGY90h+DLmfYryP+jyq5T3FFWEvYUPDY5PZz0p/ZzO4Jbo1/ffoWZqOlSL5658LfKPQvZQok3kaCcZltG9Bp2J5ZhSG7KlgrXTs3ZFURRFScsPTf0O4g==
+   eJztmWlvwyAMhkuaJU3yObu6qseu//8P5wpbsyyyQAshWfxIrwhHIaU2prDZKGtiZ6ymosHxGlRqtpHHKI2VskwKY7U0rnYc25aXRm2slNupcf19QMk6Ob+hvhLiX2uw58pYhbKGuVHGyb3mDfny1DGUx7+hPWusGNlDHx3T0dgySnesnFKq68XnjqItb9OzNmMU+N1KXLcr87uWN+L5EfQEega9gF5Be9Ab6OBRH5sT9HkGXUDvoA/QJ+gL9G3G65V5wG075Ri96F/6zl9wX0sF90EfyC8JX5+fKzS3MW3h3jmRc+xDShvxHX/oHXiciIUrNil5oPg9FoupnevMifYEMdFYfD+51xVlfvD/E5RfAjJG5H5vfm8w1R1CKFPepyj/A5df5bynaBLsLULocHw668np53QGt0a/vv4OLVPnUCueXflW5G+F7KFGmyjRTgoso3sNOhMrMaU2ZEsVa6dn7YqiKIqSlx/clw7c
   </data>
  </layer>
  <layer name="parallax fg 1" width="36" height="72" opacity="0.19">
@@ -115,7 +115,7 @@
    <properties>
     <property name="actions" value="reduceHealth,10"/>
     <property name="animations" value="fly,0,47,fly"/>
-    <property name="collidable" value="true"/>
+    <property name="collidable" value="false"/>
     <property name="collisionParams" value="32,32,192,64"/>
     <property name="spriteSheet" value="Dragon.png"/>
    </properties>
@@ -137,7 +137,7 @@
  <objectgroup name="objectsForeground" width="36" height="72">
   <object name="TransmorgifierBasket1" type="npo" x="928" y="2144" width="160" height="160">
    <properties>
-    <property name="actions" value="changeMyAnim,Basket,changeOthersAnim,transmorgifierBasket1-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Basket,changeOthersAnim,transmorgifierBasket1-transmorgify,playSound,transmorgify,playSound,basketTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -151,7 +151,7 @@
   </object>
   <object name="TransmorgifierBowling1" type="npo" x="32" y="1696" width="160" height="160">
    <properties>
-    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifierBowling1-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifierBowling1-transmorgify,playSound,transmorgify,playSound,bowlingTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -165,7 +165,7 @@
   </object>
   <object name="TransmorgifierPingPong1" type="npo" x="44" y="1311" width="160" height="160">
    <properties>
-    <property name="actions" value="changeMyAnim,PingPong,changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,PingPong,changeOthersAnim,transmorgifierPingPong1-transmorgify,playSound,transmorgify,playSound,pingPongTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -218,7 +218,7 @@
   </object>
   <object name="TransmorgifierBase1" type="npo" x="67" y="1054" width="160" height="160">
    <properties>
-    <property name="actions" value="changeMyAnim,Base,changeOthersAnim,transmorgifierBase1-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Base,changeOthersAnim,transmorgifierBase1-transmorgify,playSound,transmorgify,playSound,baseTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
@@ -233,7 +233,7 @@
  </objectgroup>
  <layer name="collisions" width="36" height="72" opacity="0">
   <data encoding="base64" compression="zlib">
-   eJztmFsKhDAMRev+19C9iuCHSF82SXNT74EyMDjNmTRN1ZTIn8j3WB1vVVztGKvzRXSJun5RvTVhDuS0+m/tu5n5R6/dndma3TU33MPf8M5XKbaH07tv1XqX1z2lddzS/7cahERgRc1Ke02EfYXu18Oif0nmqv2uNZ9lnWjUqaZffnxG2B9WSM5mnttlkPKA4IJUGygeJEb/iPq8guhExkGpLe/3Pt77zDt+yYP4chiNXXy0oE8f+rRBWzNkHwSQXC5QfVCc0M4NDZcTM/9kTQ==
+   eJztmFsKhDAMRev+19C9iuCHSF82SXNT74EyMDjNmTRN1ZTIn8j3WB1vVVztGKvzRXSJun5RvTVhDuS0+m/tu5n5R6/dndma3TU33MPf8M5XKbaH07tv1XqX1z2lddzS/7cahERgRc1Ke02EfYXu18Oif0nmqv2uNZ9lnWjUqaZffnxGrz0JknOZ53YZpDwguCDVBooHidE/oj6vIDqRcVBqy/u9j/c+845f8iC+HEZjFx8t6NOHPm3Q1gzZBwEklwtUHxQntHNDw+UEU9tjEw==
   </data>
  </layer>
 </map>
