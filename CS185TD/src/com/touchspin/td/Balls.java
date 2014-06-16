@@ -23,7 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -63,7 +62,20 @@ public class Balls extends GameThing {
 	private float MaxDistance = 500;
 	private Vector2 myPosition = new Vector2();
 
-	/**
+    public static final String BallBalloon      = "Balloon";
+    public static final String BallPingPong     = "PingPong";
+    public static final String BallBowling      = "Bowling";
+    public static final String BallBasket       = "Basket";
+    public static final String BallBase         = "Base";
+    public static final String BallTennis       = "Tennis";
+    public static final String BallBeach        = "Beach";
+    public static final String BallMarble       = "Marble";
+    public static final String BallSoccer       = "Soccer";
+    public static final String BallPool         = "Pool";
+    public static final String BallGolf         = "Golf";
+    public static final String BallBearing      = "BearingSteel";
+
+    /**
 	 * The constructor.
 	 * 
 	 * @param ballType
@@ -124,7 +136,7 @@ public class Balls extends GameThing {
 		smokeEffect.setOrigin(ballSprite.getWidth() / 2,
 				ballSprite.getHeight() / 2);
 
-		if (ballType.equalsIgnoreCase("balloon")) {
+		if (ballType.equalsIgnoreCase(BallBalloon)) {
 			randomTint();
 		}
 
@@ -216,33 +228,33 @@ public class Balls extends GameThing {
 	public void changeBall(String type) {
 
 		switch (type) {
-		case "PingPong":
+		case BallPingPong:
 			friction = 0.008f;
 			flammable = true;
 			radius = 2.9f;
 			break;
-		case "Bowling":
+		case BallBowling:
 			friction = 0.03f;
 			flammable = false;
 			radius = 15f;
 			fireOn = false;
 			break;
-		case "Basket":
+		case BallBasket:
 			friction = 0.011f;
 			flammable = true;
 			radius = 15f;
 			break;
-		case "Base":
+		case BallBase:
 			friction = 0.008f;
 			flammable = true;
 			radius = 11.08f;
 			break;
-		case "Tennis":
+		case BallTennis:
 			friction = 0.008f;
 			flammable = true;
 			radius = 11.08f;
 			break;
-		case "Balloon":
+		case BallBalloon:
 			friction = 0.008f;
 			flammable = true;
 			radius = 15f;
@@ -250,7 +262,7 @@ public class Balls extends GameThing {
 		}
 		ballType = type;
 		ballSprite.setRegion(ballTypeMap.get(type));
-		if (ballType.equalsIgnoreCase("Balloon")) {
+		if (ballType.equalsIgnoreCase(BallBalloon)) {
 			randomTint();
 		} else {
 			ballSprite.setColor(Color.WHITE);
@@ -334,18 +346,17 @@ public class Balls extends GameThing {
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
 				appearance.getWidth() / 6, appearance.getHeight() / 12);
 
-		ballTypeMap.put("Bowling", tmp[0][0]);
-		ballTypeMap.put("Basket", tmp[1][0]);
-		ballTypeMap.put("PingPong", tmp[2][0]);
-		ballTypeMap.put("BearingSteel", tmp[3][0]);
-		ballTypeMap.put("Base", tmp[4][0]);
-		ballTypeMap.put("Beachball", tmp[5][0]);
-		ballTypeMap.put("Marble", tmp[6][0]);
-		ballTypeMap.put("Soccerball", tmp[7][0]);
-		ballTypeMap.put("Poolball", tmp[8][0]);
-		ballTypeMap.put("Tennis", tmp[9][0]);
-		ballTypeMap.put("Golfball", tmp[10][0]);
-		ballTypeMap.put("Balloon", tmp[11][0]);
+		ballTypeMap.put(BallBowling,      tmp[ 0][0]);
+		ballTypeMap.put(BallBasket,       tmp[ 1][0]);
+		ballTypeMap.put(BallPingPong,     tmp[ 2][0]);
+		ballTypeMap.put(BallBase,         tmp[ 4][0]);
+		ballTypeMap.put(BallBeach,        tmp[ 5][0]);
+		ballTypeMap.put(BallMarble,       tmp[ 6][0]);
+		ballTypeMap.put(BallSoccer,       tmp[ 7][0]);
+		ballTypeMap.put(BallPool,         tmp[ 8][0]);
+		ballTypeMap.put(BallTennis,       tmp[ 9][0]);
+		ballTypeMap.put(BallGolf,         tmp[10][0]);
+		ballTypeMap.put(BallBalloon,      tmp[11][0]);
 	}
 
 	/**
@@ -485,27 +496,27 @@ public class Balls extends GameThing {
 		float floatforce = 0;
 		int inWaterdyFactor = 1;
 		switch (ballType) {
-		case "PingPong":
+		case BallPingPong:
 			mass = 0.0027f;
 			radius = 0.0200f;
 			break;
-		case "Bowling":
+		case BallBowling:
 			mass = 7.3000f;
 			radius = 0.0900f;
 			break;
-		case "Basket":
+		case BallBasket:
 			mass = 2.6200f;
 			radius = 0.1210f;
 			break;
-		case "Base":
+		case BallBase:
 			mass = 0.1450f;
 			radius = 0.0382f;
 			break;
-		case "Tennis":
+		case BallTennis:
 			mass = 0.0600f;
 			radius = 0.0335f;
 			break;
-		case "Balloon":
+		case BallBalloon:
 			mass = 0.0020f;
 			radius = 0.1210f;
 			break;

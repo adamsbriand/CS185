@@ -13,7 +13,25 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
-
+/* ======================================================================================
+ * File:			TiledMapWrapper.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This class is a wrapper class for tiledMap. This class provide easy access to 
+ * 
+ * ======================================================================================
+ */
 public class TiledMapWrapper {
 
 	private TiledMap tiledMap;
@@ -38,6 +56,10 @@ public class TiledMapWrapper {
 	MapObjects collisionObjects;
 	MapObjects npObjects;
 
+	/**
+	 * The constructor
+	 * @param path - the path of the map file
+	 */
 	public TiledMapWrapper(String path) {
 		ArrayList<Integer> foregroundLayer = new ArrayList<Integer>();
 		ArrayList<Integer> playerLayer = new ArrayList<Integer>();
@@ -90,53 +112,81 @@ public class TiledMapWrapper {
 
 	}
 
+	/**
+	 * 
+	 * @return the width in pixel of the tiled map
+	 */
 	public int getPixelWidth() {
 		return mapPixelWidth;
 	}
 
+	/**
+	 * 
+	 * @return the height in pixel of the tiled map
+	 */
 	public int getPixelHeight() {
 		return mapPixelHeight;
 	}
-
+	/**
+	 * 
+	 * @return the current tiledmap
+	 */
 	public TiledMap getTiledMap() {
 		return tiledMap;
 	}
-
+	/**
+	 * 
+	 * @return the renderer for background
+	 */
 	public TiledMapRenderer getBackgroundTiledMapRenderer() {
 		return backgroundTiledMapRenderer;
 	}
 
+	/**
+	 * 
+	 * @return the renderer for foreground
+	 */
 	public TiledMapRenderer getForegroundTiledMapRenderer() {
 		return foregroundTiledMapRenderer;
 	}
 
 	/**
-	 * If it is in Runner game mode then parallax will be done and the maps will
-	 * be rendered with different speeds. else it just renders the entire map
-	 * the same.
+	 * render all layers use the player renderer.
 	 */
 	public void renderMap() {
 		playerTiledMapRenderer.render();
 	}
 	
+	/**
+	 * render background layers
+	 */
 	public void renderbackground() {
 		playerTiledMapRenderer.render(background);
 	}
 	
+	/**
+	 * render foreground layers
+	 */
 	public void renderBackground() {
 		backgroundTiledMapRenderer.render(backgroundLayers);
 	}
 
+	/**
+	 * render player layers
+	 */
 	public void renderPlayerlayer() {
 		playerTiledMapRenderer.render(palyerLayers);
 	}
-
+	
+	/**Render foreground layers
+	 * 
+	 */
 	public void renderForeground() {
 		foregroundTiledMapRenderer.render(forgroundLayers);
 	}
 
 	/**
-	 * Mailing called by Hero class
+	 * Set foreground view properly.
 	 * 
 	 * @param projectionMatrix
 	 * @param viewboundsX
@@ -150,18 +200,37 @@ public class TiledMapWrapper {
 				viewboundsY, viewboundsWidth, viewboundsHeight);
 	}
 
+	/**
+	 * Set background view properly.
+	 * @param projectionMatrix
+	 * @param viewboundsX
+	 * @param viewboundsY
+	 * @param viewboundsWidth
+	 * @param viewboundsHeight
+	 */
 	public void setBackGroundView(Matrix4 projectionMatrix, float viewboundsX,
 			float viewboundsY, float viewboundsWidth, float viewboundsHeight) {
 		backgroundTiledMapRenderer.setView(projectionMatrix, viewboundsX,
 				viewboundsY, viewboundsWidth, viewboundsHeight);
 	}
 
+	/**
+	 * Set player layer view properly.
+	 * @param projectionMatrix
+	 * @param viewboundsX
+	 * @param viewboundsY
+	 * @param viewboundsWidth
+	 * @param viewboundsHeight
+	 */
 	public void setPlayerLayerView(Matrix4 projectionMatrix, float viewboundsX,
 			float viewboundsY, float viewboundsWidth, float viewboundsHeight) {
 		playerTiledMapRenderer.setView(projectionMatrix, viewboundsX,
 				viewboundsY, viewboundsWidth, viewboundsHeight);
 	}
 
+	/**
+	 * Get all map objects from the tiled map
+	 */
 	private void getObjects() {
 		TiledMapTileLayer temp;
 		RectangleMapObject tempObj = new RectangleMapObject();
@@ -197,6 +266,11 @@ public class TiledMapWrapper {
 		}
 	}
 
+	/**
+	 * Private helper method to help convert arraylist to array
+	 * @param integers
+	 * @return the converted array
+	 */
 	private int[] convertIntegers(ArrayList<Integer> integers) {
 
 		if (integers.size() != 0) {
@@ -211,6 +285,9 @@ public class TiledMapWrapper {
 		}
 	}
 	
+	/**
+	 * Dispose this class
+	 */
 	public void dispose()
 	{
 

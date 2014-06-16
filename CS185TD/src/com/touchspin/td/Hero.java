@@ -198,7 +198,7 @@ public class Hero extends GameThing {
 	public void changeBall(String type) {
 
 		switch (type) {
-		case "PingPong":
+		case Balls.BallPingPong:
 			g.i().playerFriction = 0.008f;
 			flammable = true;
 			ballWidth = 5.8f;
@@ -206,7 +206,7 @@ public class Hero extends GameThing {
 			ventRatio = 1f;
 			radius = 2.9f;
 			break;
-		case "Bowling":
+		case Balls.BallBowling:
 			g.i().playerFriction = 0.03f;
 			g.i().fire = false;
 			ballWidth = 30f;
@@ -216,7 +216,7 @@ public class Hero extends GameThing {
 			flammable = false;
 			g.i().fire = false;
 			break;
-		case "Basket":
+		case Balls.BallBasket:
 			g.i().playerFriction = 0.011f;
 			ballWidth = 30f;
 			ballHeight = 30f;
@@ -224,7 +224,7 @@ public class Hero extends GameThing {
 			ventRatio = 0.3f;
 			flammable = true;
 			break;
-		case "Base":
+		case Balls.BallBase:
 			g.i().playerFriction = 0.008f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
@@ -232,7 +232,7 @@ public class Hero extends GameThing {
 			ventRatio = 0.5f;
 			flammable = true;
 			break;
-		case "Tennis":
+		case Balls.BallTennis:
 			g.i().playerFriction = 0.008f;
 			ballWidth = 22.16f;
 			ballHeight = 22.16f;
@@ -240,7 +240,7 @@ public class Hero extends GameThing {
 			ventRatio = 0.5f;
 			flammable = true;
 			break;
-		case "Balloon":
+		case Balls.BallBalloon:
 			g.i().playerFriction = 0.015f;
 			ballWidth = 30f;
 			ballHeight = 30f;
@@ -359,18 +359,18 @@ public class Hero extends GameThing {
 		TextureRegion[][] tmp = TextureRegion.split(appearance,
 				appearance.getWidth() / 6, appearance.getHeight() / 12);
 
-		ballTypeMap.put("Base", tmp[4][0]);
-		ballTypeMap.put("Basket", tmp[1][0]);
-		ballTypeMap.put("Beachball", tmp[5][0]);
-		ballTypeMap.put("BearingSteel", tmp[3][0]);
-		ballTypeMap.put("Bowling", tmp[0][0]);
-		ballTypeMap.put("Golfball", tmp[10][0]);
-		ballTypeMap.put("Marble", tmp[6][0]);
-		ballTypeMap.put("PingPong", tmp[2][0]);
-		ballTypeMap.put("Poolball", tmp[8][0]);
-		ballTypeMap.put("Soccerball", tmp[7][0]);
-		ballTypeMap.put("Tennis", tmp[9][0]);
-		ballTypeMap.put("Balloon", tmp[11][0]);
+		ballTypeMap.put(Balls.BallBowling,      tmp[ 0][0]);
+		ballTypeMap.put(Balls.BallBasket,       tmp[ 1][0]);
+		ballTypeMap.put(Balls.BallPingPong,     tmp[ 2][0]);
+		ballTypeMap.put(Balls.BallBase,         tmp[ 4][0]);
+		ballTypeMap.put(Balls.BallBeach,        tmp[ 5][0]);
+		ballTypeMap.put(Balls.BallMarble,       tmp[ 6][0]);
+		ballTypeMap.put(Balls.BallSoccer,       tmp[ 7][0]);
+		ballTypeMap.put(Balls.BallPool,         tmp[ 8][0]);
+		ballTypeMap.put(Balls.BallTennis,       tmp[ 9][0]);
+		ballTypeMap.put(Balls.BallGolf,         tmp[10][0]);
+		ballTypeMap.put(Balls.BallBalloon,      tmp[11][0]);
+
 	}
 	/**
 	 * Load in the fire animation
@@ -505,12 +505,12 @@ public class Hero extends GameThing {
 		float floatforce = 0;
 		int inWaterdyFactor = 1;
 		switch (g.i().currentBallType) {
-		case "PingPong": mass = 0.0027f; radius = 0.0200f; break;
-		case "Bowling" : mass = 7.3000f; radius = 0.0900f; break;
-		case "Basket"  : mass = 2.6200f; radius = 0.1210f; break;
-		case "Base"    : mass = 0.1450f; radius = 0.0382f; break;
-		case "Tennis"  : mass = 0.0600f; radius = 0.0335f; break;
-		case "Balloon" : mass = 0.0020f; radius = 0.1210f; break;
+		case Balls.BallPingPong: mass = 0.0027f; radius = 0.0200f; break;
+		case Balls.BallBowling : mass = 7.3000f; radius = 0.0900f; break;
+		case Balls.BallBasket  : mass = 2.6200f; radius = 0.1210f; break;
+		case Balls.BallBase    : mass = 0.1450f; radius = 0.0382f; break;
+		case Balls.BallTennis  : mass = 0.0600f; radius = 0.0335f; break;
+		case Balls.BallBalloon : mass = 0.0020f; radius = 0.1210f; break;
 		}	
 		floatforce = (float) (1000*9.8f * 4/3*Math.PI*Math.pow(radius, 3));
 		float force = (floatforce + (-9.8f * mass))*inWaterdyFactor;
