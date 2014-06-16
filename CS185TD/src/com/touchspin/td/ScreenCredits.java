@@ -1,6 +1,7 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
@@ -80,7 +81,11 @@ public class ScreenCredits extends GameMenu {
 			btn.setVisible(true);
 			btn.addListener(new ChangeListener() {
 	        	public void changed (ChangeEvent event, Actor actor) {
-	        		g.i().t.game.setScreen(new ScreenMenu());
+	        		if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
+	        			g.i().t.game.setScreen(new ScreenTest());
+	        		} else {
+	        			g.i().t.game.setScreen(new ScreenMenu());
+	        		}
 	        	}
 	        });
 			stage.addActor(btn);
