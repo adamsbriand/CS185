@@ -126,6 +126,7 @@ public class Hero extends GameThing {
 		batch.setProjectionMatrix(camera.combined);
 		if (frameCount == 60) {
 			heroSprite.setColor(Color.RED);
+			Gdx.input.vibrate(1000);
 		} else if (frameCount == 1) {
 			heroSprite.setColor(baseColor);
 		}

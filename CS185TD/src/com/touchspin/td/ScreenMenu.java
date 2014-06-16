@@ -72,7 +72,7 @@ public class ScreenMenu extends GameMenu {
         //highScore.setColor(Color.GRAY);
         highScore.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("menu,Test,playSound,buttonClick");
+        		g.i().t.action("menu,credits,playSound,buttonClick");
         	}
         });
         stage.addActor(highScore);
