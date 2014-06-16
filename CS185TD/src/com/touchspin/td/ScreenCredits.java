@@ -77,7 +77,7 @@ public class ScreenCredits extends GameMenu {
 			btn.setVisible(true);
 			btn.addListener(new ChangeListener() {
 	        	public void changed (ChangeEvent event, Actor actor) {
-	        		g.i().t.action("menu,Main");
+	        		g.i().t.game.setScreen(new ScreenMenu());
 	        	}
 	        });
 			stage.addActor(btn);
@@ -99,7 +99,7 @@ public class ScreenCredits extends GameMenu {
 	public void update() {
 		final int secondsWait = 30;
 		if (TimeUtils.millis()>(timepoint + (1000 * secondsWait))){
-			g.i().t.action("menu,Main");
+			g.i().t.game.setScreen(new ScreenMenu());
 		}
 	}
 }
