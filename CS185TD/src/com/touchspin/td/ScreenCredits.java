@@ -81,7 +81,8 @@ public class ScreenCredits extends GameMenu {
 			btn.setVisible(true);
 			btn.addListener(new ChangeListener() {
 	        	public void changed (ChangeEvent event, Actor actor) {
-	        		if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
+	        		if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || 
+	        				Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)) {
 	        			g.i().t.game.setScreen(new ScreenTest());
 	        		} else {
 	        			g.i().t.game.setScreen(new ScreenMenu());
