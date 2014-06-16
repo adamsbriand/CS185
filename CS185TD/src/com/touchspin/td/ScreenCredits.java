@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
+import com.badlogic.gdx.utils.TimeUtils;
 
 /* ======================================================================================
  * File:			ScreenCredits.java
@@ -34,6 +35,9 @@ public class ScreenCredits extends GameMenu {
 	// Constants
 	final String Creditsimage = "img/menu/TeamOllie2.png";
 	
+	// Variables
+	long timepoint;
+	
 	/**----------------------------------------------------------------------------------
 	 * Constructor
 	 * 
@@ -43,7 +47,7 @@ public class ScreenCredits extends GameMenu {
 	 */
 	public ScreenCredits(){
 		super();
-		
+		timepoint = System.currentTimeMillis();
 		//reset the game to default values
 		g.i().setZero();
 	}
@@ -87,5 +91,15 @@ public class ScreenCredits extends GameMenu {
 	@Override
 	void logo() {
 	}
-
+	
+	/**----------------------------------------------------------------------------------
+	 * Set this class to auto-change to main menu if the user waits for 30 seconds. 
+	 * ----------------------------------------------------------------------------------
+	 */
+	public void update() {
+		final int secondsWait = 30;
+		if (TimeUtils.millis()>(timepoint + (1000 * secondsWait))){
+			g.i().t.action("menu,Main");
+		}
+	}
 }

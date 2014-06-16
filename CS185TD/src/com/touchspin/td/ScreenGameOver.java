@@ -1,17 +1,14 @@
 package com.touchspin.td;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.TimeUtils;
 
 /* ======================================================================================
@@ -29,7 +26,7 @@ import com.badlogic.gdx.utils.TimeUtils;
  * Project:			Ollie
  * --------------------------------------------------------------------------------------
  * 
- * 
+ * Displays a game over screen. 
  * 
  * ======================================================================================
  */
@@ -43,6 +40,13 @@ public class ScreenGameOver extends GameMenu{
 	// Variables
 	long timepoint;
 	
+	/**----------------------------------------------------------------------------------
+	 * Constructor
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
 	public ScreenGameOver(){
 		super();
 		timepoint = System.currentTimeMillis();
@@ -53,21 +57,11 @@ public class ScreenGameOver extends GameMenu{
 		g.i().setZero();
 	}
 	
-	/*
-	void setBG(){
-		camera = new OrthographicCamera();
-	    bg = new Sprite(new Texture(Gdx.files.internal(bgImage)));
-	    float ratio = Gdx.graphics.getHeight() / bg.getHeight();
-	    bg.setSize(bg.getWidth() * ratio, bg.getHeight() * ratio);
-		if (bg.getWidth() > Gdx.graphics.getWidth()){
-			ratio = Gdx.graphics.getWidth() / bg.getHeight();
-			bg.setSize(bg.getWidth() * ratio, bg.getHeight() * ratio);
-		}
-	    bg.setOrigin(bg.getWidth() / 2, bg.getHeight() / 2);
-	    bg.setPosition((Gdx.graphics.getWidth() - bg.getWidth()) / 2, 
-	    		(Gdx.graphics.getHeight() - bg.getHeight()) / 2);
-	}
-*/
+	/**----------------------------------------------------------------------------------
+	 * Sets up all the buttons on the screen. 
+	 * The game over screen is set as one large button. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	void buttons() {
 		stage.clear();
 		NinePatchDrawable draw = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal(bgImage))));
@@ -92,26 +86,13 @@ public class ScreenGameOver extends GameMenu{
         	}
         });
 		stage.addActor(btn);
-		
-		/*
-		final float xRow2 = Gdx.graphics.getHeight() / 15 * 13;
-    	final float yRow1_2 = Gdx.graphics.getWidth() / 9 * 7;
-    	final TextButton continueButton = 
-    			new TextButton(g.i().Continue, style);
-    	continueButton.addListener(new ChangeListener() {
-            public void changed (ChangeEvent event, Actor actor) {
-            	g.i().t.action("menu,Main");
-            }
-        });
-        stage.addActor(continueButton);
-        
-        float height = continueButton.getHeight() / 2;
-        float width = continueButton.getWidth() / 2;
-        
-        continueButton.setPosition(yRow1_2 - width, xRow2 - height);
-        */
 	}
 
+	/**----------------------------------------------------------------------------------
+	 * Sets the a logo image on the screen. This method is called from the parent class.
+	 * The size and position are overridden for this class. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	void logo() {
 		super.setLogo(Gdx.files.internal(logoImage));
 		logo.setSize(logo.getWidth() * .75f, logo.getHeight() *.75f);
@@ -119,8 +100,12 @@ public class ScreenGameOver extends GameMenu{
 				logo.getY() - logo.getHeight() / 5);
 	}
 	
+	/**----------------------------------------------------------------------------------
+	 * Set this class to auto-change to main menu if the user waits for 30 seconds. 
+	 * ----------------------------------------------------------------------------------
+	 */
 	public void update() {
-		int secondsWait = 30;
+		final int secondsWait = 30;
 		if (TimeUtils.millis()>(timepoint + (1000 * secondsWait))){
 			g.i().t.action("menu,Main");
 		}
