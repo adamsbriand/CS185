@@ -1,7 +1,6 @@
 package com.touchspin.td;
 
 import java.io.IOException;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
@@ -14,19 +13,36 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
 
-/**
- * Class used to display all in game dialog and control instructions
- * @author KingD777
- *
+/* ======================================================================================
+ * File:			GameDialog.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * Holds GameDialog class which is used to display all in-game dialog as well as
+ * the control instructions
+ * 
+ * ======================================================================================
  */
 public class GameDialog extends GameObject
 {
+	//---Variables---//
 	//used to parse XML file
 	private XmlReader xml;
 	private FileHandle script;	
 	private Element root;
 	private Array<Element> items;
 	
+	//used for display purposes
 	private SpriteBatch batch;
 	private BitmapFont font;				
 	
@@ -52,7 +68,9 @@ public class GameDialog extends GameObject
 	private int skipTextPauseTime;
 	private long finalPauseForSkip;
 	private boolean skipable;
-	private int textPadding;
+	private int textXPadding;
+	private int textYPadding;
+	private int commandLength; // length of embedded commands in xml script files
 	private boolean canBreakText;
 	private boolean masterSkip;
 	
@@ -61,6 +79,8 @@ public class GameDialog extends GameObject
 		
 	/**
 	 * Constructor
+	 * Sets defaults.
+	 * Calls : nextSnippet()
 	 * @param game
 	 * @param scriptPath
 	 */
@@ -73,7 +93,9 @@ public class GameDialog extends GameObject
 		xml = new XmlReader();		
 		script = Gdx.files.internal(scriptPath);	
 		try
-		{	root = xml.parse(script);	}
+		{	
+			root = xml.parse(script);//get parent	
+		}
 		catch(IOException e)
 		{}			
 		
@@ -85,8 +107,7 @@ public class GameDialog extends GameObject
 			
 		//check if this dialog has its own music to play
 		if(!root.getAttribute("music").equals(""))
-			g.i().sound.BGMusic(root.getAttribute("music"));
-		
+			g.i().sound.BGMusic(root.getAttribute("music"));		
 		
 		//initialize variables
 		font = new BitmapFont(g.i().font);
@@ -106,18 +127,18 @@ public class GameDialog extends GameObject
 		skipTextPauseTime = 2000;
 		skipable = true;
 		canBreakText = true;
-		textPadding = 50;
+		textXPadding = 50;
+		textYPadding = 70;
 		masterSkip = false;		
 		screenShot = null;
+		commandLength = 3;
+		usingScreenShot = false;
+		nextSnippet();	
 		
-		nextSnippet();		
-		if(root.getAttribute("command").equals("screenShot"))
-		{
-			screenShot = new Image(ScreenUtils.getFrameBufferTexture());
-			usingScreenShot = true;
-		}
-		else
-			usingScreenShot = false;
+		//check for actions in the parent of this dialog and perform it
+		if(!root.getAttribute("command").equals(""))		
+			performAction(root.getAttribute("command"), "null", false);		
+			
 	}// end of constructor
 	
 	@Override
@@ -148,8 +169,9 @@ public class GameDialog extends GameObject
 			}	
 		}
 		else
-			screenShot.draw(batch, 5);
+			screenShot.draw(batch, 1);
 		
+		// draw text
 		font.drawMultiLine(batch, currentText, textX, textY);				
 		
 		batch.end();
@@ -165,14 +187,14 @@ public class GameDialog extends GameObject
 		{
 			if(textArray[count].equals("C_"))	
 			{
-				performAction(textArray[count + 1],textArray[count + 2],true);
-				count += 2;		
+				performAction(textArray[count + 1],textArray[count + (commandLength - 1)],true);
+				count += commandLength - 1;		
 			}
 			else				
 				for(int innerCount = 0; innerCount < textArray[count].length(); innerCount++)
 				{
 					currentText += textArray[count].charAt(innerCount);
-					if(font.getBounds(currentText).width + textPadding > w && textArray[count].charAt(innerCount) != ' '&& 
+					if(font.getBounds(currentText).width + textXPadding > w && textArray[count].charAt(innerCount) != ' '&& 
 						canBreakText)					
 						breakText();
 				}
@@ -182,11 +204,12 @@ public class GameDialog extends GameObject
 	}
 	
 	/**
-	 * inserts a new line right before the last character in a text.
+	 * inserts a new line right before the last word in a text.
 	 */
 	private void breakText()
 	{
-		
+		//only in these languages does it matter where we break the text..because
+		//only in these languages that we are using the words need to be kept together
 		if(g.i().language == "en" || g.i().language == "es" || g.i().language == "fr")
 		{
 			int count = 0;
@@ -211,9 +234,12 @@ public class GameDialog extends GameObject
 	@Override
 	public void update() 
 	{		
+		//this if statement is for if the user can skip the current text at this time
+		// even though it is not print time.
+		//This is done to prevent the user from rapidly clicking skip at the first
+		// snippet and then have all those clicks register for the next snippets to come.
 		if(masterSkip)
-		{
-			
+		{			
 			if(g.i().leAnonymizer.pausePressed)
 			{
 				g.i().leAnonymizer.pausePressed = false;
@@ -229,6 +255,8 @@ public class GameDialog extends GameObject
 			}
 		}
 		
+		//if can print right now
+		//this is done to allow pauses and to print character by character
 		if(System.currentTimeMillis() >= nextPrintTime)
 		{
 			nextPrintTime = System.currentTimeMillis();
@@ -286,48 +314,20 @@ public class GameDialog extends GameObject
 		switch(position)
 		{
 			case'L':		
-				textX = textPadding;
-				textY = 70 + (int)(font.getCapHeight() * 2);
+				textX = textXPadding;
+				textY = textYPadding + (int)(font.getCapHeight() * 2);
 				break;
 			case 'T':
-				textX = textPadding;
+				textX = textXPadding;
 				textY = h - (int)(font.getCapHeight() * 2);
-				break;
-			
+				break;	
+			default:
 			case 'C':
-				textX = textPadding;
+				textX = textXPadding;
 				textY = h/2;
-				break;
-			case'R':
-				textX = w - textPadding - ((getSnippetTextLength() * font.getSpaceWidth()));
-				textY = h - 60 - (int)(font.getCapHeight() * 2);	
-				break;
-			case 'B':
-				textX = w/2 - ((currentText.length() * font.getSpaceWidth())/2);
-				textY = 60 + (int)(font.getCapHeight() * 2);
-				break;
+				break;			
 		}	
 	}// end of next snippet method
-	
-	/**
-	 * get total characters to display in current snippet
-	 * @return
-	 */
-	private int getSnippetTextLength()
-	{
-		int length = 0;
-		
-		for(int count = 0; count < textArray.length; count++)
-		{
-			if(textArray[count].equals("C_"))
-			{
-				count += 2;
-				continue;
-			}
-			length += textArray[count].length();
-		}
-		return length;
-	}
 	
 	/**
 	 * Adds the next char for displaying text
@@ -340,15 +340,16 @@ public class GameDialog extends GameObject
 		{
 			if(textArray[dialogCount].equals("C_"))// check if current text is for a command
 			{
-				dialogCount += 3;
+				dialogCount += commandLength;
 				performAction(textArray[dialogCount - 2], textArray[dialogCount - 1], false);
 			}
 			else
 			{
 				currentText += textArray[dialogCount].charAt(charCount++);
 				if(textArray[dialogCount].charAt(charCount - 1) == ' ')
-					currentText += textArray[dialogCount].charAt(charCount++);			
-				if(font.getBounds(currentText).width + textPadding> w && 
+					currentText += textArray[dialogCount].charAt(charCount++);	
+				//check if current text goes off screen
+				if(font.getBounds(currentText).width + textXPadding> w && 
 						textArray[dialogCount].charAt(charCount) != ' ' && canBreakText)					
 					breakText();
 			}
@@ -368,7 +369,7 @@ public class GameDialog extends GameObject
 	}
 		
 	/**
-	 * perform action commands that are embedded within the snippet text
+	 * Performs action commands that are embedded within the snippet text.
 	 * @param command
 	 * @param value
 	 * @param skipPauses
@@ -378,20 +379,15 @@ public class GameDialog extends GameObject
 		switch(command)
 		{
 		case "pause":		
-			if(!skipPauses)
-			{				
-				nextPrintTime += Integer.parseInt(value) * 100;
-			}
-			break;
-		
+			if(!skipPauses)							
+				nextPrintTime += Integer.parseInt(value) * 100;			
+			break;		
 		case "changeBackground":		
 			backGroundPath = value;
-			break;
-		
+			break;		
 		case "end":		
 			g.i().t.action(root.get("End"));
-			break;
-		
+			break;		
 		case "instaPrint":	
 			if(!skipPauses)
 				currentText += textArray[dialogCount++];
@@ -401,7 +397,11 @@ public class GameDialog extends GameObject
 				masterSkip = true;
 			else
 				masterSkip = false;
-			break;		
+			break;			
+		case "screenShot":
+			screenShot = new Image(ScreenUtils.getFrameBufferTexture());
+			usingScreenShot = true;
+			break;
 		default :				
 		}
 	}
