@@ -69,8 +69,8 @@ public class g {
 							 * ja=Japanese
 							 * vi=Vietnamese
 							 */
-	public FileHandle font;
-	public FileHandle fontLarge;
+	public FileHandle font;		// Holds the font files. This is changed for each language.
+	public FileHandle fontLarge;// Holds a larger font. This is changed for each language. 
 	public char controls;	/* Control set being used. 
 							 * A=Android
 							 * K=Keyboard
