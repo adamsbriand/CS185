@@ -32,7 +32,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  * Project:			Ollie
  * --------------------------------------------------------------------------------------
  * 
- * 
+ * This menu is for development. This provides quick access to parts of the game for
+ * testing.  Most of this code is from tutorials. It looks bad, but is not intended for
+ * public consumption. 
  * 
  * ======================================================================================
  */
@@ -41,24 +43,30 @@ public class ScreenTest implements Screen {
     Skin skin;
     Stage stage;
     SpriteBatch batch;
-    MainGame game;
     
-    public ScreenTest (MainGame MainGame){
-        create();
-        this.game=MainGame;
-    }
- 
-    public ScreenTest(){
+    /**----------------------------------------------------------------------------------
+	 * Constructor
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
+    public ScreenTest (){
         create();
     }
     
+    /**----------------------------------------------------------------------------------
+	 * Sets up the stage, and sets the skins for the buttons. Then sets the buttons.
+	 * This is all very messy. Only for developers type of thing. Why are you reading
+	 * this comment. It is completely useless. Well, not completely. I guess it does have
+	 * some use. Well, in any case, this method is a complete mess. 
+	 * ----------------------------------------------------------------------------------
+	 */
     public void create(){
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
  
-        // A skin can be loaded via JSON or defined programmatically, either is fine. Using a skin is optional but strongly
-        // recommended solely for the convenience of getting a texture, region, etc as a drawable, tinted drawable, etc.
         skin = new Skin();
         // Generate a 1x1 white texture and store it in the skin named "white".
         Pixmap pixmap = new Pixmap(100, 100, Format.RGBA8888);
@@ -67,25 +75,18 @@ public class ScreenTest implements Screen {
  
         skin.add("white", new Texture(pixmap));
  
-        // Store the default libgdx font under the name "default".
         BitmapFont bfont=new BitmapFont();
         bfont.scale(1);
         skin.add("default",bfont);
  
-        // Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
         TextButtonStyle textButtonStyle = new TextButtonStyle();
         textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY);
         textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY);
         textButtonStyle.checked = skin.newDrawable("white", Color.BLUE);
         textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY);
- 
         textButtonStyle.font = skin.getFont("default");
- 
         skin.add("default", textButtonStyle);
         
-        //Slider slider = new Slider(0, 100, 1, false, );
- 
-        // Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
         final int dX     = 200; // 300
         final int dY     = 100; // 120
         final int xOff = 50; // 200
@@ -162,6 +163,10 @@ public class ScreenTest implements Screen {
         });
     }
  
+    /**----------------------------------------------------------------------------------
+     * Display everything. 
+     * ----------------------------------------------------------------------------------
+     */
     public void render (float delta) {
         Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -170,38 +175,57 @@ public class ScreenTest implements Screen {
         Table.drawDebug(stage);
     }
  
+    /**----------------------------------------------------------------------------------
+     * Unused abstract method.
+     * ----------------------------------------------------------------------------------
+     */
     @Override
     public void resize (int width, int height) {
-        //stage.setViewport(width, height, false);
     }
  
+    /**----------------------------------------------------------------------------------
+     * Dispose of stage and skin when disposed. 
+     * ----------------------------------------------------------------------------------
+     */
     @Override
     public void dispose () {
         stage.dispose();
         skin.dispose();
     }
  
+    /**----------------------------------------------------------------------------------
+     * Unused abstract method.
+     * ----------------------------------------------------------------------------------
+     */
     @Override
     public void show() {
         // TODO Auto-generated method stub
- 
     }
  
+    /**----------------------------------------------------------------------------------
+     * Unused abstract method.
+     * ----------------------------------------------------------------------------------
+     */
     @Override
     public void hide() {
         // TODO Auto-generated method stub
- 
     }
- 
+    
+    /**----------------------------------------------------------------------------------
+     * Unused abstract method.
+     * ----------------------------------------------------------------------------------
+     */
     @Override
     public void pause() {
         // TODO Auto-generated method stub
- 
     }
- 
+    
+    /**----------------------------------------------------------------------------------
+     * Unused abstract method.
+     * ----------------------------------------------------------------------------------
+     */
     @Override
     public void resume() {
         // TODO Auto-generated method stub
- 
     }
 }
