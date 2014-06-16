@@ -294,24 +294,26 @@ public class Trigger {
 	 * ----------------------------------------------------------------------------------
 	 */
 	private void changeHealth(String value) {
-		if(g.i().currentBall == null)
-		{
-		g.i().playerHealth -= Integer.parseInt(value);
-		
-		// Check to see if health is above the maximum. 
-		// Another section checks for minimum health. 
-		if (g.i().playerHealth > g.i().maxHealth) {
-			g.i().playerHealth = g.i().maxHealth;
-		}
-		g.i().hero.getHurt();
-		}
-		else
-		{
+		if(g.i().currentBall == null) {
+			g.i().playerHealth -= Integer.parseInt(value);
+			
+			// Check to see if health is above the maximum. 
+			// Another section checks for minimum health. 
+			if (g.i().playerHealth > g.i().maxHealth) {
+				g.i().playerHealth = g.i().maxHealth;
+			}
+			if (Integer.parseInt(value) > 0) {
+				g.i().hero.getHurt();
+			}
+		} else {
 			g.i().currentBall.health -= Integer.parseInt(value);
 			// Check to see if health is above the maximum. 
 			// Another section checks for minimum health. 
 			if (g.i().currentBall.health > g.i().maxHealth) {
 				g.i().currentBall.health = g.i().maxHealth;
+			}
+			if (Integer.parseInt(value) > 0) {
+				g.i().hero.getHurt();
 			}
 		}
 	}
