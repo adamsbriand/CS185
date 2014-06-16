@@ -6,7 +6,25 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 public class MoverAI extends MoverPhysics {
-
+	/* ======================================================================================
+	 * File:			MoverAI.java
+	 * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+	 * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+	 * 					Damian Forrester - dforrester777@gmail.com
+	 * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+	 * 
+	 * Organization:	Edmonds Community College
+	 * Term:			Spring 2014
+	 * Class:			CS 185 - Game Project Developement
+	 * Instructor:		Tim Hunt - thunt@edcc.edu
+	 * 
+	 * Project:			Ollie
+	 * --------------------------------------------------------------------------------------
+	 * 
+	 * This class handles the movement for dragon
+	 * 
+	 * ======================================================================================
+	 */
 	private NP np;
 	private RectangleMapObject collisionObject;
 	private final float movingAcceleration;
@@ -14,6 +32,10 @@ public class MoverAI extends MoverPhysics {
 	private Vector2 path;
 	private boolean active = false;
 
+	/**
+	 * The constructor
+	 * @param np - the non player object to move
+	 */
 	public MoverAI(NP np) {
 		movingAcceleration = 10;
 		movingDeceleration = 25;
@@ -30,6 +52,9 @@ public class MoverAI extends MoverPhysics {
 		}
 	}
 
+	/**
+	 * Calculate the AI path and move the object based on it. 
+	 */
 	@Override
 	public void move(GameThing gameThing) {
 
@@ -62,6 +87,9 @@ public class MoverAI extends MoverPhysics {
 
 	}
 
+	/**
+	 * Calculate the movement path.
+	 */
 	public void AIMove() {
 		path.x = g.i().hero.getX() + g.i().hero.getWidth() / 2 - np.getX()
 				- np.getWidth() / 2;

@@ -8,6 +8,25 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
+/* ======================================================================================
+ * File:			MoverBall.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This class handles ball movement which includes elastic collision
+ * 
+ * ======================================================================================
+ */
 public class MoverBall extends MoverPhysics {
 
 	private HashSet<NP> prev = new HashSet<NP>();
@@ -17,23 +36,25 @@ public class MoverBall extends MoverPhysics {
 	private Vector2 lineOfCenters= new Vector2();
 	private Vector2 speed = new Vector2();
 
+	/**
+	 * Defualt constructor
+	 * @param ball assign the ball to this mover
+	 */
 	public MoverBall(Balls ball) {
 		super();
 		this.ball = ball;
 	}
 	
-	
+	/**
+	 * Move balls and handle the elastic collision
+	 */
 	@Override
 	public void move(GameThing gameThing) {
 		this.gameThing = gameThing;
 
-		// Save the previous position
 		previousX = gameThing.getX();
 		previousY = gameThing.getY();
-		// Try to move
 		physicsMove();
-		// If movement is failed, set the position of the
-		// actor to previous position
 
 		gameThing.setX(gameThing.getX() + Gdx.graphics.getDeltaTime()
 				* speedXPerSecond);
@@ -68,6 +89,9 @@ public class MoverBall extends MoverPhysics {
 
 	}
 	
+	/**
+	 * Detect ball collision
+	 */
 	private void ballCollisionDetection()
 	{
 		
@@ -93,47 +117,11 @@ public class MoverBall extends MoverPhysics {
 		}
 	}
 	
-//	private void ballElsaticCollision(Balls ball1, Balls ball2)
-//	{
-//		float collisionAngle = 0;
-//		float v1x = 0;
-//		float v1y = 0;
-//		float v2x = 0;
-//		float v2y = 0;
-//		
-//		float f1x = 0;
-//		float f2x = 0;
-//		
-//		float f1x0 = 0;
-//		float f1y0 = 0;
-//		float f2x0 = 0;
-//		float f2y0 = 0;
-//		
-//		collisionAngle = MathUtils.atan2(ball1.getCenter().y-ball2.getCenter().y,ball1.getCenter().x-ball2.getCenter().x);
-//		
-//		v1x = ball1.getXSpeed()*MathUtils.cos(collisionAngle) + ball1.getYSpeed()*MathUtils.sin(collisionAngle);
-//		v1y = ball1.getYSpeed()*MathUtils.cos(collisionAngle) + ball1.getXSpeed()*MathUtils.sin(collisionAngle);
-//		
-//		v2x = ball2.getXSpeed()*MathUtils.cos(collisionAngle) + ball2.getYSpeed()*MathUtils.sin(collisionAngle);
-//		v2y = ball2.getYSpeed()*MathUtils.cos(collisionAngle) + ball2.getXSpeed()*MathUtils.sin(collisionAngle);
-//		
-//		f1x = (v1x * (ball1.mass - ball2.mass) + 2*ball2.mass*v2x)/(ball1.mass + ball2.mass);
-//		f2x = (v2x * (ball1.mass - ball2.mass) + 2*ball2.mass*v1x)/(ball1.mass + ball2.mass);
-//		
-//		f1x0 = f1x * MathUtils.cos(collisionAngle) + v1y *MathUtils.sin(collisionAngle);
-//		f1y0 = f1x * MathUtils.sin(collisionAngle) + v1y *MathUtils.cos(collisionAngle);
-//		f2x0 = f2x * MathUtils.cos(collisionAngle) + v2y *MathUtils.sin(collisionAngle);
-//		f2y0 = f2x * MathUtils.sin(collisionAngle) + v2y *MathUtils.cos(collisionAngle);
-//		
-//		ball1.ballMover.speedXPerSecond = f1x0;
-//		ball1.ballMover.speedYPerSecond = f1y0;
-//		
-//		ball2.ballMover.speedXPerSecond = f2x0;
-//		ball2.ballMover.speedYPerSecond = f2y0;
-//		
-//		
-//	}
-	
+	/**
+	 * Handle ball to ball elastic collision reaction 
+	 * @param ball1 - the first ball
+	 * @param ball2 - the second ball
+	 */
 	private void ballElsaticCollision(Balls ball1, Balls ball2)
 	{
 		Vector2 v = new Vector2(ball1.getXSpeed()-ball2.getXSpeed(),ball1.getYSpeed()-ball2.getYSpeed());
@@ -161,47 +149,12 @@ public class MoverBall extends MoverPhysics {
 		
 	}
 	
-//	private void ballElsaticCollision(Balls ball1, Hero ball2)
-//	{
-//		float collisionAngle = 0;
-//		float v1x = 0;
-//		float v1y = 0;
-//		float v2x = 0;
-//		float v2y = 0;
-//		
-//		float f1x = 0;
-//		float f2x = 0;
-//		
-//		float f1x0 = 0;
-//		float f1y0 = 0;
-//		float f2x0 = 0;
-//		float f2y0 = 0;
-//		
-//		collisionAngle = MathUtils.atan2(ball1.getCenter().y-ball2.getCenter().y,ball1.getCenter().x-ball2.getCenter().x);
-//		
-//		v1x = ball1.getXSpeed()*MathUtils.cos(collisionAngle) + ball1.getYSpeed()*MathUtils.sin(collisionAngle);
-//		v1y = ball1.getYSpeed()*MathUtils.cos(collisionAngle) + ball1.getXSpeed()*MathUtils.sin(collisionAngle);
-//		
-//		v2x = ball2.getXSpeed()*MathUtils.cos(collisionAngle) + ball2.getYSpeed()*MathUtils.sin(collisionAngle);
-//		v2y = ball2.getYSpeed()*MathUtils.cos(collisionAngle) + ball2.getXSpeed()*MathUtils.sin(collisionAngle);
-//		
-//		f1x = (v1x * (ball1.mass - ball2.mass) + 2*ball2.mass*v2x)/(ball1.mass + ball2.mass);
-//		f2x = (v2x * (ball1.mass - ball2.mass) + 2*ball2.mass*v1x)/(ball1.mass + ball2.mass);
-//		
-//		f1x0 = f1x * MathUtils.cos(collisionAngle) + v1y *MathUtils.sin(collisionAngle);
-//		f1y0 = f1x * MathUtils.sin(collisionAngle) + v1y *MathUtils.cos(collisionAngle);
-//		f2x0 = f2x * MathUtils.cos(collisionAngle) + v2y *MathUtils.sin(collisionAngle);
-//		f2y0 = f2x * MathUtils.sin(collisionAngle) + v2y *MathUtils.cos(collisionAngle);
-//		
-//		ball1.ballMover.speedXPerSecond = f1x0;
-//		ball1.ballMover.speedYPerSecond = f1y0;
-//		
-//		ball2.heroMover.speedXPerSecond = f2x0;
-//		ball2.heroMover.speedYPerSecond = f2y0;
-//		
-//		
-//	}
-	
+
+	/**
+	 * Handle ball to player elastic collision reaction 
+	 * @param ball1 - the first ball
+	 * @param ball2 - the player
+	 */
 	private void ballElsaticCollision(Balls ball1, Hero ball2)
 	{
 		Vector2 v = new Vector2(ball1.getXSpeed()-ball2.getXSpeed(),ball1.getYSpeed()-ball2.getYSpeed());
@@ -228,6 +181,9 @@ public class MoverBall extends MoverPhysics {
 		ball2.heroMover.speedYPerSecond=nuDV2.y;
 		
 	}
+	/**
+	 * Handle physics movement for balls
+	 */
 	@Override
 	protected void physicsMove() {
 
