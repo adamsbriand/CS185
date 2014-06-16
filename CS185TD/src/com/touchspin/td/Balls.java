@@ -521,25 +521,8 @@ public class Balls extends GameThing {
 	 *  Randomly tint the ball.
 	 */
 	private void randomTint() {
-		switch (g.i().rnd.nextInt(5)) {
-		case 0:
-			ballSprite.setColor(Color.WHITE);
-			break;
-		case 1:
-			ballSprite.setColor(Color.YELLOW);
-			break;
-		case 2:
-			ballSprite.setColor(Color.GRAY);
-			break;
-		case 3:
-			ballSprite.setColor(Color.MAGENTA);
-			break;
-		case 4:
-			ballSprite.setColor(Color.GREEN);
-			break;
-		case 5:
-			ballSprite.setColor(Color.ORANGE);
-			break;
-		}
+
+			ballSprite.setColor(new Color(g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),1));
+
 	}
 }
