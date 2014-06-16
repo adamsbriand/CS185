@@ -103,7 +103,7 @@
     <property name="spriteSheet" value="FlameWall.png"/>
    </properties>
   </object>
-  <object name="lava3" type="npo" x="3552" y="448" width="256" height="64">
+  <object name="lava3" type="npo" x="3552" y="384" width="256" height="128">
    <properties>
     <property name="actions" value="igniteBall,true,playSoundLoop,sndFire"/>
     <property name="animations" value="burn,0,47,burn"/>
@@ -171,7 +171,7 @@
   <object name="transmorgifier1" type="npo" x="1184" y="96" width="160" height="160">
    <properties>
     <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifier1-transmorgify,playSound,transmorgify,playSound,bowlingTrans"/>
-    <property name="animations" value="idle,0,0,idle,transmorgify,1,11,idle"/>
+    <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>
     <property name="collisionShape" value="rect"/>
