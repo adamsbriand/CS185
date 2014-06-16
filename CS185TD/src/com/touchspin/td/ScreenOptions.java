@@ -22,7 +22,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  * Project:			Ollie
  * --------------------------------------------------------------------------------------
  * 
- * 
+ * Shows the options screen. There are 5 buttons on this screen, but only 4 may be shown
+ * at a time. When button 5 is shown, buttons 1, 2, 3 are not shown. 
  * 
  * ======================================================================================
  */
@@ -35,18 +36,41 @@ public class ScreenOptions extends GameMenu {
 	char menuLevel;
 	MainGame saved;
 
+	/**----------------------------------------------------------------------------------
+	 * Constructor
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
 	public ScreenOptions (){
 		super();
 		levelReturn = "main";
 		g.i().sound.sfxMute(true);
     }
 	
+	/**----------------------------------------------------------------------------------
+	 * Overloaded Constructor
+	 * This is used for when a game has been paused.
+	 * 
+	 * Inputs
+	 * 		savedScreen - The saved state of the game, for recall when the game resumes. 
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
 	public ScreenOptions (Screen savedScreen){
 		super();
 		levelReturn = "game";
 		previousScreen = savedScreen;
 	}
     
+	/**----------------------------------------------------------------------------------
+	 * Sets up all the buttons on the screen. This class uses 5 buttons that change
+	 * depending on what other buttons have been pressed.  
+	 * ----------------------------------------------------------------------------------
+	 */
     public void buttons(){
     	stage.clear();
     	String longest = g.i().Sounds;
@@ -142,7 +166,8 @@ public class ScreenOptions extends GameMenu {
         		g.i().t.action("playSound,buttonClick");
         		switch (g.i().controls) {
 		    		case 'A':
-		    			if (Gdx.input.isPeripheralAvailable(Peripheral.HardwareKeyboard)){
+		    			if (Gdx.input.isPeripheralAvailable(
+		    					Peripheral.HardwareKeyboard)){
 			    			g.i().controls = 'D';
 		    			}
 		    			break;
@@ -305,6 +330,10 @@ public class ScreenOptions extends GameMenu {
         		((button5.getWidth() / 2)), xRow1 - (button5.getHeight() / 2));
     }
 
+    /**----------------------------------------------------------------------------------
+	 * Sets the a logo image on the screen. This method is called from the parent class.
+	 * ----------------------------------------------------------------------------------
+	 */
     public void logo(){
     	super.setLogo(Gdx.files.internal("img/menu/LogoOptions.png"));
     }

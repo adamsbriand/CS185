@@ -190,7 +190,8 @@ public class g {
 	 * Sets all the menu text to the language
 	 * ----------------------------------------------------------------------------------
 	 */
-	// unicode converter: http://www.mobilefish.com/services/unicode_escape_sequence_converter/unicode_escape_sequence_converter.php
+	// unicode converter: 
+	// http://www.mobilefish.com/services/unicode_escape_sequence_converter/unicode_escape_sequence_converter.php
 	public void languageSet(){
 		switch (language){
 		case "zh":

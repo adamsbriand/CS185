@@ -21,17 +21,28 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  * Project:			Ollie
  * --------------------------------------------------------------------------------------
  * 
- * 
+ * Shows the main menu. 
  * 
  * ======================================================================================
  */
 
 public class ScreenMenu extends GameMenu {
 
+	/**----------------------------------------------------------------------------------
+	 * Constructor
+	 * 
+	 * Calls:
+	 * 		super
+	 * ----------------------------------------------------------------------------------
+	 */
 	public ScreenMenu (){
     	super();
     }
     
+	/**----------------------------------------------------------------------------------
+	 * Sets up all the buttons on the screen. This class uses 4 buttons.  
+	 * ----------------------------------------------------------------------------------
+	 */
     public void buttons(){
     	float xRow1 = Gdx.graphics.getHeight() / 15 * 6;
     	float xRow2 = Gdx.graphics.getHeight() / 15 * 3;
@@ -89,6 +100,10 @@ public class ScreenMenu extends GameMenu {
         stage.getActors().items[3].setPosition(yRow2 - width, xRow2 - height);
     }
 
+    /**----------------------------------------------------------------------------------
+	 * Sets the a logo image on the screen. This method is called from the parent class.
+	 * ----------------------------------------------------------------------------------
+	 */
     public void logo(){
     	FileHandle imgLogo = Gdx.files.internal("img/menu/LogoTitle.png");
     	super.setLogo(imgLogo);

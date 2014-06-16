@@ -59,10 +59,12 @@ public class ScreenCredits extends GameMenu {
 	 */
 	@Override
 	void buttons() {
-			NinePatchDrawable draw = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal(Creditsimage))));
+			NinePatchDrawable draw = new NinePatchDrawable(
+					new NinePatch(new Texture(Gdx.files.internal(Creditsimage))));
 			BitmapFont bfont = new BitmapFont();
 	        bfont.scale(0);
-			TextButton btn = new TextButton("", new TextButtonStyle(draw, draw, draw, bfont));
+			TextButton btn = new TextButton("", 
+					new TextButtonStyle(draw, draw, draw, bfont));
 			float ratio = Gdx.graphics.getHeight() / btn.getHeight();
 			btn.setHeight(btn.getHeight() * ratio);
 			btn.setWidth(btn.getWidth() * ratio);
@@ -72,7 +74,8 @@ public class ScreenCredits extends GameMenu {
 				btn.setHeight(btn.getHeight() * ratio);
 			}
 			btn.setOrigin(btn.getWidth() / 2, btn.getHeight() / 2);
-			btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2, (Gdx.graphics.getHeight() - btn.getHeight()) / 2);
+			btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2, 
+					(Gdx.graphics.getHeight() - btn.getHeight()) / 2);
 			btn.setVisible(false);
 			btn.setVisible(true);
 			btn.addListener(new ChangeListener() {

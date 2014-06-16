@@ -64,10 +64,14 @@ public class ScreenGameOver extends GameMenu{
 	 */
 	void buttons() {
 		stage.clear();
-		NinePatchDrawable draw = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal(bgImage))));
+		NinePatchDrawable draw = 
+				new NinePatchDrawable(
+						new NinePatch(
+								new Texture(Gdx.files.internal(bgImage))));
 		BitmapFont bfont = new BitmapFont();
         bfont.scale(0);
-		TextButton btn = new TextButton("", new TextButtonStyle(draw, draw, draw, bfont));
+		TextButton btn = 
+				new TextButton("", new TextButtonStyle(draw, draw, draw, bfont));
 		float ratio = Gdx.graphics.getHeight() / btn.getHeight();
 		btn.setHeight(btn.getHeight() * ratio);
 		btn.setWidth(btn.getWidth() * ratio);
@@ -77,12 +81,13 @@ public class ScreenGameOver extends GameMenu{
 			btn.setHeight(btn.getHeight() * ratio);
 		}
 		btn.setOrigin(btn.getWidth() / 2, btn.getHeight() / 2);
-		btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2, (Gdx.graphics.getHeight() - btn.getHeight()) / 2);
+		btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2,
+				(Gdx.graphics.getHeight() - btn.getHeight()) / 2);
 		btn.setVisible(false);
 		btn.setVisible(true);
 		btn.addListener(new ChangeListener() {
         	public void changed (ChangeEvent event, Actor actor) {
-        		g.i().t.action("menu,Main");
+        		g.i().t.game.setScreen(new ScreenMenu());
         	}
         });
 		stage.addActor(btn);
@@ -107,7 +112,7 @@ public class ScreenGameOver extends GameMenu{
 	public void update() {
 		final int secondsWait = 30;
 		if (TimeUtils.millis()>(timepoint + (1000 * secondsWait))){
-			g.i().t.action("menu,Main");
+			g.i().t.game.setScreen(new ScreenMenu());
 		}
 	}
 
