@@ -1,5 +1,8 @@
 package com.touchspin.td;
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
+
 /* ======================================================================================
  * File:			Trigger.java
  * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
@@ -631,9 +634,19 @@ public class Trigger {
 				changeMusic("song3");
 				break;
 			case "volcano":
+				if(Gdx.app.getType() == Application.ApplicationType.Android)
+				{
+				NewLevel("Level2Runner1");
+				}else
+				{
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L2Volcano));
+				}
 				break;
+			//case "volcano":
+			//	g.i().gameMode = 'R';
+			//	game.setScreen(new GameScreen(game, L2Volcano));
+			//	break;
 			case "dialogOutro":
 				g.i().gameMode = 'D';
 				game.setScreen(new GameDialog(game, EndDialog));
