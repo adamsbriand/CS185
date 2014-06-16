@@ -103,7 +103,7 @@
   <object name="enter1" type="destination" x="509" y="399"/>
   <object name="fan" type="npo" x="462" y="576" width="100" height="100">
    <properties>
-    <property name="actions" value="changeMap,Level1Run1,changeLocation,airpuff,changeBallY,550,changeOthersCollidable,door1-false,changeOthersAnim,door1-open,playSoundLoop,sndFanOff,changeActive,airpuff-true,changeOthersAnim,airpuff-on"/>
+    <property name="actions" value="changeMap,Level1Run1,changeLocation,enter2,changeBallY,550,changeOthersCollidable,door1-false,changeOthersAnim,door1-open,playSoundLoop,sndFanOff,changeActive,airpuff-true,changeOthersAnim,airpuff-on"/>
     <property name="animations" value="off,0,0,off,on,0,11,on"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="100,100,100"/>
@@ -141,7 +141,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objectsForeground" width="32" height="32">
+ <objectgroup name="objectsForeground" width="32" height="32" visible="0">
   <object name="transmorgifierPingPong" type="npo" x="96" y="192" width="96" height="96">
    <properties>
     <property name="actions" value="changeMyAnim,PingPong,changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,playSound,pingPongTrans"/>

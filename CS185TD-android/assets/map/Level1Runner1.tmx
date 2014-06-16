@@ -259,5 +259,6 @@
     <property name="spriteSheet" value="GlassBreak.png"/>
    </properties>
   </object>
+  <object name="enter2" type="destination" x="3904" y="225" width="32" height="32"/>
  </objectgroup>
 </map>
