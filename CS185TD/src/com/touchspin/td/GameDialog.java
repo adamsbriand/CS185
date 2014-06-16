@@ -3,6 +3,7 @@ package com.touchspin.td;
 import java.io.IOException;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -173,8 +174,12 @@ public class GameDialog extends GameObject
 			screenShot.draw(batch, 1);
 		
 		// draw text
-		font.drawMultiLine(batch, currentText, textX, textY);				
+		font.setColor(Color.BLACK);	
+		font.drawMultiLine(batch, currentText, textX - 2, textY - 2);	
 		
+		font.setColor(Color.WHITE);
+		font.drawMultiLine(batch, currentText, textX, textY);			
+			
 		batch.end();
 	}	
 	
