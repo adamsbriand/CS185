@@ -87,6 +87,7 @@ public class GameDialog extends GameObject
 	public GameDialog(MainGame game, String scriptPath)
 	{			
 		Element languageRoot = null;
+		g.i().sound.sfxMute(true);
 		g.i().leAnonymizer.resetAll();
 				
 		//parse XML file
