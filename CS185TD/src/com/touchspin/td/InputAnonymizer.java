@@ -10,7 +10,25 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-
+/* ======================================================================================
+ * File:			InputAnonymizer.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This inputAnonymizer class translate outside input into game commands
+ * 
+ * ======================================================================================
+ */
 public class InputAnonymizer extends Actor implements GestureListener,
 		InputProcessor {
 
@@ -29,6 +47,10 @@ public class InputAnonymizer extends Actor implements GestureListener,
 	boolean jump;
 	boolean dash;
 
+	/**
+	 * The default constructor
+	 * Initialize  this class
+	 */
 	public InputAnonymizer() {
 		click = false;
 		// velocity = new Vector2(0, 0);
@@ -45,6 +67,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		setProperInputProcessor();
 	}
 
+	/**
+	 * Read the the accelerometer value.
+	 */
 	public void readAccel() {
 		if (Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)) {
 			tiltSpeed.y = -Gdx.input.getAccelerometerX();
@@ -52,6 +77,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		}
 	}
 
+	/**
+	 * Read key inputs.
+	 */
 	public void readKey() {
 		if (Gdx.input.isKeyPressed(Input.Keys.Z))
 			attack = true;
@@ -67,6 +95,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 			pausePressed = true;
 	}
 
+	/**
+	 * Update
+	 */
 	@Override
 	public void act(float delta) {
 		if(g.i().controls == 'A')
@@ -75,22 +106,15 @@ public class InputAnonymizer extends Actor implements GestureListener,
 			readKey();
 	}
 
+	/**
+	 * The method is called when a key is pressed down
+	 */
 	@Override
 	public boolean keyDown(int keycode) {
-//		if (keycode == Input.Keys.Z)
-//			attack = true;
 		if (keycode == Input.Keys.SPACE)
 			jump = true;
 		if(keycode == Keys.BACK)//android back button
 			pausePressed = true;
-//		if (keycode == Input.Keys.LEFT)
-//			tiltSpeed.x = -2;
-//		if (keycode == Input.Keys.RIGHT)
-//			tiltSpeed.x = 2;
-//		if (keycode == Input.Keys.UP)
-//			tiltSpeed.y = -2;
-//		if (keycode == Input.Keys.DOWN)
-//			tiltSpeed.y = 2;
 		return false;
 	}
 
@@ -106,6 +130,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		return false;
 	}
 
+	/**
+	 * This method is called when the screen is clicked or touched
+	 */
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		click = true;
@@ -148,6 +175,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		return false;
 	}
 
+	/**
+	 * This method is called when the a tap is performed
+	 */
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		click = true;
@@ -161,6 +191,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		return false;
 	}
 
+	/**
+	 * This method is called when a fling is performed
+	 */
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
 		if (Gdx.app.getType() == ApplicationType.Android) {
@@ -196,6 +229,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		return false;
 	}
 	
+	/**
+	 * Reset all variables in this class
+	 */
 	public void resetAll()
 	{
 		click = false;
@@ -209,6 +245,9 @@ public class InputAnonymizer extends Actor implements GestureListener,
 		
 	}
 	
+	/**
+	 * Set the correct input processor();
+	 */
 	private void setProperInputProcessor()
 	{
 		switch (g.i().controls) {
