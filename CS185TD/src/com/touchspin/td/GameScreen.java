@@ -11,6 +11,25 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+/* ======================================================================================
+ * File:			GameScreen.java
+ * Authors:			Brian Adams - b.adams5736@edmail.edcc.edu
+ * 					Russell Brendel - russell.brendel.2925@edmail.edcc.edu
+ * 					Damian Forrester - dforrester777@gmail.com
+ * 					Wendi Tang - w.tang2404@myedmail.edcc.edu
+ * 
+ * Organization:	Edmonds Community College
+ * Term:			Spring 2014
+ * Class:			CS 185 - Game Project Developement
+ * Instructor:		Tim Hunt - thunt@edcc.edu
+ * 
+ * Project:			Ollie
+ * --------------------------------------------------------------------------------------
+ * 
+ * This is the screen for actual game playing
+ * 
+ * ======================================================================================
+ */
 public class GameScreen extends GameObject {
 
 	Stage stage;
@@ -26,6 +45,14 @@ public class GameScreen extends GameObject {
 	private char mode;
 	private float initialBGCameraDifferenceY = 0;
 
+	/**
+	 * The constructor
+	 * 
+	 * @param game
+	 *            - the main game container
+	 * @param mapPath
+	 *            - the path of map file
+	 */
 	public GameScreen(MainGame game, String mapPath) {
 
 		this.game = game;
@@ -50,6 +77,9 @@ public class GameScreen extends GameObject {
 		adjustInitialCamera();
 	}
 
+	/**
+	 * Render the game, includes updating and drawing
+	 */
 	@Override
 	public void render(float delta) {
 		if (g.i().leAnonymizer.pausePressed) {
@@ -60,6 +90,9 @@ public class GameScreen extends GameObject {
 		}
 	}
 
+	/**
+	 * update the game
+	 */
 	@Override
 	public void update() {
 		stage.act();
@@ -87,10 +120,14 @@ public class GameScreen extends GameObject {
 
 	}
 
+	/**
+	 * Draw map and objects
+	 */
 	@Override
 	public void draw() {
-		Gdx.graphics.getGL20().glClearColor( 0, 0, 0, 0 );
-		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );	
+		Gdx.graphics.getGL20().glClearColor(0, 0, 0, 0);
+		Gdx.graphics.getGL20().glClear(
+				GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 		if (mode == 'R') {
 			tiledMapWrapper.renderbackground();
 			tiledMapWrapper.renderBackground();
@@ -114,6 +151,9 @@ public class GameScreen extends GameObject {
 
 	}
 
+	/**
+	 * If this screen is not paused, then dispose this screen
+	 */
 	@Override
 	public void hide() {
 		if (!g.i().leAnonymizer.pausePressed) {
@@ -121,6 +161,9 @@ public class GameScreen extends GameObject {
 		}
 	}
 
+	/**
+	 * Display the option screen on pause
+	 */
 	@Override
 	public void pause() {
 		game.setScreen(new ScreenOptions(this));
@@ -131,12 +174,23 @@ public class GameScreen extends GameObject {
 
 	}
 
+	/**
+	 * Dispose the screen
+	 */
 	@Override
 	public void dispose() {
 		stage.dispose();
 		tiledMapWrapper.dispose();
 	}
 
+	/**
+	 * Set the camera position, force it in current map.
+	 * 
+	 * @param x
+	 *            - the x axis position
+	 * @param y
+	 *            - the y axis position
+	 */
 	private void setCamera(float x, float y) {
 		if (g.i().hero.getX() >= camera.viewportWidth / 2
 				&& g.i().hero.getX() + camera.viewportWidth / 2 <= tiledMapWrapper
@@ -148,6 +202,14 @@ public class GameScreen extends GameObject {
 			camera.position.y = y;
 	}
 
+	/**
+	 * Set the background camera position, force it in current map.
+	 * 
+	 * @param x
+	 *            - the x axis position
+	 * @param y
+	 *            - the y axis position
+	 */
 	private void setBackGroundCameraView() {
 		backGroundCamera.position.x = tiledMapWrapper.backgroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
@@ -158,6 +220,14 @@ public class GameScreen extends GameObject {
 				+ backGroundCamera.viewportHeight / 2;
 	}
 
+	/**
+	 * Set the foreground camera position, force it in current map.
+	 * 
+	 * @param x
+	 *            - the x axis position
+	 * @param y
+	 *            - the y axis position
+	 */
 	private void setForegroundCameraView() {
 		foregroundCamera.position.x = tiledMapWrapper.foregroundfactor
 				* (camera.position.x - camera.viewportWidth / 2)
@@ -167,6 +237,9 @@ public class GameScreen extends GameObject {
 				+ foregroundCamera.viewportHeight / 2;
 	}
 
+	/**
+	 * Initialization of the cameras
+	 */
 	private void setUpCamera()
 
 	{
@@ -208,6 +281,9 @@ public class GameScreen extends GameObject {
 		}
 	}
 
+	/**
+	 * Set the view for render based on the camera postion
+	 */
 	private void setView() {
 
 		if (mode == 'R') {
@@ -227,8 +303,9 @@ public class GameScreen extends GameObject {
 					backGroundCamera.viewportHeight * 2 + 10);
 			setForegroundCameraView();
 			tiledMapWrapper.setForegroundView(foregroundCamera.combined,
-					foregroundCamera.position.x - foregroundCamera.viewportWidth
-							- 5, foregroundCamera.position.y
+					foregroundCamera.position.x
+							- foregroundCamera.viewportWidth - 5,
+					foregroundCamera.position.y
 							- foregroundCamera.viewportHeight - 5,
 					foregroundCamera.viewportWidth * 2 + 10,
 					foregroundCamera.viewportHeight * 2 + 10);
@@ -241,11 +318,17 @@ public class GameScreen extends GameObject {
 		}
 	}
 
+	/**
+	 * Adjust initial camera postion
+	 */
 	private void adjustInitialCamera() {
 		initialBGCameraDifferenceY = (1 - tiledMapWrapper.backgroundfactor)
 				* (camera.position.y - camera.viewportHeight / 2);
 	}
 
+	/**
+	 * Load all non-player objects
+	 */
 	private void loadNPs() {
 		NP temp;
 		int startX = 0;
@@ -283,14 +366,15 @@ public class GameScreen extends GameObject {
 			if (tempProperties.get("y") != null) {
 				startY = MathUtils.round((float) tempProperties.get("y"));
 			}
-			if(tempProperties.get("rotation") != null){
-				rotation = -Float.parseFloat((String) tempProperties.get("rotation"));
+			if (tempProperties.get("rotation") != null) {
+				rotation = -Float.parseFloat((String) tempProperties
+						.get("rotation"));
 			}
 
-			if(name.startsWith("Ball"))
-			{
+			if (name.startsWith("Ball")) {
 				type = name.substring(4);
-				Balls tempBall = new Balls(type,startX,startY,camera,tiledMapWrapper);
+				Balls tempBall = new Balls(type, startX, startY, camera,
+						tiledMapWrapper);
 				g.i().balls.add(tempBall);
 				playerg.addActor(tempBall);
 			}
@@ -298,11 +382,9 @@ public class GameScreen extends GameObject {
 				width = (int) ((RectangleMapObject) object).getRectangle().width;
 				height = (int) ((RectangleMapObject) object).getRectangle().height;
 			} else if (object instanceof EllipseMapObject) {
-				width = (int)((EllipseMapObject) object).getEllipse().width;
-				height = (int)((EllipseMapObject) object).getEllipse().height;
-			}
-			else
-			{
+				width = (int) ((EllipseMapObject) object).getEllipse().width;
+				height = (int) ((EllipseMapObject) object).getEllipse().height;
+			} else {
 				width = 32;
 				height = 32;
 			}
@@ -391,16 +473,13 @@ public class GameScreen extends GameObject {
 			} else if (spriteSheet.equalsIgnoreCase("Dragon.png")) {
 				animRows = 10;
 				animCols = 5;
-			}
-			else if (spriteSheet.equalsIgnoreCase("Fireball.png")) {
+			} else if (spriteSheet.equalsIgnoreCase("Fireball.png")) {
 				animRows = 4;
 				animCols = 12;
-			}
-			else if (spriteSheet.equalsIgnoreCase("HeartYummy.png")) {
+			} else if (spriteSheet.equalsIgnoreCase("HeartYummy.png")) {
 				animRows = 5;
 				animCols = 5;
-			}
-			else {
+			} else {
 				animRows = 1;
 				animCols = 1;
 			}
@@ -411,7 +490,7 @@ public class GameScreen extends GameObject {
 			temp = new NP(startX, startY, width, height, name, type,
 					conditions, action, anims, roamingRadius, spriteSheet,
 					animRows, animCols, collidable, collisionParameter, camera,
-					active,rotation);
+					active, rotation);
 
 			g.i().mapObjects.add(temp);
 
@@ -429,21 +508,20 @@ public class GameScreen extends GameObject {
 				bgg.addActor(g.i().mapObjects.get(count));
 			count++;
 
-				MapObject tempMapObject ;
-				if (!temp.collisionParameter.equalsIgnoreCase("")) {
-					String[] tempCP = temp.collisionParameter.split(",");
-					if (tempCP.length == 4) {
-						tempMapObject = new RectangleMapObject(temp.getX()
-								+ Float.parseFloat(tempCP[0]), temp.getY()
-								+ Float.parseFloat(tempCP[1]),
-								Float.parseFloat(tempCP[2]),
-								Float.parseFloat(tempCP[3]));
-						tiledMapWrapper.collisionObjects.add(tempMapObject);
-					} else
-						tempMapObject = new RectangleMapObject(temp.getX(),
-								temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				else
+			MapObject tempMapObject;
+			if (!temp.collisionParameter.equalsIgnoreCase("")) {
+				String[] tempCP = temp.collisionParameter.split(",");
+				if (tempCP.length == 4) {
+					tempMapObject = new RectangleMapObject(temp.getX()
+							+ Float.parseFloat(tempCP[0]), temp.getY()
+							+ Float.parseFloat(tempCP[1]),
+							Float.parseFloat(tempCP[2]),
+							Float.parseFloat(tempCP[3]));
+					tiledMapWrapper.collisionObjects.add(tempMapObject);
+				} else
+					tempMapObject = new RectangleMapObject(temp.getX(),
+							temp.getY(), temp.getWidth(), temp.getHeight());
+			} else
 				tempMapObject = new RectangleMapObject(temp.getX(),
 						temp.getY(), temp.getWidth(), temp.getHeight());
 

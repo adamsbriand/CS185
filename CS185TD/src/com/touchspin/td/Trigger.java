@@ -641,6 +641,7 @@ public class Trigger {
 				{
 				g.i().gameMode = 'R';
 				game.setScreen(new GameScreen(game, L2Volcano));
+				changeMusic("song3");
 				}
 				break;
 			//case "volcano":
