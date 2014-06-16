@@ -3,13 +3,13 @@
     <dialog_en>
 		<Snippet 
 	    	name = "Ollie"	
-	    	background = "black"
+	    	background = "img/dialog/DlgHeroAtDesk.png"
 	    	position = "L"
 	    	text = "...:C_:pause:2:Why?...why am I not stronger? :C_:pause:2:Braver?..."
 			finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
-		    background = "img/dialog/DlgOlliesFamily.png"
+		    background = "img/dialog/DlgJustFamily.png"
 		    position = "L"
 		    text = "They deserve better...Chase, Dorithy...you both deserve better."
 		    finalPause = "4"/>
@@ -31,11 +31,33 @@
 		    position = "T"
 		    text = "...Ollie...:C_:pause:2:I already know you are brave."
 		    finalPause = "4"/>	
-		 <Snippet
+		    
+		<Snippet
 		    name = "Wizard"	
-		    background = "img/dialog/DlgHeroAndWizard.png"
+		    background = "img/dialog/DlgBalls.png"
 		    position = "T"
-		    text = "And by your journey's end you too will know."
+		    text = "But to prove this to you, I'm turning you into a ball."
+		    finalPause = "4"/>	
+		    
+		<Snippet
+		    name = "Wizard"	
+		    background = "img/dialog/DlgDragon.png"
+		    position = "T"
+		    text = "Make it through my challenges alive and I'll restore you to a human."
+		    finalPause = "4"/>	
+		    
+		<Snippet
+		    name = "Wizard"	
+		    background = "img/dialog/DlgFamily.png"
+		    position = "T"
+		    text = "Oh, and to motivate you to succeed, I'm taking your family until you return."
+		    finalPause = "4"/>	
+		    
+		<Snippet
+		    name = "Wizard"	
+		    background = "img/dialog/DlgWizard.png"
+		    position = "T"
+		    text = "To make it back will take true bravery."
 		    finalPause = "10"/>		
 	</dialog_en>
 	<dialog_es>
@@ -47,7 +69,7 @@
 	    	finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
-		    background = "img/dialog/DlgOlliesFamily.png"
+		    background = "img/dialog/DlgJustFamily.png"
 		    position = "L"
 		    text = "Ellos merecen  algo mejor ... Chase, Dorithy ...ustedes merecen algo mejor."
 		    finalPause = "4"/>
@@ -85,7 +107,7 @@
 	    	finalPause = "4"/>
 		<Snippet
 		    name = "Ollie"	
-		    background = "img/dialog/DlgOlliesFamily.png"
+		    background = "img/dialog/DlgJustFamily.png"
 		    position = "L"
 		    text = "họ đáng được tốt hơn…Chase, Dorithy…hai người đáng được tốt hơn"
 		    finalPause = "4"/>
@@ -123,7 +145,7 @@
 	    	finalPause = "4"/>
 		<Snippet
 		    name = "奥利"	
-		    background = "img/dialog/DlgOlliesFamily.png"
+		    background = "img/dialog/DlgJustFamily.png"
 		    position = "L"
 		    text = "你们应该得到比这更好的生活...蔡斯，桃乐丝...你们都应该得到比这更好的生活。"
 		    finalPause = "4"/>
@@ -161,7 +183,7 @@
 	    	finalPause = "4"/>
 		<Snippet
 		    name = "オーリー"	
-		    background = "img/dialog/DlgOlliesFamily.png"
+		    background = "img/dialog/DlgJustFamily.png"
 		    position = "L"
 		    text = "彼らは、...チェイス、ドロシー... 彼らのベストを尽くした..."
 		    finalPause = "4"/>

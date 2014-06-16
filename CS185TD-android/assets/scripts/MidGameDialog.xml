@@ -5,13 +5,13 @@
 	    	name = "Wizard"	
 	    	background = ""
 	    	position = "C"
-	    	text = "Well done Ollie on making it this far!"
+	    	text = "Well done, Ollie, on making it this far!"
 	    	finalPause = "4"/>
 		<Snippet 
 	    	name = "Wizard"	
 	    	background = ""
 	    	position = "C"
-	    	text = "You're journey is however about to get much harder."
+	    	text = "However, your journey is about to get much harder...get ready!"
 	    	finalPause = "4"/>
 	</dialog_en>
 	<dialog_es>
