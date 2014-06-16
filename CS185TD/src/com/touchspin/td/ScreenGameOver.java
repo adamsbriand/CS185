@@ -3,10 +3,15 @@ package com.touchspin.td;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.TimeUtils;
 
 /* ======================================================================================
@@ -48,6 +53,7 @@ public class ScreenGameOver extends GameMenu{
 		g.i().setZero();
 	}
 	
+	/*
 	void setBG(){
 		camera = new OrthographicCamera();
 	    bg = new Sprite(new Texture(Gdx.files.internal(bgImage)));
@@ -61,8 +67,33 @@ public class ScreenGameOver extends GameMenu{
 	    bg.setPosition((Gdx.graphics.getWidth() - bg.getWidth()) / 2, 
 	    		(Gdx.graphics.getHeight() - bg.getHeight()) / 2);
 	}
-
+*/
 	void buttons() {
+		stage.clear();
+		NinePatchDrawable draw = new NinePatchDrawable(new NinePatch(new Texture(Gdx.files.internal(bgImage))));
+		BitmapFont bfont = new BitmapFont();
+        bfont.scale(0);
+		TextButton btn = new TextButton("", new TextButtonStyle(draw, draw, draw, bfont));
+		float ratio = Gdx.graphics.getHeight() / btn.getHeight();
+		btn.setHeight(btn.getHeight() * ratio);
+		btn.setWidth(btn.getWidth() * ratio);
+		if (btn.getWidth() > Gdx.graphics.getWidth()){
+			ratio = Gdx.graphics.getWidth() / btn.getHeight();
+			btn.setWidth(btn.getWidth() * ratio);
+			btn.setHeight(btn.getHeight() * ratio);
+		}
+		btn.setOrigin(btn.getWidth() / 2, btn.getHeight() / 2);
+		btn.setPosition((Gdx.graphics.getWidth() - btn.getWidth()) / 2, (Gdx.graphics.getHeight() - btn.getHeight()) / 2);
+		btn.setVisible(false);
+		btn.setVisible(true);
+		btn.addListener(new ChangeListener() {
+        	public void changed (ChangeEvent event, Actor actor) {
+        		g.i().t.action("menu,Main");
+        	}
+        });
+		stage.addActor(btn);
+		
+		/*
 		final float xRow2 = Gdx.graphics.getHeight() / 15 * 13;
     	final float yRow1_2 = Gdx.graphics.getWidth() / 9 * 7;
     	final TextButton continueButton = 
@@ -78,6 +109,7 @@ public class ScreenGameOver extends GameMenu{
         float width = continueButton.getWidth() / 2;
         
         continueButton.setPosition(yRow1_2 - width, xRow2 - height);
+        */
 	}
 
 	void logo() {
