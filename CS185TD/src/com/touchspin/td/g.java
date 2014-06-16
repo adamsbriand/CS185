@@ -70,6 +70,7 @@ public class g {
 							 * vi=Vietnamese
 							 */
 	public FileHandle font;
+	public FileHandle fontLarge;
 	public char controls;	/* Control set being used. 
 							 * A=Android
 							 * K=Keyboard
@@ -194,6 +195,7 @@ public class g {
 		switch (language){
 		case "zh":
 			font = Gdx.files.internal("Font/ollieFont.fnt");
+			fontLarge = Gdx.files.internal("Font/ollieFont18.fnt");
 			CurrentLanguage = "\u4e2d\u6587";
 			Continue = "\u7ee7\u7eed";
 			Gyro = "\u9640\u87ba\u4eea";
@@ -214,6 +216,7 @@ public class g {
 			break;
 		case "es":
 			font = Gdx.files.internal("Font/ollieFont.fnt");
+			fontLarge = Gdx.files.internal("Font/ollieFont18.fnt");
 			CurrentLanguage = "Espa\u00f1ol";
 			Continue = "Contin\u00fae";
 			Gyro = "giroszk\u00f3p";
@@ -234,6 +237,7 @@ public class g {
 			break;
 		case "vi":
 			font = Gdx.files.internal("Font/viFont.fnt");
+			fontLarge = Gdx.files.internal("Font/viFont.fnt");
 			CurrentLanguage = "ti\u1ebfng Vi\u1ec7t";
 			Continue = "ti\u1ebfp t\u1ee5c";
 			Gyro = "con quay h\u1ed3i chuy\u1ec3n";
@@ -254,6 +258,7 @@ public class g {
 			break;
 		case "ja":
 			font = Gdx.files.internal("Font/japFont.fnt");
+			fontLarge = Gdx.files.internal("Font/japFont.fnt");
 			CurrentLanguage = "\u65e5\u672c\u8a9e";
 			Continue = "\u30b3\u30f3\u30c6\u30a3\u30cb\u30e5\u30fc";
 			Gyro = "\u30b8\u30e3\u30a4\u30ed";
@@ -274,6 +279,7 @@ public class g {
 			break;
 		case "fr":
 			font = Gdx.files.internal("Font/ollieFont.fnt");
+			fontLarge = Gdx.files.internal("Font/ollieFont18.fnt");
 			language = "en";
 			CurrentLanguage = "fran\u00e7aise";
 			Continue = "Continue";
@@ -292,10 +298,11 @@ public class g {
 			HighScore = "High Score";
 			Credits = "Credits";
 			Exit = "Exit";
-			break;
+			//break;
 		case "en":
 		default:
 			font = Gdx.files.internal("Font/ollieFont.fnt");
+			fontLarge = Gdx.files.internal("Font/ollieFont18.fnt");
 			language = "en";
 			CurrentLanguage = "English";
 			Continue = "Continue";
