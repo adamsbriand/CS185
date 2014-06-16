@@ -67,7 +67,7 @@
  </layer>
  <layer name="collisions" width="144" height="72" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztnOtugzAMRnnsPcz2rtN+VEVZfI2TQDlHQqMBO8b+4nSV2uMAAAAAAICr8xM8AAAAAAAAAADgs+BzIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAOr52BwAAj0X6jijfH/0cZtRR+47xeQwd3Z/q+rX+evrp2cBesr8vUKkfqd9or6tjAJuePkbW9WjtNL169HP2AfP5af625+ex9p7q9x+WvVc/1jXII+1Lnr3KsjuOXN282ovqhz5Uy4p8Rv1HYorop/WPjvKszGFEC9GYMvrJzgVvVuZt5v9pWf2086787brRmGcReX7pfUt7rb2/58MT12i8Xt/VnxVEtWXZaXn03C/NXxVXdg+YfUjzjLJjLY/modLfirpJsa5mxpw79KORmX+3RrwaiqyJGTxFP9G8zuoVHt+ee9vrEZvefVmeoJ8X3nzt2gs0NP1k7Kt61pP08yKqn6o+VNm7vM/iJaunp+pHi6m6Rln9RHrljuP8bJVcXT9/aDXq9QyvH22PqajX1Xiqfl549GPZW+MRLUrxXVVL6MfXf6J9oafBjH4kv60+d+xd3pijfJp+Irbn8ax+rLqN1nB0z0Q/byr3r15POI7/dbfWcrRu0b7lrUdUx1XcTT+9sV7NJXtPnrW52nOtr1nnElU1QD9vtN7jyZFlL/mydDCr//TGMrW5i368PTfTm6W4IpqI7G3SuEc/Xt1FYsnkaxUV+unly1NH756t7RGV+rfGd/Sf3t56Jar0U0mkZ0T7jObLGpf041kn1jztnJafiP1M3Y3o5wp91ep1Xo1pve98T+/cE2PGrvWxw9bjW3ut2V2xn3rQ4rY05vFRZeeJKTp/NRn9rOiJ0f4R9T9ql11n0bmjzzwjX9Z82vzStdkxSPfdUT/t6+h7oCq+C3298PbyWbrprc9oTCuPTBwjz3B1dsboydNd8ngXfgFpjoF3
+   eJztnFtugzAQRVl2F9PutepHFOTOmzGGcI6EAg5jD57r66RSum0AAAAAAHB1fpIHAAAAAAAAAAB8FvwdCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgj6/VCQDAY9F+I8rvRz+HGXW0fmO8b0NH96e7fmN/kn6kGFhL9f8LdOpH8xvrujsH8JH0cWRd/wyvHfloOWhjoKHzkOodWddjnaXrSi5WXFQ/1fHBR9uXInuVF7cJr9mcvPus60qfEOeM+czqJ5NTRj9j/+iozplzGNVPJaeKfqpjwRvt+1T18Mbav1r5VJ7Duo7EV79bVjma8yyOPL9WY+8zsjSu9XmqK98xb+26SnW9VNZb5n5t/K68ruzLM3JcsZa7fbp7L+g8rFzPZsaYK/RjURl/tUay3rfKp56in+y8zvKKSN+Re8f3MzHSfVWeoJ8X0flatRdYWPqpxHd51pP08yKrny4f6vSu6LNEqerpqfqxcuquUVU/Ga9cceyfrZOr6+cPq0aSZ0T7sfaYjnpdjafq50VEP168157RopbfVbWEfmL+k/UFSYMV/Wj9jvpcsXdFc87yafrJxO7bq/rx6na0hkf3TPTzpnP/kjxh2/7X3VvL2bplfStaj6yOu7ibfqQ2qeZafGSerbHGc8vXvHONrhqgnzeW90TmyIvX+vJ0MMt/pLZKbe6in6jnVrxZyyujiczeprVH9RPRXSaXynydRYd+pPmK1DG6Z1t7RKf+vfYV/iPtrVeiSz+dZDwj6zNWX167pp/IOvHGGcf0+snEz9TdEf1cwVc9r4tqzPK+/T3SeSTHStzYx4rYSN/WtRV3RT+NYOXtaSzSR1dcJKfs+N1U9HOGJ2b9I9v/0bjqOsuOnX3mGfPljWeNr703OwftvjvqZ7zOfgbq4ruxrxdRL5+lG2l9ZnM686jkceQZrs7KHCPzdJd5vAu/HPWDTg==
   </data>
  </layer>
  <objectgroup name="objects" width="144" height="72">
@@ -1606,7 +1606,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer name="parallax fg 1" width="144" height="72" visible="0" opacity="0.39">
+ <layer name="parallax fg 1" width="144" height="72" opacity="0.39">
   <data encoding="base64" compression="zlib">
    eJzt2WEKgzAMBtBecXj/u2x/BHGpiU5GK++BME3ZBvnWVtcaAAAAAAAAMJPX51iCAyrW/OzPZYiKfX561yAiP/xi1PzYi80hysq/+naU3aV97+0Zz5n7r6yPUb97+/Hs+vZ8hPmQ2Jn1K8ramVo0Nvs+5p+xZWtIb2z0OqpV6r3PlpvxZXPNlbFH2cueL1mr5nJnftZatt+p7KGYwx352daOMlJ9tu0/lXn0elq5N8rek+fr/db1nwpzBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDzvAF/lzqL
   </data>
