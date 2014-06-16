@@ -49,7 +49,7 @@
    eJzt0kEKwCAMRFFv1m3PkPsfpFsJEmyp+Afng/vHxNacc865b8VuwAFRN47uuXUR943Bc/9H3Vb9/gpu8r7Zdu3lvErl75L3zTaar0rh79L37V1EX5WCPd+e5swukm0munu0L81Kdc127wZMRDfSfVUKdrqR7qtSsNONdF+Vgp1upPuqFOwrjQ+srR67
   </data>
  </layer>
- <layer name="collisions" width="128" height="16" opacity="0">
+ <layer name="collisions" width="128" height="16" visible="0">
   <data encoding="base64" compression="zlib">
    eJztmN0KwCAIhXvrXn9XgxhW/mQ69YNoI0Z6zlmMtVYURXGHbl1A81FDVk5o34dhVUPB45T/78zJgQf/pRn+K9J+Ic2oWkL5iTw8oeH/d223hzdNMiHRnuKvx+wXsDdaZ1rlIAc7jzPlIEufHCLmIFo/EjJpgemzvoX1GLVdXY/zdx1zD+3LqXX2bMR3RqMnyN9bSPfE+E89J05qsKrPEs//UShg/bf+R2VdQ+Qx0/cBSJ+K/g==
   </data>
@@ -170,7 +170,7 @@
   </object>
   <object name="transmorgifier1" type="npo" x="1184" y="96" width="160" height="160">
    <properties>
-    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifier1-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifier1-transmorgify,playSound,transmorgify,playSound,bowlingTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,11,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="64,0,32,64"/>

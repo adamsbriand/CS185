@@ -52,6 +52,7 @@ public class Hero extends GameThing {
 	public float mass;
 	public float radius;
 	private float ventRatio;
+	private Color baseColor = new Color();
 
 	// private float distancePerFrameX;
 	// private float distancePerFrameY;
@@ -122,7 +123,7 @@ public class Hero extends GameThing {
 		if (frameCount == 60) {
 			heroSprite.setColor(Color.RED);
 		} else if (frameCount == 1) {
-			heroSprite.setColor(Color.WHITE);
+			heroSprite.setColor(baseColor);
 		}
 		heroSprite.draw(batch);
 		if (g.i().fire) {
@@ -253,6 +254,12 @@ public class Hero extends GameThing {
 		heroSprite.setRegion(ballTypeMap.get(type));
 		g.i().currentBallType = type;
 		g.i().sound.setBounce();
+		baseColor = Color.WHITE;
+		heroSprite.setColor(Color.WHITE);
+		if(type.equalsIgnoreCase("Balloon"))
+		{
+			randomTint();
+		}
 		setSpriteBounds();
 		calcualteDyInWater();
 	}
@@ -511,5 +518,14 @@ public class Hero extends GameThing {
 		g.i().playerdyInWater = dy;
 	}
 	
+	/**
+	 *  Randomly tint the player.
+	 */
+	private void randomTint() {
+
+			baseColor = new Color(g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),1);
+			heroSprite.setColor(baseColor);
+
+	}
 
 }

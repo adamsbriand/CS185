@@ -21,7 +21,7 @@
    eJytV0EOxCAI5NibD+kL/P/HNiaSkNlBBndJDC0OFnGg7TCzucfY49ljwtxDcHPrdw+fjz4jYCbBDLDbxiuS4VT/k/jeLNHZyPCVHxszxFLFc5IM183TA9e/7Debr/wQ55wZ9s2fat9VPlR+sfVWLC+Z7/LlX/5vEudJunxT87zEOY149dzVe4VfHo/af255oq7nts7+VBzjjZ/F4shI/E/5ua0vlE4e1Xxk+pd+w+Yjn6t8dOqE4RQ7nqOqb/hTrbeE8afSp+vTfaZjv2HnddIeuwvrp1Er72usv0483XPpnJvH1OUx4jI/7PuZIIdZ7eH66nyM45TPSWxmWn7QnuFu636Jf2Pg909Wx/hcNY8KDmuCvd/ZfcWjLs8yLKsv1l+q/RvBZX7MbnZ+X7B4FFF5xHDYr27OX91/Nz+V/Cs/J2G9J/6/4j8y2tAn9pfog70nfpu9YPsAB5EecA==
   </data>
  </layer>
- <layer name="collisions" width="36" height="28" opacity="0">
+ <layer name="collisions" width="36" height="28" visible="0">
   <data encoding="base64" compression="zlib">
    eJzNU1sKgDAM2+5/aX8lNI92ExzItI+YhnSvtfbPnvW63WF1ab/DRj4bco5/p8/hJfhqlqquq9OG95N5Wd71VXUpH5zD6ZH6q8JjfLp+udV/sl+p31Kd35yq2GQfUv9UeeST7hP7dvGkrjtfWtf1pepj/NM6PB0dOzyTfej6TtUx/k6XL/VJ8af+YbfaL3erd/Wd4k7mSPsn+JN6pQ9yneqD+M5PU39XOM6LiJ/mq7j6D9sN5LtEnNVN9x4x1Jy39GD9HX2SufA/Kp/guTmrOJsNMRP/KX3cfOnenOiZ7gDidHZlqo87t+tY79+eBzDsAgk=
   </data>
@@ -133,7 +133,7 @@
   </object>
   <object name="transmorgifierTennis2" type="npo" x="31" y="97" width="32" height="32">
    <properties>
-    <property name="actions" value="changeMyAnim,Tennis,changeOthersAnim,transmorgifierTennis2-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Tennis,changeOthersAnim,transmorgifierTennis2-transmorgify,playSound,transmorgify,playSound,tennisTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="3,3,26,26"/>
@@ -163,7 +163,7 @@
  <objectgroup name="objectsForeground" width="36" height="28">
   <object name="transmorgifierPingPong" type="npo" x="800" y="480" width="32" height="32">
    <properties>
-    <property name="actions" value="changeMyAnim,PingPong,changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,PingPong,changeOthersAnim,transmorgifierPingPong-transmorgify,playSound,transmorgify,playSound,pingPongTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="3,3,26,26"/>
@@ -177,7 +177,7 @@
   </object>
   <object name="transmorgifierBowling" type="npo" x="864" y="480" width="32" height="32">
    <properties>
-    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifierBowling-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifierBowling-transmorgify,playSound,transmorgify,playSound,bowlingTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="3,3,26,26"/>
@@ -191,7 +191,7 @@
   </object>
   <object name="transmorgifierTennis" type="npo" x="928" y="480" width="32" height="32">
    <properties>
-    <property name="actions" value="changeMyAnim,Tennis,changeOthersAnim,transmorgifierTennis-transmorgify,playSound,transmorgify"/>
+    <property name="actions" value="changeMyAnim,Tennis,changeOthersAnim,transmorgifierTennis-transmorgify,playSound,transmorgify,playSound,tennisTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
     <property name="collisionParams" value="3,3,26,26"/>

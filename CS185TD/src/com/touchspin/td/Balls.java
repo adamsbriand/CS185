@@ -60,6 +60,8 @@ public class Balls extends GameThing {
 	public float mass;
 	public float friction;
 	public int health;
+	private float MaxDistance = 500;
+	private Vector2 myPosition = new Vector2();
 
 	/**
 	 * The constructor.
@@ -133,6 +135,7 @@ public class Balls extends GameThing {
 	 */
 	@Override
 	public void draw(Batch batch, float alpha) {
+		if(myPosition.dst(g.i().hero.getX(), g.i().hero.getY())<MaxDistance || g.i().controls != 'A'){
 		if (active) {
 			batch.setProjectionMatrix(camera.combined);
 			if (frameCount == 60) {
@@ -144,6 +147,7 @@ public class Balls extends GameThing {
 			if (fireOn) {
 				drawEffect(batch);
 			}
+		}
 		}
 	}
 
@@ -162,6 +166,7 @@ public class Balls extends GameThing {
 	 */
 	@Override
 	public void act(float delta) {
+		if(myPosition.dst(g.i().hero.getX(), g.i().hero.getY())<MaxDistance || g.i().controls != 'A'){
 		if (active) {
 			g.i().currentBall = this;
 			ballMover.move(this);
@@ -200,6 +205,8 @@ public class Balls extends GameThing {
 
 			g.i().currentBall = null;
 		}
+		}
+		myPosition.set(getX(), getY());
 	}
 
 	/**
@@ -514,25 +521,8 @@ public class Balls extends GameThing {
 	 *  Randomly tint the ball.
 	 */
 	private void randomTint() {
-		switch (g.i().rnd.nextInt(5)) {
-		case 0:
-			ballSprite.setColor(Color.WHITE);
-			break;
-		case 1:
-			ballSprite.setColor(Color.YELLOW);
-			break;
-		case 2:
-			ballSprite.setColor(Color.GRAY);
-			break;
-		case 3:
-			ballSprite.setColor(Color.MAGENTA);
-			break;
-		case 4:
-			ballSprite.setColor(Color.GREEN);
-			break;
-		case 5:
-			ballSprite.setColor(Color.ORANGE);
-			break;
-		}
+
+			ballSprite.setColor(new Color(g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),g.i().rnd.nextFloat(),1));
+
 	}
 }
