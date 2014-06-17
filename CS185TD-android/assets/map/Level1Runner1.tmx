@@ -168,12 +168,12 @@
     <property name="spriteSheet" value="GlassBreak.png"/>
    </properties>
   </object>
-  <object name="transmorgifier1" type="npo" x="1184" y="96" width="160" height="160">
+  <object name="transmorgifier1" type="npo" x="1216" y="160" width="96" height="96">
    <properties>
     <property name="actions" value="changeMyAnim,Bowling,changeOthersAnim,transmorgifier1-transmorgify,playSound,transmorgify,playSound,bowlingTrans"/>
     <property name="animations" value="idle,0,0,idle,transmorgify,1,23,idle"/>
     <property name="collidable" value="false"/>
-    <property name="collisionParams" value="64,0,32,64"/>
+    <property name="collisionParams" value=""/>
     <property name="collisionShape" value="rect"/>
     <property name="conditions" value=""/>
     <property name="mover" value="null"/>
@@ -181,7 +181,7 @@
     <property name="spriteSheet" value="transmorgifier.png"/>
    </properties>
   </object>
-  <object name="glassBlock2" type="npo" x="1055" y="419" width="96" height="96">
+  <object name="glassBlock2" type="npo" x="1056" y="416" width="96" height="96">
    <properties>
     <property name="actions" value="changeOthersAnim,glassBlock2-break,playSound,sndGlassBreak,changeOthersCollidable,glassBlock2-false,changeActive,glassBlock2-false"/>
     <property name="animations" value="idle,0,0,idle,break,1,23,broken,broken,24,24,broken"/>
